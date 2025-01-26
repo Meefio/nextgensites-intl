@@ -1,17 +1,18 @@
 import { routing } from '@/i18n/routing'
 import { NextIntlClientProvider } from 'next-intl'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter, Instrument_Sans } from "next/font/google";
 import '../globals.css'
+import { cn } from "@/lib/utils";
 
-const geistSans = Geist({
-	variable: '--font-geist-sans',
-	subsets: ['latin'],
-})
+const fontSans = Inter({
+  variable: "--font-sans",
+  subsets: ["latin"],
+});
 
-const geistMono = Geist_Mono({
-	variable: '--font-geist-mono',
-	subsets: ['latin'],
-})
+const fontHeading = Instrument_Sans({
+  variable: "--font-heading",
+  subsets: ["latin"],
+});
 
 export default async function LocaleLayout({
 	children,
@@ -24,9 +25,13 @@ export default async function LocaleLayout({
 	const messages = (await import(`@/messages/${locale}.json`)).default
 
 	return (
-		<html lang={locale}>
+		<html lang={locale} className="scroll-smooth">
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+				 className={cn(
+					"min-h-screen font-sans antialiased max-w-100vw overflow-x-hidden",
+					fontSans.variable,
+					fontHeading.variable
+				 )}
 			>
 				<NextIntlClientProvider locale={locale} messages={messages}>
 					{children}
