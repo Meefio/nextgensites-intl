@@ -2,5 +2,11 @@
    "HomePage": {
      "title": "Witaj świecie!",
      "about": "Przejdź do strony o mnie"
+   },
+   "Hero": {
+     "pricing": "Zacznij już za 150 PLN / miesiąc",
+     "title": "Stwórz stronę, która przyciągnie klientów",
+     "description": "Tworzymy szybkie i nowoczesne strony internetowe z wykorzystaniem technologii Next.js, które zwiększają sprzedaż i budują wiarygodność Twojej firmy.",
+     "cta": "Dowiedz się więcej!"
    }
  }

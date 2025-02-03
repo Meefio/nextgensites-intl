@@ -2,5 +2,11 @@
    "HomePage": {
      "title": "Hello world!",
      "about": "Go to the about page"
+   },
+   "Hero": {
+     "pricing": "Start from 150 PLN / month",
+     "title": "Create a website that attracts customers",
+     "description": "We create fast and modern websites using Next.js technology that increase sales and build credibility for your business.",
+     "cta": "Learn more!"
    }
  }
