@@ -6,6 +6,8 @@ import { Button } from "@/app/components/ui/button";
 import { MobileNavbar } from "@/app/components/mobile-navbar";
 import { AnimatedElement } from "@/app/components/motion/animated-element";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
+import { ThemeSwitcher } from "@/app/components/theme-switcher";
+
 export function Header() {
   const t = useTranslations('Navigation');
 
@@ -84,6 +86,18 @@ export function Header() {
             transition={{
               duration: 0.2,
               delay: 0.35,
+              ease: "easeOut"
+            }}
+          >
+            <ThemeSwitcher />
+          </AnimatedElement>
+          
+          <AnimatedElement
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 0.2,
+              delay: 0.4,
               ease: "easeOut"
             }}
           >

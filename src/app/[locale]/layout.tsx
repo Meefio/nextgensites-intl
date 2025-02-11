@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { Inter, Instrument_Sans } from "next/font/google";
 import '../globals.css'
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/app/components/theme-provider"
 
 const fontSans = Inter({
   variable: "--font-sans",
@@ -25,17 +26,24 @@ export default async function LocaleLayout({
 	const messages = (await import(`@/messages/${locale}.json`)).default
 
 	return (
-		<html lang={locale} className="scroll-smooth">
+		<html lang={locale} suppressHydrationWarning>
 			<body suppressHydrationWarning
 				 className={cn(
-					"min-h-screen font-sans antialiased max-w-100vw overflow-x-hidden",
+					"min-h-screen font-sans antialiased max-w-100vw overflow-x-hidden scroll-smooth",
 					fontSans.variable,
 					fontHeading.variable
 				 )}
 			>
-				<NextIntlClientProvider locale={locale} messages={messages}>
-					{children}
-				</NextIntlClientProvider>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<NextIntlClientProvider locale={locale} messages={messages}>
+						{children}
+					</NextIntlClientProvider>
+				</ThemeProvider>
 			</body>
 		</html>
 	)
