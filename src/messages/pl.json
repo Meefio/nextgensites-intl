@@ -8,5 +8,16 @@
      "title": "Stwórz stronę, która przyciągnie klientów",
      "description": "Tworzymy szybkie i nowoczesne strony internetowe z wykorzystaniem technologii Next.js, które zwiększają sprzedaż i budują wiarygodność Twojej firmy.",
      "cta": "Dowiedz się więcej!"
+   },
+   "Navigation": {
+     "benefits": "Korzyści",
+     "technologies": "Technologie",
+     "pricing": "Cennik",
+     "contact": "Kontakt",
+     "process": "Proces współpracy",
+     "getFreeQuote": "Uzyskaj darmową wycenę",
+     "openMenu": "Otwórz menu",
+     "closeMenu": "Zamknij menu",
+     "navigationMenu": "Menu nawigacyjne"
    }
  }

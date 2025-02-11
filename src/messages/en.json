@@ -8,5 +8,16 @@
      "title": "Create a website that attracts customers",
      "description": "We create fast and modern websites using Next.js technology that increase sales and build credibility for your business.",
      "cta": "Learn more!"
+   },
+   "Navigation": {
+     "benefits": "Benefits",
+     "technologies": "Technologies",
+     "pricing": "Pricing",
+     "contact": "Contact",
+     "process": "Process",
+     "getFreeQuote": "Get Free Quote",
+     "openMenu": "Open menu",
+     "closeMenu": "Close menu",
+     "navigationMenu": "Navigation menu"
    }
  }
