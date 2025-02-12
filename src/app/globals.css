@@ -82,6 +82,10 @@
 		--sidebar-border: 0 0% 16.47%;
 		--sidebar-ring: 30 100% 48.04%;
 	}
+
+	html {
+		scrollbar-gutter: stable;
+	}
 }
 
 @layer base {

@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl'
 
 import { TextShimmer } from '@/app/components/magicui/text-shimmer'
 import { Button } from '@/app/components/ui/button'
-import { BorderBeam } from '@/app/components/magicui/border-beam'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
 import { Link as I18nLink } from '@/i18n/routing'
 
@@ -14,7 +13,7 @@ export function Hero() {
 
 	return (
 		<section className='container flex flex-col items-center gap-10 pb-14 pt-10 md:pb-28 md:pt-20 sm:gap-14 lg:flex-row'>
-			<div className='flex flex-1 flex-col items-center gap-8 lg:items-start lg:gap-10'>
+			<div className='flex flex-1 flex-col items-center gap-6 lg:items-start lg:gap-8'>
 				<AnimatedElement as='div' delay={0.1}>
 					<Link
 						href='#cennik'
@@ -72,15 +71,6 @@ export function Hero() {
 					rel='noopener noreferrer'
 					className='block'
 				>
-					<BorderBeam
-						size={200}
-						anchor={90}
-						colorTo='#0000'
-						duration={10}
-						borderWidth={1.8}
-						className='rounded-xl'
-					/>
-
 					<Image
 						alt='Przykład nowoczesnej strony internetowej'
 						src='/images/hero-image.webp'

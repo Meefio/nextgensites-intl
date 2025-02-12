@@ -6,13 +6,13 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/app/components/theme-provider"
 
 const fontSans = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
+	variable: "--font-sans",
+	subsets: ["latin"],
 });
 
 const fontHeading = Instrument_Sans({
-  variable: "--font-heading",
-  subsets: ["latin"],
+	variable: "--font-heading",
+	subsets: ["latin"],
 });
 
 export default async function LocaleLayout({
@@ -28,11 +28,12 @@ export default async function LocaleLayout({
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<body suppressHydrationWarning
-				 className={cn(
-					"min-h-screen font-sans antialiased max-w-100vw overflow-x-hidden scroll-smooth",
+				className={cn(
+					"min-h-screen font-sans antialiased scroll-smooth",
+					"w-full overflow-x-hidden",
 					fontSans.variable,
 					fontHeading.variable
-				 )}
+				)}
 			>
 				<ThemeProvider
 					attribute="class"

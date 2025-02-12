@@ -1,26 +1,26 @@
 {
-   "HomePage": {
-     "title": "Hello world!",
-     "about": "Go to the about page"
-   },
-   "Hero": {
-     "pricing": "Start from 150 PLN / month",
-     "title": "A modern website that works, attracts, and sells 🚀",
-     "description": "I create fast, optimized, and modern websites using the latest technology Next.js 15+. Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
-     "cta": "Learn more!"
-   },
-   "Navigation": {
-     "benefits": "Benefits",
-     "technologies": "Technologies",
-     "pricing": "Pricing",
-     "contact": "Contact",
-     "process": "Process",
-     "getFreeQuote": "Get Free Quote",
-     "openMenu": "Open menu",
-     "closeMenu": "Close menu",
-     "navigationMenu": "Navigation menu"
-   },
-   "SocialProof": {
-     "title": "COMPANIES USING NEXT.JS"
-   }
- }
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the about page"
+  },
+  "Hero": {
+    "pricing": "Start from 150 PLN / month",
+    "title": "A modern website that works, attracts, and sells 🚀",
+    "description": "I create fast, optimized, and modern websites using the latest technology Next.js 15+. Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
+    "cta": "Learn more!"
+  },
+  "Navigation": {
+    "benefits": "Benefits",
+    "technologies": "Technologies",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "process": "Process",
+    "getFreeQuote": "Get Free Quote",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "navigationMenu": "Navigation menu"
+  },
+  "SocialProof": {
+    "title": "COMPANIES USING NEXT.JS"
+  }
+}
