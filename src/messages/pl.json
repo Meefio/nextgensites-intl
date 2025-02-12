@@ -1,23 +1,26 @@
 {
-   "HomePage": {
-     "title": "Witaj świecie!",
-     "about": "Przejdź do strony o mnie"
-   },
-   "Hero": {
-     "pricing": "Zacznij już za 150 PLN / miesiąc",
-     "title": "Stwórz stronę, która przyciągnie klientów",
-     "description": "Tworzymy szybkie i nowoczesne strony internetowe z wykorzystaniem technologii Next.js, które zwiększają sprzedaż i budują wiarygodność Twojej firmy.",
-     "cta": "Dowiedz się więcej!"
-   },
-   "Navigation": {
-     "benefits": "Korzyści",
-     "technologies": "Technologie",
-     "pricing": "Cennik",
-     "contact": "Kontakt",
-     "process": "Proces współpracy",
-     "getFreeQuote": "Uzyskaj darmową wycenę",
-     "openMenu": "Otwórz menu",
-     "closeMenu": "Zamknij menu",
-     "navigationMenu": "Menu nawigacyjne"
-   }
- }
+  "HomePage": {
+    "title": "Witaj świecie!",
+    "about": "Przejdź do strony o mnie"
+  },
+  "Hero": {
+    "pricing": "Zacznij już za 150 PLN / miesiąc",
+    "title": "Nowoczesna strona internetowa, która działa, przyciąga i sprzedaje 🚀",
+    "description": "Tworzę szybkie, zoptymalizowane i nowoczesne strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
+    "cta": "Dowiedz się więcej!"
+  },
+  "Navigation": {
+    "benefits": "Korzyści",
+    "technologies": "Technologie",
+    "pricing": "Cennik",
+    "contact": "Kontakt",
+    "process": "Proces współpracy",
+    "getFreeQuote": "Uzyskaj darmową wycenę",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu",
+    "navigationMenu": "Menu nawigacyjne"
+  },
+  "SocialProof": {
+    "title": "FIRMY, KTÓRE KORZYSTAJĄ Z NEXT.JS"
+  }
+}
