@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
-import ReactCountryFlag from "react-country-flag"
 
 import { Button } from "@/app/components/ui/button";
 import { MobileNavbar } from "@/app/components/mobile-navbar";
@@ -21,7 +20,7 @@ export function Header() {
 
   return (
     <header className="flex items-center justify-between gap-10 py-4">
-      <AnimatedElement 
+      <AnimatedElement
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
@@ -42,7 +41,7 @@ export function Header() {
       </AnimatedElement>
 
       <div className="flex items-center gap-8">
-        <nav className="hidden items-center gap-8 md:flex justify-end">
+        <nav className="hidden items-center gap-8 md:hidden lg:flex justify-end">
           {navigationItems.map((item, index) => (
             <AnimatedElement
               key={item.href}
@@ -64,7 +63,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 md:hidden lg:flex">
           <AnimatedElement
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -80,7 +79,7 @@ export function Header() {
               </Link>
             </Button>
           </AnimatedElement>
-          
+
           <AnimatedElement
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -92,7 +91,7 @@ export function Header() {
           >
             <ThemeSwitcher />
           </AnimatedElement>
-          
+
           <AnimatedElement
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -114,7 +113,7 @@ export function Header() {
           duration: 0.2,
           delay: 0.3
         }}
-        className="md:hidden"
+        className="md:flex lg:hidden"
       >
         <MobileNavbar>
           <div className="rounded-b-lg bg-background py-4 container text-foreground shadow-xl">
@@ -154,7 +153,7 @@ export function Header() {
                   {t('getFreeQuote')}
                 </Link>
               </Button>
-              
+
               <MobileLanguageSwitcher />
             </nav>
           </div>

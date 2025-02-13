@@ -33,7 +33,7 @@ export function MobileNavbar({ children }: { children: ReactNode }) {
 	return (
 		<>
 			<button
-				className='md:hidden'
+				className='xl:hidden'
 				onClick={() => setIsOpen(!isOpen)}
 				aria-label={isOpen ? t('closeMenu') : t('openMenu')}
 				aria-expanded={isOpen}
@@ -47,7 +47,7 @@ export function MobileNavbar({ children }: { children: ReactNode }) {
 					role='dialog'
 					aria-modal='true'
 					aria-label={t('navigationMenu')}
-					className='fixed inset-0 top-[50px] z-40 size-full overflow-auto bg-black/40 animate-in slide-in-from-bottom-24 md:hidden'
+					className='fixed inset-0 top-[50px] z-40 size-full overflow-auto bg-black/40 animate-in slide-in-from-bottom-24 xl:hidden'
 					onClick={() => setIsOpen(false)}
 				>
 					{children}

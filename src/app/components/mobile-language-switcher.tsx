@@ -12,7 +12,7 @@ const languages = [
 export function MobileLanguageSwitcher() {
   const pathname = usePathname()
   const currentLang = pathname.startsWith('/en') ? 'en' : 'pl'
-  
+
   // Usuń prefix językowy ze ścieżki
   const pathWithoutLocale = pathname.replace(/^\/[a-z]{2}/, '') || '/'
 
@@ -26,9 +26,8 @@ export function MobileLanguageSwitcher() {
           key={lang.code}
           href={pathWithoutLocale}
           locale={lang.code}
-          className={`flex w-full cursor-pointer items-center rounded-md p-2 font-medium ${
-            currentLang === lang.code ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
-          }`}
+          className={`flex w-full cursor-pointer items-center rounded-md p-2 font-medium ${currentLang === lang.code ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+            }`}
         >
           <div className="flex items-center gap-2">
             <ReactCountryFlag
