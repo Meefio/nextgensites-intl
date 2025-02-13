@@ -1,7 +1,6 @@
 "use client"
 
-import { useRef, useEffect, useState } from "react"
-import { useInView } from "framer-motion"
+import { useEffect, useState } from "react"
 import { Gauge, BarChart2, MonitorSmartphone, CreditCard, Headphones, Layers } from "lucide-react"
 import { Card, CardContent } from "@/app/components/ui/card"
 import { AnimatedElement } from "@/app/components/motion/animated-element"

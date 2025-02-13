@@ -5,7 +5,6 @@ import { SocialProof } from '@/app/components/SocialProof'
 import { Features } from '@/app/components/features-section'
 
 export default function HomePage() {
-	const t = useTranslations('HomePage')
 	return (
 		<div className='container'>
 			<Header />

@@ -35,7 +35,7 @@ export function Hero() {
 				<AnimatedElement
 					as='h1'
 					delay={0.2}
-					className='max-w-2xl text-center font-heading text-4xl font-semibold sm:text-5xl lg:text-left tracking-tight'
+					className='max-w-[38rem] text-center font-heading text-4xl font-semibold sm:text-5xl lg:text-left tracking-tight'
 				>
 					{t('title')}
 				</AnimatedElement>
