@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl'
 import { Hero } from '@/app/components/hero'
 import { Header } from '@/app/components/header'
 import { SocialProof } from '@/app/components/SocialProof'
