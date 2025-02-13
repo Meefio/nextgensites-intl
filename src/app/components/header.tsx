@@ -116,6 +116,7 @@ export function Header() {
         className="md:flex lg:hidden"
       >
         <div className="flex items-center gap-2">
+          <LanguageSwitcher />
           <ThemeSwitcher />
           <MobileNavbar>
             <div className="rounded-b-lg bg-background py-4 container text-foreground shadow-xl">
@@ -155,8 +156,6 @@ export function Header() {
                     {t('getFreeQuote')}
                   </Link>
                 </Button>
-
-                <MobileLanguageSwitcher />
               </nav>
             </div>
           </MobileNavbar>
