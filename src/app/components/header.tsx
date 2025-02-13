@@ -6,7 +6,6 @@ import { MobileNavbar } from "@/app/components/mobile-navbar";
 import { AnimatedElement } from "@/app/components/motion/animated-element";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { ThemeSwitcher } from "@/app/components/theme-switcher";
-import { MobileLanguageSwitcher } from "@/app/components/mobile-language-switcher";
 
 export function Header() {
   const t = useTranslations('Navigation');
