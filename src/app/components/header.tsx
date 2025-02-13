@@ -7,6 +7,7 @@ import { MobileNavbar } from "@/app/components/mobile-navbar";
 import { AnimatedElement } from "@/app/components/motion/animated-element";
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { ThemeSwitcher } from "@/app/components/theme-switcher";
+import { MobileLanguageSwitcher } from "@/app/components/mobile-language-switcher";
 
 export function Header() {
   const t = useTranslations('Navigation');
@@ -19,7 +20,7 @@ export function Header() {
   ];
 
   return (
-    <header className="container flex items-center justify-between gap-10 py-4">
+    <header className="flex items-center justify-between gap-10 py-4">
       <AnimatedElement 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -154,45 +155,7 @@ export function Header() {
                 </Link>
               </Button>
               
-              <div className="border-t border-border mt-4 pt-4">
-                <div className="px-2 text-sm text-muted-foreground mb-2">
-                  Język / Language
-                </div>
-                <Link
-                  href="/"
-                  locale="pl"
-                  className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
-                >
-                  <div className="flex items-center gap-2">
-                    <ReactCountryFlag
-                      countryCode="PL"
-                      svg
-                      style={{
-                        width: '1.2em',
-                        height: '1.2em',
-                      }}
-                    />
-                    <span>Polski</span>
-                  </div>
-                </Link>
-                <Link
-                  href="/"
-                  locale="en"
-                  className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
-                >
-                  <div className="flex items-center gap-2">
-                    <ReactCountryFlag
-                      countryCode="US"
-                      svg
-                      style={{
-                        width: '1.2em',
-                        height: '1.2em',
-                      }}
-                    />
-                    <span>English</span>
-                  </div>
-                </Link>
-              </div>
+              <MobileLanguageSwitcher />
             </nav>
           </div>
         </MobileNavbar>
