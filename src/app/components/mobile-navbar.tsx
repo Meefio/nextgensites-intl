@@ -33,7 +33,7 @@ export function MobileNavbar({ children }: { children: ReactNode }) {
 	return (
 		<>
 			<button
-				className='xl:hidden'
+				className='xl:hidden px-2'
 				onClick={() => setIsOpen(!isOpen)}
 				aria-label={isOpen ? t('closeMenu') : t('openMenu')}
 				aria-expanded={isOpen}
