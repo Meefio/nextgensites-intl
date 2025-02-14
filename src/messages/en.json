@@ -51,5 +51,14 @@
       "title": "Multilingual as standard",
       "description": "Reach customers worldwide – your website in multiple languages at no extra cost."
     }
+  },
+  "About": {
+    "why": "Discover our approach",
+    "heading": "We create websites that deliver results",
+    "subheading": "We combine modern technologies with thoughtful design to make your website stand out from the competition",
+    "description1": "We focus on cutting-edge solutions, leveraging the power of Next.js 15+, which translates into lightning-fast loading and excellent optimization. Our websites are multilingual by default, equipped with dark/light mode, and perfectly adapted to all devices.",
+    "description2": "Unlike outdated WordPress-based solutions, we offer stable and fast technology that doesn't fail. We treat each project individually - we don't use ready-made templates, instead we create unique solutions tailored to your needs.",
+    "description3": "We stand out not only with technology but also with attractive animations and 3D elements that capture users' attention. And all this at a competitive price with low maintenance costs.",
+    "imageAlt": "Owner's photo"
   }
 }

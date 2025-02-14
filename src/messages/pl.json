@@ -51,5 +51,14 @@
       "title": "Wielojęzyczność w standardzie",
       "description": "Docieraj do klientów na całym świecie – Twoja strona w wielu językach bez dodatkowych kosztów."
     }
+  },
+  "About": {
+    "why": "Poznaj nasze podejście",
+    "heading": "Tworzymy strony, które przynoszą rezultaty",
+    "subheading": "Łączymy nowoczesne technologie z przemyślanym designem, by Twoja strona wyróżniała się na tle konkurencji",
+    "description1": "Stawiamy na najnowocześniejsze rozwiązania, wykorzystując potencjał Next.js 15+, co przekłada się na błyskawiczne ładowanie i doskonałą optymalizację. Nasze strony są wielojęzyczne w standardzie, wyposażone w tryb ciemny/jasny i perfekcyjnie dostosowane do wszystkich urządzeń.",
+    "description2": "W przeciwieństwie do przestarzałych rozwiązań opartych na WordPress, oferujemy stabilną i szybką technologię, która nie zawodzi. Każdy projekt traktujemy indywidualnie - nie korzystamy z gotowych szablonów, a instead tworzymy unikalne rozwiązania dopasowane do Twoich potrzeb.",
+    "description3": "Wyróżniamy się nie tylko technologią, ale także atrakcyjnymi animacjami i elementami 3D, które przyciągają uwagę użytkowników. A to wszystko w konkurencyjnej cenie i z niskimi kosztami utrzymania.",
+    "imageAlt": "Zdjęcie właściciela"
   }
 }
