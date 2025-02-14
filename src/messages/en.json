@@ -22,5 +22,34 @@
   },
   "SocialProof": {
     "title": "COMPANIES USING NEXT.JS"
+  },
+  "Features": {
+    "why": "Why nextgen sites?",
+    "heading": "Modernity that pays off",
+    "subheading": "Modern technology, better results – attract customers and stay ahead of competition!",
+    "speed": {
+      "title": "Lightning-fast loading and perfect optimization",
+      "description": "Your website loads in the blink of an eye, increasing conversion rates and Google rankings."
+    },
+    "design": {
+      "title": "Modern, clean, and converting design",
+      "description": "Attract customers with an appealing look and intuitive navigation."
+    },
+    "responsive": {
+      "title": "Perfect performance on every device",
+      "description": "The website looks and works flawlessly on smartphones, tablets, and computers."
+    },
+    "technology": {
+      "title": "Cutting-edge Next.js 15+ technology",
+      "description": "Stability, speed, and security without WordPress-related issues."
+    },
+    "seo": {
+      "title": "Google optimization = more customers",
+      "description": "Higher search results ranking without additional advertising costs."
+    },
+    "multilingual": {
+      "title": "Multilingual as standard",
+      "description": "Reach customers worldwide – your website in multiple languages at no extra cost."
+    }
   }
 }

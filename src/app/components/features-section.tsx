@@ -1,44 +1,47 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Gauge, BarChart2, MonitorSmartphone, CreditCard, Headphones, Layers } from "lucide-react"
+import { Gauge, Palette, MonitorSmartphone, Code2, Search, Languages } from "lucide-react"
 import { Card, CardContent } from "@/app/components/ui/card"
 import { AnimatedElement } from "@/app/components/motion/animated-element"
+import { useTranslations } from 'next-intl'
 
-const features = [
-  {
-    icon: Gauge,
-    title: "Błyskawiczna wydajność",
-    description: "Dzięki Next.js Twoja strona ładuje się błyskawicznie, co przekłada się na lepsze doświadczenia użytkowników i wyższą konwersję. Szybkość działania to także kluczowy czynnik rankingowy w Google."
-  },
-  {
-    icon: BarChart2,
-    title: "Zaawansowane SEO",
-    description: "Twoja strona będzie zoptymalizowana do osiągania lepszych wyników w Google, co zwiększy widoczność Twojego biznesu."
-  },
-  {
-    icon: MonitorSmartphone,
-    title: "Responsywność i nowoczesność",
-    description: "Strony idealnie dostosowują się do urządzeń mobilnych i komputerów, co zapewnia płynne korzystanie na każdym urządzeniu."
-  },
-  {
-    icon: CreditCard,
-    title: "Oszczędność kosztów i elastyczny model płatności",
-    description: "Elastyczna płatność umożliwia korzystanie ze strony bez dużych wydatków początkowych."
-  },
-  {
-    icon: Headphones,
-    title: "Wsparcie techniczne po uruchomieniu strony",
-    description: "Zapewniamy wsparcie techniczne po uruchomieniu strony, by wszystko działało bez zarzutu"
-  },
-  {
-    icon: Layers,
-    title: "Elastyczność i możliwość rozbudowy",
-    description: "Nasze strony są elastyczne i łatwe do rozbudowy w miarę rozwoju Twojego biznesu."
-  }
-]
+const Features = () => {
+  const t = useTranslations('Features')
 
-export function Features() {
+  const features = [
+    {
+      icon: Gauge,
+      title: t('speed.title'),
+      description: t('speed.description')
+    },
+    {
+      icon: Palette,
+      title: t('design.title'),
+      description: t('design.description')
+    },
+    {
+      icon: MonitorSmartphone,
+      title: t('responsive.title'),
+      description: t('responsive.description')
+    },
+    {
+      icon: Code2,
+      title: t('technology.title'),
+      description: t('technology.description')
+    },
+    {
+      icon: Search,
+      title: t('seo.title'),
+      description: t('seo.description')
+    },
+    {
+      icon: Languages,
+      title: t('multilingual.title'),
+      description: t('multilingual.description')
+    }
+  ]
+
   const [screenSize, setScreenSize] = useState<'mobile' | 'tablet' | 'desktop'>('mobile')
 
   useEffect(() => {
@@ -81,13 +84,13 @@ export function Features() {
         viewport={{ once: true, margin: "-20% 0px" }}
       >
         <span className="font-bold uppercase text-primary text-center">
-          Dlaczego nextgen sites?
+          {t('why')}
         </span>
         <h2 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance text-center">
-          Nowoczesność, która się opłaca
+          {t('heading')}
         </h2>
         <p className="text-lg text-muted-foreground text-balance max-w-xl text-center">
-          Nowoczesna technologia, lepsze wyniki – przyciągnij klientów i wyprzedź konkurencję!
+          {t('subheading')}
         </p>
       </AnimatedElement>
 
@@ -123,3 +126,5 @@ export function Features() {
     </section>
   )
 }
+
+export default Features

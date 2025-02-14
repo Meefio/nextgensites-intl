@@ -22,5 +22,34 @@
   },
   "SocialProof": {
     "title": "FIRMY, KTÓRE KORZYSTAJĄ Z NEXT.JS"
+  },
+  "Features": {
+    "why": "Dlaczego nextgen sites?",
+    "heading": "Nowoczesność, która się opłaca",
+    "subheading": "Nowoczesna technologia, lepsze wyniki – przyciągnij klientów i wyprzedź konkurencję!",
+    "speed": {
+      "title": "Błyskawiczne ładowanie i doskonała optymalizacja",
+      "description": "Twoja strona wczytuje się w mgnieniu oka, co zwiększa konwersję i pozycję w Google."
+    },
+    "design": {
+      "title": "Nowoczesny, przejrzysty i konwertujący design",
+      "description": "Przyciągnij klientów dzięki atrakcyjnemu wyglądowi i intuicyjnej nawigacji."
+    },
+    "responsive": {
+      "title": "Perfekcyjne działanie na każdym urządzeniu",
+      "description": "Strona wygląda i działa idealnie na smartfonach, tabletach i komputerach."
+    },
+    "technology": {
+      "title": "Najnowocześniejsza technologia Next.js 15+",
+      "description": "Stabilność, szybkość i bezpieczeństwo bez problemów znanych z WordPressa."
+    },
+    "seo": {
+      "title": "Optymalizacja dla Google = więcej klientów",
+      "description": "Wyższa pozycja w wynikach wyszukiwania bez dodatkowych kosztów reklamy."
+    },
+    "multilingual": {
+      "title": "Wielojęzyczność w standardzie",
+      "description": "Docieraj do klientów na całym świecie – Twoja strona w wielu językach bez dodatkowych kosztów."
+    }
   }
 }

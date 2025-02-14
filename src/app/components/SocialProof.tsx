@@ -24,7 +24,7 @@ export function SocialProof() {
   return (
     <section
       ref={sectionRef}
-      className="text-center mx-auto max-w-[80rem] px-6 md:px-8 py-14 min-h-72 overflow-hidden"
+      className="text-center mx-auto max-w-[80rem] px-6 md:px-8 py-14 min-h-72"
     >
       <div className="mx-auto max-w-screen-xl px-4 md:px-8">
         <h2 className="md:hidden text-center text-sm font-semibold text-muted-foreground">
