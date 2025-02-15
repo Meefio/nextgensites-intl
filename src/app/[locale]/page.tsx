@@ -9,6 +9,7 @@ import { CtaSection } from '@/app/components/cta'
 import { Footer } from '@/app/components/footer'
 import { Pricing } from '@/app/components/pricing'
 import { Faq } from '@/app/components/faq'
+import { ContactForm } from '@/app/components/contact-form'
 
 export default function HomePage() {
 	return (
@@ -24,6 +25,7 @@ export default function HomePage() {
 				<CtaSection />
 				<Pricing />
 				<Faq />
+				<ContactForm />
 				<Footer />
 			</main>
 		</div>
