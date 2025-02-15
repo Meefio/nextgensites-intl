@@ -4,7 +4,7 @@
     "about": "Przejdź do strony o mnie"
   },
   "Hero": {
-    "pricing": "Zacznij już za 150 PLN / miesiąc",
+    "pricing": "Strony już od 1300zł",
     "title": "Nowoczesna strona internetowa, która działa, przyciąga i sprzedaje 🚀",
     "description": "Tworzę szybkie, zoptymalizowane i nowoczesne strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
     "cta": "Dowiedz się więcej!"
@@ -57,7 +57,7 @@
     "heading": "Tworzymy strony, które przynoszą rezultaty",
     "subheading": "Łączymy nowoczesne technologie z przemyślanym designem, by Twoja strona wyróżniała się na tle konkurencji",
     "description1": "Stawiamy na najnowocześniejsze rozwiązania, wykorzystując potencjał Next.js 15+, co przekłada się na błyskawiczne ładowanie i doskonałą optymalizację. Nasze strony są wielojęzyczne w standardzie, wyposażone w tryb ciemny/jasny i perfekcyjnie dostosowane do wszystkich urządzeń.",
-    "description2": "W przeciwieństwie do przestarzałych rozwiązań opartych na WordPress, oferujemy stabilną i szybką technologię, która nie zawodzi. Każdy projekt traktujemy indywidualnie - nie korzystamy z gotowych szablonów, a instead tworzymy unikalne rozwiązania dopasowane do Twoich potrzeb.",
+    "description2": "W przeciwieństwie do przestarzałych rozwiązań opartych na WordPress, oferujemy stabilną i szybką technologię, która nie zawodzi. Każdy projekt traktujemy indywidualnie - nie korzystamy z gotowych szablonów. Tworzymy unikalne rozwiązania dopasowane do Twoich potrzeb.",
     "description3": "Wyróżniamy się nie tylko technologią, ale także atrakcyjnymi animacjami i elementami 3D, które przyciągają uwagę użytkowników. A to wszystko w konkurencyjnej cenie i z niskimi kosztami utrzymania.",
     "imageAlt": "Zdjęcie właściciela"
   },
@@ -160,7 +160,7 @@
           "Jednostronicowa strona (landing page) z responsywnym designem na wszystkich urządzeniach",
           "Szczegółowa optymalizacja SEO dla każdego elementu strony",
           "Integracja z Google Analytics",
-          "Formularz kontaktowy do zbierania danych klientów",
+          "Formularz kontaktowy",
           "Polityka RODO i Cookies",
           "Certyfikat SSL",
           "Wsparcie techniczne przez 1 miesiąc"
@@ -169,14 +169,14 @@
       "professional": {
         "name": "Profesjonalny",
         "monthlyPrice": "250zł*",
-        "oneTimePrice": "2500zł - 5000zł*",
+        "oneTimePrice": "2 500zł - 5 000zł*",
         "description": "Rozbudowana strona firmowa dla pełnej prezentacji Twojej oferty",
         "timeframe": "7–15 dni roboczych",
         "features": [
-          "Wszystko co w planie Podstawowym",
+          "Wszystko z planu Podstawowego",
           "Podstrony z responsywnym designem",
           "konfiguracja firmowego adresu e-mail",
-          "Formularz kontaktowy z automatycznym przesyłaniem",
+          "Formularz kontaktowy",
           "Dodanie przełącznika dark mode / light mode",
           "Blog z systemem edycji treści",
           "Interaktywna mapa Google z lokalizacją firmy",
@@ -191,14 +191,14 @@
         "description": "Kompleksowy projekt dopasowany do Twoich potrzeb",
         "timeframe": "20–30 dni roboczych",
         "features": [
-          "Wszystko co w planie Profesjonalnym",
-          "Rozbudowana liczba stron z CMS",
+          "Wszystko z planu Profesjonalnego",
+          "Rozbudowana liczba stron z CMS (system zarządzania treścią)",
           "Możliwość dodania elementów 3D oraz efektów paralaksy",
           "Newsletter i automatyczny system mailingowy",
           "Zaawansowany moduł opinii i recenzji",
           "Integracja z systemami płatności",
           "Możliwość konfiguracji sklepu internetowego",
-          "Możliwość stworzenia ChatBota AI",
+          "Możliwość stworzenia spersonalizowanego ChatBota AI",
           "Wsparcie techniczne przez 6 miesięcy"
         ]
       }

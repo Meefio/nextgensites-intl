@@ -4,7 +4,7 @@
     "about": "Go to the about page"
   },
   "Hero": {
-    "pricing": "Start from 150 PLN / month",
+    "pricing": "Websites starting from 1300zł",
     "title": "A modern website that works, attracts, and sells 🚀",
     "description": "I create fast, optimized, and modern websites using the latest technology Next.js 15+. Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
     "cta": "Learn more!"
@@ -192,13 +192,13 @@
         "timeframe": "20–30 business days",
         "features": [
           "Everything from Professional plan",
-          "Extended number of pages with CMS",
+          "Extended number of pages with CMS (Content Management System)",
           "Option to add 3D elements and parallax effects",
           "Newsletter and automatic mailing system",
           "Advanced reviews and ratings module",
           "Integration with payment systems",
           "E-commerce configuration option",
-          "AI ChatBot creation option",
+          "Personalized ChatBot creation option",
           "Technical support for 6 months"
         ]
       }
