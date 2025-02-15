@@ -117,5 +117,10 @@
         "content": "After launch, we offer technical support and development opportunities to ensure your website always meets expectations."
       }
     }
+  },
+  "CTA": {
+    "title": "Ready for a new website that attracts customers?",
+    "description": "Start transforming your online presence today! First consultation is free.",
+    "button": "Contact us"
   }
 }

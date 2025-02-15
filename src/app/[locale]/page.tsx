@@ -5,7 +5,7 @@ import Features from "@/app/components/features-section"
 import { About } from '@/app/components/about-section'
 import Portfolio from '@/app/components/portfolio-section'
 import { TimelineSection } from '@/app/components/TimelineSection'
-
+import { CtaSection } from '@/app/components/cta'
 export default function HomePage() {
 	return (
 		<div className='container'>
@@ -17,6 +17,7 @@ export default function HomePage() {
 				<About />
 				<Portfolio />
 				<TimelineSection />
+				<CtaSection />
 			</main>
 		</div>
 	)

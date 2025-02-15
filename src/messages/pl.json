@@ -117,5 +117,10 @@
         "content": "Po uruchomieniu strony oferujemy pomoc techniczną i możliwość dalszego rozwoju, aby Twoja witryna zawsze spełniała oczekiwania."
       }
     }
+  },
+  "CTA": {
+    "title": "Gotowy na nową stronę, która przyciągnie klientów?",
+    "description": "Rozpocznij transformację swojej obecności online już dziś! Pierwsza konsultacja jest bezpłatna.",
+    "button": "Skontaktuj się z nami"
   }
 }
