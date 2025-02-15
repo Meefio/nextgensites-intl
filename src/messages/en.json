@@ -60,5 +60,35 @@
     "description2": "Unlike outdated WordPress-based solutions, we offer stable and fast technology that doesn't fail. We treat each project individually - we don't use ready-made templates, instead we create unique solutions tailored to your needs.",
     "description3": "We stand out not only with technology but also with attractive animations and 3D elements that capture users' attention. And all this at a competitive price with low maintenance costs.",
     "imageAlt": "Owner's photo"
+  },
+  "Portfolio": {
+    "why": "See our work",
+    "heading": "Portfolio that speaks for itself",
+    "subheading": "We create modern websites that not only look great but also deliver results. Here are some of our projects that helped clients increase their online visibility and conversion",
+    "projects": {
+      "project1": {
+        "title": "EcoSmart Solutions",
+        "description": "Modern website for a renewable energy company. The project increased conversion by 150% within 3 months.",
+        "tags": [
+          "Webflow",
+          "Tailwind CSS",
+          "Strapi CMS",
+          "Optymalizacja SEO"
+        ],
+        "imageAlt": "EcoSmart Solutions - Homepage"
+      },
+      "project2": {
+        "title": "Kwiaciarnia Strelicja",
+        "description": "Modern website for a flower shop. The project increased conversion by 150% within 3 months.",
+        "tags": [
+          "Webflow",
+          "Tailwind CSS",
+          "Google Analytics",
+          "In progress"
+
+        ],
+        "imageAlt": "FitLife Pro - Dashboard"
+      }
+    }
   }
 }

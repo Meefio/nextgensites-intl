@@ -60,5 +60,34 @@
     "description2": "W przeciwieństwie do przestarzałych rozwiązań opartych na WordPress, oferujemy stabilną i szybką technologię, która nie zawodzi. Każdy projekt traktujemy indywidualnie - nie korzystamy z gotowych szablonów, a instead tworzymy unikalne rozwiązania dopasowane do Twoich potrzeb.",
     "description3": "Wyróżniamy się nie tylko technologią, ale także atrakcyjnymi animacjami i elementami 3D, które przyciągają uwagę użytkowników. A to wszystko w konkurencyjnej cenie i z niskimi kosztami utrzymania.",
     "imageAlt": "Zdjęcie właściciela"
+  },
+  "Portfolio": {
+    "why": "Zobacz efekty naszej pracy",
+    "heading": "Portfolio, które mówi samo za siebie",
+    "subheading": "Tworzymy nowoczesne strony internetowe, które nie tylko wyglądają świetnie, ale także przynoszą wyniki. Oto niektóre z naszych projektów, które pomogły klientom zwiększyć widoczność online i konwersję",
+    "projects": {
+      "project1": {
+        "title": "Under Pressure",
+        "description": "Nowoczesna strona dla firmy zajmującej się czyszczeniem kostki brukowej, elewacji oraz dachów.",
+        "tags": [
+          "Webflow",
+          "Tailwind CSS",
+          "Google Analytics",
+          "Optymalizacja SEO"
+        ],
+        "imageAlt": "Portfolio - Under Pressure"
+      },
+      "project2": {
+        "title": "Kwiaciarnia Strelicja",
+        "description": "A modern website for a florist specializing in the sale of flowers, decorations, and floral accessories.",
+        "tags": [
+          "Webflow",
+          "Tailwind CSS",
+          "Google Analytics",
+          "W trakcie tworzenia"
+        ],
+        "imageAlt": "Portfolio - Flower Shop Strelicja"
+      }
+    }
   }
 }
