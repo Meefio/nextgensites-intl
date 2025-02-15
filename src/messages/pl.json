@@ -91,6 +91,9 @@
     }
   },
   "Timeline": {
+    "why": "Jak działamy",
+    "heading": "Proces współpracy krok po kroku",
+    "subheading": "Przejrzysty plan współpracy od kontaktu po finalizację projektu",
     "steps": {
       "step1": {
         "title": "Kontakt i analiza potrzeb",
@@ -120,7 +123,91 @@
   },
   "CTA": {
     "title": "Gotowy na nową stronę, która przyciągnie klientów?",
-    "description": "Rozpocznij transformację swojej obecności online już dziś! Pierwsza konsultacja jest bezpłatna.",
-    "button": "Skontaktuj się z nami"
+    "description": "Rozpocznij transformację swojej obecności online już dziś! Konsultacje są bezpłatne.",
+    "button": "Darmowa konsultacja"
+  },
+  "Footer": {
+    "navigation": "Nawigacja",
+    "benefits": "Korzyści",
+    "process": "Proces współpracy",
+    "technologies": "Technologie",
+    "pricing": "Cennik",
+    "contact": "Kontakt",
+    "services": "Usługi",
+    "websites": "Strony internetowe",
+    "onlineStores": "Sklepy internetowe",
+    "cms": "Systemy CMS",
+    "seo": "Optymalizacja SEO",
+    "support": "Wsparcie techniczne",
+    "documents": "Dokumenty",
+    "privacy": "Polityka prywatności",
+    "terms": "Regulamin",
+    "gdpr": "RODO",
+    "copyright": "NextGen Sites © {year}. Wszystkie prawa zastrzeżone."
+  },
+  "Pricing": {
+    "why": "Cennik",
+    "heading": "Przyjazne ceny",
+    "subheading": "Cennik, który dopasuje się do Twoich potrzeb",
+    "plans": {
+      "basic": {
+        "name": "Podstawowy",
+        "monthlyPrice": "150zł-200zł*",
+        "oneTimePrice": "1 300zł - 3 000zł*",
+        "description": "Idealne rozwiązanie dla małych firm i startupów, które potrzebują profesjonalnej obecności w sieci",
+        "timeframe": "5–7 dni roboczych",
+        "features": [
+          "Jednostronicowa strona (landing page) z responsywnym designem na wszystkich urządzeniach",
+          "Szczegółowa optymalizacja SEO dla każdego elementu strony",
+          "Integracja z Google Analytics",
+          "Formularz kontaktowy do zbierania danych klientów",
+          "Polityka RODO i Cookies",
+          "Certyfikat SSL",
+          "Wsparcie techniczne przez 1 miesiąc"
+        ]
+      },
+      "professional": {
+        "name": "Profesjonalny",
+        "monthlyPrice": "250zł*",
+        "oneTimePrice": "2500zł - 5000zł*",
+        "description": "Rozbudowana strona firmowa dla pełnej prezentacji Twojej oferty",
+        "timeframe": "7–15 dni roboczych",
+        "features": [
+          "Wszystko co w planie Podstawowym",
+          "Podstrony z responsywnym designem",
+          "konfiguracja firmowego adresu e-mail",
+          "Formularz kontaktowy z automatycznym przesyłaniem",
+          "Dodanie przełącznika dark mode / light mode",
+          "Blog z systemem edycji treści",
+          "Interaktywna mapa Google z lokalizacją firmy",
+          "Wsparcie techniczne przez 2 miesiące"
+        ],
+        "popular": "Najpopularniejsze"
+      },
+      "premium": {
+        "name": "Rozwiązanie premium",
+        "monthlyPrice": "Wycena indywidualna",
+        "oneTimePrice": "Wycena indywidualna",
+        "description": "Kompleksowy projekt dopasowany do Twoich potrzeb",
+        "timeframe": "20–30 dni roboczych",
+        "features": [
+          "Wszystko co w planie Profesjonalnym",
+          "Rozbudowana liczba stron z CMS",
+          "Możliwość dodania elementów 3D oraz efektów paralaksy",
+          "Newsletter i automatyczny system mailingowy",
+          "Zaawansowany moduł opinii i recenzji",
+          "Integracja z systemami płatności",
+          "Możliwość konfiguracji sklepu internetowego",
+          "Możliwość stworzenia ChatBota AI",
+          "Wsparcie techniczne przez 6 miesięcy"
+        ]
+      }
+    },
+    "vatInfo": "* Podane ceny są cenami netto, należy doliczyć 23% VAT",
+    "depositInfo": {
+      "basic": "* Rozpoczęcie projektu po wpłacie zadatku 750 zł",
+      "professional": "* Rozpoczęcie projektu po wpłacie zadatku 1500 zł"
+    },
+    "contactCta": "Darmowa konsultacja"
   }
 }

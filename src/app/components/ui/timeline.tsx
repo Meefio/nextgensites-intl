@@ -6,6 +6,7 @@ import {
 } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
+import { useTranslations } from 'next-intl'
 
 interface TimelineEntry {
 	title: string
@@ -13,6 +14,7 @@ interface TimelineEntry {
 }
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
+	const t = useTranslations('Timeline')
 	const ref = useRef<HTMLDivElement>(null)
 	const containerRef = useRef<HTMLDivElement>(null)
 	const [height, setHeight] = useState(0)
@@ -43,29 +45,26 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 	return (
 		<section
 			id='proces'
-			className='relative container flex flex-col items-center gap-6 py-14 md:pt-24 md:px-10 max-w-[800px] scroll-mt-header'
+			className='relative container flex flex-col items-center gap-6 py-14 md:pt-24 md:px-10 max-w-5xl scroll-mt-header'
 			ref={containerRef}
 		>
-			<motion.div
-				initial={{ opacity: 0, y: 20 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				viewport={{ once: true, margin: "-20%" }}
-				transition={{ duration: 0.7, delay: 0.2 }}
-				className='flex flex-col gap-3'
-			>
-				<AnimatedElement as="span" delay={0.3} className='font-bold uppercase text-primary text-center'>
-					Jak działamy
+			<div className="text-center mb-12">
+				<AnimatedElement
+					className="flex flex-col gap-3"
+					delay={0.2}
+					viewport={{ once: true, margin: "-20% 0px" }}
+				>
+					<span className='font-bold uppercase text-primary'>
+						{t('why')}
+					</span>
+					<h2 className='font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance max-w-[800px] mx-auto'>
+						{t('heading')}
+					</h2>
+					<p className='text-lg text-muted-foreground text-balance max-w-[800px] mx-auto'>
+						{t('subheading')}
+					</p>
 				</AnimatedElement>
-				
-				<AnimatedElement as="h2" delay={0.4} className='font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance text-center'>
-					Proces współpracy krok po kroku
-				</AnimatedElement>
-				
-				<AnimatedElement as="p" delay={0.5} className='text-lg text-muted-foreground text-balance text-center'>
-					Przejrzysty plan współpracy od kontaktu <br />
-					po finalizację projektu
-				</AnimatedElement>
-			</motion.div>
+			</div>
 
 			<div ref={ref} className='relative mx-auto'>
 				{data.map((item, index) => (
@@ -75,19 +74,19 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 						whileInView={{ opacity: 1 }}
 						viewport={{ once: true, margin: "-20%" }}
 						transition={{ duration: 0.5 }}
-						className='flex justify-start pt-10 md:pt-14 md:gap-x-14'
+						className='grid grid-cols-6 pt-10 md:pt-14 gap-x-14'
 					>
-						<motion.div 
+						<motion.div
 							initial={{ opacity: 0 }}
 							whileInView={{ opacity: 1 }}
 							viewport={{ once: true, margin: "-20%" }}
 							transition={{ duration: 0.5 }}
-							className='sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs md:w-full'
+							className='sticky col-span-3 flex items-center z-40 top-40 self-start'
 						>
 							<div className='h-14 absolute left-3 w-10 rounded-full bg-background flex items-center justify-center'>
 								<div className='h-4 w-4 rounded-full bg-muted-foreground p-2' />
 							</div>
-							<motion.h3 
+							<motion.h3
 								initial={{ opacity: 0 }}
 								whileInView={{ opacity: 1 }}
 								viewport={{ once: true, margin: "-20%" }}
@@ -103,9 +102,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 							whileInView={{ opacity: 1 }}
 							viewport={{ once: true, margin: "-20%" }}
 							transition={{ duration: 0.5 }}
-							className='relative pl-20 pr-4 md:pl-4 w-full'
+							className='col-span-3 relative pl-20 pr-4 md:pl-4'
 						>
-							<motion.h3 
+							<motion.h3
 								initial={{ opacity: 0 }}
 								whileInView={{ opacity: 1 }}
 								viewport={{ once: true, margin: "-20%" }}

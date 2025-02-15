@@ -6,6 +6,9 @@ import { About } from '@/app/components/about-section'
 import Portfolio from '@/app/components/portfolio-section'
 import { TimelineSection } from '@/app/components/TimelineSection'
 import { CtaSection } from '@/app/components/cta'
+import { Footer } from '@/app/components/footer'
+import { Pricing } from '@/app/components/pricing'
+
 export default function HomePage() {
 	return (
 		<div className='container'>
@@ -18,6 +21,8 @@ export default function HomePage() {
 				<Portfolio />
 				<TimelineSection />
 				<CtaSection />
+				<Pricing />
+				<Footer />
 			</main>
 		</div>
 	)

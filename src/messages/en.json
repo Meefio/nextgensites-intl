@@ -91,6 +91,9 @@
     }
   },
   "Timeline": {
+    "why": "How we work",
+    "heading": "Cooperation process step by step",
+    "subheading": "Clear cooperation plan from contact to project completion",
     "steps": {
       "step1": {
         "title": "Contact and Needs Analysis",
@@ -120,7 +123,91 @@
   },
   "CTA": {
     "title": "Ready for a new website that attracts customers?",
-    "description": "Start transforming your online presence today! First consultation is free.",
+    "description": "Start transforming your online presence today! Consultations are free.",
     "button": "Contact us"
+  },
+  "Footer": {
+    "navigation": "Navigation",
+    "benefits": "Benefits",
+    "process": "Process",
+    "technologies": "Technologies",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "services": "Services",
+    "websites": "Websites",
+    "onlineStores": "Online Stores",
+    "cms": "CMS Systems",
+    "seo": "SEO Optimization",
+    "support": "Technical Support",
+    "documents": "Documents",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "gdpr": "GDPR",
+    "copyright": "NextGen Sites © {year}. All rights reserved."
+  },
+  "Pricing": {
+    "why": "Pricing",
+    "heading": "Friendly prices",
+    "subheading": "Pricing that adapts to your needs",
+    "plans": {
+      "basic": {
+        "name": "Basic",
+        "monthlyPrice": "150zł - 200zł*",
+        "oneTimePrice": "1 300zł - 3 000zł*",
+        "description": "Ideal solution for small companies and startups that need a professional presence on the web",
+        "timeframe": "5–7 business days",
+        "features": [
+          "Single-page website (landing page) with responsive design on all devices",
+          "Detailed SEO optimization for every page element",
+          "Google Analytics integration",
+          "Contact form for customer data collection",
+          "GDPR and Cookies Policy",
+          "SSL Certificate",
+          "Technical support for 1 month"
+        ]
+      },
+      "professional": {
+        "name": "Professional",
+        "monthlyPrice": "250zł*",
+        "oneTimePrice": "2 500zł - 5 000zł*",
+        "description": "Comprehensive business website for full presentation of your offer",
+        "timeframe": "7–15 business days",
+        "features": [
+          "Everything from Basic plan",
+          "Subpages with responsive design",
+          "Business email configuration",
+          "Contact form with automatic forwarding",
+          "Dark mode / light mode switch",
+          "Blog with content management system",
+          "Interactive Google Map with company location",
+          "Technical support for 2 months"
+        ],
+        "popular": "Most Popular"
+      },
+      "premium": {
+        "name": "Premium Solution",
+        "monthlyPrice": "Individual pricing",
+        "oneTimePrice": "Individual pricing",
+        "description": "A comprehensive project fully tailored to your individual needs",
+        "timeframe": "20–30 business days",
+        "features": [
+          "Everything from Professional plan",
+          "Extended number of pages with CMS",
+          "Option to add 3D elements and parallax effects",
+          "Newsletter and automatic mailing system",
+          "Advanced reviews and ratings module",
+          "Integration with payment systems",
+          "E-commerce configuration option",
+          "AI ChatBot creation option",
+          "Technical support for 6 months"
+        ]
+      }
+    },
+    "vatInfo": "* Prices are net amounts, 23% VAT to be added",
+    "depositInfo": {
+      "basic": "* Project starts after 750 PLN deposit payment",
+      "professional": "* Project starts after 1500 PLN deposit payment"
+    },
+    "contactCta": "Free consultation"
   }
 }
