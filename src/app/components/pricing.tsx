@@ -46,22 +46,10 @@ export function Pricing() {
 	]
 
 	const PriceDisplay = ({ plan }: { plan: typeof plans[0] }) => {
-		if (plan.monthlyPrice === 'Wycena indywidualna') {
-			return (
-				<div className='relative h-[60px] flex items-center justify-center'>
-					<div>
-						<span className='font-heading font-semibold text-3xl'>
-							{plan.monthlyPrice}
-						</span>
-					</div>
-				</div>
-			)
-		}
-
 		return (
 			<div className='relative h-[60px] flex items-center justify-center'>
 				<div>
-					<span className='font-heading font-semibold text-3xl'>
+					<span className='font-heading text-2xl text-center'>
 						{plan.oneTimePrice}
 					</span>
 				</div>
