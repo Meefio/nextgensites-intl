@@ -10,7 +10,7 @@ export function About() {
   return (
     <section
       id="o-nas"
-      className="container py-14 md:py-20 scroll-mt-header"
+      className="py-14 md:py-20 scroll-mt-header"
     >
       <div className="text-center mb-12">
         <AnimatedElement
@@ -48,15 +48,18 @@ export function About() {
           delay={0.4}
           viewport={{ once: true, margin: "-20% 0px" }}
         >
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center flex-col items-center">
             <Image
               src="/images/my-photo.png"
               alt={t('imageAlt')}
-              width={300}
-              height={400}
-              className="object-cover px-4 md:px-6 w-full max-w-[250px] md:max-w-[300px]"
+              width={225}
+              height={300}
+              className="object-cover px-4 md:px-6 w-full max-w-[180px] md:max-w-[225px]"
               priority
             />
+            <p className="mt-2 text-sm font-medium text-muted-foreground text-center">
+              Michał Rowiński - CEO NextGen Sites
+            </p>
           </div>
         </AnimatedElement>
       </div>

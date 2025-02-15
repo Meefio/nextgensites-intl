@@ -6,7 +6,7 @@ export function Footer() {
   const t = useTranslations('Footer');
 
   return (
-    <footer className="container mt-10 flex flex-wrap justify-between pb-16 pt-10">
+    <footer className="mt-10 flex flex-wrap justify-between pb-16 pt-10">
       <div className="flex basis-full flex-col gap-6 md:basis-auto">
         <Link href="/" className="flex items-center gap-3">
           <svg fill="none" viewBox="0 0 238 238" className="size-6 text-primary">
