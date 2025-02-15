@@ -8,6 +8,7 @@ import { TimelineSection } from '@/app/components/TimelineSection'
 import { CtaSection } from '@/app/components/cta'
 import { Footer } from '@/app/components/footer'
 import { Pricing } from '@/app/components/pricing'
+import { Faq } from '@/app/components/faq'
 
 export default function HomePage() {
 	return (
@@ -22,6 +23,7 @@ export default function HomePage() {
 				<TimelineSection />
 				<CtaSection />
 				<Pricing />
+				<Faq />
 				<Footer />
 			</main>
 		</div>
