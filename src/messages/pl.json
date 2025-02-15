@@ -89,5 +89,33 @@
         "imageAlt": "Portfolio - Flower Shop Strelicja"
       }
     }
+  },
+  "Timeline": {
+    "steps": {
+      "step1": {
+        "title": "Kontakt i analiza potrzeb",
+        "content": "Skontaktuj się z nami przez formularz, telefon lub e-mail. Porozmawiamy o Twoim biznesie, celach i oczekiwaniach. Przekaż nam materiały (zdjęcia, logo, kolorystykę, sekcje), abyśmy mogli lepiej zrozumieć Twoje potrzeby i doradzić najlepsze rozwiązania."
+      },
+      "step2": {
+        "title": "Wycena i planowanie",
+        "content": "Na podstawie zebranych informacji przygotujemy wycenę oraz harmonogram projektu. Po akceptacji kosztów tworzymy strategię działania i strukturę strony, określając kluczowe funkcje i elementy, które wesprą Twoje cele biznesowe."
+      },
+      "step3": {
+        "title": "Przygotowanie treści i układu strony",
+        "content": "Przedstawimy propozycję treści oraz układu strony, dopasowaną do Twojej marki i celów biznesowych. Na tym etapie możesz zgłosić uwagi i sugestie, które uwzględnimy przed rozpoczęciem budowy strony."
+      },
+      "step4": {
+        "title": "Budowa i optymalizacja",
+        "content": "Realizujemy projekt, tworząc responsywną, szybką i zoptymalizowaną stronę internetową. Dbamy o jej wydajność, SEO oraz poprawne działanie na wszystkich urządzeniach."
+      },
+      "step5": {
+        "title": "Testy i wdrożenie",
+        "content": "Dokładnie sprawdzamy każdy element strony – formularze, linki, funkcjonalności. Po Twojej finalnej akceptacji wdrażamy stronę na serwer, konfigurujemy pocztę i narzędzia analityczne."
+      },
+      "step6": {
+        "title": "Wsparcie po wdrożeniu",
+        "content": "Po uruchomieniu strony oferujemy pomoc techniczną i możliwość dalszego rozwoju, aby Twoja witryna zawsze spełniała oczekiwania."
+      }
+    }
   }
 }
