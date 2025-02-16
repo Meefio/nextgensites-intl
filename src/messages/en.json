@@ -209,5 +209,87 @@
       "professional": "* Project starts after 1500 PLN deposit payment"
     },
     "contactCta": "Free consultation"
+  },
+  "Contact": {
+    "formLabel": "Contact form",
+    "title": "Contact us",
+    "description": "Have questions? Write to us!",
+    "phone": {
+      "label": "Call us:",
+      "copyAria": "Copy phone number",
+      "title": "Phone"
+    },
+    "email": {
+      "label": "Email us:",
+      "copyAria": "Copy email address",
+      "title": "Email"
+    },
+    "form": {
+      "name": {
+        "label": "How should we address you?",
+        "placeholder": "Name"
+      },
+      "email": {
+        "label": "Where should we send the response?",
+        "placeholder": "Email",
+        "title": "Email"
+      },
+      "subject": {
+        "label": "How can we help you?",
+        "placeholder": "Message subject"
+      },
+      "message": {
+        "label": "Tell us about your project",
+        "placeholder": "Message"
+      },
+      "rodo": {
+        "label": "GDPR Consent",
+        "text": "I agree to the processing of my personal data in accordance with the",
+        "privacyLink": "privacy policy"
+      }
+    },
+    "validation": {
+      "name": {
+        "required": "Name is required",
+        "minLength": "Name must be at least 2 characters long"
+      },
+      "email": {
+        "required": "Email is required",
+        "invalid": "Please enter a valid email address"
+      },
+      "subject": {
+        "required": "Subject is required",
+        "minLength": "Subject must be at least 3 characters long"
+      },
+      "message": {
+        "required": "Message is required",
+        "minLength": "Message must be at least 10 characters long"
+      },
+      "rodo": {
+        "required": "You must agree to the processing of personal data"
+      }
+    },
+    "copied": {
+      "title": "Copied!",
+      "email": "Email address has been copied to clipboard.",
+      "phone": "Phone number has been copied to clipboard."
+    },
+    "success": {
+      "title": "Success!",
+      "message": "Your message has been sent successfully."
+    },
+    "error": {
+      "title": "Error!",
+      "message": "An error occurred while sending the message."
+    },
+    "info": {
+      "label": "Response time information",
+      "title": "We respond quickly!",
+      "description": "We usually respond within 2 business hours."
+    },
+    "button": {
+      "default": "Send message",
+      "loading": "Sending..."
+    }
   }
 }

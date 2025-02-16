@@ -16,7 +16,7 @@ export async function POST(
 ) {
   try {
     const body = await request.json();
-    
+
     // Walidacja danych po stronie serwera
     const result = contactFormSchema.safeParse(body);
     if (!result.success) {

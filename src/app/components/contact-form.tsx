@@ -1,10 +1,11 @@
 'use client'
 
 import { useState, useId } from 'react'
-import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
+import { useTranslations } from 'next-intl'
 import { Button } from '@/app/components/ui/button'
+import Link from 'next/link'
 import {
 	Form,
 	FormControl,
@@ -19,50 +20,43 @@ import { useToast } from '@/app/hooks/use-toast'
 import { Mail, Phone, Copy } from 'lucide-react'
 import { Card } from '@/app/components/ui/card'
 import { Checkbox } from '@/app/components/ui/checkbox'
-// import {
-// 	Alert,
-// 	AlertDescription,
-// 	AlertTitle,
-// } from '@/app/components/ui/alert'
 import { Info } from 'lucide-react'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
 
 const formSchema = z.object({
 	name: z.string().min(2, {
-		message: 'Imię musi mieć co najmniej 2 znaki.',
+		message: 'validation.name',
 	}),
 	email: z.string().email({
-		message: 'Wprowadź poprawny adres email.',
+		message: 'validation.email',
 	}),
 	subject: z.string().min(3, {
-		message: 'Temat musi mieć co najmniej 3 znaki.',
+		message: 'validation.subject',
 	}),
 	message: z.string().min(10, {
-		message: 'Wiadomość musi mieć co najmniej 10 znaków.',
+		message: 'validation.message',
 	}),
 	rodo: z.boolean().refine((val) => val === true, {
-		message:
-			'Musisz wyrazić zgodę na przetwarzanie danych osobowych.',
+		message: 'validation.rodo',
 	}),
 })
 
 export function ContactForm() {
+	const t = useTranslations('Contact')
 	const { toast } = useToast()
 	const [isLoading, setIsLoading] = useState(false)
 	const email = 'kontakt@nextgensites.pl'
 	const phone = '+48 694 671 786'
 	const formId = useId()
 
-	const handleCopy =
-		(text: string, type: 'email' | 'telefon') =>
-			(e: React.MouseEvent) => {
-				e.stopPropagation()
-				navigator.clipboard.writeText(text)
-				toast({
-					title: 'Skopiowano!',
-					description: `${type === 'email' ? 'Adres email' : 'Numer telefonu'} został skopiowany do schowka.`,
-				})
-			}
+	const handleCopy = (text: string, type: 'email' | 'phone') => (e: React.MouseEvent) => {
+		e.stopPropagation()
+		navigator.clipboard.writeText(text)
+		toast({
+			title: t('copied.title'),
+			description: t(`copied.${type}`),
+		})
+	}
 
 	const form = useForm<z.infer<typeof formSchema>>({
 		defaultValues: {
@@ -78,55 +72,55 @@ export function ContactForm() {
 			if (!values.name) {
 				errors.name = {
 					type: 'required',
-					message: 'Imię jest wymagane'
+					message: t('validation.name.required')
 				};
 			} else if (values.name.length < 2) {
 				errors.name = {
 					type: 'minLength',
-					message: 'Imię musi mieć co najmniej 2 znaki'
+					message: t('validation.name.minLength')
 				};
 			}
 
 			if (!values.email) {
 				errors.email = {
 					type: 'required',
-					message: 'Email jest wymagany'
+					message: t('validation.email.required')
 				};
 			} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
 				errors.email = {
 					type: 'pattern',
-					message: 'Wprowadź poprawny adres email'
+					message: t('validation.email.invalid')
 				};
 			}
 
 			if (!values.subject) {
 				errors.subject = {
 					type: 'required',
-					message: 'Temat jest wymagany'
+					message: t('validation.subject.required')
 				};
 			} else if (values.subject.length < 3) {
 				errors.subject = {
 					type: 'minLength',
-					message: 'Temat musi mieć co najmniej 3 znaki'
+					message: t('validation.subject.minLength')
 				};
 			}
 
 			if (!values.message) {
 				errors.message = {
 					type: 'required',
-					message: 'Wiadomość jest wymagana'
+					message: t('validation.message.required')
 				};
 			} else if (values.message.length < 10) {
 				errors.message = {
 					type: 'minLength',
-					message: 'Wiadomość musi mieć co najmniej 10 znaków'
+					message: t('validation.message.minLength')
 				};
 			}
 
 			if (!values.rodo) {
 				errors.rodo = {
 					type: 'required',
-					message: 'Musisz wyrazić zgodę na przetwarzanie danych osobowych'
+					message: t('validation.rodo.required')
 				};
 			}
 
@@ -151,26 +145,20 @@ export function ContactForm() {
 
 			if (!response.ok) {
 				const error = await response.json()
-				throw new Error(
-					error.message ||
-					'Wystąpił błąd podczas wysyłania wiadomości'
-				)
+				throw new Error(error.message || t('error.message'))
 			}
 
 			toast({
-				title: 'Sukces!',
-				description: 'Twoja wiadomość została wysłana pomyślnie.',
+				title: t('success.title'),
+				description: t('success.message'),
 			})
 
 			form.reset()
 		} catch (error) {
 			toast({
 				variant: 'destructive',
-				title: 'Błąd!',
-				description:
-					error instanceof Error
-						? error.message
-						: 'Wystąpił błąd podczas wysyłania wiadomości',
+				title: t('error.title'),
+				description: error instanceof Error ? error.message : t('error.message'),
 			})
 		} finally {
 			setIsLoading(false)
@@ -181,7 +169,7 @@ export function ContactForm() {
 		<section
 			id='kontakt'
 			className='container flex flex-col items-center gap-6 py-14 md:py-24 sm:gap-7 scroll-mt-header'
-			aria-label='Formularz kontaktowy'
+			aria-label={t('formLabel')}
 		>
 			<AnimatedElement
 				as="div"
@@ -197,15 +185,14 @@ export function ContactForm() {
 						delay={0}
 						viewport={{ once: true, amount: 0.2 }}
 						role='complementary'
-						aria-label='Informacje kontaktowe'
+						aria-label={t('title')}
 					>
 						<AnimatedElement as="div">
 							<h2 className='font-heading text-2xl font-bold md:text-3xl text-center md:text-left'>
-								Skontaktuj się z nami
+								{t('title')}
 							</h2>
 							<p className='mt-2 text-sm text-muted-foreground md:text-base md:mt-4 text-center md:text-left'>
-								Masz pytania? Napisz do nas, a my odpowiemy w ciągu 24
-								godzin!
+								{t('description')}
 							</p>
 						</AnimatedElement>
 
@@ -213,14 +200,13 @@ export function ContactForm() {
 							<AnimatedElement as="div" delay={0.1} className="@container/card">
 								<Card
 									className='p-3 md:p-4 transition-colors hover:bg-muted cursor-pointer'
-									onClick={(e) => {
-										// Sprawdzamy czy tekst nie jest zaznaczany
+									onClick={() => {
 										if (window.getSelection()?.toString()) return
 										window.location.href = `tel:${phone.replace(/\s/g, '')}`
 									}}
 									tabIndex={0}
 									role='button'
-									aria-label={`Zadzwoń pod numer ${phone}`}
+									aria-label={`${t('phone.label')} ${phone}`}
 									onKeyDown={(e) => {
 										if (e.key === 'Enter' || e.key === ' ') {
 											window.location.href = `tel:${phone.replace(/\s/g, '')}`
@@ -233,7 +219,7 @@ export function ContactForm() {
 												<Phone className='h-4 w-4 md:h-5 md:w-5 text-primary' />
 											</div>
 											<div>
-												<p className='font-medium'>Telefon</p>
+												<p className='font-medium'>{t('phone.title')}</p>
 												<p
 													className='text-muted-foreground select-text'
 													onClick={(e) => e.stopPropagation()}
@@ -244,8 +230,8 @@ export function ContactForm() {
 										</div>
 										<button
 											className='p-2 rounded-md hover:bg-background transition-colors'
-											onClick={handleCopy(phone, 'telefon')}
-											aria-label='Kopiuj numer telefonu'
+											onClick={handleCopy(phone, 'phone')}
+											aria-label={t('phone.copyAria')}
 										>
 											<Copy className='h-4 w-4' />
 										</button>
@@ -256,7 +242,7 @@ export function ContactForm() {
 							<AnimatedElement as="div" delay={0.2} className="@container/card">
 								<Card
 									className='p-3 md:p-4 transition-colors hover:bg-muted cursor-pointer'
-									onClick={(e) => {
+									onClick={() => {
 										if (window.getSelection()?.toString()) return
 										window.location.href = `mailto:${email}`
 									}}
@@ -275,7 +261,7 @@ export function ContactForm() {
 												<Mail className='h-4 w-4 md:h-5 md:w-5 text-primary' />
 											</div>
 											<div>
-												<p className='font-medium'>Email</p>
+												<p className='font-medium'>{t('email.title')}</p>
 												<p
 													className='text-muted-foreground select-text'
 													onClick={(e) => e.stopPropagation()}
@@ -287,7 +273,7 @@ export function ContactForm() {
 										<button
 											className='p-2 rounded-md hover:bg-background transition-colors'
 											onClick={handleCopy(email, 'email')}
-											aria-label='Kopiuj adres email'
+											aria-label={t('email.copyAria')}
 										>
 											<Copy className='h-4 w-4' />
 										</button>
@@ -310,7 +296,7 @@ export function ContactForm() {
 								id={formId}
 								onSubmit={form.handleSubmit(handleSubmit)}
 								className='space-y-4 md:space-y-4'
-								aria-label='Formularz wysyłania wiadomości'
+								aria-label={t('formLabel')}
 							>
 								<FormField
 									control={form.control}
@@ -318,10 +304,10 @@ export function ContactForm() {
 									render={({ field }) => (
 										<FormItem>
 											<FormLabel className='px-1'>
-												Jak możemy się do Ciebie zwracać?
+												{t('form.name.label')}
 											</FormLabel>
 											<FormControl>
-												<Input placeholder='Twoje imię' {...field} />
+												<Input placeholder={t('form.name.placeholder')} {...field} />
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -333,11 +319,11 @@ export function ContactForm() {
 									render={({ field }) => (
 										<FormItem>
 											<FormLabel className='px-1'>
-												Gdzie mamy wysłać odpowiedź?
+												{t('form.email.label')}
 											</FormLabel>
 											<FormControl>
 												<Input
-													placeholder='Twój email'
+													placeholder={t('form.email.placeholder')}
 													type='email'
 													{...field}
 												/>
@@ -352,11 +338,11 @@ export function ContactForm() {
 									render={({ field }) => (
 										<FormItem>
 											<FormLabel className='px-1'>
-												W czym możemy Ci pomóc?
+												{t('form.subject.label')}
 											</FormLabel>
 											<FormControl>
 												<Input
-													placeholder='Temat wiadomości'
+													placeholder={t('form.subject.placeholder')}
 													{...field}
 												/>
 											</FormControl>
@@ -370,11 +356,11 @@ export function ContactForm() {
 									render={({ field }) => (
 										<FormItem>
 											<FormLabel className='px-1'>
-												Opowiedz nam o swoim projekcie
+												{t('form.message.label')}
 											</FormLabel>
 											<FormControl>
 												<Textarea
-													placeholder='Wiadomość'
+													placeholder={t('form.message.placeholder')}
 													className='min-h-[120px] resize-none'
 													{...field}
 												/>
@@ -393,20 +379,19 @@ export function ContactForm() {
 												<Checkbox
 													checked={field.value}
 													onCheckedChange={field.onChange}
-													aria-label='Zgoda na przetwarzanie danych osobowych'
+													aria-label={t('form.rodo.label')}
 												/>
 											</FormControl>
 											<div className='space-y-1 leading-none'>
 												<FormLabel className='text-sm text-muted-foreground font-normal'>
-													Wyrażam zgodę na przetwarzanie moich danych
-													osobowych zgodnie z{' '}
-													<a
+													{t('form.rodo.text')}{' '}
+													<Link
 														href='/polityka-prywatnosci'
 														className='text-primary hover:underline'
 														onClick={(e) => e.stopPropagation()}
 													>
-														polityką prywatności
-													</a>
+														{t('form.rodo.privacyLink')}
+													</Link>
 													.
 												</FormLabel>
 												<FormMessage />
@@ -415,15 +400,17 @@ export function ContactForm() {
 									)}
 								/>
 
-								{/* <Alert role="alert" aria-label="Informacja o czasie odpowiedzi">
-									<Info className="h-4 w-4" aria-hidden="true" />
-									<AlertTitle className="text-base font-semibold">
-										Szybko odpowiadamy!
-									</AlertTitle>
-									<AlertDescription>
-										Zazwyczaj odpisujemy w ciągu 24 godzin w dni robocze.
-									</AlertDescription>
-								</Alert> */}
+								<Card className="p-4 bg-muted/50 flex items-start gap-3" role="alert" aria-label={t('info.label')}>
+									<Info className="h-4 w-4 mt-1 text-muted-foreground" aria-hidden="true" />
+									<div>
+										<p className="font-semibold text-base">
+											{t('info.title')}
+										</p>
+										<p className="text-sm text-muted-foreground">
+											{t('info.description')}
+										</p>
+									</div>
+								</Card>
 
 								<div className='flex justify-end'>
 									<Button
@@ -431,13 +418,9 @@ export function ContactForm() {
 										size='lg'
 										disabled={isLoading}
 										className='w-full sm:w-auto px-3 md:px-6'
-										aria-label={
-											isLoading
-												? 'Trwa wysyłanie wiadomości'
-												: 'Wyślij wiadomość'
-										}
+										aria-label={isLoading ? t('button.loading') : t('button.default')}
 									>
-										{isLoading ? 'Wysyłanie...' : 'Wyślij wiadomość'}
+										{isLoading ? t('button.loading') : t('button.default')}
 									</Button>
 								</div>
 							</form>

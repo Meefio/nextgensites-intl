@@ -209,5 +209,87 @@
       "professional": "* Rozpoczęcie projektu po wpłacie zadatku 1500 zł"
     },
     "contactCta": "Darmowa konsultacja"
+  },
+  "Contact": {
+    "formLabel": "Formularz kontaktowy",
+    "title": "Skontaktuj się z nami",
+    "description": "Masz pytania? Napisz do nas!",
+    "phone": {
+      "label": "Zadzwoń do nas:",
+      "copyAria": "Kopiuj numer telefonu",
+      "title": "Telefon"
+    },
+    "email": {
+      "label": "Napisz do nas:",
+      "copyAria": "Kopiuj adres email",
+      "title": "Email"
+    },
+    "copied": {
+      "title": "Skopiowano!",
+      "email": "Adres email został skopiowany do schowka.",
+      "phone": "Numer telefonu został skopiowany do schowka."
+    },
+    "form": {
+      "name": {
+        "label": "Jak możemy się do Ciebie zwracać?",
+        "placeholder": "Imię"
+      },
+      "email": {
+        "label": "Gdzie mamy wysłać odpowiedź?",
+        "placeholder": "Email",
+        "title": "Email"
+      },
+      "subject": {
+        "label": "W czym możemy Ci pomóc?",
+        "placeholder": "Temat wiadomości"
+      },
+      "message": {
+        "label": "Opowiedz nam o swoim projekcie",
+        "placeholder": "Wiadomość"
+      },
+      "rodo": {
+        "label": "Zgoda RODO",
+        "text": "Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z",
+        "privacyLink": "polityką prywatności"
+      }
+    },
+    "info": {
+      "label": "Informacja o czasie odpowiedzi",
+      "title": "Szybko odpowiadamy!",
+      "description": "Zazwyczaj odpowiadamy w ciągu 2 godzin w dni robocze."
+    },
+    "button": {
+      "default": "Wyślij wiadomość",
+      "loading": "Wysyłanie..."
+    },
+    "success": {
+      "title": "Sukces!",
+      "message": "Twoja wiadomość została wysłana pomyślnie."
+    },
+    "error": {
+      "title": "Błąd!",
+      "message": "Wystąpił błąd podczas wysyłania wiadomości"
+    },
+    "validation": {
+      "name": {
+        "required": "Imię jest wymagane",
+        "minLength": "Imię musi mieć co najmniej 2 znaki"
+      },
+      "email": {
+        "required": "Email jest wymagany",
+        "invalid": "Wprowadź poprawny adres email"
+      },
+      "subject": {
+        "required": "Temat jest wymagany",
+        "minLength": "Temat musi mieć co najmniej 3 znaki"
+      },
+      "message": {
+        "required": "Wiadomość jest wymagana",
+        "minLength": "Wiadomość musi mieć co najmniej 10 znaków"
+      },
+      "rodo": {
+        "required": "Musisz wyrazić zgodę na przetwarzanie danych osobowych"
+      }
+    }
   }
 }
