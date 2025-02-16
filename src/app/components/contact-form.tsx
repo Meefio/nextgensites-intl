@@ -2,7 +2,6 @@
 
 import { useState, useId } from 'react'
 import { useForm } from 'react-hook-form'
-import * as z from 'zod'
 import { useTranslations } from 'next-intl'
 import { Button } from '@/app/components/ui/button'
 import Link from 'next/link'
@@ -23,23 +22,13 @@ import { Checkbox } from '@/app/components/ui/checkbox'
 import { Info } from 'lucide-react'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
 
-const formSchema = z.object({
-	name: z.string().min(2, {
-		message: 'validation.name',
-	}),
-	email: z.string().email({
-		message: 'validation.email',
-	}),
-	subject: z.string().min(3, {
-		message: 'validation.subject',
-	}),
-	message: z.string().min(10, {
-		message: 'validation.message',
-	}),
-	rodo: z.boolean().refine((val) => val === true, {
-		message: 'validation.rodo',
-	}),
-})
+interface FormData {
+	name: string;
+	email: string;
+	subject: string;
+	message: string;
+	rodo: boolean;
+}
 
 export function ContactForm() {
 	const t = useTranslations('Contact')
@@ -58,7 +47,7 @@ export function ContactForm() {
 		})
 	}
 
-	const form = useForm<z.infer<typeof formSchema>>({
+	const form = useForm<FormData>({
 		defaultValues: {
 			name: '',
 			email: '',
@@ -131,7 +120,7 @@ export function ContactForm() {
 		}
 	})
 
-	const handleSubmit = async (data: z.infer<typeof formSchema>) => {
+	const handleSubmit = async (data: FormData) => {
 		try {
 			setIsLoading(true)
 

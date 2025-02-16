@@ -12,7 +12,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(
   request: Request,
-  { params }: { params: { locale: string } }
 ) {
   try {
     const body = await request.json();
@@ -47,6 +46,7 @@ export async function POST(
     );
 
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { error: "Wystąpił błąd podczas wysyłania wiadomości" },
       { status: 500 }
