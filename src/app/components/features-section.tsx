@@ -81,7 +81,7 @@ const Features = () => {
       <AnimatedElement
         className="flex flex-col gap-3"
         delay={0.2}
-        viewport={{ once: true, margin: "-20% 0px" }}
+        viewport={{ once: true, margin: "-15% 0px" }}
       >
         <span className="font-bold uppercase text-primary text-center">
           {t('why')}

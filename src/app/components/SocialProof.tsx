@@ -11,7 +11,7 @@ export function SocialProof() {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, {
     once: true,
-    margin: "0px 0px -200px 0px" // Rozpocznie animację 200px przed widocznością elementu
+    margin: "0px 0px -100px 0px" // Rozpocznie animację 200px przed widocznością elementu
   })
 
   const logos = [
@@ -24,7 +24,7 @@ export function SocialProof() {
   return (
     <section
       ref={sectionRef}
-      className="text-center mx-auto max-w-[80rem] px-6 md:px-8 py-14 min-h-72"
+      className="text-center mx-auto max-w-[80rem] px-6 md:px-8 min-h-72"
     >
       <div className="mx-auto max-w-screen-xl px-4 md:px-8">
         <h2 className="md:hidden text-center text-sm font-semibold text-muted-foreground">

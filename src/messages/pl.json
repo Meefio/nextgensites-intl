@@ -126,25 +126,6 @@
     "description": "Rozpocznij transformację swojej obecności online już dziś! Konsultacje są bezpłatne.",
     "button": "Darmowa konsultacja"
   },
-  "Footer": {
-    "navigation": "Nawigacja",
-    "benefits": "Korzyści",
-    "process": "Proces współpracy",
-    "technologies": "Technologie",
-    "pricing": "Cennik",
-    "contact": "Kontakt",
-    "services": "Usługi",
-    "websites": "Strony internetowe",
-    "onlineStores": "Sklepy internetowe",
-    "cms": "Systemy CMS",
-    "seo": "Optymalizacja SEO",
-    "support": "Wsparcie techniczne",
-    "documents": "Dokumenty",
-    "privacy": "Polityka prywatności",
-    "terms": "Regulamin",
-    "gdpr": "RODO",
-    "copyright": "NextGen Sites © {year}. Wszystkie prawa zastrzeżone."
-  },
   "Pricing": {
     "why": "Cennik",
     "heading": "Przyjazne ceny",
@@ -209,6 +190,45 @@
       "professional": "* Rozpoczęcie projektu po wpłacie zadatku 1500 zł"
     },
     "contactCta": "Darmowa konsultacja"
+  },
+  "Faq": {
+    "why": "FAQ",
+    "heading": "Najczęściej zadawane pytania",
+    "subheading": "Dowiedz się więcej o naszej pracy, procesie tworzenia stron internetowych i zaletach",
+    "questions": {
+      "pricing": {
+        "question": "Co zawiera cena strony internetowej?",
+        "answer": "W cenie strony otrzymujesz kompleksową usługę obejmującą: projekt i wdrożenie strony, roczny hosting i domenę, certyfikat SSL, optymalizację SEO, responsywny design, integrację Google Analytics oraz Google Search Console, wsparcie techniczne przez 12 miesięcy, politykę RODO i cookies. Pakiety wyższe dodatkowo zawierają system CMS, blog, monitoring wydajności i zaawansowaną analitykę."
+      },
+      "subscription": {
+        "question": "Dlaczego model subskrypcyjny jest korzystny?",
+        "answer": "Model subskrypcyjny pozwala na rozpoczęcie działalności online bez dużych kosztów początkowych. Miesięczna opłata obejmuje nie tylko hosting, ale także bieżące wsparcie techniczne, aktualizacje bezpieczeństwa i możliwość rozwoju strony wraz z rozwojem Twojego biznesu. To elastyczne rozwiązanie, które możesz dostosować do swoich potrzeb i budżetu."
+      },
+      "timeframe": {
+        "question": "Ile czasu zajmuje stworzenie strony?",
+        "answer": "Czas realizacji zależy od złożoności projektu i wybranego pakietu. Standardowa strona w pakiecie podstawowym może być gotowa w ciągu 1-2 tygodni. Bardziej rozbudowane projekty, zawierające system CMS czy blog, mogą zająć 2-4 tygodni. Na czas realizacji wpływa również szybkość dostarczenia materiałów przez klienta (teksty, zdjęcia, logo)."
+      },
+      "editing": {
+        "question": "Czy mogę samodzielnie edytować treści na stronie?",
+        "answer": "Tak, w pakietach Pro i Indywidualnym otrzymujesz dostęp do systemu CMS (Strapi), który pozwala na samodzielną edycję treści, zdjęć i innych elementów strony bez znajomości programowania. System jest intuicyjny i przyjazny dla użytkownika, a my zapewniamy szkolenie z jego obsługi."
+      },
+      "support": {
+        "question": "Jakie wsparcie techniczne otrzymuję?",
+        "answer": "Zapewniamy bieżące wsparcie techniczne, które obejmuje monitoring działania strony, aktualizacje bezpieczeństwa, kopie zapasowe oraz pomoc w przypadku problemów technicznych. W pakiecie Pro oferujemy priorytetowe wsparcie oraz dodatkowe usługi monitoringu wydajności poprzez Sentry i analizę zachowań użytkowników przez PostHog."
+      },
+      "advantages": {
+        "question": "Co wyróżnia wasze strony na tle konkurencji?",
+        "answer": "Nasze strony są budowane w oparciu o Next.js - nowoczesną technologię wykorzystywaną przez największe firmy jak Netflix czy TikTok. Zapewnia to wyjątkową wydajność, szybkość ładowania i optymalizację pod SEO. W przeciwieństwie do stron opartych na WordPressie, nasze rozwiązania są bardziej bezpieczne, szybsze i lepiej zoptymalizowane pod kątem wyszukiwarek."
+      },
+      "ownership": {
+        "question": "Jak wygląda kwestia własności strony?",
+        "answer": "W przypadku jednorazowej opłaty za stronę, otrzymujesz pełne prawa własności do kodu oraz wszystkie niezbędne dostępy już pierwszego dnia. Przy modelu subskrypcyjnym możesz zrezygnować z usługi z miesięcznym okresem wypowiedzenia, jednak pełne prawa własności do kodu strony przechodzą na Ciebie po 3 latach regularnych płatności."
+      },
+      "cancellation": {
+        "question": "Co jeśli chcę zrezygnować z usługi?",
+        "answer": "W przypadku rezygnacji z usługi przed ukończeniem trzeciego roku, otrzymujesz dostęp do domeny jednak nie będziesz miał już praw do korzystania z kodu strony. Nie stosujemy długoterminowych zobowiązań - możesz zrezygnować z usługi w dowolnym momencie z zachowaniem miesięcznego okresu wypowiedzenia."
+      }
+    }
   },
   "Contact": {
     "formLabel": "Formularz kontaktowy",
@@ -291,5 +311,24 @@
         "required": "Musisz wyrazić zgodę na przetwarzanie danych osobowych"
       }
     }
+  },
+  "Footer": {
+    "navigation": "Nawigacja",
+    "benefits": "Korzyści",
+    "process": "Proces współpracy",
+    "technologies": "Technologie",
+    "pricing": "Cennik",
+    "contact": "Kontakt",
+    "services": "Usługi",
+    "websites": "Strony internetowe",
+    "onlineStores": "Sklepy internetowe",
+    "cms": "Systemy CMS",
+    "seo": "Optymalizacja SEO",
+    "support": "Wsparcie techniczne",
+    "documents": "Dokumenty",
+    "privacy": "Polityka prywatności",
+    "terms": "Regulamin",
+    "gdpr": "RODO",
+    "copyright": "NextGen Sites © {year}. Wszystkie prawa zastrzeżone."
   }
 }

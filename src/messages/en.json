@@ -126,25 +126,6 @@
     "description": "Start transforming your online presence today! Consultations are free.",
     "button": "Contact us"
   },
-  "Footer": {
-    "navigation": "Navigation",
-    "benefits": "Benefits",
-    "process": "Process",
-    "technologies": "Technologies",
-    "pricing": "Pricing",
-    "contact": "Contact",
-    "services": "Services",
-    "websites": "Websites",
-    "onlineStores": "Online Stores",
-    "cms": "CMS Systems",
-    "seo": "SEO Optimization",
-    "support": "Technical Support",
-    "documents": "Documents",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "gdpr": "GDPR",
-    "copyright": "NextGen Sites © {year}. All rights reserved."
-  },
   "Pricing": {
     "why": "Pricing",
     "heading": "Friendly prices",
@@ -209,6 +190,45 @@
       "professional": "* Project starts after 1500 PLN deposit payment"
     },
     "contactCta": "Free consultation"
+  },
+  "Faq": {
+    "why": "FAQ",
+    "heading": "Frequently Asked Questions",
+    "subheading": "Learn more about our work, website development process, and benefits",
+    "questions": {
+      "pricing": {
+        "question": "What's included in the website price?",
+        "answer": "The website price includes a comprehensive service: design and implementation, annual hosting and domain, SSL certificate, SEO optimization, responsive design, Google Analytics and Search Console integration, 12-month technical support, GDPR and cookies policy. Higher packages additionally include CMS system, blog, performance monitoring, and advanced analytics."
+      },
+      "subscription": {
+        "question": "Why is the subscription model beneficial?",
+        "answer": "The subscription model allows you to start your online presence without large upfront costs. The monthly fee covers not only hosting but also ongoing technical support, security updates, and the ability to grow your website as your business grows. It's a flexible solution that you can adapt to your needs and budget."
+      },
+      "timeframe": {
+        "question": "How long does it take to create a website?",
+        "answer": "Development time depends on project complexity and chosen package. A standard website in the basic package can be ready within 1-2 weeks. More complex projects with CMS or blog functionality may take 2-4 weeks. The timeline is also affected by how quickly the client provides materials (texts, photos, logo)."
+      },
+      "editing": {
+        "question": "Can I edit website content myself?",
+        "answer": "Yes, with Pro and Individual packages, you get access to a CMS (Strapi) that allows you to edit content, photos, and other website elements without programming knowledge. The system is intuitive and user-friendly, and we provide training on how to use it."
+      },
+      "support": {
+        "question": "What technical support do I receive?",
+        "answer": "We provide ongoing technical support that includes website monitoring, security updates, backups, and assistance with technical issues. In the Pro package, we offer priority support and additional services like Sentry performance monitoring and PostHog user behavior analysis."
+      },
+      "advantages": {
+        "question": "What sets your websites apart from competitors?",
+        "answer": "Our websites are built using Next.js - modern technology used by major companies like Netflix and TikTok. This ensures exceptional performance, fast loading times, and SEO optimization. Unlike WordPress-based sites, our solutions are more secure, faster, and better optimized for search engines."
+      },
+      "ownership": {
+        "question": "How does website ownership work?",
+        "answer": "With a one-time payment, you receive full code ownership and all necessary access credentials on day one. In the subscription model, you can cancel the service with a one-month notice period, but full code ownership transfers to you after 3 years of regular payments."
+      },
+      "cancellation": {
+        "question": "What if I want to cancel the service?",
+        "answer": "If you cancel before completing the third year, you retain access to the domain but will no longer have rights to use the website code. We don't use long-term commitments - you can cancel the service at any time with a one-month notice period."
+      }
+    }
   },
   "Contact": {
     "formLabel": "Contact form",
@@ -291,5 +311,24 @@
       "default": "Send message",
       "loading": "Sending..."
     }
+  },
+  "Footer": {
+    "navigation": "Navigation",
+    "benefits": "Benefits",
+    "process": "Process",
+    "technologies": "Technologies",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "services": "Services",
+    "websites": "Websites",
+    "onlineStores": "Online Stores",
+    "cms": "CMS Systems",
+    "seo": "SEO Optimization",
+    "support": "Technical Support",
+    "documents": "Documents",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "gdpr": "GDPR",
+    "copyright": "NextGen Sites © {year}. All rights reserved."
   }
 }

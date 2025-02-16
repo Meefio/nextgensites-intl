@@ -19,7 +19,7 @@ export const AnimatedElement = forwardRef<HTMLElement, AnimatedElementProps>(
     children, 
     delay = 0, 
     direction = "up",
-    viewport = { once: true, amount: 0.2 }, 
+    viewport = { once: true, amount: 0.15 }, 
     className, 
     ...props 
   }, ref) => {
