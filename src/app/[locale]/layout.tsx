@@ -5,6 +5,7 @@ import '../globals.css'
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/app/components/theme-provider"
 import { Toaster } from "@/app/components/ui/toaster";
+// import { CookieBanner } from "@/app/components/cookie-banner";
 
 const fontSans = Inter({
 	variable: "--font-sans",
@@ -45,6 +46,7 @@ export default async function LocaleLayout({
 					<NextIntlClientProvider locale={locale} messages={messages}>
 						{children}
 						<Toaster />
+						{/* <CookieBanner /> */}
 					</NextIntlClientProvider>
 				</ThemeProvider>
 			</body>

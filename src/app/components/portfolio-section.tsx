@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Card, CardContent } from "@/app/components/ui/card"
-import { Badge } from "@/app/components/ui/badge"
+// import { Badge } from "@/app/components/ui/badge"
 import { AnimatedElement } from "@/app/components/motion/animated-element"
 
 interface Project {
@@ -21,7 +21,7 @@ const Portfolio = () => {
 
   const projects: Project[] = [
     {
-      slug: t('projects.project1.title'),
+      slug: 'myciecisnieniem.pl',
       image: '/images/hero-image.webp',
       title: t('projects.project1.title'),
       description: t('projects.project1.description'),
@@ -29,7 +29,7 @@ const Portfolio = () => {
       imageAlt: t('projects.project1.imageAlt')
     },
     {
-      slug: t('projects.project2.title'),
+      slug: 'kwiaciarnia-strelicja.webflow.io',
       image: '/images/kwiaciarnia-strelicja.jpg',
       title: t('projects.project2.title'),
       description: t('projects.project2.description'),
@@ -63,8 +63,8 @@ const Portfolio = () => {
             delay={index * 0.2}
             viewport={{ once: true, margin: "-20% 0px" }}
           >
-            <Link href={`/portfolio/${project.slug}`}>
-              <Card className="overflow-hidden transition-transform hover:scale-[1.02]">
+            <Link href={`https://${project.slug}`} target="_blank">
+              <Card className="overflow-hidden transition-transform hover:scale-[0.98]">
                 <div className="aspect-video relative">
                   <Image
                     src={project.image}
@@ -78,11 +78,11 @@ const Portfolio = () => {
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag: string) => (
+                    {/* {project.tags.map((tag: string) => (
                       <Badge key={tag} variant="secondary">
                         {tag}
                       </Badge>
-                    ))}
+                    ))} */}
                   </div>
                 </CardContent>
               </Card>

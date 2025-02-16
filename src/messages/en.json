@@ -67,8 +67,8 @@
     "subheading": "We create modern websites that not only look great but also deliver results. Here are some of our projects that helped clients increase their online visibility and conversion",
     "projects": {
       "project1": {
-        "title": "EcoSmart Solutions",
-        "description": "Modern website for a renewable energy company. The project increased conversion by 150% within 3 months.",
+        "title": "Under Pressure",
+        "description": "A website for a new company specializing in cleaning paving stones, facades, and roofs.",
         "tags": [
           "Webflow",
           "Tailwind CSS",
@@ -78,8 +78,8 @@
         "imageAlt": "EcoSmart Solutions - Homepage"
       },
       "project2": {
-        "title": "Kwiaciarnia Strelicja",
-        "description": "Modern website for a flower shop. The project increased conversion by 150% within 3 months.",
+        "title": "Flower Shop Strelicja",
+        "description": "A website for a flower shop that offers many different flowers, decorations, and accessories.",
         "tags": [
           "Webflow",
           "Tailwind CSS",
@@ -196,38 +196,38 @@
     "heading": "Frequently Asked Questions",
     "subheading": "Learn more about our work, website development process and benefits",
     "questions": {
-        "Question1": {
-            "question": "Why do we use Next.js for website development?",
-            "answer": "Next.js is a modern technology that provides exceptional speed, excellent SEO optimization, and high performance. Websites built with Next.js load instantly and are better indexed by Google. Additionally, maintenance costs are minimal as websites can run on free Vercel hosting – a platform created by Next.js developers."
-        },
-        "Question2": {
-            "question": "How much does a website cost?",
-            "answer": "The price depends on the chosen package and project complexity. Simple landing pages start from 1,300 PLN net, while more complex projects start from 2,500 PLN net. For advanced solutions, the price is determined individually."
-        },
-        "Question3": {
-            "question": "How long does website development take?",
-            "answer": "Development time depends on the chosen package. A simple website can be ready in 5-7 business days, while more complex projects take 7 to 30 days. The speed of delivery also depends on the client providing materials."
-        },
-        "Question4": {
-            "question": "Can I edit the content on the website?",
-            "answer": "Yes, with the 'Professional' and 'Premium Solution' packages, you get access to a content management system (CMS) that allows you to edit content independently without programming knowledge."
-        },
-        "Question5": {
-            "question": "Will the website be visible in Google?",
-            "answer": "Yes, all our websites are SEO-optimized, which increases their visibility in search engines and improves rankings."
-        },
-        "Question6": {
-            "question": "Can I add additional features to the website?",
-            "answer": "Yes, you can order additional features such as dark/light mode, reviews module, newsletter, AI chatbot, or e-commerce functionality."
-        },
-        "Question7": {
-            "question": "What technical support do you offer?",
-            "answer": "We offer technical support for a specified period after website deployment (1 to 6 months depending on the package). You can also order additional support package after this period."
-        },
-        "Question8": {
-            "question": "Will I have full rights to the website after project completion?",
-            "answer": "Yes, after project completion, you receive full rights to the website and code, as well as all necessary access credentials."
-        }
+      "Question1": {
+        "question": "Why do we use Next.js for website development?",
+        "answer": "Next.js is a modern technology that provides exceptional speed, excellent SEO optimization, and high performance. Websites built with Next.js load instantly and are better indexed by Google. Additionally, maintenance costs are minimal as websites can run on free Vercel hosting – a platform created by Next.js developers."
+      },
+      "Question2": {
+        "question": "How much does a website cost?",
+        "answer": "The price depends on the chosen package and project complexity. Simple landing pages start from 1,300 PLN net, while more complex projects start from 2,500 PLN net. For advanced solutions, the price is determined individually."
+      },
+      "Question3": {
+        "question": "How long does website development take?",
+        "answer": "Development time depends on the chosen package. A simple website can be ready in 5-7 business days, while more complex projects take 7 to 30 days. The speed of delivery also depends on the client providing materials."
+      },
+      "Question4": {
+        "question": "Can I edit the content on the website?",
+        "answer": "Yes, with the 'Professional' and 'Premium Solution' packages, you get access to a content management system (CMS) that allows you to edit content independently without programming knowledge."
+      },
+      "Question5": {
+        "question": "Will the website be visible in Google?",
+        "answer": "Yes, all our websites are SEO-optimized, which increases their visibility in search engines and improves rankings."
+      },
+      "Question6": {
+        "question": "Can I add additional features to the website?",
+        "answer": "Yes, you can order additional features such as dark/light mode, reviews module, newsletter, AI chatbot, or e-commerce functionality."
+      },
+      "Question7": {
+        "question": "What technical support do you offer?",
+        "answer": "We offer technical support for a specified period after website deployment (1 to 6 months depending on the package). You can also order additional support package after this period."
+      },
+      "Question8": {
+        "question": "Will I have full rights to the website after project completion?",
+        "answer": "Yes, after project completion, you receive full rights to the website and code, as well as all necessary access credentials."
+      }
     }
   },
   "Contact": {
