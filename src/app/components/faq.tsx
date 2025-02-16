@@ -29,9 +29,9 @@ export function Faq() {
           className="rounded-lg border bg-card p-6 shadow-sm h-fit"
         >
           <Accordion type="single" collapsible className="space-y-4">
-            {["pricing", "subscription", "timeframe", "editing"].map((key) => (
+            {["Question1", "Question2", "Question3", "Question4"].map((key) => (
               <AccordionItem key={key} value={key}>
-                <AccordionTrigger className="py-4 text-left text-lg hover:no-underline">
+                <AccordionTrigger className="py-4 text-left text-base hover:no-underline">
                   {t(`questions.${key}.question`)}
                 </AccordionTrigger>
                 <AccordionContent className="text-base text-muted-foreground pt-2 pb-4">
@@ -48,9 +48,9 @@ export function Faq() {
           className="rounded-lg border bg-card p-6 shadow-sm h-fit"
         >
           <Accordion type="single" collapsible className="space-y-4">
-            {["support", "advantages", "ownership", "cancellation"].map((key) => (
+            {["Question5", "Question6", "Question7", "Question8"].map((key) => (
               <AccordionItem key={key} value={key}>
-                <AccordionTrigger className="py-4 text-left text-lg hover:no-underline">
+                <AccordionTrigger className="py-4 text-left text-base hover:no-underline">
                   {t(`questions.${key}.question`)}
                 </AccordionTrigger>
                 <AccordionContent className="text-base text-muted-foreground pt-2 pb-4">

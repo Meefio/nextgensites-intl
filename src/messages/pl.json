@@ -196,37 +196,37 @@
     "heading": "Najczęściej zadawane pytania",
     "subheading": "Dowiedz się więcej o naszej pracy, procesie tworzenia stron internetowych i zaletach",
     "questions": {
-      "pricing": {
-        "question": "Co zawiera cena strony internetowej?",
-        "answer": "W cenie strony otrzymujesz kompleksową usługę obejmującą: projekt i wdrożenie strony, roczny hosting i domenę, certyfikat SSL, optymalizację SEO, responsywny design, integrację Google Analytics oraz Google Search Console, wsparcie techniczne przez 12 miesięcy, politykę RODO i cookies. Pakiety wyższe dodatkowo zawierają system CMS, blog, monitoring wydajności i zaawansowaną analitykę."
-      },
-      "subscription": {
-        "question": "Dlaczego model subskrypcyjny jest korzystny?",
-        "answer": "Model subskrypcyjny pozwala na rozpoczęcie działalności online bez dużych kosztów początkowych. Miesięczna opłata obejmuje nie tylko hosting, ale także bieżące wsparcie techniczne, aktualizacje bezpieczeństwa i możliwość rozwoju strony wraz z rozwojem Twojego biznesu. To elastyczne rozwiązanie, które możesz dostosować do swoich potrzeb i budżetu."
-      },
-      "timeframe": {
-        "question": "Ile czasu zajmuje stworzenie strony?",
-        "answer": "Czas realizacji zależy od złożoności projektu i wybranego pakietu. Standardowa strona w pakiecie podstawowym może być gotowa w ciągu 1-2 tygodni. Bardziej rozbudowane projekty, zawierające system CMS czy blog, mogą zająć 2-4 tygodni. Na czas realizacji wpływa również szybkość dostarczenia materiałów przez klienta (teksty, zdjęcia, logo)."
-      },
-      "editing": {
-        "question": "Czy mogę samodzielnie edytować treści na stronie?",
-        "answer": "Tak, w pakietach Pro i Indywidualnym otrzymujesz dostęp do systemu CMS (Strapi), który pozwala na samodzielną edycję treści, zdjęć i innych elementów strony bez znajomości programowania. System jest intuicyjny i przyjazny dla użytkownika, a my zapewniamy szkolenie z jego obsługi."
-      },
-      "support": {
-        "question": "Jakie wsparcie techniczne otrzymuję?",
-        "answer": "Zapewniamy bieżące wsparcie techniczne, które obejmuje monitoring działania strony, aktualizacje bezpieczeństwa, kopie zapasowe oraz pomoc w przypadku problemów technicznych. W pakiecie Pro oferujemy priorytetowe wsparcie oraz dodatkowe usługi monitoringu wydajności poprzez Sentry i analizę zachowań użytkowników przez PostHog."
-      },
-      "advantages": {
-        "question": "Co wyróżnia wasze strony na tle konkurencji?",
-        "answer": "Nasze strony są budowane w oparciu o Next.js - nowoczesną technologię wykorzystywaną przez największe firmy jak Netflix czy TikTok. Zapewnia to wyjątkową wydajność, szybkość ładowania i optymalizację pod SEO. W przeciwieństwie do stron opartych na WordPressie, nasze rozwiązania są bardziej bezpieczne, szybsze i lepiej zoptymalizowane pod kątem wyszukiwarek."
-      },
-      "ownership": {
-        "question": "Jak wygląda kwestia własności strony?",
-        "answer": "W przypadku jednorazowej opłaty za stronę, otrzymujesz pełne prawa własności do kodu oraz wszystkie niezbędne dostępy już pierwszego dnia. Przy modelu subskrypcyjnym możesz zrezygnować z usługi z miesięcznym okresem wypowiedzenia, jednak pełne prawa własności do kodu strony przechodzą na Ciebie po 3 latach regularnych płatności."
-      },
-      "cancellation": {
-        "question": "Co jeśli chcę zrezygnować z usługi?",
-        "answer": "W przypadku rezygnacji z usługi przed ukończeniem trzeciego roku, otrzymujesz dostęp do domeny jednak nie będziesz miał już praw do korzystania z kodu strony. Nie stosujemy długoterminowych zobowiązań - możesz zrezygnować z usługi w dowolnym momencie z zachowaniem miesięcznego okresu wypowiedzenia."
+        "Question1": {
+          "question": "Dlaczego korzystamy z Next.js do tworzenia stron internetowych?",
+          "answer": "Next.js to nowoczesna technologia, która zapewnia wyjątkową szybkość, doskonałą optymalizację SEO oraz wysoką wydajność. Strony stworzone w Next.js ładują się błyskawicznie i są lepiej indeksowane przez Google. Dodatkowo, koszty utrzymania są minimalne, ponieważ strony mogą działać na darmowym hostingu Vercel – platformie stworzonej przez twórców Next.js."
+        },
+        "Question2": {
+          "question": "Ile kosztuje stworzenie strony internetowej?",
+          "answer": "Cena zależy od wybranego pakietu i złożoności projektu. Proste strony typu landing page kosztują od 1 300 zł netto, a bardziej rozbudowane projekty – od 2 500 zł netto. W przypadku zaawansowanych rozwiązań cena ustalana jest indywidualnie."
+        },
+        "Question3": {
+          "question": "Jak długo trwa realizacja strony?",
+          "answer": "Czas wykonania zależy od wybranego pakietu. Prosta strona może być gotowa w 5–7 dni roboczych, a bardziej złożone projekty zajmują od 7 do 30 dni. Szybkość realizacji zależy również od dostarczenia materiałów przez klienta."
+        },
+        "Question4": {
+          "question": "Czy mogę edytować treści na stronie?",
+          "answer": "Tak, w pakiecie „Profesjonalny” i „Rozwiązanie premium” otrzymujesz dostęp do systemu zarządzania treścią (CMS), który umożliwia samodzielną edycję treści bez znajomości programowania."
+        },
+        "Question5": {
+          "question": "Czy strona będzie dobrze widoczna w Google?",
+          "answer": "Tak, wszystkie nasze strony są optymalizowane pod SEO, co zwiększa ich widoczność w wyszukiwarkach i poprawia pozycjonowanie."
+        },
+        "Question6": {
+          "question": "Czy mogę dodać dodatkowe funkcje do strony?",
+          "answer": "Tak, możesz zamówić dodatkowe funkcje, takie jak dark/light mode, moduł opinii, newsletter, chatbot AI czy sklep internetowy."
+        },
+        "Question7": {
+          "question": "Jakie wsparcie techniczne oferujecie?",
+          "answer": "Oferujemy wsparcie techniczne przez określony czas po wdrożeniu strony (od 1 do 6 miesięcy w zależności od pakietu). Możesz także zamówić dodatkowy pakiet wsparcia po tym okresie."
+        },
+        "Question8": {
+          "question": "Czy po zakończeniu projektu będę miał pełne prawa do strony?",
+          "answer": "Tak, po zakończeniu projektu otrzymujesz pełne prawa do strony i kodu, a także wszystkie niezbędne dostępy."
       }
     }
   },
