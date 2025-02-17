@@ -361,5 +361,78 @@
       "linkText": "Polityce Prywatności"
     },
     "closeButton": "Zamknij banner plików cookie"
+  },
+  "privacy": {
+    "title": "Polityka Prywatności",
+    "description": "Dowiedz się, w jaki sposób chronimy i przetwarzamy Twoje dane osobowe",
+    "lastUpdate": "Ostatnia aktualizacja",
+    "sections": {
+      "general": {
+        "title": "1. Informacje ogólne",
+        "content": "Niniejsza polityka prywatności określa zasady przetwarzania i ochrony danych osobowych przekazanych przez Użytkowników w związku z korzystaniem ze strony internetowej NextGen Sites."
+      },
+      "administrator": {
+        "title": "2. Administrator danych",
+        "content": "Administratorem danych osobowych jest NextGen Sites z siedzibą w Warszawie."
+      },
+      "cookies": {
+        "title": "3. Pliki Cookie",
+        "intro": "Używamy następujących rodzajów plików cookie:",
+        "firstParty": {
+          "title": "Pliki cookie pierwszej strony:",
+          "items": [
+            "Niezbędne - umożliwiające podstawowe funkcjonowanie strony",
+            "Preferencje - zapamiętujące wybrane ustawienia",
+            "Statystyczne - do analizy ruchu na stronie"
+          ]
+        },
+        "thirdParty": {
+          "title": "Pliki cookie stron trzecich:",
+          "items": [
+            "PostHog - analiza zachowań użytkowników",
+            "Sentry - monitorowanie błędów",
+            "Google Analytics - statystyki odwiedzin"
+          ]
+        }
+      },
+      "purposes": {
+        "title": "4. Cele przetwarzania danych",
+        "intro": "Dane osobowe przetwarzane są w następujących celach:",
+        "items": [
+          "Realizacja umowy (Art. 6 ust. 1 lit. b RODO)",
+          "Odpowiadanie na zapytania (Art. 6 ust. 1 lit. f RODO)",
+          "Marketing bezpośredni i profilowanie (Art. 6 ust. 1 lit. f RODO)",
+          "Analiza ruchu na stronie (Art. 6 ust. 1 lit. f RODO)",
+          "Zautomatyzowany marketing (Art. 6 ust. 1 lit. a RODO - za zgodą)",
+          "Dostosowywanie treści do preferencji użytkownika (Art. 6 ust. 1 lit. f RODO)"
+        ],
+        "note": "Szczegółowe informacje o zakresie i podstawie przetwarzania danych znajdziesz w sekcji RODO."
+      },
+      "analytics": {
+        "title": "5. Narzędzia analityczne",
+        "intro": "Korzystamy z następujących narzędzi:",
+        "items": [
+          "PostHog - do analizy zachowań użytkowników",
+          "Sentry - do monitorowania błędów i wydajności"
+        ]
+      },
+      "rights": {
+        "title": "6. Prawa użytkownika",
+        "intro": "Użytkownik ma prawo do:",
+        "items": [
+          "Dostępu do swoich danych",
+          "Sprostowania danych",
+          "Usunięcia danych",
+          "Ograniczenia przetwarzania",
+          "Przenoszenia danych",
+          "Sprzeciwu",
+          "Wycofania zgody na przetwarzanie"
+        ]
+      },
+      "contact": {
+        "title": "7. Kontakt",
+        "content": "W sprawach związanych z ochroną danych osobowych możesz się z nami skontaktować pod adresem: contact@nextgensites.pl"
+      }
+    }
   }
 }

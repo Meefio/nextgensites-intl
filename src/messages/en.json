@@ -357,5 +357,78 @@
       "linkText": "Privacy Policy"
     },
     "closeButton": "Close cookie banner"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "description": "Learn how we protect and process your personal data",
+    "lastUpdate": "Last update",
+    "sections": {
+      "general": {
+        "title": "1. General Information",
+        "content": "This privacy policy sets out the rules for the processing and protection of personal data provided by Users in connection with the use of the NextGen Sites website."
+      },
+      "administrator": {
+        "title": "2. Data Controller",
+        "content": "The controller of personal data is NextGen Sites based in Warsaw."
+      },
+      "cookies": {
+        "title": "3. Cookies",
+        "intro": "We use the following types of cookies:",
+        "firstParty": {
+          "title": "First-party cookies:",
+          "items": [
+            "Necessary - enabling basic website functionality",
+            "Preferences - remembering selected settings",
+            "Statistics - for website traffic analysis"
+          ]
+        },
+        "thirdParty": {
+          "title": "Third-party cookies:",
+          "items": [
+            "PostHog - user behavior analysis",
+            "Sentry - error monitoring",
+            "Google Analytics - visit statistics"
+          ]
+        }
+      },
+      "purposes": {
+        "title": "4. Data Processing Purposes",
+        "intro": "Personal data is processed for the following purposes:",
+        "items": [
+          "Contract execution (Art. 6(1)(b) GDPR)",
+          "Responding to inquiries (Art. 6(1)(f) GDPR)",
+          "Direct marketing and profiling (Art. 6(1)(f) GDPR)",
+          "Website traffic analysis (Art. 6(1)(f) GDPR)",
+          "Automated marketing (Art. 6(1)(a) GDPR - with consent)",
+          "Customizing content to user preferences (Art. 6(1)(f) GDPR)"
+        ],
+        "note": "Detailed information about the scope and basis of data processing can be found in the GDPR section."
+      },
+      "analytics": {
+        "title": "5. Analytics Tools",
+        "intro": "We use the following tools:",
+        "items": [
+          "PostHog - for user behavior analysis",
+          "Sentry - for error and performance monitoring"
+        ]
+      },
+      "rights": {
+        "title": "6. User Rights",
+        "intro": "The user has the right to:",
+        "items": [
+          "Access their data",
+          "Rectify data",
+          "Delete data",
+          "Restrict processing",
+          "Data portability",
+          "Object",
+          "Withdraw consent for processing"
+        ]
+      },
+      "contact": {
+        "title": "7. Contact",
+        "content": "For matters related to personal data protection, you can contact us at: contact@nextgensites.pl"
+      }
+    }
   }
 }
