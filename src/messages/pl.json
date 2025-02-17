@@ -6,7 +6,7 @@
   "Hero": {
     "pricing": "Strony już od 1300zł",
     "title": "Nowoczesna strona internetowa, która działa, przyciąga i sprzedaje 🚀",
-    "description": "Tworzę szybkie, zoptymalizowane i nowoczesne strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
+    "description": "Tworzymy szybkie, zoptymalizowane i nowoczesne strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
     "cta": "Dowiedz się więcej!"
   },
   "Navigation": {
@@ -54,7 +54,7 @@
   },
   "About": {
     "why": "Poznaj nasze podejście",
-    "heading": "Tworzymy strony, które przynoszą rezultaty",
+    "heading": "Tworzenie stron internetowych przynoszących rezultaty",
     "subheading": "Łączymy nowoczesne technologie z przemyślanym designem, by Twoja strona wyróżniała się na tle konkurencji",
     "description1": "Stawiamy na najnowocześniejsze rozwiązania, wykorzystując potencjał Next.js 15+, co przekłada się na błyskawiczne ładowanie i doskonałą optymalizację. Nasze strony są wielojęzyczne w standardzie, wyposażone w tryb ciemny/jasny i perfekcyjnie dostosowane do wszystkich urządzeń.",
     "description2": "W przeciwieństwie do przestarzałych rozwiązań opartych na WordPress Elementor, oferujemy stabilną i szybką technologię, która nie zawodzi. Każdy projekt traktujemy indywidualnie - nie korzystamy z gotowych szablonów. Tworzymy unikalne rozwiązania dopasowane do Twoich potrzeb.",
@@ -196,37 +196,37 @@
     "heading": "Najczęściej zadawane pytania",
     "subheading": "Dowiedz się więcej o naszej pracy, procesie tworzenia stron internetowych i zaletach",
     "questions": {
-        "Question1": {
-          "question": "Dlaczego korzystamy z Next.js do tworzenia stron internetowych?",
-          "answer": "Next.js to nowoczesna technologia, która zapewnia wyjątkową szybkość, doskonałą optymalizację SEO oraz wysoką wydajność. Strony stworzone w Next.js ładują się błyskawicznie i są lepiej indeksowane przez Google. Dodatkowo, koszty utrzymania są minimalne, ponieważ strony mogą działać na darmowym hostingu Vercel – platformie stworzonej przez twórców Next.js."
-        },
-        "Question2": {
-          "question": "Ile kosztuje stworzenie strony internetowej?",
-          "answer": "Cena zależy od wybranego pakietu i złożoności projektu. Proste strony typu landing page kosztują od 1 300 zł netto, a bardziej rozbudowane projekty – od 2 500 zł netto. W przypadku zaawansowanych rozwiązań cena ustalana jest indywidualnie."
-        },
-        "Question3": {
-          "question": "Jak długo trwa realizacja strony?",
-          "answer": "Czas wykonania zależy od wybranego pakietu. Prosta strona może być gotowa w 5–7 dni roboczych, a bardziej złożone projekty zajmują od 7 do 30 dni. Szybkość realizacji zależy również od dostarczenia materiałów przez klienta."
-        },
-        "Question4": {
-          "question": "Czy mogę edytować treści na stronie?",
-          "answer": "Tak, w pakiecie „Profesjonalny” i „Rozwiązanie premium” otrzymujesz dostęp do systemu zarządzania treścią (CMS), który umożliwia samodzielną edycję treści bez znajomości programowania."
-        },
-        "Question5": {
-          "question": "Czy strona będzie dobrze widoczna w Google?",
-          "answer": "Tak, wszystkie nasze strony są optymalizowane pod SEO, co zwiększa ich widoczność w wyszukiwarkach i poprawia pozycjonowanie."
-        },
-        "Question6": {
-          "question": "Czy mogę dodać dodatkowe funkcje do strony?",
-          "answer": "Tak, możesz zamówić dodatkowe funkcje, takie jak dark/light mode, moduł opinii, newsletter, chatbot AI czy sklep internetowy."
-        },
-        "Question7": {
-          "question": "Jakie wsparcie techniczne oferujecie?",
-          "answer": "Oferujemy wsparcie techniczne przez określony czas po wdrożeniu strony (od 1 do 6 miesięcy w zależności od pakietu). Możesz także zamówić dodatkowy pakiet wsparcia po tym okresie."
-        },
-        "Question8": {
-          "question": "Czy po zakończeniu projektu będę miał pełne prawa do strony?",
-          "answer": "Tak, po zakończeniu projektu otrzymujesz pełne prawa do strony i kodu, a także wszystkie niezbędne dostępy."
+      "Question1": {
+        "question": "Dlaczego korzystamy z Next.js do tworzenia stron internetowych?",
+        "answer": "Next.js to nowoczesna technologia, która zapewnia wyjątkową szybkość, doskonałą optymalizację SEO oraz wysoką wydajność. Strony stworzone w Next.js ładują się błyskawicznie i są lepiej indeksowane przez Google. Dodatkowo, koszty utrzymania są minimalne, ponieważ strony mogą działać na darmowym hostingu Vercel – platformie stworzonej przez twórców Next.js."
+      },
+      "Question2": {
+        "question": "Ile kosztuje stworzenie strony internetowej?",
+        "answer": "Cena zależy od wybranego pakietu i złożoności projektu. Proste strony typu landing page kosztują od 1 300 zł netto, a bardziej rozbudowane projekty – od 2 500 zł netto. W przypadku zaawansowanych rozwiązań cena ustalana jest indywidualnie."
+      },
+      "Question3": {
+        "question": "Jak długo trwa realizacja strony?",
+        "answer": "Czas wykonania zależy od wybranego pakietu. Prosta strona może być gotowa w 5–7 dni roboczych, a bardziej złożone projekty zajmują od 7 do 30 dni. Szybkość realizacji zależy również od dostarczenia materiałów przez klienta."
+      },
+      "Question4": {
+        "question": "Czy mogę edytować treści na stronie?",
+        "answer": "Tak, w pakiecie \"Profesjonalny\" i \"Rozwiązanie premium\" otrzymujesz dostęp do systemu zarządzania treścią (CMS), który umożliwia samodzielną edycję treści bez znajomości programowania."
+      },
+      "Question5": {
+        "question": "Czy strona będzie dobrze widoczna w Google?",
+        "answer": "Tak, wszystkie nasze strony są optymalizowane pod SEO, co zwiększa ich widoczność w wyszukiwarkach i poprawia pozycjonowanie."
+      },
+      "Question6": {
+        "question": "Czy mogę dodać dodatkowe funkcje do strony?",
+        "answer": "Tak, możesz zamówić dodatkowe funkcje, takie jak dark/light mode, moduł opinii, newsletter, chatbot AI czy sklep internetowy."
+      },
+      "Question7": {
+        "question": "Jakie wsparcie techniczne oferujecie?",
+        "answer": "Oferujemy wsparcie techniczne przez określony czas po wdrożeniu strony (od 1 do 6 miesięcy w zależności od pakietu). Możesz także zamówić dodatkowy pakiet wsparcia po tym okresie."
+      },
+      "Question8": {
+        "question": "Czy po zakończeniu projektu będę miał pełne prawa do strony?",
+        "answer": "Tak, po zakończeniu projektu otrzymujesz pełne prawa do strony i kodu, a także wszystkie niezbędne dostępy."
       }
     }
   },
@@ -330,5 +330,36 @@
     "terms": "Regulamin",
     "gdpr": "RODO",
     "copyright": "NextGen Sites © {year}. Wszystkie prawa zastrzeżone."
+  },
+  "CookieBanner": {
+    "title": "Szanujemy Twoją prywatność",
+    "mainDescription": "Ta strona używa plików cookie, aby zapewnić najlepsze wrażenia z korzystania z naszej witryny. Możesz zaakceptować wszystkie, odrzucić opcjonalne lub dostosować swoje preferencje.",
+    "detailedDescription": "Używamy plików cookie, aby poprawić Twoje wrażenia z korzystania z naszej strony. Niektóre z nich są niezbędne do funkcjonowania podstawowych funkcji, podczas gdy inne pomagają nam zrozumieć, w jaki sposób korzystasz z witryny i jak możemy ją ulepszyć.",
+    "buttons": {
+      "rejectAll": "Odrzuć wszystkie",
+      "customize": "Dostosuj",
+      "acceptAll": "Zaakceptuj wszystkie",
+      "acceptSelected": "Zaakceptuj wybrane",
+      "back": "Wróć do poprzedniego widoku"
+    },
+    "cookies": {
+      "necessary": {
+        "title": "Niezbędne (wymagane)",
+        "description": "Niezbędne do działania strony"
+      },
+      "analytics": {
+        "title": "Analityczne (PostHog)",
+        "description": "Pomagają nam zrozumieć jak używasz strony"
+      },
+      "marketing": {
+        "title": "Marketingowe",
+        "description": "Pomagają nam w działaniach marketingowych"
+      }
+    },
+    "privacyLink": {
+      "text": "Więcej informacji znajdziesz w naszej",
+      "linkText": "Polityce Prywatności"
+    },
+    "closeButton": "Zamknij banner plików cookie"
   }
 }

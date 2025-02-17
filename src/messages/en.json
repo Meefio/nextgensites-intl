@@ -1,12 +1,8 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
-  },
   "Hero": {
     "pricing": "Websites starting from 1300zł",
     "title": "A modern website that works, attracts, and sells 🚀",
-    "description": "I create fast, optimized, and modern websites using the latest technology Next.js 15+. Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
+    "description": "We create fast, optimized, and modern websites using the latest technology Next.js 15+. Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
     "cta": "Learn more!"
   },
   "Navigation": {
@@ -330,5 +326,36 @@
     "terms": "Terms of Service",
     "gdpr": "GDPR",
     "copyright": "NextGen Sites © {year}. All rights reserved."
+  },
+  "CookieBanner": {
+    "title": "We respect your privacy",
+    "mainDescription": "This website uses cookies to ensure the best experience while using our site. You can accept all, reject optional ones, or customize your preferences.",
+    "detailedDescription": "We use cookies to improve your experience on our site. Some are necessary for basic functionality, while others help us understand how you use the site and how we can improve it.",
+    "buttons": {
+      "rejectAll": "Reject all",
+      "customize": "Customize",
+      "acceptAll": "Accept all",
+      "acceptSelected": "Accept selected",
+      "back": "Back to previous view"
+    },
+    "cookies": {
+      "necessary": {
+        "title": "Necessary (required)",
+        "description": "Essential for website functionality"
+      },
+      "analytics": {
+        "title": "Analytics (PostHog)",
+        "description": "Help us understand how you use the site"
+      },
+      "marketing": {
+        "title": "Marketing",
+        "description": "Help us with marketing activities"
+      }
+    },
+    "privacyLink": {
+      "text": "For more information, see our",
+      "linkText": "Privacy Policy"
+    },
+    "closeButton": "Close cookie banner"
   }
 }

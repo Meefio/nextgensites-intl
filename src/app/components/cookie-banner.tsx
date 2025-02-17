@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Button } from "@/app/components/ui/button";
 import { Card } from "@/app/components/ui/card";
 import { Checkbox } from "@/app/components/ui/checkbox";
-import { X } from "lucide-react";
+import { X, ArrowLeft } from "lucide-react";
 import { AnimatedElement } from "@/app/components/motion/animated-element";
 
 type CookieConsent = {
@@ -15,6 +16,7 @@ type CookieConsent = {
 };
 
 export function CookieBanner() {
+  const t = useTranslations('CookieBanner');
   const [showBanner, setShowBanner] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [consent, setConsent] = useState<CookieConsent>({
@@ -61,11 +63,11 @@ export function CookieBanner() {
   const saveConsent = (consentData: CookieConsent) => {
     localStorage.setItem("cookieConsent", JSON.stringify(consentData));
     setShowBanner(false);
-    
+
     if (consentData.analytics) {
       // Włącz PostHog
     }
-    
+
     if (consentData.marketing) {
       // Włącz skrypty marketingowe
     }
@@ -75,7 +77,7 @@ export function CookieBanner() {
 
   return (
     <AnimatedElement
-      className="fixed inset-x-0 bottom-0 z-50 px-4 pb-4 lg:inset-x-auto lg:right-4 lg:max-w-[450px]"
+      className="fixed inset-x-0 bottom-0 z-50 px-4 pb-4 lg:inset-x-auto lg:right-4 lg:max-w-[500px]"
       role="dialog"
       aria-labelledby="cookie-title"
       aria-describedby="cookie-description"
@@ -93,13 +95,25 @@ export function CookieBanner() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
+            className="absolute right-2 top-2 flex gap-2"
           >
+            {showDetails && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setShowDetails(false)}
+                aria-label={t('buttons.back')}
+                className="h-8 w-8"
+              >
+                <ArrowLeft className="h-4 w-4" />
+              </Button>
+            )}
             <Button
               variant="ghost"
               size="icon"
-              className="absolute right-2 top-2"
               onClick={handleRejectAll}
-              aria-label="Zamknij banner plików cookie"
+              aria-label={t('closeButton')}
+              className="h-8 w-8"
             >
               <X className="h-4 w-4" />
             </Button>
@@ -114,9 +128,9 @@ export function CookieBanner() {
               className="text-lg font-semibold"
               id="cookie-title"
             >
-              Szanujemy Twoją prywatność
+              {t('title')}
             </AnimatedElement>
-            
+
             {!showDetails ? (
               <AnimatedElement
                 className="space-y-4"
@@ -125,35 +139,34 @@ export function CookieBanner() {
                 transition={{ delay: 0.4 }}
               >
                 <p id="cookie-description" className="text-sm text-muted-foreground">
-                  Ta strona używa plików cookie, aby zapewnić najlepsze wrażenia z korzystania z naszej witryny. 
-                  Możesz zaakceptować wszystkie, odrzucić opcjonalne lub dostosować swoje preferencje.
+                  {t('mainDescription')}
                 </p>
                 <div className="flex flex-col gap-2 lg:flex-row lg:gap-2">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     onClick={handleRejectAll}
-                    aria-label="Odrzuć wszystkie pliki cookie"
+                    aria-label={t('buttons.rejectAll')}
                     size="sm"
                     className="lg:text-xs"
                   >
-                    Odrzuć wszystkie
+                    {t('buttons.rejectAll')}
                   </Button>
-                  <Button 
+                  <Button
                     variant="outline"
                     onClick={() => setShowDetails(true)}
-                    aria-label="Dostosuj ustawienia plików cookie"
+                    aria-label={t('buttons.customize')}
                     size="sm"
                     className="lg:text-xs"
                   >
-                    Dostosuj
+                    {t('buttons.customize')}
                   </Button>
-                  <Button 
+                  <Button
                     onClick={handleAcceptAll}
-                    aria-label="Zaakceptuj wszystkie pliki cookie"
+                    aria-label={t('buttons.acceptAll')}
                     size="sm"
                     className="lg:text-xs"
                   >
-                    Zaakceptuj wszystkie
+                    {t('buttons.acceptAll')}
                   </Button>
                 </div>
               </AnimatedElement>
@@ -165,90 +178,88 @@ export function CookieBanner() {
                 transition={{ duration: 0.3 }}
               >
                 <p id="cookie-description" className="text-sm text-muted-foreground">
-                  Używamy plików cookie, aby poprawić Twoje wrażenia z korzystania z naszej strony. 
-                  Niektóre z nich są niezbędne do funkcjonowania podstawowych funkcji, podczas gdy 
-                  inne pomagają nam zrozumieć, w jaki sposób korzystasz z witryny i jak możemy ją ulepszyć.
+                  {t('detailedDescription')}
                 </p>
 
-                <div className="space-y-4 pt-4" role="group" aria-label="Ustawienia plików cookie">
+                <div className="space-y-4 pt-4" role="group" aria-label="Cookie settings">
                   <div className="flex items-center space-x-2">
-                    <Checkbox 
-                      id="necessary" 
-                      checked={consent.necessary} 
-                      disabled 
-                      aria-label="Niezbędne pliki cookie (wymagane)"
+                    <Checkbox
+                      id="necessary"
+                      checked={consent.necessary}
+                      disabled
+                      aria-label={t('cookies.necessary.title')}
                     />
-                    <label 
-                      htmlFor="necessary" 
+                    <label
+                      htmlFor="necessary"
                       className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                      Niezbędne (wymagane)
+                      {t('cookies.necessary.title')}
                     </label>
                   </div>
 
                   <div className="flex items-center space-x-2">
-                    <Checkbox 
-                      id="analytics" 
+                    <Checkbox
+                      id="analytics"
                       checked={consent.analytics}
-                      onCheckedChange={(checked) => 
-                        setConsent(prev => ({...prev, analytics: checked as boolean}))
+                      onCheckedChange={(checked) =>
+                        setConsent(prev => ({ ...prev, analytics: checked as boolean }))
                       }
-                      aria-label="Analityczne pliki cookie (PostHog)"
+                      aria-label={t('cookies.analytics.title')}
                     />
                     <label htmlFor="analytics" className="text-sm font-medium leading-none">
-                      Analityczne (PostHog)
+                      {t('cookies.analytics.title')}
                     </label>
                   </div>
 
                   <div className="flex items-center space-x-2">
-                    <Checkbox 
-                      id="marketing" 
+                    <Checkbox
+                      id="marketing"
                       checked={consent.marketing}
-                      onCheckedChange={(checked) => 
-                        setConsent(prev => ({...prev, marketing: checked as boolean}))
+                      onCheckedChange={(checked) =>
+                        setConsent(prev => ({ ...prev, marketing: checked as boolean }))
                       }
-                      aria-label="Marketingowe pliki cookie"
+                      aria-label={t('cookies.marketing.title')}
                     />
                     <label htmlFor="marketing" className="text-sm font-medium leading-none">
-                      Marketingowe
+                      {t('cookies.marketing.title')}
                     </label>
                   </div>
                 </div>
 
                 <p className="text-xs text-muted-foreground">
-                  Więcej informacji znajdziesz w naszej{" "}
+                  {t('privacyLink.text')}{" "}
                   <Link href="/polityka-prywatnosci" className="underline hover:text-foreground">
-                    Polityce Prywatności
+                    {t('privacyLink.linkText')}
                   </Link>
                   .
                 </p>
 
                 <div className="flex flex-col gap-2 lg:flex-row lg:gap-1">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     onClick={handleRejectAll}
-                    aria-label="Odrzuć wszystkie pliki cookie"
+                    aria-label={t('buttons.rejectAll')}
                     size="sm"
                     className="lg:text-xs"
                   >
-                    Odrzuć wszystkie
+                    {t('buttons.rejectAll')}
                   </Button>
-                  <Button 
+                  <Button
                     variant="outline"
                     onClick={handleAcceptSelected}
-                    aria-label="Zaakceptuj wybrane pliki cookie"
+                    aria-label={t('buttons.acceptSelected')}
                     size="sm"
                     className="lg:text-xs"
                   >
-                    Zaakceptuj wybrane
+                    {t('buttons.acceptSelected')}
                   </Button>
-                  <Button 
+                  <Button
                     onClick={handleAcceptAll}
-                    aria-label="Zaakceptuj wszystkie pliki cookie"
+                    aria-label={t('buttons.acceptAll')}
                     size="sm"
                     className="lg:text-xs"
                   >
-                    Zaakceptuj wszystkie
+                    {t('buttons.acceptAll')}
                   </Button>
                 </div>
               </AnimatedElement>
