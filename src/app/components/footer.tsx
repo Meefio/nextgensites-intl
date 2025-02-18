@@ -6,7 +6,7 @@ export function Footer() {
   const t = useTranslations('Footer');
 
   return (
-    <footer className="mt-10 flex flex-wrap justify-between pb-16 pt-10 max-w-6xl mx-auto">
+    <footer className="mt-10 flex flex-wrap justify-between pb-16 pt-10 ">
       <div className="flex basis-full flex-col gap-6 md:basis-auto">
         <Link href="/" className="flex items-center gap-3">
           <svg fill="none" viewBox="0 0 238 238" className="size-6 text-primary">
@@ -35,19 +35,19 @@ export function Footer() {
 
       <div className="mt-10 flex basis-1/2 flex-col gap-5 md:mt-0 md:basis-auto">
         <h3 className="font-semibold">{t('navigation')}</h3>
-        <Link href="#features" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link href="/#features" className="text-sm text-muted-foreground hover:text-foreground">
           {t('benefits')}
         </Link>
-        <Link href="#proces" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link href="/#portfolio" className="text-sm text-muted-foreground hover:text-foreground">
+          Portfolio
+        </Link>
+        <Link href="/#proces" className="text-sm text-muted-foreground hover:text-foreground">
           {t('process')}
         </Link>
-        <Link href="#technologie" className="text-sm text-muted-foreground hover:text-foreground">
-          {t('technologies')}
-        </Link>
-        <Link href="#cennik" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link href="/#pricing " className="text-sm text-muted-foreground hover:text-foreground">
           {t('pricing')}
         </Link>
-        <Link href="#kontakt" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link href="/#contact" className="text-sm text-muted-foreground hover:text-foreground">
           {t('contact')}
         </Link>
       </div>
