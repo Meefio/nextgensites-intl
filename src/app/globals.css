@@ -4,8 +4,10 @@
 
 @layer base {
 	:root {
-		--background: 210 40% 98%; /* Bardzo jasne tło */
-		--foreground: 222 47% 11%; /* Ciemny tekst dla kontrastu */
+		--background: 210 40% 98%;
+		/* Bardzo jasne tło */
+		--foreground: 222 47% 11%;
+		/* Ciemny tekst dla kontrastu */
 
 		--card: 0 0% 100%;
 		--card-foreground: 222 47% 11%;
@@ -13,16 +15,19 @@
 		--popover: 0 0% 100%;
 		--popover-foreground: 222 47% 11%;
 
-		--primary: 199 89% 48%; /* Główny niebieski */
+		--primary: 199 89% 48%;
+		/* Główny niebieski */
 		--primary-foreground: 210 40% 97%;
 
-		--secondary: 210 40% 96%; /* Jasnoszary z nutą błękitu */
+		--secondary: 210 40% 96%;
+		/* Jasnoszary z nutą błękitu */
 		--secondary-foreground: 222 47% 11%;
 
 		--muted: 210 40% 96%;
 		--muted-foreground: 215 16% 47%;
 
-		--accent: 199 89% 48%; /* Ten sam co primary dla spójności */
+		--accent: 199 89% 48%;
+		/* Ten sam co primary dla spójności */
 		--accent-foreground: 222 47% 11%;
 
 		--destructive: 0 84% 60%;
@@ -32,7 +37,8 @@
 		--input: 214 32% 91%;
 		--ring: 199 89% 48%;
 
-		--sidebar-background: 210 40% 96%; /* Sidebar z lekko ciemniejszym tłem */
+		--sidebar-background: 210 40% 96%;
+		/* Sidebar z lekko ciemniejszym tłem */
 		--sidebar-foreground: 222 47% 11%;
 		--sidebar-primary: 199 89% 48%;
 		--sidebar-primary-foreground: 210 40% 98%;
@@ -85,6 +91,7 @@
 
 	html {
 		scrollbar-gutter: stable;
+		scroll-behavior: smooth;
 	}
 }
 
@@ -92,6 +99,7 @@
 	* {
 		@apply border-border;
 	}
+
 	body {
 		@apply bg-background text-foreground;
 	}

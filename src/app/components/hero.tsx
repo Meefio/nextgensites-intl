@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl'
 import { TextShimmer } from '@/app/components/magicui/text-shimmer'
 import { Button } from '@/app/components/ui/button'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
-import { Link as I18nLink } from '@/i18n/routing'
 
 export function Hero() {
 	const t = useTranslations('Hero')
@@ -51,9 +50,9 @@ export function Hero() {
 				<AnimatedElement delay={0.4}>
 					<div className='grid gap-3'>
 						<Button size='lg' asChild>
-							<I18nLink href='#korzysci' scroll={true}>
+							<Link href="/#benefits">
 								{t('cta')}
-							</I18nLink>
+							</Link>
 						</Button>
 					</div>
 				</AnimatedElement>
@@ -77,9 +76,9 @@ export function Hero() {
 						width={1482}
 						height={899}
 						priority
-						quality={90}
+						quality={100}
 						sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1482px'
-						className='rounded-xl border border-border shadow-lg hover:opacity-95 transition-opacity'
+						className='rounded-xl border'
 					/>
 				</Link>
 				<div className='absolute inset-0 -z-10 bg-primary/20 [filter:blur(180px)]' />

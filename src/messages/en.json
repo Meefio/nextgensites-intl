@@ -10,11 +10,17 @@
     "technologies": "Technologies",
     "pricing": "Pricing",
     "contact": "Contact",
-    "process": "Process",
+    "portfolio": "Portfolio",
     "getFreeQuote": "Get Free Quote",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "navigationMenu": "Navigation menu"
+    "navigationMenu": "Navigation menu",
+    "sections": {
+      "benefits": "benefits",
+      "pricing": "pricing",
+      "contact": "contact",
+      "portfolio": "portfolio"
+    }
   },
   "SocialProof": {
     "title": "COMPANIES USING NEXT.JS"
@@ -146,7 +152,7 @@
       "professional": {
         "name": "Professional",
         "monthlyPrice": "250zł*",
-        "oneTimePrice": "2 500zł - 5 000zł*",
+        "oneTimePrice": "2 000zł - 5 000zł*",
         "description": "Comprehensive business website for full presentation of your offer",
         "timeframe": "7–15 business days",
         "features": [

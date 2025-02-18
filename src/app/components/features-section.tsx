@@ -75,7 +75,7 @@ const Features = () => {
 
   return (
     <section
-      id="korzysci"
+      id='benefits'
       className=" flex flex-col items-center gap-6 py-14 md:pb-14 sm:gap-7 scroll-mt-header"
     >
       <AnimatedElement

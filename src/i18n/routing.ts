@@ -13,6 +13,10 @@ export const routing = defineRouting({
     '/privacy-policy': {
       pl: '/polityka-prywatnosci',
       en: '/privacy-policy'
+    },
+    '/#benefits': {
+      pl: '/#korzysci',
+      en: '/#benefits'
     }
   }
 });

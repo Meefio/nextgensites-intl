@@ -11,10 +11,10 @@ export function Header() {
   const t = useTranslations('Navigation');
 
   const navigationItems = [
-    { href: "#korzysci", label: t('benefits') },
-    { href: "#technologie", label: t('technologies') },
-    { href: "#cennik", label: t('pricing') },
-    { href: "#kontakt", label: t('contact') }
+    { href: `/#benefits`, label: t('benefits') },
+    { href: `/#portfolio`, label: t('portfolio') },
+    { href: `/#pricing`, label: t('pricing') },
+    { href: `/#contact`, label: t('contact') }
   ];
 
   return (
@@ -73,7 +73,7 @@ export function Header() {
             }}
           >
             <Button size="sm" asChild variant="outline">
-              <Link href="#kontakt" className="cursor-pointer">
+              <Link href="/#contact" className="cursor-pointer">
                 {t('getFreeQuote')}
               </Link>
             </Button>
@@ -121,37 +121,31 @@ export function Header() {
             <div className="rounded-b-lg bg-background py-4 container text-foreground shadow-xl">
               <nav className="flex flex-col gap-1 pt-2">
                 <Link
-                  href="#korzysci"
+                  href="/#benefits"
                   className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
                 >
                   {t('benefits')}
                 </Link>
                 <Link
-                  href="#proces"
+                  href="/#portfolio"
                   className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
                 >
-                  {t('process')}
+                  {t('portfolio')}
                 </Link>
                 <Link
-                  href="#technologie"
-                  className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
-                >
-                  {t('technologies')}
-                </Link>
-                <Link
-                  href="#cennik"
+                  href="/#pricing"
                   className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
                 >
                   {t('pricing')}
                 </Link>
                 <Link
-                  href="#kontakt"
+                  href="/#contact"
                   className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
                 >
                   {t('contact')}
                 </Link>
                 <Button size="lg" asChild className="mt-2 w-full">
-                  <Link href="#kontakt" className="cursor-pointer">
+                  <Link href="/#contact" className="cursor-pointer">
                     {t('getFreeQuote')}
                   </Link>
                 </Button>

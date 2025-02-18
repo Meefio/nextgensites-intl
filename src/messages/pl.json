@@ -1,9 +1,5 @@
 {
-  "HomePage": {
-    "title": "Witaj świecie!",
-    "about": "Przejdź do strony o mnie"
-  },
-  "Hero": {
+ "Hero": {
     "pricing": "Strony już od 1300zł",
     "title": "Nowoczesna strona internetowa, która działa, przyciąga i sprzedaje 🚀",
     "description": "Tworzymy szybkie, zoptymalizowane i nowoczesne strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
@@ -14,11 +10,17 @@
     "technologies": "Technologie",
     "pricing": "Cennik",
     "contact": "Kontakt",
-    "process": "Proces współpracy",
+    "portfolio": "Portfolio",
     "getFreeQuote": "Uzyskaj darmową wycenę",
     "openMenu": "Otwórz menu",
     "closeMenu": "Zamknij menu",
-    "navigationMenu": "Menu nawigacyjne"
+    "navigationMenu": "Menu nawigacyjne",
+    "sections": {
+      "benefits": "korzysci",
+      "pricing": "cennik",
+      "contact": "kontakt",
+      "portfolio": "portfolio"
+    }
   },
   "SocialProof": {
     "title": "FIRMY, KTÓRE KORZYSTAJĄ Z NEXT.JS"
@@ -150,7 +152,7 @@
       "professional": {
         "name": "Profesjonalny",
         "monthlyPrice": "250zł*",
-        "oneTimePrice": "2 500zł - 5 000zł*",
+        "oneTimePrice": "2 000zł - 5 000zł*",
         "description": "Rozbudowana strona firmowa dla pełnej prezentacji Twojej oferty",
         "timeframe": "7–15 dni roboczych",
         "features": [

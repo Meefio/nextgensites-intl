@@ -1,9 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import { Button } from '@/app/components/ui/button'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
 import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 
 export function CtaSection() {
 	const t = useTranslations('CTA')
@@ -62,7 +62,9 @@ export function CtaSection() {
 					variant='default'
 					className='relative cursor-pointer border-border'
 				>
-					<Link href='#kontakt'>{t('button')}</Link>
+					<Link href="/#contact">
+						{t('button')}
+					</Link>
 				</Button>
 			</AnimatedElement>
 		</section>
