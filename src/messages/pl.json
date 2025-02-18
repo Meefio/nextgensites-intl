@@ -1,5 +1,5 @@
 {
- "Hero": {
+  "Hero": {
     "pricing": "Strony już od 1300zł",
     "title": "Nowoczesna strona internetowa, która działa, przyciąga i sprzedaje 🚀",
     "description": "Tworzymy szybkie, zoptymalizowane i nowoczesne strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
@@ -515,6 +515,76 @@
         "items": [
           "W sprawach nieuregulowanych zastosowanie mają przepisy prawa polskiego.",
           "Wszelkie spory będą rozstrzygane przez sąd właściwy dla siedziby Usługodawcy."
+        ]
+      }
+    }
+  },
+  "gdpr": {
+    "title": "Informacja o przetwarzaniu danych osobowych (RODO)",
+    "description": "Szczegółowe informacje o tym, jak przetwarzamy Twoje dane zgodnie z RODO",
+    "lastUpdate": "Ostatnia aktualizacja",
+    "sections": {
+      "administrator": {
+        "title": "1. Administrator danych",
+        "content": "Administratorem Państwa danych osobowych jest NextGen Sites z siedzibą w Warszawie."
+      },
+      "purposes": {
+        "title": "2. Cele przetwarzania",
+        "intro": "Dane osobowe przetwarzamy w następujących celach:",
+        "items": [
+          "Realizacja umowy (art. 6 ust. 1 lit. b RODO)",
+          "Odpowiadanie na zapytania (art. 6 ust. 1 lit. f RODO)",
+          "Marketing bezpośredni (art. 6 ust. 1 lit. f RODO)",
+          "Analiza ruchu na stronie (art. 6 ust. 1 lit. f RODO)"
+        ]
+      },
+      "recipients": {
+        "title": "3. Odbiorcy danych",
+        "intro": "Państwa dane mogą być przekazywane:",
+        "items": [
+          "Dostawcom usług IT (Sentry, PostHog)",
+          "Firmom hostingowym",
+          "Podmiotom świadczącym usługi prawne i księgowe"
+        ]
+      },
+      "storage": {
+        "title": "4. Okres przechowywania",
+        "intro": "Dane przechowujemy przez okres:",
+        "items": [
+          "Trwania umowy i do 6 lat po jej zakończeniu",
+          "Do momentu wniesienia sprzeciwu dla celów marketingowych",
+          "3 miesiące dla danych z formularza kontaktowego"
+        ]
+      },
+      "rights": {
+        "title": "5. Prawa osób",
+        "intro": "Przysługuje Państwu prawo do:",
+        "items": [
+          "Dostępu do danych",
+          "Sprostowania danych",
+          "Usunięcia danych",
+          "Ograniczenia przetwarzania",
+          "Przenoszenia danych",
+          "Wniesienia sprzeciwu",
+          "Cofnięcia zgody",
+          "Skargi do Prezesa UODO"
+        ]
+      },
+      "transfer": {
+        "title": "6. Przekazywanie danych",
+        "intro": "Dane mogą być przekazywane poza EOG w związku z korzystaniem z usług:",
+        "items": [
+          "Sentry (USA) - monitoring błędów",
+          "PostHog (USA) - analityka"
+        ],
+        "note": "Przekazywanie odbywa się na podstawie standardowych klauzul umownych."
+      },
+      "contact": {
+        "title": "7. Kontakt",
+        "intro": "W sprawach dotyczących ochrony danych osobowych można kontaktować się z nami:",
+        "items": [
+          "Email: kontakt@nextgensites.pl",
+          "Telefon: 694-671-786"
         ]
       }
     }

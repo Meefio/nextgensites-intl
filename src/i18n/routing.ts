@@ -14,9 +14,13 @@ export const routing = defineRouting({
       pl: '/polityka-prywatnosci',
       en: '/privacy-policy'
     },
-    '/#benefits': {
-      pl: '/#korzysci',
-      en: '/#benefits'
+    '/terms-of-service': {
+      pl: '/regulamin',
+      en: '/terms-of-service'
+    },
+    '/gdpr': {
+      pl: '/rodo',
+      en: '/gdpr'
     }
   }
 });

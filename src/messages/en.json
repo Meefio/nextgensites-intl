@@ -518,5 +518,75 @@
         ]
       }
     }
+  },
+  "gdpr": {
+    "title": "Information on Personal Data Processing (GDPR)",
+    "description": "Detailed information about how we process your data in accordance with GDPR",
+    "lastUpdate": "Last update",
+    "sections": {
+      "administrator": {
+        "title": "1. Data Controller",
+        "content": "The controller of your personal data is NextGen Sites based in Warsaw."
+      },
+      "purposes": {
+        "title": "2. Processing Purposes",
+        "intro": "We process personal data for the following purposes:",
+        "items": [
+          "Contract execution (Art. 6(1)(b) GDPR)",
+          "Responding to inquiries (Art. 6(1)(f) GDPR)",
+          "Direct marketing (Art. 6(1)(f) GDPR)",
+          "Website traffic analysis (Art. 6(1)(f) GDPR)"
+        ]
+      },
+      "recipients": {
+        "title": "3. Data Recipients",
+        "intro": "Your data may be transferred to:",
+        "items": [
+          "IT service providers (Sentry, PostHog)",
+          "Hosting companies",
+          "Legal and accounting service providers"
+        ]
+      },
+      "storage": {
+        "title": "4. Storage Period",
+        "intro": "We store data for the period of:",
+        "items": [
+          "Contract duration and up to 6 years after its completion",
+          "Until objection for marketing purposes",
+          "3 months for contact form data"
+        ]
+      },
+      "rights": {
+        "title": "5. Individual Rights",
+        "intro": "You have the right to:",
+        "items": [
+          "Access your data",
+          "Rectify your data",
+          "Delete your data",
+          "Restrict processing",
+          "Data portability",
+          "Object",
+          "Withdraw consent",
+          "Complain to the Data Protection Authority"
+        ]
+      },
+      "transfer": {
+        "title": "6. Data Transfer",
+        "intro": "Data may be transferred outside the EEA in connection with the use of services:",
+        "items": [
+          "Sentry (USA) - error monitoring",
+          "PostHog (USA) - analytics"
+        ],
+        "note": "Transfers are based on standard contractual clauses."
+      },
+      "contact": {
+        "title": "7. Contact",
+        "intro": "For matters concerning personal data protection, you can contact us at:",
+        "items": [
+          "Email: contact@nextgensites.pl",
+          "Phone: 694-671-786"
+        ]
+      }
+    }
   }
 }
