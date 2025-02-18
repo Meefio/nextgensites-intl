@@ -130,33 +130,51 @@ export function Pricing() {
 									<div className='mt-5'>
 										<PriceDisplay plan={plan} />
 									</div>
-									<Button size='lg' asChild className='mt-10 w-full'>
-										<Link href='/#contact'>{t('contactCta')}</Link>
-									</Button>
+									<div className='hidden md:block mt-6 w-full'>
+										<Button size='lg' asChild className='w-full'>
+											<Link href='/#contact'>{t('contactCta')}</Link>
+										</Button>
+									</div>
 								</div>
-								<ul className='flex-1 space-y-2 px-7 py-10'>
+								<ul className='flex-1 space-y-2 px-7 py-10 border-y border-border'>
 									{plan.features.map((feature: string, featureIndex: number) => (
 										<li
 											key={featureIndex}
 											className='flex items-center gap-3'
 										>
-
 											<Check size={24} className='text-primary flex-shrink-0' />
-
 											<span className='text-muted-foreground'>
 												{feature}
 											</span>
 										</li>
 									))}
 								</ul>
-								<div className='px-7 py-4'>
-									<p className='text-xs text-muted-foreground'>
-										{plan.key !== 'premium' && t('vatInfo')}
-									</p>
-									<p className='text-xs text-muted-foreground'>
-										{plan.key === 'basic' && t('depositInfo.basic')}
-										{plan.key === 'professional' && t('depositInfo.professional')}
-									</p>
+								<div className='md:hidden px-7 py-4 flex flex-col gap-4 mt-auto'>
+									<Button size='lg' asChild className='w-full'>
+										<Link href='/#contact'>{t('contactCta')}</Link>
+									</Button>
+								</div>
+								<div className='hidden md:block py-4 mt-auto border-t border-border mx-7'>
+									<div>
+										<p className='text-xs text-muted-foreground'>
+											{plan.key !== 'premium' && t('vatInfo')}
+										</p>
+										<p className='text-xs text-muted-foreground'>
+											{plan.key === 'basic' && t('depositInfo.basic')}
+											{plan.key === 'professional' && t('depositInfo.professional')}
+										</p>
+									</div>
+								</div>
+								<div className='md:hidden px-7 py-4'>
+									<div>
+										<p className='text-xs text-muted-foreground'>
+											{plan.key !== 'premium' && t('vatInfo')}
+										</p>
+										<p className='text-xs text-muted-foreground'>
+											{plan.key === 'basic' && t('depositInfo.basic')}
+											{plan.key === 'professional' && t('depositInfo.professional')}
+										</p>
+									</div>
 								</div>
 							</CardContent>
 						</Card>

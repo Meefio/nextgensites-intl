@@ -188,8 +188,8 @@
     },
     "vatInfo": "* Prices are net amounts, 23% VAT to be added",
     "depositInfo": {
-      "basic": "* Project starts after 750 PLN deposit payment",
-      "professional": "* Project starts after 1500 PLN deposit payment"
+      "basic": "* Project starts after 500 PLN deposit payment",
+      "professional": "* Project starts after 1000 PLN deposit payment"
     },
     "contactCta": "Free consultation"
   },

@@ -188,8 +188,8 @@
     },
     "vatInfo": "* Podane ceny są cenami netto, należy doliczyć 23% VAT",
     "depositInfo": {
-      "basic": "* Rozpoczęcie projektu po wpłacie zadatku 750 zł",
-      "professional": "* Rozpoczęcie projektu po wpłacie zadatku 1500 zł"
+      "basic": "* Rozpoczęcie projektu po wpłacie zadatku 500 zł",
+      "professional": "* Rozpoczęcie projektu po wpłacie zadatku 1000 zł"
     },
     "contactCta": "Darmowa konsultacja"
   },
