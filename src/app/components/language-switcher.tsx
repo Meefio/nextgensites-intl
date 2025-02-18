@@ -21,6 +21,8 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   const currentLang = pathname.startsWith('/en') ? 'en' : 'pl'
   const currentLanguage = languages.find(lang => lang.code === currentLang)
 
+  const currentPath = pathname.replace(/^\/[a-z]{2}/, '') || '/'
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -39,7 +41,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
       <DropdownMenuContent align="end">
         {languages.map((lang) => (
           <DropdownMenuItem key={lang.code} asChild>
-            <Link href="/" locale={lang.code}>
+            <Link href={currentPath as any} locale={lang.code}>
               <div className="flex items-center gap-2">
                 <ReactCountryFlag
                   countryCode={lang.countryCode}
