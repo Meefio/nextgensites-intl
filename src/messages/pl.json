@@ -436,5 +436,87 @@
         "content": "W sprawach związanych z ochroną danych osobowych możesz się z nami skontaktować pod adresem: contact@nextgensites.pl"
       }
     }
+  },
+  "terms": {
+    "title": "Regulamin świadczenia usług",
+    "description": "Zapoznaj się z zasadami korzystania z naszych usług",
+    "lastUpdate": "Ostatnia aktualizacja",
+    "sections": {
+      "general": {
+        "title": "§1. Postanowienia ogólne",
+        "items": [
+          "Niniejszy regulamin określa zasady świadczenia usług przez NextGen Sites.",
+          "Złożenie zamówienia oznacza akceptację regulaminu."
+        ]
+      },
+      "definitions": {
+        "title": "§2. Definicje",
+        "items": [
+          "Usługodawca - NextGen Sites",
+          "Klient - osoba fizyczna lub prawna zamawiająca usługi",
+          "Usługi - tworzenie i utrzymanie stron internetowych"
+        ]
+      },
+      "scope": {
+        "title": "§3. Zakres usług",
+        "intro": "Usługodawca świadczy usługi w zakresie:",
+        "items": [
+          "Projektowania i wdrażania stron internetowych",
+          "Hostingu i utrzymania stron",
+          "Optymalizacji SEO",
+          "Wsparcia technicznego"
+        ]
+      },
+      "payment": {
+        "title": "§4. Warunki płatności",
+        "subscription": {
+          "title": "Model subskrypcyjny:",
+          "items": [
+            "Opłata miesięczna zgodnie z wybranym pakietem",
+            "Płatność z góry za każdy miesiąc",
+            "Możliwość rezygnacji z miesięcznym wypowiedzeniem"
+          ]
+        },
+        "oneTime": {
+          "title": "Model jednorazowy:",
+          "items": [
+            "Zaliczka 500 zł przed rozpoczęciem prac",
+            "Pozostała kwota po akceptacji projektu"
+          ]
+        }
+      },
+      "ownership": {
+        "title": "§5. Prawa własności",
+        "subscription": {
+          "title": "W modelu subskrypcyjnym:",
+          "items": [
+            "Prawa do kodu przechodzą na Klienta po 3 latach",
+            "Wcześniejsza rezygnacja oznacza utratę praw do kodu"
+          ]
+        },
+        "oneTime": {
+          "title": "W modelu jednorazowym:",
+          "items": [
+            "Pełne prawa własności po opłaceniu całości"
+          ]
+        }
+      },
+      "responsibility": {
+        "title": "§6. Odpowiedzialność",
+        "intro": "Usługodawca zobowiązuje się do:",
+        "items": [
+          "Świadczenia usług z należytą starannością",
+          "Zachowania poufności danych",
+          "Zapewnienia wsparcia technicznego"
+        ]
+      },
+      "final": {
+        "title": "§7. Postanowienia końcowe",
+        "items": [
+          "W sprawach nieuregulowanych zastosowanie mają przepisy prawa polskiego.",
+          "Wszelkie spory będą rozstrzygane przez sąd właściwy dla siedziby Usługodawcy."
+        ]
+      }
+    }
   }
 }

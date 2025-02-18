@@ -436,5 +436,87 @@
         "content": "For matters related to personal data protection, you can contact us at: contact@nextgensites.pl"
       }
     }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "description": "Learn about the rules of using our services",
+    "lastUpdate": "Last update",
+    "sections": {
+      "general": {
+        "title": "§1. General Provisions",
+        "items": [
+          "These terms and conditions define the rules for providing services by NextGen Sites.",
+          "Placing an order means accepting the terms and conditions."
+        ]
+      },
+      "definitions": {
+        "title": "§2. Definitions",
+        "items": [
+          "Service Provider - NextGen Sites",
+          "Client - natural or legal person ordering services",
+          "Services - creation and maintenance of websites"
+        ]
+      },
+      "scope": {
+        "title": "§3. Scope of Services",
+        "intro": "The Service Provider provides services in the following areas:",
+        "items": [
+          "Website design and implementation",
+          "Hosting and website maintenance",
+          "SEO optimization",
+          "Technical support"
+        ]
+      },
+      "payment": {
+        "title": "§4. Payment Terms",
+        "subscription": {
+          "title": "Subscription model:",
+          "items": [
+            "Monthly fee according to the selected package",
+            "Payment in advance for each month",
+            "Option to cancel with one month's notice"
+          ]
+        },
+        "oneTime": {
+          "title": "One-time model:",
+          "items": [
+            "500 PLN deposit before starting work",
+            "Remaining amount after project acceptance"
+          ]
+        }
+      },
+      "ownership": {
+        "title": "§5. Ownership Rights",
+        "subscription": {
+          "title": "In the subscription model:",
+          "items": [
+            "Code rights transfer to the Client after 3 years",
+            "Early termination means loss of code rights"
+          ]
+        },
+        "oneTime": {
+          "title": "In the one-time model:",
+          "items": [
+            "Full ownership rights after full payment"
+          ]
+        }
+      },
+      "responsibility": {
+        "title": "§6. Responsibility",
+        "intro": "The Service Provider commits to:",
+        "items": [
+          "Providing services with due diligence",
+          "Maintaining data confidentiality",
+          "Providing technical support"
+        ]
+      },
+      "final": {
+        "title": "§7. Final Provisions",
+        "items": [
+          "In matters not regulated, Polish law shall apply.",
+          "Any disputes will be resolved by the court competent for the Service Provider's headquarters."
+        ]
+      }
+    }
   }
 }
