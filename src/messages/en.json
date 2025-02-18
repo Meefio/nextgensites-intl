@@ -588,5 +588,12 @@
         ]
       }
     }
+  },
+  "Legal": {
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "gdpr": "GDPR",
+    "backToHome": "Back to homepage",
+    "copyright": "© {year} NextGen Sites. All rights reserved."
   }
 }
