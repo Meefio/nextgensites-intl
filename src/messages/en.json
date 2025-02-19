@@ -595,5 +595,12 @@
     "gdpr": "GDPR",
     "backToHome": "Back to homepage",
     "copyright": "© {year} NextGen Sites. All rights reserved."
+  },
+  "Portfolio-sections": {
+    "UnderPressure": {
+      "title": "Under Pressure",
+      "shortDescription": "A modern website for a pressure cleaning company. The project included creating a responsive website with a content management system, SEO optimization, and social media integration.",
+      "cta": "Get a quote"
+    }
   }
 }
