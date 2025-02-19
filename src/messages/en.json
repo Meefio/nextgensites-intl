@@ -600,7 +600,25 @@
     "UnderPressure": {
       "title": "Under Pressure",
       "shortDescription": "A modern website for a pressure cleaning company. The project included creating a responsive website with a content management system, SEO optimization, and social media integration.",
-      "cta": "Get a quote"
+      "cta": "Get a quote",
+      "clientInfo": {
+        "title": "Client Information",
+        "company": "Company name",
+        "location": "Location",
+        "website": "Website"
+      },
+      "projectDescription": {
+        "title": "Project Description",
+        "content": "A professional website for a company specializing in pressure washing services. Our task was to create a modern website that would emphasize the professionalism and effectiveness of the services offered."
+      },
+      "design": {
+        "title": "Design",
+        "description": "The design was based on minimalist aesthetics using contrasting colors that emphasize the company's professional character. We implemented a clear content layout and intuitive navigation, allowing users to quickly find the information they need."
+      },
+      "implementation": {
+        "title": "Implementation",
+        "description": "The site was built with maximum performance and responsiveness in mind. We implemented advanced technical solutions such as image lazy loading and SEO optimization. The website looks perfect on all devices, from smartphones to large desktop screens."
+      }
     }
   }
 }

@@ -9,7 +9,9 @@ const PortfolioLayout = ({
 }) => {
   return (
     <div className="relative">
-      <Header />
+      <div className='container'>
+        <Header />
+      </div>
       <main className="flex-1">
         {children}
       </main>

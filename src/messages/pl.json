@@ -600,7 +600,25 @@
     "UnderPressure": {
       "title": "Under Pressure",
       "shortDescription": "Nowoczesna strona internetowa dla firmy specjalizującej się w czyszczeniu ciśnieniowym. Projekt obejmował stworzenie responsywnej witryny z systemem zarządzania treścią, optymalizacją SEO i integracją z mediami społecznościowymi.",
-      "cta": "Wyceń swój projekt"
+      "cta": "Wyceń swój projekt",
+      "clientInfo": {
+        "title": "Informacje o kliencie",
+        "company": "Nazwa firmy",
+        "location": "Lokalizacja",
+        "website": "Strona internetowa"
+      },
+      "projectDescription": {
+        "title": "Opis projektu",
+        "content": "Profesjonalna strona internetowa dla firmy specjalizującej się w usługach mycia ciśnieniowego. Naszym zadaniem było stworzenie nowoczesnej witryny, która podkreśli profesjonalizm i skuteczność oferowanych usług."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Projekt został oparty o minimalistyczną estetykę z wykorzystaniem kontrastowych kolorów podkreślających profesjonalny charakter firmy. Zastosowaliśmy przejrzysty układ treści i intuicyjną nawigację, co pozwala użytkownikom szybko znaleźć potrzebne informacje."
+      },
+      "implementation": {
+        "title": "Wdrożenie",
+        "description": "Strona została zbudowana z myślą o maksymalnej wydajności i responsywności. Zaimplementowaliśmy zaawansowane rozwiązania techniczne, takie jak lazy loading obrazów i optymalizacja SEO. Witryna doskonale prezentuje się na wszystkich urządzeniach, od smartfonów po duże ekrany desktopowe."
+      }
     }
   }
 }
