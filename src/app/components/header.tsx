@@ -1,5 +1,9 @@
+'use client'
+
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
+import { useScroll, motion, useMotionValueEvent } from "framer-motion";
+import { useState } from "react";
 
 import { Button } from "@/app/components/ui/button";
 import { MobileNavbar } from "@/app/components/mobile-navbar";
@@ -9,6 +13,29 @@ import { ThemeSwitcher } from "@/app/components/theme-switcher";
 
 export function Header() {
   const t = useTranslations('Navigation');
+  const { scrollY } = useScroll();
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const currentScroll = latest;
+    const headerHeight = 64;
+
+    if (currentScroll < headerHeight) {
+      setIsVisible(true);
+      return;
+    }
+
+    if (currentScroll > lastScrollY) {
+      // Scrolling down
+      setIsVisible(false);
+    } else {
+      // Scrolling up
+      setIsVisible(true);
+    }
+
+    setLastScrollY(currentScroll);
+  });
 
   const navigationItems = [
     { href: `/#benefits`, label: t('benefits') },
@@ -18,7 +45,15 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 w-full z-50 bg-background/80 backdrop-blur-sm border-b">
+    <motion.header
+      animate={{
+        y: isVisible ? 0 : -64
+      }}
+      transition={{
+        duration: 0.3
+      }}
+      className="fixed top-0 left-0 right-0 w-full z-50 bg-background/80 backdrop-blur-sm border-b"
+    >
       <div className="container flex items-center justify-between gap-4 py-4">
         <AnimatedElement
           initial={{ opacity: 0, x: -20 }}
@@ -156,6 +191,6 @@ export function Header() {
           </div>
         </AnimatedElement>
       </div>
-    </header>
+    </motion.header>
   );
 }

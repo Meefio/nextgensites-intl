@@ -14,6 +14,7 @@ import { ContactForm } from '@/app/components/contact-form'
 export default function HomePage() {
 	return (
 		<div className=''>
+			<div id="backdrop-overlay" className="fixed inset-0 top-[64px] z-20 pointer-events-none bg-transparent transition-colors duration-300" />
 			<Header />
 			<main>
 				<Hero />
