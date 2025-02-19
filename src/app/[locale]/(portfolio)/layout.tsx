@@ -1,12 +1,11 @@
 import React from 'react'
 import { Header } from '@/app/components/header'
 
-const PortfolioLayout = ({
+export default function PortfolioLayout({
   children,
 }: {
   children: React.ReactNode
-  params?: { locale: string }
-}) => {
+}) {
   return (
     <div className="relative">
       <Header />
@@ -16,5 +15,3 @@ const PortfolioLayout = ({
     </div>
   )
 }
-
-export default PortfolioLayout
