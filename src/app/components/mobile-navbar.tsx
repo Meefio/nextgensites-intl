@@ -66,7 +66,8 @@ export function MobileNavbar({ children }: { children: ReactNode }) {
 					role='dialog'
 					aria-modal='true'
 					aria-label={t('navigationMenu')}
-					className='fixed inset-0 top-[64px] z-30 size-full overflow-auto bg-background transition-all duration-300 ease-in-out animate-in slide-in-from-top'
+					className='fixed inset-0 top-[0px] z-40 size-full overflow-auto animate-in slide-in-from-bottom-24 xl:hidden'
+					onClick={() => setIsOpen(false)}
 				>
 					{children}
 				</div>
