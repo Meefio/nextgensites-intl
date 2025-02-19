@@ -599,7 +599,7 @@
   "Portfolio-sections": {
     "UnderPressure": {
       "title": "Under Pressure",
-      "shortDescription": "A modern website for a pressure cleaning company. The project included creating a responsive website with a content management system, SEO optimization, and social media integration.",
+      "shortDescription": "After 6 months, the website ranked 1st in Google results for many key phrases.",
       "cta": "Get a quote",
       "clientInfo": {
         "title": "Client Information",
@@ -609,11 +609,11 @@
       },
       "projectDescription": {
         "title": "Project Description",
-        "content": "A professional website for a company specializing in pressure washing services. Our task was to create a modern website that would emphasize the professionalism and effectiveness of the services offered."
+        "content": "We created a modern and functional website for Under Pressure, a company specializing in professional pressure washing. Our goal was to design a website that not only reflects the company's professionalism and experience but also provides users with easy access to information about the services offered."
       },
       "design": {
         "title": "Design",
-        "description": "The design was based on minimalist aesthetics using contrasting colors that emphasize the company's professional character. We implemented a clear content layout and intuitive navigation, allowing users to quickly find the information they need."
+        "description": "The website design is based on minimalist aesthetics using contrasting colors that emphasize the company's professional character. Clear content layout and intuitive navigation allow users to quickly find the information they need. Additionally, the use of high-quality graphics and iconography related to pressure washing services enriches the visual reception of the site."
       },
       "implementation": {
         "title": "Implementation",
@@ -621,7 +621,12 @@
       },
       "features": {
         "title": "Features",
-        "description": "The website has been equipped with a number of modern features, such as a contact form, social media integration, content management system, and search engine optimization. All these elements work together to create an effective marketing tool."
+        "description": "The website has been equipped with a number of modern features, such as a contact form, social media integration, and search engine optimization. All these elements work together to create an effective marketing tool."
+      },
+      "description": "Professional website for a pressure washing company",
+      "viewLive": "View project live",
+      "Common": {
+        "portfolio": "Portfolio"
       }
     }
   }

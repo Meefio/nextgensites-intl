@@ -18,10 +18,10 @@ export function Hero() {
       />
       <div className="absolute inset-0 bg-black/65 rounded-xl" />
       <div className="absolute inset-0 container mx-auto px-4 flex flex-col justify-center">
-        <div className="max-w-2xl">
+        <div className="container">
           <AnimatedElement as='span' delay={0.1}>
             <p className="font-bold uppercase text-white mb-4">
-              REALIZACJE
+              {t('Common.portfolio')}
             </p>
           </AnimatedElement>
 
@@ -38,7 +38,7 @@ export function Hero() {
             delay={0.3}
             className='text-lg text-white/90 mb-4'
           >
-            Profesjonalna strona internetowa dla firmy zajmującej się myciem ciśnieniowym
+            {t('description')}
           </AnimatedElement>
 
           <AnimatedElement
@@ -49,12 +49,20 @@ export function Hero() {
             {t('shortDescription')}
           </AnimatedElement>
 
-          <AnimatedElement delay={0.5}>
+          <AnimatedElement delay={0.5} className="flex gap-4">
             <Link
-              href="/kontakt"
+              href="/underpressure/#contact"
               className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
               {t('cta')}
+            </Link>
+            <Link
+              href="https://myciecisnieniem.pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-11 items-center justify-center rounded-md border border-white/20 px-8 text-sm font-medium text-white transition-colors hover:bg-white/10"
+            >
+              {t('viewLive')}
             </Link>
           </AnimatedElement>
         </div>

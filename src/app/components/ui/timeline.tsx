@@ -45,7 +45,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 	return (
 		<section
 			id='proces'
-			className='relative mx-auto flex flex-col items-center gap-6 py-14 md:pt-24 md:px-10 max-w-5xl scroll-mt-header'
+			className='container relative mx-auto flex flex-col items-center gap-6 py-14 md:pt-24 md:px-10 max-w-5xl scroll-mt-header'
 			ref={containerRef}
 		>
 			<div className="text-center mb-12">
@@ -81,7 +81,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 							whileInView={{ opacity: 1 }}
 							viewport={{ once: true, margin: "-20%" }}
 							transition={{ duration: 0.5 }}
-							className='sticky col-span-3 flex items-center z-40 top-40 self-start'
+							className='col-span-3 flex items-center z-40 top-40 self-start'
 						>
 							<div className='h-14 absolute left-3 w-10 rounded-full bg-background flex items-center justify-center'>
 								<div className='h-4 w-4 rounded-full bg-muted-foreground p-2' />

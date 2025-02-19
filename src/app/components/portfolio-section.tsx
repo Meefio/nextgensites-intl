@@ -66,7 +66,7 @@ const Portfolio = () => {
             delay={index * 0.2}
             viewport={{ once: true, margin: "-20% 0px" }}
           >
-            <Link href={`https://${project.slug}`} target="_blank">
+            <Link href='/underpressure'>
               <Card className="overflow-hidden transition-transform hover:scale-[0.98]">
                 <div className="aspect-video relative">
                   <Image

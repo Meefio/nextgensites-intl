@@ -599,7 +599,7 @@
   "Portfolio-sections": {
     "UnderPressure": {
       "title": "Under Pressure",
-      "shortDescription": "Nowoczesna strona internetowa dla firmy specjalizującej się w czyszczeniu ciśnieniowym. Projekt obejmował stworzenie responsywnej witryny z systemem zarządzania treścią, optymalizacją SEO i integracją z mediami społecznościowymi.",
+      "shortDescription": "Strona po 6 miesiącach zajęła 1 miejsce w wynikach Google w wielu frazach kluczowych.",
       "cta": "Wyceń swój projekt",
       "clientInfo": {
         "title": "Informacje o kliencie",
@@ -609,11 +609,11 @@
       },
       "projectDescription": {
         "title": "Opis projektu",
-        "content": "Profesjonalna strona internetowa dla firmy specjalizującej się w usługach mycia ciśnieniowego. Naszym zadaniem było stworzenie nowoczesnej witryny, która podkreśli profesjonalizm i skuteczność oferowanych usług."
+        "content": "Stworzyliśmy nowoczesną i funkcjonalną stronę internetową dla firmy Under Pressure, specjalizującej się w profesjonalnym myciu ciśnieniowym. Naszym celem było zaprojektowanie witryny, która nie tylko odzwierciedla profesjonalizm i doświadczenie firmy, ale także zapewnia użytkownikom łatwy dostęp do informacji o oferowanych usługach."
       },
       "design": {
         "title": "Design",
-        "description": "Projekt został oparty o minimalistyczną estetykę z wykorzystaniem kontrastowych kolorów podkreślających profesjonalny charakter firmy. Zastosowaliśmy przejrzysty układ treści i intuicyjną nawigację, co pozwala użytkownikom szybko znaleźć potrzebne informacje."
+        "description": "Projekt strony opiera się na minimalistycznej estetyce z wykorzystaniem kontrastujących kolorów, które podkreślają profesjonalny charakter firmy. Przejrzysty układ treści oraz intuicyjna nawigacja umożliwiają użytkownikom szybkie odnalezienie potrzebnych informacji. Dodatkowo, zastosowanie wysokiej jakości grafik i ikonografii związanej z usługami mycia ciśnieniowego wzbogaca wizualny odbiór strony."
       },
       "implementation": {
         "title": "Wdrożenie",
@@ -621,7 +621,12 @@
       },
       "features": {
         "title": "Funkcjonalności",
-        "description": "Strona została wyposażona w szereg nowoczesnych funkcjonalności, takich jak formularz kontaktowy, integracja z mediami społecznościowymi, system zarządzania treścią oraz optymalizację pod kątem wyszukiwarek. Wszystkie te elementy współpracują ze sobą, tworząc efektywne narzędzie marketingowe."
+        "description": "Strona została wyposażona w szereg nowoczesnych funkcjonalności, takich jak formularz kontaktowy, integracja z mediami społecznościowymi oraz optymalizację pod kątem wyszukiwarek. Wszystkie te elementy współpracują ze sobą, tworząc efektywne narzędzie marketingowe."
+      },
+      "description": "Profesjonalna strona internetowa dla firmy zajmującej się myciem ciśnieniowym",
+      "viewLive": "Zobacz projekt live",
+      "Common": {
+        "portfolio": "Realizacje"
       }
     }
   }
