@@ -3,7 +3,6 @@ import { Header } from '@/app/components/header'
 
 const PortfolioLayout = ({
   children,
-  params,
 }: {
   children: React.ReactNode
   params: { slug: string }
