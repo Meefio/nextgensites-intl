@@ -7,13 +7,13 @@ export function PhotoSection() {
   const t = useTranslations('Portfolio-sections.UnderPressure')
 
   return (
-    <div className="flex flex-col md:flex-row gap-8">
+    <div className="ovflow-scroll flex flex-col md:flex-row gap-8">
       <div className="w-full md:w-1/3 ">
-        <div className="flex flex-col flex-1 h-full min-h-[90vh] gap-4">
-          <div className="relative bg-red-500 flex-1 h-screen">
-            <div className="sticky top-0">
-              <p>test</p>
-              {/* <AnimatedElement>
+        <div className="relative flex flex-col flex-1 h-full gap-4">
+          <div className="flex-1">
+            <div className="sticky top-[40%]">
+              
+              <AnimatedElement>
                 <Card className="sticky top-0">
                   <CardHeader>
                     <CardTitle>{t('design.title')}</CardTitle>
@@ -24,12 +24,13 @@ export function PhotoSection() {
                     </p>
                   </CardContent>
                 </Card>
-              </AnimatedElement> */}
+              </AnimatedElement>
             </div>
           </div>
-          <div className="relative bg-blue-500 flex-1">
+          <div className="relative flex-1">
+            <div className="sticky top-[40%]">
             <AnimatedElement>
-              <Card className="sticky top-4">
+              <Card className="sticky top-24">
                 <CardHeader>
                   <CardTitle>{t('implementation.title')}</CardTitle>
                 </CardHeader>
@@ -39,11 +40,13 @@ export function PhotoSection() {
                   </p>
                 </CardContent>
               </Card>
-            </AnimatedElement>
+              </AnimatedElement>
+            </div>
           </div>
-          <div className="bg-green-500 flex-1">
+          <div className="relative flex-1">
+            <div className="sticky top-[40%]">
             <AnimatedElement>
-              <Card>
+              <Card className="sticky top-[50%]">
                 <CardHeader>
                   <CardTitle>{t('features.title')}</CardTitle>
                 </CardHeader>
@@ -54,6 +57,7 @@ export function PhotoSection() {
                 </CardContent>
               </Card>
             </AnimatedElement>
+            </div>
           </div>
         </div>
       </div>

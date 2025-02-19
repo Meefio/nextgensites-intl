@@ -32,7 +32,7 @@ export default async function LocaleLayout({
 			<body suppressHydrationWarning
 				className={cn(
 					"min-h-screen font-sans antialiased scroll-smooth",
-					"w-full overflow-x-hidden",
+					"w-full",
 					fontSans.variable,
 					fontHeading.variable
 				)}
