@@ -5,7 +5,7 @@ const PortfolioLayout = ({
   children,
 }: {
   children: React.ReactNode
-  params: { slug: string }
+  params?: { locale: string }
 }) => {
   return (
     <div className="relative">
