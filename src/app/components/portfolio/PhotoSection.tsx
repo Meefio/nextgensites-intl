@@ -76,18 +76,94 @@ export function PhotoSection() {
           </div>
         </div>
       </div>
+      <div className="ovflow-scroll flex flex-col gap-8">
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="w-full md:w-1/3">
+            <div className="relative flex flex-col flex-1 h-full gap-4">
+              <div className="flex-1">
+                <div className="sticky top-[40%]">
 
-      <div className="flex justify-center gap-4">
-        <AnimatedElement>
-          <Link
-            href="https://myciecisnieniem.pl"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Zobacz projekt live
-          </Link>
-        </AnimatedElement>
+                  <AnimatedElement>
+                    <Card className="sticky top-0">
+                      <CardHeader>
+                        <CardTitle>{t('Google-position-1.title')}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {t('Google-position-1.description')}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </AnimatedElement>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div className="w-full md:w-2/3">
+            <div className="relative w-full">
+              <Image
+                src="/images/rank1-min.jpg"
+                alt="Google Rank photo"
+                height={1690}
+                width={1146}
+                className="object-contain rounded-xl"
+                quality={100}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="ovflow-scroll flex flex-col gap-8">
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="w-full md:w-1/3">
+            <div className="relative flex flex-col flex-1 h-full gap-4">
+              <div className="flex-1">
+                <div className="sticky top-[40%]">
+
+                  <AnimatedElement>
+                    <Card className="sticky top-0">
+                      <CardHeader>
+                        <CardTitle>{t('Google-position-2.title')}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {t('Google-position-2.description')}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </AnimatedElement>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div className="w-full md:w-2/3">
+            <div className="relative w-full">
+              <Image
+                src="/images/rank-2-min.jpg"
+                alt="Google Rank photo"
+                height={1838}
+                width={1158}
+                className="object-contain rounded-xl"
+                quality={100}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-center gap-4">
+          <AnimatedElement>
+            <Link
+              href="https://myciecisnieniem.pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              {t('viewLive')}
+            </Link>
+          </AnimatedElement>
+        </div>
       </div>
     </div>
   )

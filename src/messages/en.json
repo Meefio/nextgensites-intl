@@ -627,6 +627,14 @@
       "viewLive": "View project live",
       "Common": {
         "portfolio": "Portfolio"
+      },
+      "Google-position-1": {
+        "title": "Google Position #1",
+        "description": "After 6 months from implementation, the website achieved the first position in Google for key phrases related to pressure washing in the region. Optimized content and site structure contributed to a significant increase in organic traffic."
+      },
+      "Google-position-2": {
+        "title": "Google Dominance",
+        "description": "Consistently maintaining top positions, right after sponsored positions, translates into a steady flow of new customers. The site ranks at the top for many phrases related to cleaning paving stones, facades, and roofs."
       }
     }
   }

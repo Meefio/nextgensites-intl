@@ -627,6 +627,14 @@
       "viewLive": "Zobacz projekt live",
       "Common": {
         "portfolio": "Realizacje"
+      },
+      "Google-position-1": {
+        "title": "Pozycja w Google #1",
+        "description": "Po 6 miesiącach od wdrożenia, strona osiągnęła pierwszą pozycję w Google dla kluczowych fraz związanych z myciem ciśnieniowym w regionie. Zoptymalizowana treść i struktura strony przyczyniły się do znacznego wzrostu organicznego ruchu."
+      },
+      "Google-position-2": {
+        "title": "Dominacja w Google",
+        "description": "Konsekwentne utrzymywanie wysokich pozycji, zaraz po pozycjach sponsorowanych przekłada się na stały napływ nowych klientów. Strona zajmuje czołowe miejsca dla wielu fraz związanych z myciem kostki brukowej, elewacji i dachów."
       }
     }
   }
