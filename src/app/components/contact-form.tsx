@@ -157,7 +157,7 @@ export function ContactForm() {
 	return (
 		<section
 			id='contact'
-			className='container flex flex-col items-center gap-6 py-14 md:py-24 sm:gap-7 scroll-mt-header max-w-6xl mx-auto'
+			className='flex flex-col items-center gap-6 py-14 md:py-24 sm:gap-7 scroll-mt-header max-w-6xl mx-auto'
 			aria-label={t('formLabel')}
 		>
 			<AnimatedElement

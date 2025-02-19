@@ -45,7 +45,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 	return (
 		<section
 			id='proces'
-			className='container relative mx-auto flex flex-col items-center gap-6 py-14 md:pt-24 md:px-10 max-w-5xl scroll-mt-header'
+			className='relative mx-auto flex flex-col items-center gap-6 py-14 md:pt-24 md:px-10 max-w-5xl scroll-mt-header'
 			ref={containerRef}
 		>
 			<div className="text-center mb-12">

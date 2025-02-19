@@ -13,7 +13,7 @@ import { ContactForm } from '@/app/components/contact-form'
 
 export default function HomePage() {
 	return (
-		<div className=''>
+		<div className='container'>
 			<Header />
 			<main>
 				<Hero />

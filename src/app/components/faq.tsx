@@ -11,7 +11,7 @@ export function Faq() {
   const t = useTranslations("Faq");
 
   return (
-    <section className="container flex flex-col items-center gap-6 pt-14 pb-24 md:py-24 sm:gap-7">
+    <section className="flex flex-col items-center gap-6 pt-14 pb-24 md:py-24 sm:gap-7">
       <AnimatedElement className="flex flex-col gap-3">
         <span className="font-bold uppercase text-primary text-center">{t("why")}</span>
         <h2 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance text-center">

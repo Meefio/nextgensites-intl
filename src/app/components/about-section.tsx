@@ -10,7 +10,7 @@ export function About() {
   return (
     <section
       id="o-nas"
-      className="container py-14 md:py-20 scroll-mt-header"
+      className="py-14 md:py-20 scroll-mt-header"
     >
       <div className="text-center mb-12">
         <AnimatedElement
