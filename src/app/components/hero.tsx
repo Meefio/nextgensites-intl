@@ -11,7 +11,7 @@ export function Hero() {
 	const t = useTranslations('Hero')
 
 	return (
-		<section className='flex flex-col items-center gap-10 pb-14 pt-10 md:pb-28 md:pt-20 sm:gap-14 lg:flex-row'>
+		<section className='container flex flex-col items-center gap-10 pb-14 pt-28 md:pb-28 md:pt-32 sm:gap-14 lg:flex-row'>
 			<div className='flex flex-1 flex-col items-center gap-6 lg:items-start lg:gap-8'>
 				<AnimatedElement as='div' delay={0.1}>
 					<Link

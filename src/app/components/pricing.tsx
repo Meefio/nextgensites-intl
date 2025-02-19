@@ -101,7 +101,7 @@ export function Pricing() {
 				</span>
 			</AnimatedElement> */}
 
-			<div className='mt-7 grid w-full grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3'>
+			<div className='container mt-7 grid w-full grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3'>
 				{plans.map((plan, index) => (
 					<AnimatedElement
 						key={plan.key}
