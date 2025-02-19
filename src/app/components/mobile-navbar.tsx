@@ -30,25 +30,6 @@ export function MobileNavbar({ children }: { children: ReactNode }) {
 		}
 	}, [])
 
-	useEffect(() => {
-		const overlay = document.getElementById('backdrop-overlay')
-		if (overlay) {
-			overlay.className = isOpen
-				? 'fixed inset-0 top-[64px] z-20 bg-background/80 backdrop-blur-sm pointer-events-auto cursor-pointer'
-				: 'fixed inset-0 top-[64px] z-20 bg-transparent pointer-events-none transition-colors duration-300'
-
-			const handleOverlayClick = () => setIsOpen(false)
-
-			if (isOpen) {
-				overlay.addEventListener('click', handleOverlayClick)
-			}
-
-			return () => {
-				overlay.removeEventListener('click', handleOverlayClick)
-			}
-		}
-	}, [isOpen])
-
 	return (
 		<>
 			<button
