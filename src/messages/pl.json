@@ -618,6 +618,10 @@
       "implementation": {
         "title": "Wdrożenie",
         "description": "Strona została zbudowana z myślą o maksymalnej wydajności i responsywności. Zaimplementowaliśmy zaawansowane rozwiązania techniczne, takie jak lazy loading obrazów i optymalizacja SEO. Witryna doskonale prezentuje się na wszystkich urządzeniach, od smartfonów po duże ekrany desktopowe."
+      },
+      "features": {
+        "title": "Funkcjonalności",
+        "description": "Strona została wyposażona w szereg nowoczesnych funkcjonalności, takich jak formularz kontaktowy, integracja z mediami społecznościowymi, system zarządzania treścią oraz optymalizację pod kątem wyszukiwarek. Wszystkie te elementy współpracują ze sobą, tworząc efektywne narzędzie marketingowe."
       }
     }
   }

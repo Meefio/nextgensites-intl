@@ -618,6 +618,10 @@
       "implementation": {
         "title": "Implementation",
         "description": "The site was built with maximum performance and responsiveness in mind. We implemented advanced technical solutions such as image lazy loading and SEO optimization. The website looks perfect on all devices, from smartphones to large desktop screens."
+      },
+      "features": {
+        "title": "Features",
+        "description": "The website has been equipped with a number of modern features, such as a contact form, social media integration, content management system, and search engine optimization. All these elements work together to create an effective marketing tool."
       }
     }
   }
