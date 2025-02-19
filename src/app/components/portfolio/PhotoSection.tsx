@@ -11,9 +11,10 @@ export function PhotoSection() {
       <div className="w-full md:w-1/3 ">
         <div className="flex flex-col flex-1 h-full min-h-[90vh] gap-4">
           <div className="relative bg-red-500 flex-1 h-screen">
-            <div className="sticky top-12">
-              <AnimatedElement>
-                <Card>
+            <div className="sticky top-0">
+              <p>test</p>
+              {/* <AnimatedElement>
+                <Card className="sticky top-0">
                   <CardHeader>
                     <CardTitle>{t('design.title')}</CardTitle>
                   </CardHeader>
@@ -23,7 +24,7 @@ export function PhotoSection() {
                     </p>
                   </CardContent>
                 </Card>
-              </AnimatedElement>
+              </AnimatedElement> */}
             </div>
           </div>
           <div className="relative bg-blue-500 flex-1">

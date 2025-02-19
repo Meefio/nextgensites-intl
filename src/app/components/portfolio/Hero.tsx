@@ -16,11 +16,11 @@ export function Hero() {
         priority
         quality={100}
       />
-      <div className="absolute inset-0 bg-black/25 rounded-xl" />
+      <div className="absolute inset-0 bg-black/65 rounded-xl" />
       <div className="absolute inset-0 container mx-auto px-4 flex flex-col justify-center">
         <div className="max-w-2xl">
           <AnimatedElement as='span' delay={0.1}>
-            <p className="font-bold uppercase text-primary mb-4">
+            <p className="font-bold uppercase text-white mb-4">
               REALIZACJE
             </p>
           </AnimatedElement>
@@ -28,7 +28,7 @@ export function Hero() {
           <AnimatedElement
             as='h1'
             delay={0.2}
-            className='font-heading text-4xl font-semibold sm:text-5xl tracking-tight text-dark mb-4'
+            className='font-heading text-4xl font-semibold sm:text-5xl tracking-tight text-white mb-4'
           >
             {t('title')}
           </AnimatedElement>

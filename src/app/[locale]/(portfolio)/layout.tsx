@@ -1,12 +1,13 @@
 import React from 'react'
 import { Header } from '@/app/components/header'
 
+type LayoutProps = {
+  children: React.ReactNode;
+}
+
 const PortfolioLayout = ({
   children,
-}: {
-  children: React.ReactNode
-  params: { slug: string }
-}) => {
+}: LayoutProps) => {
   return (
     <div className="relative">
       <div className='container'>
