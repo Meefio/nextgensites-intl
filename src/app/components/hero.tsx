@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import { TextShimmer } from '@/app/components/magicui/text-shimmer'
 import { Button } from '@/app/components/ui/button'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
+import { MouseTrackImage } from '@/app/components/motion/mouse-track-image'
 
 export function Hero() {
 	const t = useTranslations('Hero')
@@ -64,16 +65,15 @@ export function Hero() {
 				initial={{ opacity: 0, x: 20 }}
 				animate={{ opacity: 1, x: 0 }}
 			>
-					<Image
-						alt='Przykład nowoczesnej strony internetowej'
-						src='/images/MacBookProHero.png'
-						width={608}
-						height={368}
-						priority
-						quality={100}
-						sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1482px'
-					/>
-				
+				<MouseTrackImage
+					alt='Przykład nowoczesnej strony internetowej'
+					src='/images/MacBookProHero.png'
+					width={608}
+					height={368}
+					priority
+					quality={100}
+					sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1482px'
+				/>
 				<div className='absolute inset-0 -z-10 bg-primary/20 [filter:blur(180px)]' />
 			</AnimatedElement>
 		</section>
