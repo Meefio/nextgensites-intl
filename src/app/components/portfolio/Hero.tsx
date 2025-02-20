@@ -9,14 +9,13 @@ export function Hero() {
   return (
     <div className="relative h-[75vh] mb-8">
       <Image
-        src="/images/portfolio-hero.jpg"
+        src="/images/Hero-UnderPressure-min.jpg"
         alt="Under Pressure Hero"
         fill
         className="object-cover rounded-xl"
         priority
         quality={100}
       />
-      <div className="absolute inset-0 bg-black/65 rounded-xl" />
       <div className="absolute inset-0 container mx-auto px-4 flex flex-col justify-center">
         <div className="container">
           <AnimatedElement as='span' delay={0.1}>
