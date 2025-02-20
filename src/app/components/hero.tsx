@@ -1,6 +1,5 @@
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
 import { TextShimmer } from '@/app/components/magicui/text-shimmer'
