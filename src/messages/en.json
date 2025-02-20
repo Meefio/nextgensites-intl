@@ -59,8 +59,7 @@
     "heading": "We create websites that deliver results",
     "subheading": "We combine modern technologies with thoughtful design to make your website stand out from the competition",
     "description1": "We focus on cutting-edge solutions, leveraging the power of Next.js 15+, which translates into lightning-fast loading and excellent optimization. Our websites are multilingual by default, equipped with dark/light mode, and perfectly adapted to all devices.",
-    "description2": "Unlike outdated WordPress-based solutions, we offer stable and fast technology that doesn't fail. We treat each project individually - we don't use ready-made templates, instead we create unique solutions tailored to your needs.",
-    "description3": "We stand out not only with technology but also with attractive animations and 3D elements that capture users' attention. And all this at a competitive price with low maintenance costs.",
+    "description2": "Unlike outdated WordPress-based solutions, we offer stable and fast technology that doesn't fail. We treat each project individually - we don't use ready-made templates, instead we create unique solutions tailored to your needs. And all this at a competitive price with low maintenance costs.",
     "imageAlt": "Owner's photo"
   },
   "Portfolio": {
@@ -204,7 +203,7 @@
       },
       "Question2": {
         "question": "How much does a website cost?",
-        "answer": "The price depends on the chosen package and project complexity. Simple landing pages start from 1,300 PLN net, while more complex projects start from 2,500 PLN net. For advanced solutions, the price is determined individually."
+        "answer": "The price depends on the chosen package and project complexity. Simple landing pages start from 1,300 PLN net, while more complex projects start from 2,000 PLN net. For advanced solutions, the price is determined individually."
       },
       "Question3": {
         "question": "How long does website development take?",
@@ -613,15 +612,15 @@
       },
       "design": {
         "title": "Design",
-        "description": "The website design is based on minimalist aesthetics using contrasting colors that emphasize the company's professional character. Clear content layout and intuitive navigation allow users to quickly find the information they need. Additionally, the use of high-quality graphics and iconography related to pressure washing services enriches the visual reception of the site."
+        "description": "The website design is based on a minimalist aesthetic with contrasting colors that highlight the company's professional character. A clear content layout and intuitive navigation allow users to quickly find the information they need. Additionally, the use of high-quality graphics generated with artificial intelligence and iconography related to pressure washing services enhances the site's visual appeal."
       },
       "implementation": {
         "title": "Implementation",
-        "description": "The site was built with maximum performance and responsiveness in mind. We implemented advanced technical solutions such as image lazy loading and SEO optimization. The website looks perfect on all devices, from smartphones to large desktop screens."
+        "description": "The website was built with maximum performance and responsiveness in mind. We implemented advanced technical solutions such as lazy loading of images and SEO optimization. The site looks excellent on all devices, from smartphones to large desktop screens."
       },
       "features": {
         "title": "Features",
-        "description": "The website has been equipped with a number of modern features, such as a contact form, social media integration, and search engine optimization. All these elements work together to create an effective marketing tool."
+        "description": "The website includes a range of modern features, such as a dynamic text animation in the hero section, a photo gallery, a contact form, two interactive maps, and search engine optimization. All these elements work together to create an effective marketing tool."
       },
       "description": "Professional website for a pressure washing company",
       "viewLive": "View project live",

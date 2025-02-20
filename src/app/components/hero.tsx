@@ -69,7 +69,6 @@ export function Hero() {
 					src='/images/MacBookProHero.png'
 					width={608}
 					height={368}
-					priority
 					quality={100}
 					sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1482px'
 				/>

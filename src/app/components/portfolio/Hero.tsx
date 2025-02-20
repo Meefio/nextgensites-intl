@@ -51,7 +51,7 @@ export function Hero() {
           <AnimatedElement delay={0.5} className="flex gap-4">
             <Link
               href="/underpressure/#contact"
-              className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex h-11 items-center text-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
               {t('cta')}
             </Link>
@@ -59,7 +59,7 @@ export function Hero() {
               href="https://myciecisnieniem.pl"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center rounded-md border border-white/20 px-8 text-sm font-medium text-white transition-colors hover:bg-white/10"
+              className="inline-flex h-11 items-center text-center justify-center rounded-md border border-white/20 px-8 text-sm font-medium text-white transition-colors hover:bg-white/10"
             >
               {t('viewLive')}
             </Link>

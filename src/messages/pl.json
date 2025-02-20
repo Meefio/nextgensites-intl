@@ -59,8 +59,7 @@
     "heading": "Tworzenie stron internetowych przynoszących rezultaty",
     "subheading": "Łączymy nowoczesne technologie z przemyślanym designem, by Twoja strona wyróżniała się na tle konkurencji",
     "description1": "Stawiamy na najnowocześniejsze rozwiązania, wykorzystując potencjał Next.js 15+, co przekłada się na błyskawiczne ładowanie i doskonałą optymalizację. Nasze strony są wielojęzyczne w standardzie, wyposażone w tryb ciemny/jasny i perfekcyjnie dostosowane do wszystkich urządzeń.",
-    "description2": "W przeciwieństwie do przestarzałych rozwiązań opartych na WordPress Elementor, oferujemy stabilną i szybką technologię, która nie zawodzi. Każdy projekt traktujemy indywidualnie - nie korzystamy z gotowych szablonów. Tworzymy unikalne rozwiązania dopasowane do Twoich potrzeb.",
-    "description3": "Wyróżniamy się nie tylko technologią, ale także atrakcyjnymi animacjami i elementami 3D, które przyciągają uwagę użytkowników. A to wszystko w konkurencyjnej cenie i z niskimi kosztami utrzymania.",
+    "description2": "W przeciwieństwie do przestarzałych rozwiązań opartych na WordPress Elementor, oferujemy stabilną i szybką technologię, która nie zawodzi. Każdy projekt traktujemy indywidualnie - nie korzystamy z gotowych szablonów. Tworzymy unikalne rozwiązania dopasowane do Twoich potrzeb. A to wszystko w konkurencyjnej cenie i z niskimi kosztami utrzymania.",
     "imageAlt": "Zdjęcie właściciela"
   },
   "Portfolio": {
@@ -199,12 +198,12 @@
     "subheading": "Dowiedz się więcej o naszej pracy, procesie tworzenia stron internetowych i zaletach",
     "questions": {
       "Question1": {
-        "question": "Dlaczego korzystamy z Next.js do tworzenia stron internetowych?",
+        "question": "Dlaczego korzystamy z Next.js?",
         "answer": "Next.js to nowoczesna technologia, która zapewnia wyjątkową szybkość, doskonałą optymalizację SEO oraz wysoką wydajność. Strony stworzone w Next.js ładują się błyskawicznie i są lepiej indeksowane przez Google. Dodatkowo, koszty utrzymania są minimalne, ponieważ strony mogą działać na darmowym hostingu Vercel – platformie stworzonej przez twórców Next.js."
       },
       "Question2": {
         "question": "Ile kosztuje stworzenie strony internetowej?",
-        "answer": "Cena zależy od wybranego pakietu i złożoności projektu. Proste strony typu landing page kosztują od 1 300 zł netto, a bardziej rozbudowane projekty – od 2 500 zł netto. W przypadku zaawansowanych rozwiązań cena ustalana jest indywidualnie."
+        "answer": "Cena zależy od wybranego pakietu i złożoności projektu. Proste strony typu landing page kosztują od 1 300 zł netto, a bardziej rozbudowane projekty – od 2 000 zł netto. W przypadku zaawansowanych rozwiązań cena ustalana jest indywidualnie."
       },
       "Question3": {
         "question": "Jak długo trwa realizacja strony?",
@@ -613,7 +612,7 @@
       },
       "design": {
         "title": "Design",
-        "description": "Projekt strony opiera się na minimalistycznej estetyce z wykorzystaniem kontrastujących kolorów, które podkreślają profesjonalny charakter firmy. Przejrzysty układ treści oraz intuicyjna nawigacja umożliwiają użytkownikom szybkie odnalezienie potrzebnych informacji. Dodatkowo, zastosowanie wysokiej jakości grafik i ikonografii związanej z usługami mycia ciśnieniowego wzbogaca wizualny odbiór strony."
+        "description": "Projekt strony opiera się na minimalistycznej estetyce z wykorzystaniem kontrastujących kolorów, które podkreślają profesjonalny charakter firmy. Przejrzysty układ treści oraz intuicyjna nawigacja umożliwiają użytkownikom szybkie odnalezienie potrzebnych informacji. Dodatkowo, zastosowanie wysokiej jakości grafik, wygenerowanych z wykorzystaniem sztucznej inteligencji i ikonografii związanej z usługami mycia ciśnieniowego wzbogaca wizualny odbiór strony."
       },
       "implementation": {
         "title": "Wdrożenie",
@@ -621,7 +620,7 @@
       },
       "features": {
         "title": "Funkcjonalności",
-        "description": "Strona została wyposażona w szereg nowoczesnych funkcjonalności, takich jak formularz kontaktowy, integracja z mediami społecznościowymi oraz optymalizację pod kątem wyszukiwarek. Wszystkie te elementy współpracują ze sobą, tworząc efektywne narzędzie marketingowe."
+        "description": "Strona została wyposażona w szereg nowoczesnych funkcjonalności, takich jak zmieniający się napis w hero sekcji, galeria zdjęć, formularz kontaktowy, dwie interaktywne mapy, oraz optymalizację pod kątem wyszukiwarek. Wszystkie te elementy współpracują ze sobą, tworząc efektywne narzędzie marketingowe."
       },
       "description": "Profesjonalna strona internetowa dla firmy zajmującej się myciem ciśnieniowym",
       "viewLive": "Zobacz projekt live",
@@ -633,7 +632,7 @@
         "description": "Po 6 miesiącach od wdrożenia, strona osiągnęła pierwszą pozycję w Google dla kluczowych fraz związanych z myciem ciśnieniowym w regionie. Zoptymalizowana treść i struktura strony przyczyniły się do znacznego wzrostu organicznego ruchu."
       },
       "Google-position-2": {
-        "title": "Dominacja w Google",
+        "title": "Dominacja w wynikach wyszukiwarki",
         "description": "Konsekwentne utrzymywanie wysokich pozycji, zaraz po pozycjach sponsorowanych przekłada się na stały napływ nowych klientów. Strona zajmuje czołowe miejsca dla wielu fraz związanych z myciem kostki brukowej, elewacji i dachów."
       }
     }

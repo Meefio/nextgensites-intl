@@ -12,6 +12,22 @@ export function PhotoSection() {
       <div className="flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-1/3">
           <div className="relative flex flex-col flex-1 h-full gap-4">
+            <div className="relative flex-1">
+              <div className="sticky top-[40%]">
+                <AnimatedElement>
+                  <Card className="sticky top-[50%]">
+                    <CardHeader>
+                      <CardTitle>{t('features.title')}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {t('features.description')}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </AnimatedElement>
+              </div>
+            </div>
             <div className="flex-1">
               <div className="sticky top-[40%]">
 
@@ -45,22 +61,7 @@ export function PhotoSection() {
                 </AnimatedElement>
               </div>
             </div>
-            <div className="relative flex-1">
-              <div className="sticky top-[40%]">
-                <AnimatedElement>
-                  <Card className="sticky top-[50%]">
-                    <CardHeader>
-                      <CardTitle>{t('features.title')}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {t('features.description')}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </AnimatedElement>
-              </div>
-            </div>
+            
           </div>
         </div>
         <div className="w-full md:w-2/3">

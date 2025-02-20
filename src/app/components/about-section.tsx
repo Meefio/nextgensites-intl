@@ -39,7 +39,6 @@ export function About() {
           <div className="space-y-4">
             <p className="text-muted-foreground">{t('description1')}</p>
             <p className="text-muted-foreground">{t('description2')}</p>
-            <p className="text-muted-foreground">{t('description3')}</p>
           </div>
         </AnimatedElement>
 
