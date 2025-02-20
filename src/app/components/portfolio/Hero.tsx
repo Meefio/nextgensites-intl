@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <div className="relative h-[75vh] mb-8">
       <Image
-        src="/images/Hero-UnderPressure-min.jpg"
+        src="/images/Hero-Underpressure-min.jpg"
         alt="Under Pressure Hero"
         fill
         className="object-cover rounded-xl"
