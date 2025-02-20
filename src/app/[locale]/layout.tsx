@@ -7,6 +7,13 @@ import { ThemeProvider } from "@/app/components/theme-provider"
 import { Toaster } from "@/app/components/ui/toaster";
 import { CookieBanner } from "@/app/components/cookie-banner";
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+	title: 'NextGen Sites - Tworzenie stron internetowych',
+	description: 'Tworzymy szybkie, zoptymalizowane i nowoczesne strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.',
+}
+
 const fontSans = Inter({
 	variable: "--font-sans",
 	subsets: ["latin"],
