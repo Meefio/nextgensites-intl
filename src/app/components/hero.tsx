@@ -64,23 +64,16 @@ export function Hero() {
 				initial={{ opacity: 0, x: 20 }}
 				animate={{ opacity: 1, x: 0 }}
 			>
-				<Link
-					href='https://myciecisnieniem.pl/'
-					target='_blank'
-					rel='noopener noreferrer'
-					className='block'
-				>
 					<Image
 						alt='Przykład nowoczesnej strony internetowej'
-						src='/images/hero-image.webp'
-						width={1482}
-						height={899}
+						src='/images/MacBookProHero.png'
+						width={608}
+						height={368}
 						priority
 						quality={100}
 						sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1482px'
-						className='rounded-xl border'
 					/>
-				</Link>
+				
 				<div className='absolute inset-0 -z-10 bg-primary/20 [filter:blur(180px)]' />
 			</AnimatedElement>
 		</section>
