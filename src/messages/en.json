@@ -649,17 +649,17 @@
       "url": "https://nextgensites.pl"
     },
     "generator": "Next.js",
-    "keywords": "website development, next.js websites, modern websites, small business website, landing page creation, web design, warsaw websites, responsive websites, fast websites, professional websites, online business card, landing page, subscription-based websites",
+    "keywords": "website development, next.js websites, modern websites, small business website, landing page creation, web design, warsaw websites, responsive websites, fast websites, professional websites, online business card, landing page",
     "creator": "NextGen Sites - Professional Website Development",
     "publisher": "NextGen Sites",
     "openGraph": {
       "siteName": "NextGen Sites - Professional Website Development",
-      "title": "Website Development and Landing Pages | Next.js Websites | NextGen Sites",
-      "description": "We create fast and optimized websites using the latest Next.js 15+ technology. Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
+      "title": "Website Development and Landing Pages | Next.js 15+",
+      "description": "Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
       "imageAlt": "NextGen Sites - Professional Website Development in Next.js"
     },
     "twitter": {
-      "title": "Website Development in Next.js | NextGen Sites",
+      "title": "Website development in Next.js | NextGen Sites",
       "description": "Professional websites and landing pages. Modern Next.js-based solutions with performance guarantee.",
       "imageAlt": "NextGen Sites - Professional Website Development in Next.js"
     }
