@@ -8,7 +8,7 @@ export function PhotoSection() {
   const t = useTranslations('Portfolio-sections.UnderPressure')
 
   return (
-    <div className="ovflow-scroll flex flex-col gap-8">
+    <div className="container ovflow-scroll flex flex-col gap-8">
       <div className="flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-1/3">
           <div className="relative flex flex-col flex-1 h-full gap-4">

@@ -18,7 +18,7 @@ export function Header() {
   ];
 
   return (
-    <header className="flex items-center justify-between gap-4 py-4">
+    <header className="container flex items-center justify-between gap-4 py-4">
       <AnimatedElement
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}

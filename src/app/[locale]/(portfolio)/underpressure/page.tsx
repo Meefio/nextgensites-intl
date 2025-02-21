@@ -8,12 +8,12 @@ export default function UnderPressureProject() {
   return (
     <>
       <Hero />
-      <div className="container mx-auto px-4 py-8">
+      <main>
         <AboutSection />
         <PhotoSection />
         <ContactForm />
         <Footer />
-      </div>
+      </main>
     </>
   )
 } 
