@@ -636,5 +636,50 @@
         "description": "Konsekwentne utrzymywanie wysokich pozycji, zaraz po pozycjach sponsorowanych przekłada się na stały napływ nowych klientów. Strona zajmuje czołowe miejsca dla wielu fraz związanych z myciem kostki brukowej, elewacji i dachów."
       }
     }
+  },
+  "Metadata": {
+    "title": {
+      "default": "Tworzenie nowoczesnych stron internetowych w Next.js | NextGen Sites",
+      "template": "%s | NextGen Sites - Profesjonalne Tworzenie Stron WWW"
+    },
+    "description": "Nowoczesne strony WWW dla firm z gwarancją wysokiej wydajności i najlepszych praktyk SEO. Oferujemy strony internetowe z abonamentem.",
+    "applicationName": "NextGen Sites - Profesjonalne Tworzenie Stron Internetowych",
+    "authors": {
+      "name": "Michał Rowiński",
+      "url": "https://nextgensites.pl"
+    },
+    "generator": "Next.js",
+    "keywords": "tworzenie stron internetowych, strony internetowe next.js, nowoczesne strony www, strona internetowa dla małej firmy, tworzenie landing page, projektowanie stron www, strony internetowe warszawa, responsywne strony www, szybkie strony internetowe, profesjonalne strony www, wizytówka online, landing page, strony internetowe z abonamentem",
+    "creator": "NextGen Sites - Profesjonalne Tworzenie Stron WWW",
+    "publisher": "NextGen Sites",
+    "openGraph": {
+      "siteName": "NextGen Sites - Profesjonalne Tworzenie Stron Internetowych",
+      "title": "Tworzenie Stron Internetowych i Landing Page | Strony w Next.js | NextGen Sites",
+      "description": "Profesjonalne tworzenie stron internetowych w Next.js. Nowoczesne strony WWW dla firm z gwarancją wysokiej wydajności i najlepszych praktyk SEO. Sprawdź naszą ofertę!",
+      "imageAlt": "NextGen Sites - Profesjonalne Tworzenie Stron Internetowych w Next.js"
+    },
+    "twitter": {
+      "title": "Tworzenie Stron Internetowych w Next.js | NextGen Sites",
+      "description": "Profesjonalne strony WWW i landing page. Nowoczesne rozwiązania oparte o Next.js z gwarancją wydajności.",
+      "imageAlt": "NextGen Sites - Profesjonalne Tworzenie Stron Internetowych w Next.js"
+    }
+  },
+  "Manifest": {
+    "name": "NextGen Sites",
+    "shortName": "NextGen Sites",
+    "description": "Tworzenie nowoczesnych stron internetowych w Next.js 15+",
+    "categories": "business, technology, web development",
+    "screenshots": {
+      "home": {
+        "label": "Strona główna NextGen Sites"
+      }
+    },
+    "shortcuts": {
+      "home": {
+        "name": "Strona główna",
+        "shortName": "Home",
+        "description": "Przejdź do strony głównej"
+      }
+    }
   }
 }

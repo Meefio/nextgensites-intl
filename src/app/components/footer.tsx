@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
 import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 
 export function Footer() {
   const t = useTranslations('Footer');
+  const locale = useLocale();
 
   return (
     <footer className="container max-w-6xl mt-10 flex flex-wrap justify-between pb-16 pt-10 ">
@@ -73,13 +75,13 @@ export function Footer() {
 
       <div className="mt-10 flex basis-1/2 flex-col gap-5 md:mt-0 md:basis-auto">
         <h3 className="font-semibold">{t('documents')}</h3>
-        <Link href="/polityka-prywatnosci" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link locale={locale} href="/polityka-prywatnosci" className="text-sm text-muted-foreground hover:text-foreground">
           {t('privacy')}
         </Link>
-        <Link href="/regulamin" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link locale={locale} href="/regulamin" className="text-sm text-muted-foreground hover:text-foreground">
           {t('terms')}
         </Link>
-        <Link href="/rodo" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link locale={locale} href="/rodo" className="text-sm text-muted-foreground hover:text-foreground">
           {t('gdpr')}
         </Link>
       </div>

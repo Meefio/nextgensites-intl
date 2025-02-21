@@ -8,10 +8,49 @@ import { Toaster } from "@/app/components/ui/toaster";
 import { CookieBanner } from "@/app/components/cookie-banner";
 
 import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import { metadata as baseMetadata } from './metadata';
 
-export const metadata: Metadata = {
-	title: 'NextGen Sites - Tworzenie stron internetowych',
-	description: 'Tworzymy szybkie, zoptymalizowane i nowoczesne strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.',
+interface GenerateMetadataProps {
+	params: {
+		locale: string;
+	};
+}
+
+export async function generateMetadata({ params: { locale } }: GenerateMetadataProps): Promise<Metadata> {
+	const t = await getTranslations({ locale, namespace: 'Metadata' });
+
+	const metadata: Metadata = {
+		title: {
+			default: t('title.default'),
+			template: t('title.template')
+		},
+		description: t('description'),
+		applicationName: t('applicationName'),
+		authors: [{ name: t('authors.name'), url: t('authors.url') }],
+		generator: t('generator'),
+		keywords: t('keywords').split(',').map(k => k.trim()),
+		creator: t('creator'),
+		publisher: t('publisher'),
+		openGraph: {
+			...baseMetadata.openGraph,
+			siteName: t('openGraph.siteName'),
+			title: t('openGraph.title'),
+			description: t('openGraph.description'),
+			locale: locale,
+			alternateLocale: locale === 'pl' ? ['en'] : ['pl'],
+		},
+		twitter: {
+			...baseMetadata.twitter,
+			title: t('twitter.title'),
+			description: t('twitter.description'),
+		}
+	};
+
+	return {
+		...baseMetadata,
+		...metadata
+	} as Metadata;
 }
 
 const fontSans = Inter({
@@ -38,7 +77,8 @@ export default async function LocaleLayout({
 		<html lang={locale} suppressHydrationWarning>
 			<body suppressHydrationWarning
 				className={cn(
-					"font-sans antialiased scroll-smooth",
+					" font-sans antialiased scroll-smooth",
+					"w-full",
 					fontSans.variable,
 					fontHeading.variable
 				)}

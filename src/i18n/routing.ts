@@ -21,10 +21,14 @@ export const routing = defineRouting({
     '/gdpr': {
       pl: '/rodo',
       en: '/gdpr'
+    },
+    '/underpressure': {
+      pl: '/underpressure',
+      en: '/underpressure'
     }
   }
 });
-
+  
 // Lightweight wrappers around Next.js' navigation APIs
 // that will consider the routing configuration
 export const { Link, redirect, usePathname, useRouter, getPathname } =
