@@ -1,22 +1,29 @@
-import { getTranslations } from 'next-intl/server';
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from 'next'
+import { createTranslator } from 'next-intl'
 
-export default async function manifest({ params }: { params: { locale: string } }): Promise<MetadataRoute.Manifest> {
-  const t = await getTranslations({ locale: params.locale, namespace: 'Manifest' });
+async function getTranslations(locale: string) {
+  const messages = (await import(`@/messages/${locale}.json`)).default
+  const t = createTranslator({ locale, messages: messages.Manifest })
+  return t
+}
+
+export default async function manifest(): Promise<MetadataRoute.Manifest> {
+  const t = await getTranslations('pl')
 
   return {
     name: t('name'),
     short_name: t('shortName'),
     description: t('description'),
-    id: '/',
-    lang: params.locale,
-    dir: 'ltr',
     start_url: '/',
+    id: '/',
     display: 'standalone',
     display_override: ['window-controls-overlay'],
     background_color: '#020817',
     theme_color: '#020817',
+    lang: 'pl',
+    dir: 'ltr',
     prefer_related_applications: false,
+    categories: t('categories').split(',').map(c => c.trim()),
     icons: [
       {
         src: '/favicon.ico',
@@ -43,7 +50,6 @@ export default async function manifest({ params }: { params: { locale: string } 
       },
     ],
     orientation: 'portrait',
-    categories: t('categories').split(',').map(c => c.trim()),
     screenshots: [
       {
         src: '/images/home.png',
@@ -63,4 +69,4 @@ export default async function manifest({ params }: { params: { locale: string } 
       }
     ]
   }
-}
+} 

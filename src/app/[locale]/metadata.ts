@@ -21,7 +21,7 @@ export const metadata = (locale: string): Metadata => ({
     },
   },
   alternates: {
-    canonical: '/pl',
+    canonical: `/${locale}`,
     languages: {
       'pl-PL': '/pl',
       'en-US': '/en',
@@ -29,6 +29,7 @@ export const metadata = (locale: string): Metadata => ({
   },
   openGraph: {
     type: 'website',
+    locale: locale === 'pl' ? 'pl_PL' : 'en_US',
     images: [
       {
         url: '/images/og-image.png',
@@ -64,7 +65,7 @@ export const metadata = (locale: string): Metadata => ({
       },
     ],
   },
-  manifest: `/${locale}/manifest.json`,
+  manifest: '/manifest.json',
   category: 'technology',
   other: {
     'color-scheme': 'dark',
