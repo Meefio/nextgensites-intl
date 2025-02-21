@@ -9,6 +9,9 @@ import { useTranslations } from "next-intl";
 
 export function Faq() {
   const t = useTranslations("Faq");
+  const allQuestions = ["Question1", "Question2", "Question3", "Question4", "Question5", "Question6", "Question7", "Question8"];
+  const firstHalf = allQuestions.slice(0, 4);
+  const secondHalf = allQuestions.slice(4);
 
   return (
     <section className="container flex flex-col items-center gap-6 pt-14 pb-24 md:py-24 sm:gap-7">
@@ -26,10 +29,10 @@ export function Faq() {
         <AnimatedElement
           direction="left"
           delay={0.2}
-          className="rounded-lg border bg-card p-6 shadow-sm h-fit"
+          className="rounded-lg border bg-card px-6 shadow-sm h-fit"
         >
-          <Accordion type="single" collapsible className="space-y-4">
-            {["Question1", "Question2", "Question3", "Question4"].map((key) => (
+          <Accordion type="single" collapsible>
+            {firstHalf.map((key) => (
               <AccordionItem key={key} value={key}>
                 <AccordionTrigger className="py-4 text-left text-base hover:no-underline">
                   {t(`questions.${key}.question`)}
@@ -39,16 +42,28 @@ export function Faq() {
                 </AccordionContent>
               </AccordionItem>
             ))}
+            <div className="md:hidden">
+              {secondHalf.map((key) => (
+                <AccordionItem key={key} value={key}>
+                  <AccordionTrigger className="py-4 text-left text-base hover:no-underline">
+                    {t(`questions.${key}.question`)}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-base text-muted-foreground pt-2 pb-4">
+                    {t(`questions.${key}.answer`)}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </div>
           </Accordion>
         </AnimatedElement>
 
         <AnimatedElement
           direction="right"
           delay={0.3}
-          className="rounded-lg border bg-card p-6 shadow-sm h-fit"
+          className="rounded-lg border bg-card px-6 shadow-sm h-fit hidden md:block"
         >
-          <Accordion type="single" collapsible className="space-y-4">
-            {["Question5", "Question6", "Question7", "Question8"].map((key) => (
+          <Accordion type="single" collapsible>
+            {secondHalf.map((key) => (
               <AccordionItem key={key} value={key}>
                 <AccordionTrigger className="py-4 text-left text-base hover:no-underline">
                   {t(`questions.${key}.question`)}
