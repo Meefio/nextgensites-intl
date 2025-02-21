@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
+export const metadata = (locale: string): Metadata => ({
   metadataBase: new URL('https://nextgensites.pl'),
   referrer: 'origin-when-cross-origin',
   formatDetection: {
@@ -48,7 +48,6 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
       { url: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
@@ -65,7 +64,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  manifest: '/manifest.json',
+  manifest: `/${locale}/manifest.json`,
   category: 'technology',
   other: {
     'color-scheme': 'dark',
@@ -73,4 +72,4 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-status-bar-style': 'black-translucent',
     'msvalidate.01': '4DF508BDA9824D31C606EEF153D9F5C2',
   },
-}; 
+}); 

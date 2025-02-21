@@ -20,6 +20,8 @@ interface GenerateMetadataProps {
 export async function generateMetadata({ params: { locale } }: GenerateMetadataProps): Promise<Metadata> {
 	const t = await getTranslations({ locale, namespace: 'Metadata' });
 
+	const baseMetadataWithLocale = baseMetadata(locale);
+
 	const metadata: Metadata = {
 		title: {
 			default: t('title.default'),
@@ -33,7 +35,7 @@ export async function generateMetadata({ params: { locale } }: GenerateMetadataP
 		creator: t('creator'),
 		publisher: t('publisher'),
 		openGraph: {
-			...baseMetadata.openGraph,
+			...baseMetadataWithLocale.openGraph,
 			siteName: t('openGraph.siteName'),
 			title: t('openGraph.title'),
 			description: t('openGraph.description'),
@@ -41,14 +43,14 @@ export async function generateMetadata({ params: { locale } }: GenerateMetadataP
 			alternateLocale: locale === 'pl' ? ['en'] : ['pl'],
 		},
 		twitter: {
-			...baseMetadata.twitter,
+			...baseMetadataWithLocale.twitter,
 			title: t('twitter.title'),
 			description: t('twitter.description'),
 		}
 	};
 
 	return {
-		...baseMetadata,
+		...baseMetadataWithLocale,
 		...metadata
 	} as Metadata;
 }
