@@ -636,5 +636,50 @@
         "description": "Consistently maintaining top positions, right after sponsored positions, translates into a steady flow of new customers. The site ranks at the top for many phrases related to cleaning paving stones, facades, and roofs."
       }
     }
+  },
+  "Metadata": {
+    "title": {
+      "default": "Creating Modern Websites in Next.js | NextGen Sites",
+      "template": "%s | NextGen Sites - Professional Website Development"
+    },
+    "description": "We create fast and optimized websites using the latest Next.js 15+ technology. Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
+    "applicationName": "NextGen Sites - Professional Website Development",
+    "authors": {
+      "name": "Michał Rowiński",
+      "url": "https://nextgensites.pl"
+    },
+    "generator": "Next.js",
+    "keywords": "website development, next.js websites, modern websites, small business website, landing page creation, web design, warsaw websites, responsive websites, fast websites, professional websites, online business card, landing page, subscription-based websites",
+    "creator": "NextGen Sites - Professional Website Development",
+    "publisher": "NextGen Sites",
+    "openGraph": {
+      "siteName": "NextGen Sites - Professional Website Development",
+      "title": "Website Development and Landing Pages | Next.js Websites | NextGen Sites",
+      "description": "We create fast and optimized websites using the latest Next.js 15+ technology. Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
+      "imageAlt": "NextGen Sites - Professional Website Development in Next.js"
+    },
+    "twitter": {
+      "title": "Website Development in Next.js | NextGen Sites",
+      "description": "Professional websites and landing pages. Modern Next.js-based solutions with performance guarantee.",
+      "imageAlt": "NextGen Sites - Professional Website Development in Next.js"
+    }
+  },
+  "Manifest": {
+    "name": "NextGen Sites",
+    "shortName": "NextGen Sites",
+    "description": "We create fast and optimized websites using the latest Next.js 15+ technology. Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
+    "categories": "business, technology, web development",
+    "screenshots": {
+      "home": {
+        "label": "NextGen Sites Homepage"
+      }
+    },
+    "shortcuts": {
+      "home": {
+        "name": "Homepage",
+        "shortName": "Home",
+        "description": "Go to homepage"
+      }
+    }
   }
 }

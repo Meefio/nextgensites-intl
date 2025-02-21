@@ -642,7 +642,7 @@
       "default": "Tworzenie nowoczesnych stron internetowych w Next.js | NextGen Sites",
       "template": "%s | NextGen Sites - Profesjonalne Tworzenie Stron WWW"
     },
-    "description": "Nowoczesne strony WWW dla firm z gwarancją wysokiej wydajności i najlepszych praktyk SEO. Oferujemy strony internetowe z abonamentem.",
+    "description": "Tworzymy szybkie i zoptymalizowane strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
     "applicationName": "NextGen Sites - Profesjonalne Tworzenie Stron Internetowych",
     "authors": {
       "name": "Michał Rowiński",
@@ -655,7 +655,7 @@
     "openGraph": {
       "siteName": "NextGen Sites - Profesjonalne Tworzenie Stron Internetowych",
       "title": "Tworzenie Stron Internetowych i Landing Page | Strony w Next.js | NextGen Sites",
-      "description": "Profesjonalne tworzenie stron internetowych w Next.js. Nowoczesne strony WWW dla firm z gwarancją wysokiej wydajności i najlepszych praktyk SEO. Sprawdź naszą ofertę!",
+      "description": "Tworzymy szybkie i zoptymalizowane strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
       "imageAlt": "NextGen Sites - Profesjonalne Tworzenie Stron Internetowych w Next.js"
     },
     "twitter": {
@@ -667,7 +667,7 @@
   "Manifest": {
     "name": "NextGen Sites",
     "shortName": "NextGen Sites",
-    "description": "Tworzenie nowoczesnych stron internetowych w Next.js 15+",
+    "description": "Tworzymy szybkie i zoptymalizowane strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
     "categories": "business, technology, web development",
     "screenshots": {
       "home": {
