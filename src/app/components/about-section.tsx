@@ -54,7 +54,6 @@ export function About() {
               width={225}
               height={300}
               className="object-cover px-4 md:px-6 w-full max-w-[180px] md:max-w-[225px]"
-              priority
             />
             <p className="mt-2 text-sm font-medium text-muted-foreground text-center">
               Michał Rowiński - CEO NextGen Sites

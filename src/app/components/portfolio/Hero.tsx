@@ -13,7 +13,6 @@ export function Hero() {
         alt="Under Pressure Hero"
         fill
         className="object-cover rounded-xl"
-        priority
         quality={100}
       />
       <div className="absolute inset-0 container mx-auto px-4 flex flex-col justify-center">
