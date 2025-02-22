@@ -22,7 +22,7 @@ const Portfolio = () => {
   const projects: Project[] = [
     {
       slug: 'myciecisnieniem.pl',
-      image: '/images/hero-image.webp',
+      image: '/images/underpressure-small-min.png',
       title: t('projects.project1.title'),
       description: t('projects.project1.description'),
       tags: t.raw('projects.project1.tags') as string[],
@@ -30,7 +30,7 @@ const Portfolio = () => {
     },
     {
       slug: 'kwiaciarnia-strelicja.webflow.io',
-      image: '/images/kwiaciarnia-strelicja.jpg',
+      image: '/images/kwiaciarnia-strelicja-small-min.png',
       title: t('projects.project2.title'),
       description: t('projects.project2.description'),
       tags: t.raw('projects.project2.tags') as string[],
@@ -72,8 +72,8 @@ const Portfolio = () => {
                   <Image
                     src={project.image}
                     alt={project.imageAlt}
-                    width={741}
-                    height={450}
+                    width={1156}
+                    height={650}
                     className="object-cover max-h-[420px] object-top"
                   />
                 </div>
