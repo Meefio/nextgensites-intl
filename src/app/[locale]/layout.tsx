@@ -12,12 +12,13 @@ import { getTranslations } from 'next-intl/server';
 import { metadata as baseMetadata } from './metadata';
 
 interface GenerateMetadataProps {
-	params: {
+	params: Promise<{
 		locale: string;
-	};
+	}>;
 }
 
-export async function generateMetadata({ params: { locale } }: GenerateMetadataProps): Promise<Metadata> {
+export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
+	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: 'Metadata' });
 
 	const baseMetadataWithLocale = baseMetadata(locale);
