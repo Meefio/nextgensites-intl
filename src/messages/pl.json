@@ -61,7 +61,8 @@
     "description1": "Stawiamy na <strong>Next.js</strong>, dzięki czemu strony ładują się błyskawicznie, są zoptymalizowane i osiągają <strong>wysokie wyniki w wyszukiwarkach</strong>. Tworzymy <strong>responsywne, wielojęzyczne strony</strong> z dodatkowymi funkcjami, takimi jak <strong>tryb ciemny/jasny</strong>.",
     "description2": "Nie korzystamy z gotowych szablonów ani przestarzałych rozwiązań jak WordPress Elementor. Każdy projekt jest unikalny, dopasowany do Twoich potrzeb, a jednocześnie oferujemy <strong>konkurencyjne ceny</strong> i <strong>niskie koszty utrzymania</strong>.",
     "description3": "Zainspirowała Cię inna strona? Skontaktuj się z nami – stworzymy dla Ciebie <strong>idealną wizytówkę online</strong>.",
-    "imageAlt": "Zdjęcie właściciela"
+    "imageAlt": "Zdjęcie właściciela",
+    "freeConsultation": "Darmowa konsultacja"
   },
   "Portfolio": {
     "why": "Zobacz efekty naszej pracy",

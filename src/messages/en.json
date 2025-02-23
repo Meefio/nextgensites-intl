@@ -61,7 +61,8 @@
     "description1": "We use <strong>Next.js</strong>, ensuring lightning-fast load times, full optimization, and <strong>high search engine rankings</strong>. Our websites are <strong>responsive and multilingual</strong>, featuring extras like <strong>dark/light mode</strong>.",
     "description2": "We don’t use templates or outdated solutions like WordPress Elementor. Every project is unique, tailored to your needs, while offering <strong>competitive pricing</strong> and <strong>low maintenance costs</strong>.",
     "description3": "Inspired by another website? Contact us, and we’ll create your <strong>perfect online presence</strong>.",
-    "imageAlt": "Owner's photo"
+    "imageAlt": "Owner's photo",
+    "freeConsultation": "Free consultation"
   },
   "Portfolio": {
     "why": "See our work",

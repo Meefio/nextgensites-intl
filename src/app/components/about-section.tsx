@@ -3,6 +3,8 @@
 import Image from "next/image"
 import { AnimatedElement } from "@/app/components/motion/animated-element"
 import { useTranslations } from 'next-intl'
+import { Button } from "@/app/components/ui/button"
+import Link from "next/link"
 
 export function About() {
   const t = useTranslations('About')
@@ -74,6 +76,16 @@ export function About() {
           </div>
         </AnimatedElement>
       </div>
+
+      <AnimatedElement
+        className="flex justify-center mt-8"
+        delay={0.5}
+        viewport={{ once: true, margin: "-20% 0px" }}
+      >
+        <Button size="lg" asChild>
+          <Link href="/#contact">{t('freeConsultation')}</Link>
+        </Button>
+      </AnimatedElement>
     </section>
   )
 } 
