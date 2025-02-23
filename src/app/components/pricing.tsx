@@ -19,6 +19,7 @@ export function Pricing() {
 			key: 'basic',
 			monthlyPrice: t('plans.basic.monthlyPrice'),
 			oneTimePrice: t('plans.basic.oneTimePrice'),
+			promoPrice: t('plans.basic.promoPrice'),
 			timeframe: t('plans.basic.timeframe'),
 			name: t('plans.basic.name'),
 			description: t('plans.basic.description'),
@@ -28,6 +29,7 @@ export function Pricing() {
 			key: 'professional',
 			monthlyPrice: t('plans.professional.monthlyPrice'),
 			oneTimePrice: t('plans.professional.oneTimePrice'),
+			promoPrice: t('plans.professional.promoPrice'),
 			timeframe: t('plans.professional.timeframe'),
 			name: t('plans.professional.name'),
 			description: t('plans.professional.description'),
@@ -46,11 +48,27 @@ export function Pricing() {
 	]
 
 	const PriceDisplay = ({ plan }: { plan: typeof plans[0] }) => {
-		return (
-			<div className='relative h-[60px] flex items-center justify-center'>
-				<div>
+		if (plan.key === 'premium') {
+			return (
+				<div className='relative h-[60px] flex items-center justify-center'>
 					<span className='font-heading text-2xl text-center'>
 						{plan.oneTimePrice}
+					</span>
+				</div>
+			)
+		}
+
+		return (
+			<div className='relative h-[60px] flex flex-col items-center justify-center gap-1'>
+				<span className='font-heading text-2xl text-center line-through text-muted-foreground'>
+					{plan.oneTimePrice}
+				</span>
+				<div className='flex flex-col items-center gap-1'>
+					<span className='font-heading text-2xl text-center text-primary font-bold'>
+						{plan.promoPrice}
+					</span>
+					<span className='text-sm text-primary font-semibold animate-pulse'>
+						{t('promoInfo')}
 					</span>
 				</div>
 			</div>
@@ -71,6 +89,9 @@ export function Pricing() {
 				</h2>
 				<p className='text-lg text-muted-foreground text-balance max-w-lg text-center'>
 					{t('subheading')}
+				</p>
+				<p className='text-lg font-semibold text-primary animate-pulse text-center'>
+					{t('promoHeader')}
 				</p>
 			</AnimatedElement>
 

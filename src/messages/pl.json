@@ -133,11 +133,14 @@
     "why": "Cennik",
     "heading": "Przyjazne ceny",
     "subheading": "Cennik, który dopasuje się do Twoich potrzeb",
+    "promoHeader": "🎉 Promocja! -50% na wszystkie pakiety do końca lutego! 🎉",
+    "promoInfo": "Promocja -50%",
     "plans": {
       "basic": {
         "name": "Podstawowy",
         "monthlyPrice": "150zł-200zł*",
-        "oneTimePrice": "1 300zł - 3 000zł*",
+        "oneTimePrice": "2 500zł - 6 000zł*",
+        "promoPrice": "1 250zł - 3 000zł*",
         "description": "Idealne rozwiązanie dla małych firm i startupów, które potrzebują profesjonalnej obecności w sieci",
         "timeframe": "5–7 dni roboczych",
         "features": [
@@ -153,7 +156,8 @@
       "professional": {
         "name": "Profesjonalny",
         "monthlyPrice": "250zł*",
-        "oneTimePrice": "2 000zł - 5 000zł*",
+        "oneTimePrice": "4 000zł - 10 000zł*",
+        "promoPrice": "2 000zł - 5 000zł*",
         "description": "Rozbudowana strona firmowa dla pełnej prezentacji Twojej oferty",
         "timeframe": "7–15 dni roboczych",
         "features": [

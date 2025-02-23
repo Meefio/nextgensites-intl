@@ -133,11 +133,13 @@
     "why": "Pricing",
     "heading": "Friendly prices",
     "subheading": "Pricing that adapts to your needs",
+    "promoHeader": "🎉 Promotion! -50% on all packages until the end of February! 🎉",
+    "promoInfo": "50% off",
     "plans": {
       "basic": {
         "name": "Basic",
         "monthlyPrice": "150zł - 200zł*",
-        "oneTimePrice": "349$ - 750$*",
+        "oneTimePrice": "$700 - $1500*",
         "description": "Ideal solution for small companies and startups that need a professional presence on the web",
         "timeframe": "5–7 business days",
         "features": [
@@ -148,12 +150,13 @@
           "GDPR and Cookies Policy",
           "SSL Certificate",
           "Technical support for 1 month"
-        ]
+        ],
+        "promoPrice": "$350 - $750*"
       },
       "professional": {
         "name": "Professional",
         "monthlyPrice": "250zł*",
-        "oneTimePrice": "499$ - 1 299$*",
+        "oneTimePrice": "$1 000 - $2 500*",
         "description": "Comprehensive business website for full presentation of your offer",
         "timeframe": "7–15 business days",
         "features": [
@@ -166,7 +169,8 @@
           "Interactive Google Map with company location",
           "Technical support for 2 months"
         ],
-        "popular": "Most Popular"
+        "popular": "Most Popular",
+        "promoPrice": "$500 - $1 200*"
       },
       "premium": {
         "name": "Premium Solution",
@@ -198,40 +202,40 @@
     "why": "FAQ",
     "heading": "Frequently Asked Questions",
     "subheading": "Learn more about our work, website development process and benefits",
-      "questions": {
-        "Question1": {
-          "question": "Why do we use Next.js?",
-          "answer": "Next.js is a modern technology that ensures excellent <strong>SEO optimization</strong> and <strong>high performance</strong>. Websites built with Next.js load instantly and are better indexed by Google. Additionally, <strong>maintenance costs are minimal</strong> because sites can run on free Vercel hosting – a platform created by Next.js developers."
-        },
-        "Question2": {
-          "question": "What additional costs may occur?",
-          "answer": "<ul class='list-none space-y-2 mt-2'><li>- <strong>Domain</strong> (website name): approx. $4.99/year</li><li>- <strong>Hosting</strong> is available on <strong>Vercel for free</strong></li><li>- <strong>Business email</strong> (optional): approx. $5.99/year with our recommended provider <strong>Hostinger</strong></li></ul>"
-        },
-        "Question3": {
-          "question": "How long does it take to create a website?",
-          "answer": "Development time depends on the chosen package. A <strong>simple website</strong> can be ready in 5-7 business days, while more <strong>complex projects</strong> take 7 to 30 days. The speed of implementation also depends on the delivery of materials by the client."
-        },
-        "Question4": {
-          "question": "Can I edit the website content myself?",
-          "answer": "Absolutely! However, remember to request this feature during the project estimation phase. The <strong>Content Management System (CMS)</strong> is available in the \"Premium Solution\" package and allows for easy <strong>editing of texts, images, and other website elements</strong> without any programming knowledge."
-        },
-        "Question5": {
-          "question": "Will my website be visible in Google?",
-          "answer": "Yes, all our websites are <strong>SEO optimized</strong>, which increases their <strong>visibility in search engines</strong> and improves <strong>rankings</strong>."
-        },
-        "Question6": {
-          "question": "Can I add additional features to the website?",
-          "answer": "Yes, you can order additional features such as <strong>multilingual support</strong>, <strong>business email configuration</strong>, <strong>dark/light mode</strong>, <strong>blog</strong>, <strong>testimonials module</strong>, <strong>newsletter</strong>, <strong>AI chatbot</strong>, or <strong>e-commerce functionality</strong>."
-        },
-        "Question7": {
-          "question": "How much does a website cost?",
-          "answer": "The price depends on the chosen package and project complexity. Simple <strong>landing pages</strong> start from $349$, while more <strong>advanced projects</strong> start from $549$. For sophisticated solutions, the price is determined individually."
-        },
-        "Question8": {
-          "question": "What rights will I have to the website after project completion?",
-          "answer": "After project completion, you receive <strong>full rights to the website and code</strong>, as well as all necessary access credentials."
-        }
+    "questions": {
+      "Question1": {
+        "question": "Why do we use Next.js?",
+        "answer": "Next.js is a modern technology that ensures excellent <strong>SEO optimization</strong> and <strong>high performance</strong>. Websites built with Next.js load instantly and are better indexed by Google. Additionally, <strong>maintenance costs are minimal</strong> because sites can run on free Vercel hosting – a platform created by Next.js developers."
+      },
+      "Question2": {
+        "question": "What additional costs may occur?",
+        "answer": "<ul class='list-none space-y-2 mt-2'><li>- <strong>Domain</strong> (website name): approx. $4.99/year</li><li>- <strong>Hosting</strong> is available on <strong>Vercel for free</strong></li><li>- <strong>Business email</strong> (optional): approx. $5.99/year with our recommended provider <strong>Hostinger</strong></li></ul>"
+      },
+      "Question3": {
+        "question": "How long does it take to create a website?",
+        "answer": "Development time depends on the chosen package. A <strong>simple website</strong> can be ready in 5-7 business days, while more <strong>complex projects</strong> take 7 to 30 days. The speed of implementation also depends on the delivery of materials by the client."
+      },
+      "Question4": {
+        "question": "Can I edit the website content myself?",
+        "answer": "Absolutely! However, remember to request this feature during the project estimation phase. The <strong>Content Management System (CMS)</strong> is available in the \"Premium Solution\" package and allows for easy <strong>editing of texts, images, and other website elements</strong> without any programming knowledge."
+      },
+      "Question5": {
+        "question": "Will my website be visible in Google?",
+        "answer": "Yes, all our websites are <strong>SEO optimized</strong>, which increases their <strong>visibility in search engines</strong> and improves <strong>rankings</strong>."
+      },
+      "Question6": {
+        "question": "Can I add additional features to the website?",
+        "answer": "Yes, you can order additional features such as <strong>multilingual support</strong>, <strong>business email configuration</strong>, <strong>dark/light mode</strong>, <strong>blog</strong>, <strong>testimonials module</strong>, <strong>newsletter</strong>, <strong>AI chatbot</strong>, or <strong>e-commerce functionality</strong>."
+      },
+      "Question7": {
+        "question": "How much does a website cost?",
+        "answer": "The price depends on the chosen package and project complexity. Simple <strong>landing pages</strong> start from $349$, while more <strong>advanced projects</strong> start from $549$. For sophisticated solutions, the price is determined individually."
+      },
+      "Question8": {
+        "question": "What rights will I have to the website after project completion?",
+        "answer": "After project completion, you receive <strong>full rights to the website and code</strong>, as well as all necessary access credentials."
       }
+    }
   },
   "Contact": {
     "formLabel": "Contact form",
