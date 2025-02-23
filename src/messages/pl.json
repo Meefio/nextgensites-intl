@@ -135,6 +135,13 @@
     "subheading": "Cennik, który dopasuje się do Twoich potrzeb",
     "promoHeader": "🎉 Promocja! -50% na wszystkie pakiety do końca lutego! 🎉",
     "promoInfo": "Promocja -50%",
+    "promoEnds": "Do końca promocji pozostało:",
+    "timer": {
+      "days": "dni",
+      "hours": "godz",
+      "minutes": "min",
+      "seconds": "sek"
+    },
     "plans": {
       "basic": {
         "name": "Podstawowy",
