@@ -110,11 +110,11 @@ const Features = () => {
                     <Icon size={28} className="text-primary" />
                   </div>
                   <div>
-                    <h3 
+                    <h3
                       className="mb-2 text-lg font-semibold text-foreground"
                       dangerouslySetInnerHTML={{ __html: feature.title }}
                     />
-                    <p 
+                    <p
                       className="text-muted-foreground"
                       dangerouslySetInnerHTML={{ __html: feature.description }}
                     />

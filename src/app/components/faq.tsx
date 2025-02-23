@@ -20,9 +20,10 @@ export function Faq() {
         <h2 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance text-center">
           {t("heading")}
         </h2>
-        <p className="text-lg text-muted-foreground text-balance max-w-lg text-center">
-          {t("subheading")}
-        </p>
+        <p
+          className="text-lg text-muted-foreground text-balance max-w-lg text-center"
+          dangerouslySetInnerHTML={{ __html: t.raw("subheading") }}
+        />
       </AnimatedElement>
 
       <div className="mt-6 w-full grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl">
@@ -38,7 +39,7 @@ export function Faq() {
                   {t(`questions.${key}.question`)}
                 </AccordionTrigger>
                 <AccordionContent className="text-base text-muted-foreground pt-2 pb-4">
-                  {t(`questions.${key}.answer`)}
+                  <div dangerouslySetInnerHTML={{ __html: t.raw(`questions.${key}.answer`) }} />
                 </AccordionContent>
               </AccordionItem>
             ))}
@@ -49,7 +50,7 @@ export function Faq() {
                     {t(`questions.${key}.question`)}
                   </AccordionTrigger>
                   <AccordionContent className="text-base text-muted-foreground pt-2 pb-4">
-                    {t(`questions.${key}.answer`)}
+                    <div dangerouslySetInnerHTML={{ __html: t.raw(`questions.${key}.answer`) }} />
                   </AccordionContent>
                 </AccordionItem>
               ))}
@@ -69,7 +70,7 @@ export function Faq() {
                   {t(`questions.${key}.question`)}
                 </AccordionTrigger>
                 <AccordionContent className="text-base text-muted-foreground pt-2 pb-4">
-                  {t(`questions.${key}.answer`)}
+                  <div dangerouslySetInnerHTML={{ __html: t.raw(`questions.${key}.answer`) }} />
                 </AccordionContent>
               </AccordionItem>
             ))}

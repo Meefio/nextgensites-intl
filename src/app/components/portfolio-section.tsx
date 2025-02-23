@@ -39,7 +39,7 @@ const Portfolio = () => {
   ]
 
   return (
-    <section 
+    <section
       id='portfolio'
       className="container flex flex-col items-center gap-6 py-14 md:pb-14 sm:gap-7 scroll-mt-header"
     >
@@ -54,9 +54,10 @@ const Portfolio = () => {
         <h2 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance text-center">
           {t('heading')}
         </h2>
-        <p className="text-lg text-muted-foreground text-balance max-w-3xl text-center">
-          {t('subheading')}
-        </p>
+        <p
+          className="text-lg text-muted-foreground text-balance max-w-3xl text-center"
+          dangerouslySetInnerHTML={{ __html: t.raw('subheading') }}
+        />
       </AnimatedElement>
 
       <div className="mt-10 grid gap-8 md:grid-cols-2 w-full">
