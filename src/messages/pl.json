@@ -634,6 +634,13 @@
       "Google-position-2": {
         "title": "Dominacja w wynikach wyszukiwarki",
         "description": "Konsekwentne utrzymywanie wysokich pozycji, zaraz po pozycjach sponsorowanych przekłada się na stały napływ nowych klientów. Strona zajmuje czołowe miejsca dla wielu fraz związanych z myciem kostki brukowej, elewacji i dachów."
+      },
+      "SEO": {
+        "title": "Under Pressure - Profesjonalne Mycie Ciśnieniowe | Portfolio",
+        "description": "Sprawdź jak pomogliśmy firmie Under Pressure osiągnąć pierwszą pozycję w Google. Skuteczna strona internetowa dla firmy zajmującej się myciem ciśnieniowym.",
+        "ogTitle": "Under Pressure - Case Study | NextGen Sites",
+        "ogDescription": "Zobacz jak stworzyliśmy stronę, która po 6 miesiącach zajęła 1 miejsce w Google dla kluczowych fraz związanych z myciem ciśnieniowym.",
+        "ogImageAlt": "Under Pressure - Realizacja strony internetowej"
       }
     }
   },
@@ -681,5 +688,7 @@
         "description": "Przejdź do strony głównej"
       }
     }
+    
   }
+  
 }
