@@ -31,27 +31,27 @@
     "subheading": "Nowoczesna technologia, lepsze wyniki – przyciągnij klientów i wyprzedź konkurencję!",
     "speed": {
       "title": "Błyskawiczne ładowanie i doskonała optymalizacja",
-      "description": "Twoja strona wczytuje się w mgnieniu oka, co zwiększa konwersję i pozycję w Google."
+      "description": "Twoja strona wczytuje się w mgnieniu oka, co <strong>zwiększa konwersję</strong> i <strong>pozycję w Google</strong>."
     },
     "design": {
       "title": "Nowoczesny, przejrzysty i konwertujący design",
-      "description": "Przyciągnij klientów dzięki atrakcyjnemu wyglądowi i intuicyjnej nawigacji."
+      "description": "Przyciągnij klientów dzięki <strong>atrakcyjnemu wyglądowi</strong> i <strong>intuicyjnej nawigacji</strong>."
     },
     "responsive": {
       "title": "Perfekcyjne działanie na każdym urządzeniu",
-      "description": "Strona wygląda i działa idealnie na smartfonach, tabletach i komputerach."
+      "description": "Strona wygląda i działa idealnie na <strong>smartfonach</strong>, <strong>tabletach</strong> i <strong>komputerach</strong>."
     },
     "technology": {
-      "title": "Najnowocześniejsza technologia Next.js 15+",
-      "description": "Stabilność, szybkość i bezpieczeństwo bez problemów znanych z WordPressa."
+      "title": "Najnowocześniejsza technologia Next.js",
+      "description": "<strong>Stabilność</strong>, <strong>szybkość</strong> i <strong>bezpieczeństwo</strong> bez problemów znanych z WordPress."
     },
     "seo": {
       "title": "Optymalizacja dla Google = więcej klientów",
-      "description": "Wyższa pozycja w wynikach wyszukiwania bez dodatkowych kosztów reklamy."
+      "description": "<strong>Wyższa pozycja w wynikach wyszukiwania</strong> bez dodatkowych kosztów reklamy."
     },
     "multilingual": {
-      "title": "Wielojęzyczność w standardzie",
-      "description": "Docieraj do klientów na całym świecie – Twoja strona w wielu językach bez dodatkowych kosztów."
+      "title": "Wielojęzyczność na życzenie",
+      "description": "Przyciągnij obcokrajowców mieszkających w Polsce i poszerz grono swoich klientów dzięki <strong>dodatkowej opcji wielojęzyczności</strong>."
     }
   },
   "About": {

@@ -38,19 +38,19 @@ export function About() {
         >
           <div className="space-y-4">
             <p className="text-muted-foreground"
-              dangerouslySetInnerHTML={{ 
-                __html: t.raw('description1') 
-              }} 
+              dangerouslySetInnerHTML={{
+                __html: t.raw('description1')
+              }}
             />
             <p className="text-muted-foreground"
-              dangerouslySetInnerHTML={{ 
-                __html: t.raw('description2') 
-              }} 
+              dangerouslySetInnerHTML={{
+                __html: t.raw('description2')
+              }}
             />
             <p className="text-muted-foreground"
-              dangerouslySetInnerHTML={{ 
-                __html: t.raw('description3') 
-              }} 
+              dangerouslySetInnerHTML={{
+                __html: t.raw('description3')
+              }}
             />
           </div>
         </AnimatedElement>

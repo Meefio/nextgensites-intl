@@ -12,33 +12,33 @@ const Features = () => {
   const features = [
     {
       icon: Gauge,
-      title: t('speed.title'),
-      description: t('speed.description')
+      title: t.raw('speed.title'),
+      description: t.raw('speed.description')
     },
     {
       icon: Palette,
-      title: t('design.title'),
-      description: t('design.description')
+      title: t.raw('design.title'),
+      description: t.raw('design.description')
     },
     {
       icon: MonitorSmartphone,
-      title: t('responsive.title'),
-      description: t('responsive.description')
+      title: t.raw('responsive.title'),
+      description: t.raw('responsive.description')
     },
     {
       icon: Code2,
-      title: t('technology.title'),
-      description: t('technology.description')
+      title: t.raw('technology.title'),
+      description: t.raw('technology.description')
     },
     {
       icon: Search,
-      title: t('seo.title'),
-      description: t('seo.description')
+      title: t.raw('seo.title'),
+      description: t.raw('seo.description')
     },
     {
       icon: Languages,
-      title: t('multilingual.title'),
-      description: t('multilingual.description')
+      title: t.raw('multilingual.title'),
+      description: t.raw('multilingual.description')
     }
   ]
 
@@ -110,12 +110,14 @@ const Features = () => {
                     <Icon size={28} className="text-primary" />
                   </div>
                   <div>
-                    <h3 className="mb-2 text-lg font-semibold text-foreground">
-                      {feature.title}
-                    </h3>
-                    <p className="text-muted-foreground">
-                      {feature.description}
-                    </p>
+                    <h3 
+                      className="mb-2 text-lg font-semibold text-foreground"
+                      dangerouslySetInnerHTML={{ __html: feature.title }}
+                    />
+                    <p 
+                      className="text-muted-foreground"
+                      dangerouslySetInnerHTML={{ __html: feature.description }}
+                    />
                   </div>
                 </CardContent>
               </Card>
