@@ -37,8 +37,21 @@ export function About() {
           viewport={{ once: true, margin: "-20% 0px" }}
         >
           <div className="space-y-4">
-            <p className="text-muted-foreground">{t('description1')}</p>
-            <p className="text-muted-foreground">{t('description2')}</p>
+            <p className="text-muted-foreground"
+              dangerouslySetInnerHTML={{ 
+                __html: t.raw('description1') 
+              }} 
+            />
+            <p className="text-muted-foreground"
+              dangerouslySetInnerHTML={{ 
+                __html: t.raw('description2') 
+              }} 
+            />
+            <p className="text-muted-foreground"
+              dangerouslySetInnerHTML={{ 
+                __html: t.raw('description3') 
+              }} 
+            />
           </div>
         </AnimatedElement>
 

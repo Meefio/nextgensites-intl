@@ -58,8 +58,9 @@
     "why": "Poznaj nasze podejście",
     "heading": "Tworzenie stron internetowych przynoszących rezultaty",
     "subheading": "Łączymy nowoczesne technologie z przemyślanym designem, by Twoja strona wyróżniała się na tle konkurencji",
-    "description1": "Stawiamy na najnowocześniejsze rozwiązania, wykorzystując potencjał Next.js 15+, co przekłada się na błyskawiczne ładowanie i doskonałą optymalizację. Nasze strony są wielojęzyczne w standardzie, wyposażone w tryb ciemny/jasny i perfekcyjnie dostosowane do wszystkich urządzeń.",
-    "description2": "W przeciwieństwie do przestarzałych rozwiązań opartych na WordPress Elementor, oferujemy stabilną i szybką technologię, która nie zawodzi. Każdy projekt traktujemy indywidualnie - nie korzystamy z gotowych szablonów. Tworzymy unikalne rozwiązania dopasowane do Twoich potrzeb. A to wszystko w konkurencyjnej cenie i z niskimi kosztami utrzymania.",
+    "description1": "Stawiamy na <strong>Next.js</strong>, dzięki czemu strony ładują się błyskawicznie, są zoptymalizowane i osiągają <strong>wysokie wyniki w wyszukiwarkach</strong>. Tworzymy <strong>responsywne, wielojęzyczne strony</strong> z dodatkowymi funkcjami, takimi jak <strong>tryb ciemny/jasny</strong>.",
+    "description2": "Nie korzystamy z gotowych szablonów ani przestarzałych rozwiązań jak WordPress Elementor. Każdy projekt jest unikalny, dopasowany do Twoich potrzeb, a jednocześnie oferujemy <strong>konkurencyjne ceny</strong> i <strong>niskie koszty utrzymania</strong>.",
+    "description3": "Zainspirowała Cię inna strona? Skontaktuj się z nami – stworzymy dla Ciebie <strong>idealną wizytówkę online</strong>.",
     "imageAlt": "Zdjęcie właściciela"
   },
   "Portfolio": {
@@ -688,7 +689,5 @@
         "description": "Przejdź do strony głównej"
       }
     }
-    
   }
-  
 }

@@ -57,9 +57,10 @@
   "About": {
     "why": "Discover our approach",
     "heading": "We create websites that deliver results",
-    "subheading": "We combine modern technologies with thoughtful design to make your website stand out from the competition",
-    "description1": "We focus on cutting-edge solutions, leveraging the power of Next.js 15+, which translates into lightning-fast loading and excellent optimization. Our websites are multilingual by default, equipped with dark/light mode, and perfectly adapted to all devices.",
-    "description2": "Unlike outdated WordPress-based solutions, we offer stable and fast technology that doesn't fail. We treat each project individually - we don't use ready-made templates, instead we create unique solutions tailored to your needs. And all this at a competitive price with low maintenance costs.",
+    "subheading": "We combine modern technology with thoughtful design to make your website stand out from the competition.",
+    "description1": "We use <strong>Next.js</strong>, ensuring lightning-fast load times, full optimization, and <strong>high search engine rankings</strong>. Our websites are <strong>responsive and multilingual</strong>, featuring extras like <strong>dark/light mode</strong>.",
+    "description2": "We don’t use templates or outdated solutions like WordPress Elementor. Every project is unique, tailored to your needs, while offering <strong>competitive pricing</strong> and <strong>low maintenance costs</strong>.",
+    "description3": "Inspired by another website? Contact us, and we’ll create your <strong>perfect online presence</strong>.",
     "imageAlt": "Owner's photo"
   },
   "Portfolio": {
