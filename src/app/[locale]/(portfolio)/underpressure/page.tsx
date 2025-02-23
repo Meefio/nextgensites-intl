@@ -7,7 +7,7 @@ import { getTranslations } from 'next-intl/server'
 import { Metadata } from 'next'
 
 // Dodajemy generowanie metadanych
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('Portfolio-sections.UnderPressure.SEO')
 
   return {
