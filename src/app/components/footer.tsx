@@ -75,13 +75,13 @@ export function Footer() {
 
       <div className="mt-10 flex basis-1/2 flex-col gap-5 md:mt-0 md:basis-auto">
         <h3 className="font-semibold">{t('documents')}</h3>
-        <Link locale={locale} href="/polityka-prywatnosci" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link href="/polityka-prywatnosci" className="text-sm text-muted-foreground hover:text-foreground">
           {t('privacy')}
         </Link>
-        <Link locale={locale} href="/regulamin" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link  href="/regulamin" className="text-sm text-muted-foreground hover:text-foreground">
           {t('terms')}
         </Link>
-        <Link locale={locale} href="/rodo" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link href="/rodo" className="text-sm text-muted-foreground hover:text-foreground">
           {t('gdpr')}
         </Link>
       </div>
