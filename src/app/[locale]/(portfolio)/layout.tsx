@@ -1,5 +1,6 @@
 import React from 'react'
 import { Header } from '@/app/components/header'
+import { Footer } from '@/app/components/footer';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -10,12 +11,11 @@ const PortfolioLayout = ({
 }: LayoutProps) => {
   return (
     <>
-      <div className='container'>
-        <Header />
-      </div>
+      <Header />
       <main className="flex-1">
         {children}
       </main>
+      <Footer/>
     </>
   )
 }

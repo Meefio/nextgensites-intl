@@ -26,8 +26,8 @@ export default function HomePage() {
 				<Pricing />
 				<Faq />
 				<ContactForm />
-				<Footer />
 			</main>
+			<Footer />
 		</>
 	)
 }
