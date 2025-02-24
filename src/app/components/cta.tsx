@@ -1,5 +1,3 @@
-'use client'
-
 import { Button } from '@/app/components/ui/button'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
 import { useTranslations } from 'next-intl'

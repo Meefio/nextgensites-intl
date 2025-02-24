@@ -1,5 +1,3 @@
-"use client"
-
 import Image from "next/image"
 import { AnimatedElement } from "@/app/components/motion/animated-element"
 import { useTranslations } from 'next-intl'
