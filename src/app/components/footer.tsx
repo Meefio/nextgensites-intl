@@ -5,7 +5,6 @@ import { useLocale } from 'next-intl';
 
 export function Footer() {
   const t = useTranslations('Footer');
-  const locale = useLocale();
 
   return (
     <footer className="container max-w-6xl mt-10 flex flex-wrap justify-between pb-16 pt-10 ">
