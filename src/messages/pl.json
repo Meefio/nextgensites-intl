@@ -146,15 +146,14 @@
       "basic": {
         "name": "Podstawowy",
         "monthlyPrice": "150zł-200zł*",
-        "oneTimePrice": "2 500zł - 6 000zł*",
-        "promoPrice": "1 250zł - 3 000zł*",
+        "oneTimePrice": "2 499zł - 4 999zł*",
+        "promoPrice": "1 249zł - 2 499zł*",
         "description": "Idealne rozwiązanie dla małych firm i startupów, które potrzebują profesjonalnej obecności w sieci",
         "timeframe": "5–7 dni roboczych",
         "features": [
           "Jednostronicowa strona (landing page) z responsywnym designem na wszystkich urządzeniach",
           "Szczegółowa optymalizacja SEO dla każdego elementu strony",
           "Integracja z Google Analytics",
-          "Formularz kontaktowy",
           "Polityka RODO i Cookies",
           "Certyfikat SSL",
           "Wsparcie techniczne przez 1 miesiąc"
@@ -163,8 +162,8 @@
       "professional": {
         "name": "Profesjonalny",
         "monthlyPrice": "250zł*",
-        "oneTimePrice": "4 000zł - 10 000zł*",
-        "promoPrice": "2 000zł - 5 000zł*",
+        "oneTimePrice": "3 999zł - 7 999zł*",
+        "promoPrice": "1 999zł - 3 999zł*",
         "description": "Rozbudowana strona firmowa dla pełnej prezentacji Twojej oferty",
         "timeframe": "7–15 dni roboczych",
         "features": [
@@ -200,8 +199,12 @@
     },
     "vatInfo": "* Podane ceny są cenami netto, należy doliczyć 23% VAT",
     "depositInfo": {
-      "basic": "* Rozpoczęcie projektu po wpłacie zadatku 500 zł",
-      "professional": "* Rozpoczęcie projektu po wpłacie zadatku 1000 zł"
+      "basic": "* Rozpoczęcie projektu po wpłacie zadatku 500zł",
+      "professional": "* Rozpoczęcie projektu po wpłacie zadatku 1000zł"
+    },
+    "lowestPrice": {
+      "basic": "* najniższa cena z ostatnich 30 dni - 2 499zł",
+      "professional": "* najniższa cena z ostatnich 30 dni - 3 999zł"
     },
     "contactCta": "Darmowa konsultacja"
   },

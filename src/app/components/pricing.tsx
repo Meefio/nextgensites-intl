@@ -239,6 +239,10 @@ export function Pricing() {
 											{plan.key === 'basic' && t('depositInfo.basic')}
 											{plan.key === 'professional' && t('depositInfo.professional')}
 										</p>
+										<p className='text-xs text-muted-foreground'>
+											{plan.key === 'basic' && t('lowestPrice.basic')}
+											{plan.key === 'professional' && t('lowestPrice.professional')}
+										</p>
 									</div>
 								</div>
 								<div className='md:hidden px-7 py-4'>
@@ -249,6 +253,10 @@ export function Pricing() {
 										<p className='text-xs text-muted-foreground'>
 											{plan.key === 'basic' && t('depositInfo.basic')}
 											{plan.key === 'professional' && t('depositInfo.professional')}
+										</p>
+										<p className='text-xs text-muted-foreground'>
+											{plan.key === 'basic' && t('lowestPrice.basic')}
+											{plan.key === 'professional' && t('lowestPrice.professional')}
 										</p>
 									</div>
 								</div>

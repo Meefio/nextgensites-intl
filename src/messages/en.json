@@ -146,24 +146,24 @@
       "basic": {
         "name": "Basic",
         "monthlyPrice": "150zł - 200zł*",
-        "oneTimePrice": "$700 - $1500*",
+        "oneTimePrice": "$699 - $1399*",
+        "promoPrice": "$349 - $699*",
         "description": "Ideal solution for small companies and startups that need a professional presence on the web",
         "timeframe": "5–7 business days",
         "features": [
           "Single-page website (landing page) with responsive design on all devices",
           "Detailed SEO optimization for every page element",
           "Google Analytics integration",
-          "Contact form for customer data collection",
           "GDPR and Cookies Policy",
           "SSL Certificate",
           "Technical support for 1 month"
-        ],
-        "promoPrice": "$350 - $750*"
+        ]
       },
       "professional": {
         "name": "Professional",
         "monthlyPrice": "250zł*",
-        "oneTimePrice": "$1 000 - $2 500*",
+        "oneTimePrice": "$999 - $1999*",
+        "promoPrice": "$499 - $999*",
         "description": "Comprehensive business website for full presentation of your offer",
         "timeframe": "7–15 business days",
         "features": [
@@ -176,8 +176,7 @@
           "Interactive Google Map with company location",
           "Technical support for 2 months"
         ],
-        "popular": "Most Popular",
-        "promoPrice": "$500 - $1 200*"
+        "popular": "Most Popular"
       },
       "premium": {
         "name": "Premium Solution",
@@ -202,6 +201,10 @@
     "depositInfo": {
       "basic": "* Project starts after 150$ deposit payment",
       "professional": "* Project starts after 250$ deposit payment"
+    },
+    "lowestPrice": {
+      "basic": "* lowest price from the last 30 days - $699",
+      "professional": "* lowest price from the last 30 days - $999"
     },
     "contactCta": "Free consultation"
   },
