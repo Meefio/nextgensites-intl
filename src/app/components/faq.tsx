@@ -9,9 +9,9 @@ import { useTranslations } from "next-intl";
 
 export function Faq() {
   const t = useTranslations("Faq");
-  const allQuestions = ["Question1", "Question2", "Question3", "Question4", "Question5", "Question6", "Question7", "Question8"];
-  const firstHalf = allQuestions.slice(0, 4);
-  const secondHalf = allQuestions.slice(4);
+  const allQuestions = ["Question1", "Question2", "Question4", "Question5", "Question6", "Question8"];
+  const firstHalf = allQuestions.slice(0, 3);
+  const secondHalf = allQuestions.slice(3);
 
   return (
     <section className="container flex flex-col items-center gap-6 pt-14 pb-24 md:py-24 sm:gap-7">

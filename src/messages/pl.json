@@ -221,10 +221,6 @@
         "question": "Jakie mogą wystąpić koszty dodatkowe?",
         "answer": "<ul class='list-none space-y-2 mt-2'><li>- <strong>Domena</strong> (nazwa strony): ok. 16,99 zł/rok</li><li>- <strong>Hosting</strong> jest dostępny na platformie <strong>Vercel za darmo</strong></li><li>- <strong>Firmowa poczta e-mail</strong> (opcjonalnie): ok. 23,88 zł/rok w rekomendowanym przez nas <strong>Hostingerze</strong></li></ul>"
       },
-      "Question3": {
-        "question": "Jak długo trwa realizacja strony?",
-        "answer": "Czas wykonania zależy od wybranego pakietu. <strong>Prosta strona</strong> może być gotowa w 5–7 dni roboczych, a bardziej <strong>złożone projekty</strong> zajmują od 7 do 30 dni. Szybkość realizacji zależy również od dostarczenia materiałów przez klienta."
-      },
       "Question4": {
         "question": "Czy mogę samodzielnie edytować treści na stronie?",
         "answer": "Oczywiście! Należy jednak pamiętać, aby zgłosić taką potrzebę na etapie wyceny projektu. <strong>System zarządzania treścią (CMS)</strong> jest dostępny w pakiecie \"Rozwiązanie premium\" i pozwala na łatwą <strong>edycję tekstów, zdjęć oraz innych elementów strony</strong> bez znajomości programowania."
@@ -236,10 +232,6 @@
       "Question6": {
         "question": "Czy mogę dodać dodatkowe funkcje do strony?",
         "answer": "Tak, możesz zamówić dodatkowe funkcje, takie jak <strong>wielojęzyczność</strong>, <strong>konfiguracja firmowego adresu e-mail</strong>, <strong>dark/light mode</strong>, <strong>blog</strong>, <strong>moduł opinii</strong>, <strong>newsletter</strong>, <strong>chatbot AI</strong> czy <strong>sklep internetowy</strong>."
-      },
-      "Question7": {
-        "question": "Ile kosztuje stworzenie strony internetowej?",
-        "answer": "Cena zależy od wybranego pakietu i złożoności projektu. Proste strony typu <strong>landing page</strong> kosztują od 1 300 zł netto, a bardziej <strong>rozbudowane projekty</strong> – od 2 000 zł netto. W przypadku zaawansowanych rozwiązań cena ustalana jest indywidualnie."
       },
       "Question8": {
         "question": "Jakie prawa do strony będę miał po zakończeniu projektu?",
