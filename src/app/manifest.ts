@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { createTranslator } from 'next-intl'
 
 async function getTranslations(locale: string) {
-  const messages = (await import(`@/messages/${locale}.json`)).default
+  const messages = (await import(`@/../messages/${locale}.json`)).default
   const t = createTranslator({ locale, messages: messages.Manifest })
   return t
 }

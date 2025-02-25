@@ -66,7 +66,6 @@ export const metadata = (locale: string): Metadata => ({
       },
     ],
   },
-  manifest: '/manifest.json',
   category: 'technology',
   other: {
     'color-scheme': 'dark',

@@ -74,7 +74,7 @@ export default async function LocaleLayout({
 	params: Promise<{ locale: string }>
 }) {
 	const { locale } = await params
-	const messages = (await import(`@/messages/${locale}.json`)).default
+	const messages = await import(`@/../messages/${locale}.json`).then(module => module.default)
 
 	return (
 		<html lang={locale} suppressHydrationWarning>
