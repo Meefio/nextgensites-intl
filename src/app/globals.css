@@ -133,3 +133,48 @@ textarea:-webkit-autofill:focus {
 *::-webkit-scrollbar-thumb:hover {
 	background-color: hsl(var(--accent));
 }
+
+@keyframes rocketAnimation {
+
+	0%,
+	40% {
+		transform: translate(0, 0) rotate(0deg);
+		opacity: 1;
+	}
+
+	45% {
+		transform: translate(0, 0) rotate(-45deg);
+	}
+
+	47%,
+	49% {
+		transform: translate(-2px, 0) rotate(-45deg);
+	}
+
+	48%,
+	50% {
+		transform: translate(2px, 0) rotate(-45deg);
+	}
+
+	51% {
+		transform: translate(0, 0) rotate(-45deg);
+	}
+
+	58% {
+		transform: translate(25px, -300px) rotate(-45deg);
+		opacity: 1;
+	}
+
+	60% {
+		transform: translate(25px, -300px) rotate(-45deg);
+		opacity: 0;
+	}
+	100%{
+		transform: translate(25px, -300px) rotate(-45deg);
+			opacity: 0;
+	}
+}
+
+.animate-rocket {
+	animation: rocketAnimation 10s ease-in infinite;
+}

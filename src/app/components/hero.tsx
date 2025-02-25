@@ -38,6 +38,7 @@ export function Hero() {
 					className='max-w-[38rem] text-center font-heading text-4xl font-semibold sm:text-5xl lg:text-left tracking-tight'
 				>
 					{t('title')}
+					<span className="inline-block animate-rocket">🚀</span>
 				</AnimatedElement>
 
 				<AnimatedElement
