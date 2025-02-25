@@ -169,12 +169,22 @@ textarea:-webkit-autofill:focus {
 		transform: translate(25px, -350px) rotate(-45deg);
 		opacity: 0;
 	}
-	100%{
+
+	100% {
 		transform: translate(25px, -350px) rotate(-45deg);
-			opacity: 0;
+		opacity: 0;
 	}
 }
 
 .animate-rocket {
 	animation: rocketAnimation 10s ease-in infinite;
+}
+
+@keyframes progress {
+	0% { transform: translateX(-100%); }
+	100% { transform: translateX(100%); }
+}
+
+.animate-progress {
+	animation: progress 1s ease-in-out infinite;
 }
