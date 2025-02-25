@@ -9,7 +9,7 @@ import { ThemeSwitcher } from "@/app/components/theme-switcher";
 
 export function Header() {
   const t = useTranslations('Navigation');
-
+console.log('test')
   const navigationItems = [
     { href: `/#benefits`, label: t('benefits') },
     { href: `/#portfolio`, label: t('portfolio') },
