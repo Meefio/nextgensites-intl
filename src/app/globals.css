@@ -161,16 +161,16 @@ textarea:-webkit-autofill:focus {
 	}
 
 	58% {
-		transform: translate(25px, -300px) rotate(-45deg);
+		transform: translate(25px, -350px) rotate(-45deg);
 		opacity: 1;
 	}
 
 	60% {
-		transform: translate(25px, -300px) rotate(-45deg);
+		transform: translate(25px, -350px) rotate(-45deg);
 		opacity: 0;
 	}
 	100%{
-		transform: translate(25px, -300px) rotate(-45deg);
+		transform: translate(25px, -350px) rotate(-45deg);
 			opacity: 0;
 	}
 }
