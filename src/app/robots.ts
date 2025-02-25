@@ -13,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
       ],
     },
     sitemap: 'https://nextgensites.pl/sitemap.xml',
-    host: 'https://nextgensites.pl/pl',
+    host: 'https://nextgensites.pl/',
   }
 } 
