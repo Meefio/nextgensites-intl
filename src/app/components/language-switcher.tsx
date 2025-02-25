@@ -12,8 +12,8 @@ import {
 } from "@/app/components/ui/dropdown-menu"
 
 const languages = [
-  { code: 'pl', label: 'Polski', countryCode: 'PL' },
-  { code: 'en', label: 'English', countryCode: 'US' }
+  { code: 'pl', label: 'Polski', countryCode: 'PL', path: '/' },
+  { code: 'en', label: 'English', countryCode: 'US', path: '/en' }
 ]
 
 export function LanguageSwitcher({ className }: { className?: string }) {
@@ -21,7 +21,9 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   const currentLang = pathname.startsWith('/en') ? 'en' : 'pl'
   const currentLanguage = languages.find(lang => lang.code === currentLang)
 
-  const currentPath = pathname.replace(/^\/[a-z]{2}/, '') || '/'
+  const currentPath = pathname
+    .replace(/^\/en/, '')
+    || '/'
 
   return (
     <DropdownMenu>
@@ -41,7 +43,11 @@ export function LanguageSwitcher({ className }: { className?: string }) {
       <DropdownMenuContent align="end">
         {languages.map((lang) => (
           <DropdownMenuItem key={lang.code} asChild>
-            <Link href={currentPath as any} locale={lang.code}>
+            <Link
+              href={currentPath as any}
+              locale={lang.code}
+              aria-label={`Zmień język na ${lang.label}`}
+            >
               <div className="flex items-center gap-2">
                 <ReactCountryFlag
                   countryCode={lang.countryCode}

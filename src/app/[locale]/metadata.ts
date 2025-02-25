@@ -21,15 +21,16 @@ export const metadata = (locale: string): Metadata => ({
     },
   },
   alternates: {
-    canonical: `/${locale}`,
+    canonical: locale === 'pl' ? '/' : `/${locale}`,
     languages: {
-      'pl-PL': '/pl',
+      'pl-PL': '/',
       'en-US': '/en',
     },
   },
   openGraph: {
     type: 'website',
     locale: locale === 'pl' ? 'pl_PL' : 'en_US',
+    url: locale === 'pl' ? 'https://nextgensites.pl' : 'https://nextgensites.pl/en',
     images: [
       {
         url: '/images/og-image.png',
