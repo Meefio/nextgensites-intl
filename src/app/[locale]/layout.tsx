@@ -77,12 +77,12 @@ export default async function LocaleLayout({
 }) {
 	const { locale } = await params
 	const messages = await import(`@/../messages/${locale}.json`).then(module => module.default)
-	
+
 	// Pobierz zgodę na pliki cookie z cookies
 	const cookieStore = await cookies();
 	const cookieConsentStr = cookieStore.get("cookieConsent")?.value;
-	const consent = cookieConsentStr 
-		? JSON.parse(cookieConsentStr) 
+	const consent = cookieConsentStr
+		? JSON.parse(cookieConsentStr)
 		: { necessary: true, analytics: false, marketing: false };
 
 	return (
@@ -103,11 +103,11 @@ export default async function LocaleLayout({
 				>
 					<NextIntlClientProvider locale={locale} messages={messages}>
 						{/* Google Analytics - załaduje się tylko jeśli użytkownik wyraził zgodę */}
-						<GoogleAnalytics 
-							measurementId="G-5YLJH8GHZ6" 
-							consent={consent} 
+						<GoogleAnalytics
+							measurementId="G-5YLJH8GHZ6"
+							consent={consent}
 						/>
-						
+
 						{children}
 						<Toaster />
 						<CookieBanner />
