@@ -3,40 +3,77 @@ import { routing } from '@/i18n/routing'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://nextgensites.pl'
+  const currentDate = new Date()
 
-  // Podstawowe strony dla każdego języka
-  const localizedPages = routing.locales.flatMap(locale => [
+  // Strony dla języka polskiego (bez prefiksu językowego)
+  const plPages = [
     {
-      url: `${baseUrl}/${locale === 'pl' ? '' : locale}`,
-      lastModified: new Date(),
+      url: `${baseUrl}/`,
+      lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 1
     },
     {
-      url: `${baseUrl}/${locale}/${locale === 'pl' ? 'polityka-prywatnosci' : 'privacy-policy'}`,
-      lastModified: new Date(),
+      url: `${baseUrl}/polityka-prywatnosci`,
+      lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.2
     },
     {
-      url: `${baseUrl}/${locale}/${locale === 'pl' ? 'regulamin' : 'terms-of-service'}`,
-      lastModified: new Date(),
+      url: `${baseUrl}/regulamin`,
+      lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.2
     },
     {
-      url: `${baseUrl}/${locale}/${locale === 'pl' ? 'rodo' : 'gdpr'}`,
-      lastModified: new Date(),
+      url: `${baseUrl}/rodo`,
+      lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.2
     },
     {
-      url: `${baseUrl}/${locale}/underpressure`,
-      lastModified: new Date(),
+      url: `${baseUrl}/underpressure`,
+      lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.8
     }
-  ])
+  ]
 
-  return [...localizedPages]
+  // Strony dla innych języków (z prefiksem językowym)
+  const otherLocalesPages = routing.locales
+    .filter(locale => locale !== 'pl')
+    .flatMap(locale => [
+      {
+        url: `${baseUrl}/${locale}`,
+        lastModified: currentDate,
+        changeFrequency: 'weekly' as const,
+        priority: 1
+      },
+      {
+        url: `${baseUrl}/${locale}/privacy-policy`,
+        lastModified: currentDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.2
+      },
+      {
+        url: `${baseUrl}/${locale}/terms-of-service`,
+        lastModified: currentDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.2
+      },
+      {
+        url: `${baseUrl}/${locale}/gdpr`,
+        lastModified: currentDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.2
+      },
+      {
+        url: `${baseUrl}/${locale}/underpressure`,
+        lastModified: currentDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8
+      }
+    ])
+
+  return [...plPages, ...otherLocalesPages]
 } 
