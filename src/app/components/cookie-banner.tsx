@@ -62,10 +62,11 @@ export function CookieBanner() {
 
   const saveConsent = (consentData: CookieConsent) => {
     localStorage.setItem("cookieConsent", JSON.stringify(consentData));
+    setConsent(consentData);
     setShowBanner(false);
 
     if (consentData.analytics) {
-      // Włącz PostHog
+      // Google Analytics będzie aktywowane przez komponent GoogleAnalytics
     }
 
     if (consentData.marketing) {
