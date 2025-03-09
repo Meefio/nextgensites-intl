@@ -56,11 +56,11 @@
   },
   "About": {
     "why": "Discover our approach",
-    "heading": "We create websites that deliver results",
-    "subheading": "We combine modern technology with thoughtful design to make your website stand out from the competition.",
-    "description1": "We use <strong>Next.js</strong>, ensuring lightning-fast load times, full optimization, and <strong>high search engine rankings</strong>. Our websites are <strong>responsive and multilingual</strong>, featuring extras like <strong>dark/light mode</strong>.",
-    "description2": "We don’t use templates or outdated solutions like WordPress Elementor. Every project is unique, tailored to your needs, while offering <strong>competitive pricing</strong> and <strong>low maintenance costs</strong>.",
-    "description3": "Inspired by another website? Contact us, and we’ll create your <strong>perfect online presence</strong>.",
+    "heading": "Creating websites that deliver results",
+    "subheading": "We combine modern technologies with thoughtful design to make your website stand out from the competition",
+    "description1": "First, we need to <strong>thoroughly understand your business</strong> - its strengths, vision, approach to customers, and unique selling points against competition. We'll analyze the market, check what works for others, and select the best solutions for you. The target audience is also crucial - it determines whether the site should be modern and dynamic, or classic and serious.",
+    "description2": "AI Chatbot for appointment booking? Newsletter system for promotional updates? Contact form, blog with customer tips? Or maybe an application that will replace Excel and automate company processes?",
+    "description3": "Together, we'll <strong>find the best solutions</strong> that will make <strong>your company set the trends</strong>, and competitors will start copying your ideas. <br>Don't believe it? Check it out!",
     "imageAlt": "Owner's photo",
     "freeConsultation": "Free consultation"
   },
