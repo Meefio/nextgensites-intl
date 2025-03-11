@@ -21,6 +21,7 @@ import { Card } from '@/app/components/ui/card'
 import { Checkbox } from '@/app/components/ui/checkbox'
 import { Info } from 'lucide-react'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
+import { submitContactForm } from '@/app/_actions/contact'
 
 interface FormData {
 	name: string;
@@ -124,17 +125,10 @@ export function ContactForm() {
 		try {
 			setIsLoading(true)
 
-			const response = await fetch('/api/contact', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify(data),
-			})
+			const result = await submitContactForm(data)
 
-			if (!response.ok) {
-				const error = await response.json()
-				throw new Error(error.message || t('error.message'))
+			if (!result.success) {
+				throw new Error(result.error || t('error.message'))
 			}
 
 			toast({
