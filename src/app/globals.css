@@ -117,7 +117,7 @@ textarea:-webkit-autofill:focus {
 }
 
 *::-webkit-scrollbar {
-	width: 12px;
+	width: 13px;
 }
 
 *::-webkit-scrollbar-track {
