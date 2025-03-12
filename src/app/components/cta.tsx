@@ -8,7 +8,7 @@ export function CtaSection() {
 
 	return (
 		<section className='container relative flex flex-col items-center gap-6 py-14 md:py-24 sm:gap-10 rounded-md border border-border bg-secondary overflow-hidden'>
-			<div className='absolute inset-0 w-full h-full opacity-[0.03] select-none pointer-events-none'>
+			{/* <div className='absolute inset-0 w-full h-full opacity-[0.03] select-none pointer-events-none'>
 				<div className='absolute inset-0 grid grid-cols-12 gap-4 transform -rotate-12 scale-150'>
 					{Array.from({ length: 60 }).map((_, i) => (
 						<div
@@ -32,7 +32,7 @@ export function CtaSection() {
 						</div>
 					))}
 				</div>
-			</div>
+			</div> */}
 
 			<AnimatedElement
 				as="h2"
