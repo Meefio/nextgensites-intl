@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
+import { usePathname } from 'next/navigation';
 
 // Deklaracja typów dla Google Analytics
 declare global {
@@ -19,32 +20,38 @@ type GoogleAnalyticsProps = {
 };
 
 export function GoogleAnalytics({ measurementId, consent }: GoogleAnalyticsProps) {
+  const pathname = usePathname();
+
   useEffect(() => {
-    if (window.gtag) {
+    if (consent.analytics && window.gtag) {
+      // Aktualizacja zgody
       window.gtag("consent", "update", {
-        analytics_storage: consent.analytics ? "granted" : "denied"
+        analytics_storage: "granted",
+      });
+
+      // Wysłanie page_view po udzieleniu zgody
+      window.gtag("event", "page_view", {
+        page_path: pathname,
       });
     }
-  }, [consent.analytics]);
+  }, [consent.analytics, pathname]);
 
   return (
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
         strategy="afterInteractive"
-        data-cookieconsent="analytics"
       />
       <Script
         id="google-analytics"
         strategy="afterInteractive"
-        data-cookieconsent="analytics"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             
-
+            // Domyślna konfiguracja zgód
             gtag('consent', 'default', {
               'analytics_storage': 'denied',
               'ad_storage': 'denied',
@@ -56,12 +63,14 @@ export function GoogleAnalytics({ measurementId, consent }: GoogleAnalyticsProps
               'wait_for_update': 500
             });
             
-            // Konfiguracja Google Analytics
+            // Konfiguracja GA4
             gtag('config', '${measurementId}', {
-              page_path: window.location.pathname,
-              send_page_view: false,
+              send_page_view: false, 
+              page_path: '${pathname}',
               allow_google_signals: false,
-              allow_ad_personalization_signals: false
+              allow_ad_personalization_signals: false,
+              restricted_data_processing: true,
+              ads_data_redaction: true
             });
           `,
         }}
