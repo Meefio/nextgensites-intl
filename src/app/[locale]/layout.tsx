@@ -15,13 +15,11 @@ import { getTranslations } from 'next-intl/server';
 import { metadata as baseMetadata } from './metadata';
 
 interface GenerateMetadataProps {
-	params: Promise<{
-		locale: string;
-	}>;
+	params: { locale: string };
 }
 
 export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
-	const { locale } = await params;
+	const { locale } = params;
 	const t = await getTranslations({ locale, namespace: 'Metadata' });
 
 	const baseMetadataWithLocale = baseMetadata(locale);
@@ -74,9 +72,9 @@ export default async function LocaleLayout({
 	params,
 }: {
 	children: React.ReactNode
-	params: Promise<{ locale: string }>
+	params: { locale: string }
 }) {
-	const { locale } = await params
+	const { locale } = params
 	const messages = await import(`@/../messages/${locale}.json`).then(module => module.default)
 
 	// Pobierz zgodę na pliki cookie z cookies
@@ -88,6 +86,12 @@ export default async function LocaleLayout({
 
 	return (
 		<html lang={locale} suppressHydrationWarning>
+			<head>
+				<GoogleAnalytics
+					measurementId="G-5YLJH8GHZ6"
+					consent={consent}
+				/>
+			</head>
 			<body suppressHydrationWarning
 				className={cn(
 					" font-sans antialiased scroll-smooth",
@@ -103,10 +107,7 @@ export default async function LocaleLayout({
 					disableTransitionOnChange
 				>
 					<NextIntlClientProvider locale={locale} messages={messages}>
-						<GoogleAnalytics
-							measurementId="G-5YLJH8GHZ6"
-							consent={consent}
-						/>
+
 
 						{children}
 						<Toaster />
