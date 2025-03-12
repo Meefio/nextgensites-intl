@@ -27,8 +27,28 @@ export function CookieBanner() {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
+    // Najpierw sprawdź zapisane zgody
     const savedConsent = localStorage.getItem("cookieConsent");
-    if (!savedConsent) {
+
+    // Ustaw domyślne wartości na denied
+    if (typeof window.gtag !== 'undefined') {
+      window.gtag("consent", "default", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500
+      });
+    }
+
+    if (savedConsent) {
+      const parsedConsent = JSON.parse(savedConsent);
+      setConsent(parsedConsent);
+      setTimeout(() => {
+        updateGtagConsent(parsedConsent);
+      }, 100);
+    } else {
       const timer = setTimeout(() => {
         setShowBanner(true);
         setIsReady(true);
@@ -37,6 +57,18 @@ export function CookieBanner() {
       return () => clearTimeout(timer);
     }
   }, []);
+
+  const updateGtagConsent = (consentData: CookieConsent) => {
+    if (typeof window.gtag !== 'undefined') {
+      window.gtag("consent", "update", {
+        analytics_storage: consentData.analytics ? "granted" : "denied",
+        ad_storage: consentData.marketing ? "granted" : "denied",
+        functionality_storage: consentData.necessary ? "granted" : "denied",
+        personalization_storage: consentData.marketing ? "granted" : "denied",
+        security_storage: "granted"
+      });
+    }
+  };
 
   const handleAcceptAll = () => {
     const newConsent = {
@@ -64,14 +96,7 @@ export function CookieBanner() {
     localStorage.setItem("cookieConsent", JSON.stringify(consentData));
     setConsent(consentData);
     setShowBanner(false);
-
-    if (consentData.analytics) {
-      // Google Analytics będzie aktywowane przez komponent GoogleAnalytics
-    }
-
-    if (consentData.marketing) {
-      // Włącz skrypty marketingowe
-    }
+    updateGtagConsent(consentData);
   };
 
   if (!showBanner || !isReady) return null;
