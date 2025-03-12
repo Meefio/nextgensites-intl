@@ -20,15 +20,11 @@ export function Hero() {
 							scroll={true}
 							className='inline-flex h-7 items-center justify-between rounded-full border bg-secondary text-secondary-foreground px-3 text-xs transition-all ease-in hover:cursor-pointer hover:bg-white/20 group gap-1 translate-y-[-1rem]'
 						>
-							<TextShimmer className='inline-flex items-center justify-center'>
-								<span className='text-xs text-secondary-foreground/80'>
-									{t('pricing')}
-								</span>
-								<ArrowRight
-									size={20}
-									className='ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5'
-								/>
-							</TextShimmer>
+							<TextShimmer className='inline-flex items-center justify-center' />
+							<ArrowRight
+								size={20}
+								className='ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5'
+							/>
 						</Link>
 					</AnimatedElement>
 				</div>

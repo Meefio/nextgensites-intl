@@ -8,7 +8,7 @@ export const promoStatusEvent = new EventTarget()
 
 export const CountdownTimer = () => {
   const t = useTranslations('Pricing')
-  const targetDate = new Date('2025-03-16T23:59')
+  const targetDate = new Date('2025-03-16T23:59:59')
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
