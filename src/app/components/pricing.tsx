@@ -2,10 +2,12 @@ import { Check, Clock } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Card, CardContent } from '@/app/components/ui/card'
 import { Button } from '@/app/components/ui/button'
-import Link from 'next/link' // dodaj ten import
+import Link from 'next/link'
 // import { Switch } from '@/app/components/ui/switch'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
 import { CountdownTimer } from '@/app/components/client-countdown-timer'
+import { ClientPriceDisplay } from './client-price-display'
+import { ClientPromoHeader } from './client-promo-header'
 
 export function Pricing() {
 	const t = useTranslations('Pricing')
@@ -43,34 +45,6 @@ export function Pricing() {
 		},
 	]
 
-	const PriceDisplay = ({ plan }: { plan: typeof plans[0] }) => {
-		if (plan.key === 'premium') {
-			return (
-				<div className='relative h-[60px] flex items-center justify-center'>
-					<span className='font-heading text-2xl text-center'>
-						{plan.oneTimePrice}
-					</span>
-				</div>
-			)
-		}
-
-		return (
-			<div className='relative h-[60px] flex flex-col items-center justify-center gap-1'>
-				<span className='font-heading text-2xl text-center line-through text-muted-foreground'>
-					{plan.oneTimePrice}
-				</span>
-				<div className='flex flex-col items-center gap-1'>
-					<span className='font-heading text-2xl text-center text-primary font-bold'>
-						{plan.promoPrice}
-					</span>
-					<span className='text-sm text-primary font-semibold animate-pulse'>
-						{t('promoInfo')}
-					</span>
-				</div>
-			</div>
-		)
-	}
-
 	return (
 		<section
 			id='pricing'
@@ -86,11 +60,8 @@ export function Pricing() {
 				<p className='text-lg text-muted-foreground text-balance max-w-lg text-center'>
 					{t('subheading')}
 				</p>
-				<p className='text-lg font-semibold text-primary animate-pulse text-center'>
-					{t('promoHeader')}
-				</p>
-				{/* <CountdownTimer /> */}
-				<CountdownTimer/>
+				<ClientPromoHeader />
+				<CountdownTimer />
 			</AnimatedElement>
 
 			{/* <AnimatedElement className='flex items-center gap-2 mt-4'>
@@ -147,7 +118,7 @@ export function Pricing() {
 										<span>{plan.timeframe}</span>
 									</div>
 									<div className='mt-5'>
-										<PriceDisplay plan={plan} />
+										<ClientPriceDisplay plan={plan} />
 									</div>
 									<div className='hidden md:block mt-6 w-full'>
 										<Button size='lg' asChild className='w-full'>

@@ -3,35 +3,50 @@
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
+const PROMO_STATUS_EVENT = 'promoStatusChange'
+export const promoStatusEvent = new EventTarget()
+
 export const CountdownTimer = () => {
   const t = useTranslations('Pricing')
-  const targetDate = new Date('2025-03-16T23:59:59')
+  const targetDate = new Date('2025-03-16T23:59')
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
   })
+  const [isPromoActive, setIsPromoActive] = useState(false)
 
   useEffect(() => {
     const calculateTimeLeft = () => {
       const difference = +targetDate - +new Date()
+      const isActive = difference > 0
 
-      if (difference > 0) {
+      if (isActive) {
+        setIsPromoActive(true)
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
           minutes: Math.floor((difference / 1000 / 60) % 60),
           seconds: Math.floor((difference / 1000) % 60),
         })
+      } else {
+        setIsPromoActive(false)
       }
+
+      // Emitujemy zdarzenie ze statusem promocji
+      promoStatusEvent.dispatchEvent(
+        new CustomEvent(PROMO_STATUS_EVENT, { detail: isActive })
+      )
     }
 
     const timer = setInterval(calculateTimeLeft, 1000)
-    calculateTimeLeft()
+    calculateTimeLeft() // Inicjalne sprawdzenie
 
     return () => clearInterval(timer)
   }, [])
+
+  if (!isPromoActive) return null
 
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
     <div className="flex flex-col items-center">
@@ -53,4 +68,28 @@ export const CountdownTimer = () => {
       </div>
     </div>
   )
+}
+
+// Hook do łatwego sprawdzania statusu promocji
+export const usePromoStatus = () => {
+  const [isPromoActive, setIsPromoActive] = useState(false)
+
+  useEffect(() => {
+    // Sprawdzamy początkowy stan
+    const now = new Date()
+    const targetDate = new Date('2025-03-16T23:59:59')
+    setIsPromoActive(now < targetDate)
+
+    // Nasłuchujemy zmian
+    const handlePromoStatus = (event: Event) => {
+      setIsPromoActive((event as CustomEvent).detail)
+    }
+
+    promoStatusEvent.addEventListener(PROMO_STATUS_EVENT, handlePromoStatus)
+    return () => {
+      promoStatusEvent.removeEventListener(PROMO_STATUS_EVENT, handlePromoStatus)
+    }
+  }, [])
+
+  return isPromoActive
 }

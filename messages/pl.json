@@ -1,6 +1,6 @@
 {
   "Hero": {
-    "pricing": "Promocja! Strony już od 1 250zł",
+    "pricing": "Piszemy strony w czystym kodzie",
     "title": "Nowoczesna strona internetowa, która działa, przyciąga i sprzedaje ",
     "description": "Tworzymy szybkie, zoptymalizowane i nowoczesne strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
     "cta": "Dowiedz się więcej!"
@@ -136,6 +136,7 @@
     "promoHeader": "🎉 Promocja! -50% na wszystkie pakiety do 16 marca! 🎉",
     "promoInfo": "Promocja -50%",
     "promoEnds": "Do końca promocji pozostało:",
+    "shimmer": "Profesjonalne strony już od 2 499zł",
     "timer": {
       "days": "dni",
       "hours": "godz",
