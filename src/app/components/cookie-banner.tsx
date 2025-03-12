@@ -38,6 +38,8 @@ export function CookieBanner() {
         functionality_storage: "denied",
         personalization_storage: "denied",
         security_storage: "granted",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
         wait_for_update: 500
       });
     }
@@ -65,7 +67,9 @@ export function CookieBanner() {
         ad_storage: consentData.marketing ? "granted" : "denied",
         functionality_storage: consentData.necessary ? "granted" : "denied",
         personalization_storage: consentData.marketing ? "granted" : "denied",
-        security_storage: "granted"
+        security_storage: "granted",
+        ad_user_data: consentData.marketing ? "granted" : "denied",
+        ad_personalization: consentData.marketing ? "granted" : "denied"
       });
     }
   };
@@ -76,7 +80,24 @@ export function CookieBanner() {
       analytics: true,
       marketing: true,
     };
-    saveConsent(newConsent);
+
+    // Najpierw aktualizujemy gtag
+    if (typeof window.gtag !== 'undefined') {
+      window.gtag("consent", "update", {
+        analytics_storage: 'granted',
+        ad_storage: 'granted',
+        functionality_storage: 'granted',
+        personalization_storage: 'granted',
+        security_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+    }
+
+    // Następnie zapisujemy w localStorage i aktualizujemy stan
+    localStorage.setItem("cookieConsent", JSON.stringify(newConsent));
+    setConsent(newConsent);
+    setShowBanner(false);
   };
 
   const handleRejectAll = () => {
@@ -85,18 +106,43 @@ export function CookieBanner() {
       analytics: false,
       marketing: false,
     };
-    saveConsent(newConsent);
+
+    // Najpierw aktualizujemy gtag
+    if (typeof window.gtag !== 'undefined') {
+      window.gtag("consent", "update", {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        functionality_storage: 'denied',
+        personalization_storage: 'denied',
+        security_storage: 'granted',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+    }
+
+    // Następnie zapisujemy w localStorage i aktualizujemy stan
+    localStorage.setItem("cookieConsent", JSON.stringify(newConsent));
+    setConsent(newConsent);
+    setShowBanner(false);
   };
 
   const handleAcceptSelected = () => {
-    saveConsent(consent);
-  };
+    // Najpierw aktualizujemy gtag
+    if (typeof window.gtag !== 'undefined') {
+      window.gtag("consent", "update", {
+        analytics_storage: consent.analytics ? 'granted' : 'denied',
+        ad_storage: consent.marketing ? 'granted' : 'denied',
+        functionality_storage: consent.necessary ? 'granted' : 'denied',
+        personalization_storage: consent.marketing ? 'granted' : 'denied',
+        security_storage: 'granted',
+        ad_user_data: consent.marketing ? 'granted' : 'denied',
+        ad_personalization: consent.marketing ? 'granted' : 'denied'
+      });
+    }
 
-  const saveConsent = (consentData: CookieConsent) => {
-    localStorage.setItem("cookieConsent", JSON.stringify(consentData));
-    setConsent(consentData);
+    // Następnie zapisujemy w localStorage i aktualizujemy stan
+    localStorage.setItem("cookieConsent", JSON.stringify(consent));
     setShowBanner(false);
-    updateGtagConsent(consentData);
   };
 
   if (!showBanner || !isReady) return null;

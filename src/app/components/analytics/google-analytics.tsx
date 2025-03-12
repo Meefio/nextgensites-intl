@@ -44,20 +44,24 @@ export function GoogleAnalytics({ measurementId, consent }: GoogleAnalyticsProps
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             
-            // Domyślna konfiguracja zgód
+
             gtag('consent', 'default', {
               'analytics_storage': 'denied',
               'ad_storage': 'denied',
               'functionality_storage': 'denied',
               'personalization_storage': 'denied',
               'security_storage': 'granted',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied',
               'wait_for_update': 500
             });
             
             // Konfiguracja Google Analytics
             gtag('config', '${measurementId}', {
               page_path: window.location.pathname,
-              send_page_view: false
+              send_page_view: false,
+              allow_google_signals: false,
+              allow_ad_personalization_signals: false
             });
           `,
         }}
