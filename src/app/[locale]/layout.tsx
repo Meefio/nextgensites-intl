@@ -6,8 +6,9 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/app/components/theme-provider"
 import { Toaster } from "@/app/components/ui/toaster";
 import { CookieBanner } from "@/app/components/cookie-banner";
-import { GoogleAnalytics } from "@/app/components//analytics/google-analytics";
+import { GoogleAnalytics } from "@/app/components/analytics/google-analytics";
 import { cookies } from 'next/headers';
+import { Analytics } from '@vercel/analytics/next';
 
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
@@ -102,7 +103,6 @@ export default async function LocaleLayout({
 					disableTransitionOnChange
 				>
 					<NextIntlClientProvider locale={locale} messages={messages}>
-						{/* Google Analytics - załaduje się tylko jeśli użytkownik wyraził zgodę */}
 						<GoogleAnalytics
 							measurementId="G-5YLJH8GHZ6"
 							consent={consent}
@@ -113,6 +113,7 @@ export default async function LocaleLayout({
 						<CookieBanner />
 					</NextIntlClientProvider>
 				</ThemeProvider>
+				<Analytics />
 			</body>
 		</html>
 	)
