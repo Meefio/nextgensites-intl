@@ -24,6 +24,12 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
 
 	const baseMetadataWithLocale = baseMetadata(locale);
 
+	const alternateLanguages = {
+		languages: locale === 'pl'
+			? { 'en': 'https://nextgensites.pl/en' }
+			: { 'pl': 'https://nextgensites.pl' }
+	};
+
 	const metadata: Metadata = {
 		title: {
 			default: t('title.default'),
@@ -46,9 +52,8 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
 		},
 		twitter: {
 			...baseMetadataWithLocale.twitter,
-			title: t('twitter.title'),
-			description: t('twitter.description'),
-		}
+		},
+		alternates: alternateLanguages,
 	};
 
 	return {

@@ -33,7 +33,7 @@ export const metadata = (locale: string): Metadata => ({
     url: locale === 'pl' ? 'https://nextgensites.pl' : 'https://nextgensites.pl/en',
     images: [
       {
-        url: '/images/og-image.png',
+        url: 'https://nextgensites.pl/images/og-image.png',
         width: 1200,
         height: 630,
         alt: 'NextGen Sites',
@@ -45,7 +45,7 @@ export const metadata = (locale: string): Metadata => ({
     card: 'summary_large_image',
     site: '@nextgensites',
     creator: '@nextgensites',
-    images: '/images/og-image.png',
+    images: 'https://nextgensites.pl/images/og-image.png',
   },
   category: 'technology',
   other: {
@@ -54,4 +54,7 @@ export const metadata = (locale: string): Metadata => ({
     'apple-mobile-web-app-status-bar-style': 'black-translucent',
     'msvalidate.01': '4DF508BDA9824D31C606EEF153D9F5C2',
   },
+  authors: [
+    { name: 'Michał Rowiński', url: 'https://nextgensites.pl' }
+  ],
 }); 
