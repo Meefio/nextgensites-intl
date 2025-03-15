@@ -18,7 +18,7 @@ export function Hero() {
 						<Link
 							href='/#pricing'
 							scroll={true}
-							className='inline-flex h-7 items-center justify-between rounded-full border bg-secondary text-secondary-foreground px-3 text-xs transition-all ease-in hover:cursor-pointer hover:bg-white/20 group gap-1 translate-y-[-1rem]'
+							className='inline-flex items-center justify-between rounded-full border bg-secondary text-secondary-foreground px-3 text-xs transition-all ease-in hover:cursor-pointer hover:bg-white/20 group gap-1 translate-y-[-1rem]'
 						>
 							<TextShimmer className='inline-flex items-center justify-center' />
 							<ArrowRight
