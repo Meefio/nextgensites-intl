@@ -15,11 +15,13 @@ import { getTranslations } from 'next-intl/server';
 import { metadata as baseMetadata } from './metadata';
 
 interface GenerateMetadataProps {
-	params: { locale: string };
+	params: Promise<{
+		locale: string;
+	}>;
 }
 
 export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
-	const { locale } = params;
+	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: 'Metadata' });
 
 	const baseMetadataWithLocale = baseMetadata(locale);
@@ -77,9 +79,9 @@ export default async function LocaleLayout({
 	params,
 }: {
 	children: React.ReactNode
-	params: { locale: string }
+		params: Promise<{ locale: string }>
 }) {
-	const { locale } = params
+	const { locale } = await params
 	const messages = await import(`@/../messages/${locale}.json`).then(module => module.default)
 
 	// Pobierz zgodę na pliki cookie z cookies
