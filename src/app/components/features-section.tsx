@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Gauge, Palette, MonitorSmartphone, Code2, Search, Languages } from "lucide-react"
+import { Gauge, Palette, MonitorSmartphone, Code2, Search, Code } from "lucide-react"
 import { Card, CardContent } from "@/app/components/ui/card"
 import { AnimatedElement } from "@/app/components/motion/animated-element"
 import { useTranslations } from 'next-intl'
@@ -36,7 +36,7 @@ const Features = () => {
       description: t.raw('seo.description')
     },
     {
-      icon: Languages,
+      icon: Code,
       title: t.raw('multilingual.title'),
       description: t.raw('multilingual.description')
     }
@@ -104,7 +104,7 @@ const Features = () => {
               delay={calculateDelay(index, screenSize)}
               viewport={{ once: true, margin: "-20% 0px" }}
             >
-              <Card className="shadow-lg relative h-full">
+              <Card className="shadow-lg relative h-full md:hover:scale-[0.98] md:transition-transform md:duration-300">
                 <CardContent className="flex flex-col items-start gap-5 relative p-6">
                   <div className="inline-flex items-center justify-center rounded-md border border-border bg-secondary p-2">
                     <Icon size={28} className="text-primary" />
