@@ -79,7 +79,7 @@ export default async function LocaleLayout({
 	params,
 }: {
 	children: React.ReactNode
-		params: Promise<{ locale: string }>
+	params: Promise<{ locale: string }>
 }) {
 	const { locale } = await params
 	const messages = await import(`@/../messages/${locale}.json`).then(module => module.default)
@@ -94,6 +94,10 @@ export default async function LocaleLayout({
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<head>
+				<link
+					rel="canonical"
+					href={`https://nextgensites.pl${locale === 'pl' ? '' : `/${locale}`}`}
+				/>
 				<GoogleAnalytics
 					measurementId="G-5YLJH8GHZ6"
 					consent={consent}

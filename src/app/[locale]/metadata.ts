@@ -21,7 +21,7 @@ export const metadata = (locale: string): Metadata => ({
     },
   },
   alternates: {
-    canonical: locale === 'pl' ? '/' : `/${locale}`,
+    canonical: `https://nextgensites.pl${locale === 'pl' ? '' : `/${locale}`}`,
     languages: {
       'pl-PL': '/',
       'en-US': '/en',
