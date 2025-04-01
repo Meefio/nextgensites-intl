@@ -71,7 +71,7 @@ const Portfolio = () => {
             delay={index * 0.2}
             viewport={{ once: true, margin: "-20% 0px" }}
           >
-            <Card className="h-full flex flex-col group/card overflow-hidden">
+            <Card className="h-full flex flex-col group/card overflow-hidden max-w-full">
               <div className="aspect-video relative overflow-hidden">
                 <Image
                   src={project.image}
@@ -97,7 +97,7 @@ const Portfolio = () => {
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex justify-center gap-4">
+                  <div className="flex flex-wrap justify-center gap-4">
                     {project.viewLiveLink && (
                       <>
                         <Link href={project.viewLiveLink} target='_blank' rel='noopener noreferrer'>
