@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Card, CardContent } from "@/app/components/ui/card"
 // import { Badge } from "@/app/components/ui/badge"
 import { AnimatedElement } from "@/app/components/motion/animated-element"
+import { Badge } from '@/app/components/ui/badge'
 
 interface Project {
   slug: string
@@ -12,6 +13,7 @@ interface Project {
   description: string
   tags: string[]
   imageAlt: string
+  link: string
 }
 
 const Portfolio = () => {
@@ -24,15 +26,17 @@ const Portfolio = () => {
       title: t('projects.project1.title'),
       description: t('projects.project1.description'),
       tags: t.raw('projects.project1.tags') as string[],
-      imageAlt: t('projects.project1.imageAlt')
+      imageAlt: t('projects.project1.imageAlt'),
+      link: '/underpressure'
     },
     {
-      slug: 'kwiaciarnia-strelicja.webflow.io',
-      image: '/images/kwiaciarnia-strelicja-small-min.png',
+      slug: 'buildwise.com.pl',
+      image: '/images/BuildWise.webp',
       title: t('projects.project2.title'),
       description: t('projects.project2.description'),
       tags: t.raw('projects.project2.tags') as string[],
-      imageAlt: t('projects.project2.imageAlt')
+      imageAlt: t('projects.project2.imageAlt'),
+      link: 'https://buildwise-alpha.vercel.app/pl'
     }
   ]
 
@@ -65,7 +69,7 @@ const Portfolio = () => {
             delay={index * 0.2}
             viewport={{ once: true, margin: "-20% 0px" }}
           >
-            <Link href='/underpressure' target='_blank' rel='noopener noreferrer'>
+            <Link href={project.link} target='_blank' rel='noopener noreferrer'>
               <Card className="overflow-hidden transition-transform hover:scale-[0.98]">
                 <div className="aspect-video relative">
                   <Image
@@ -80,11 +84,11 @@ const Portfolio = () => {
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                   <p className="text-muted-foreground mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
-                    {/* {project.tags.map((tag: string) => (
+                    {project.tags.map((tag: string) => (
                       <Badge key={tag} variant="secondary">
                         {tag}
                       </Badge>
-                    ))} */}
+                    ))}
                   </div>
                 </CardContent>
               </Card>

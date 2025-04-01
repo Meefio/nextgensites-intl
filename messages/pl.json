@@ -73,23 +73,28 @@
         "title": "Under Pressure",
         "description": "Strona dla firmy zajmującej się czyszczeniem kostki brukowej, elewacji oraz dachów.",
         "tags": [
-          "Webflow",
-          "Tailwind CSS",
+          "Pisane w czystym kodzie",
+          "Rozbudowana galeria zdjęć",
+          "Modal w sekcji certyfikaty",
           "Google Analytics",
-          "Optymalizacja SEO"
+          "Optymalizacja SEO",
+          "Ręcznie tworzone ikony",
+          "Ilustracje wygenerowane w AI"
         ],
         "imageAlt": "Portfolio - Under Pressure"
       },
       "project2": {
-        "title": "Kwiaciarnia Strelicja",
-        "description": "Strona dla kwiaciarni, która oferuje wiele różnych kwiatów, dekoracji i akcesoriów.",
+        "title": "BuildWise",
+        "description": "Strona dla firmy zajmującej się budową i remontami.",
         "tags": [
-          "Webflow",
-          "Tailwind CSS",
+          "Pisane w czystym kodzie",
+          "Sanity CMS",
           "Google Analytics",
+          "Blog",
+          "Oferty pracy",
           "W trakcie tworzenia"
         ],
-        "imageAlt": "Portfolio - Flower Shop Strelicja"
+        "imageAlt": "Portfolio - BuildWise"
       }
     }
   },

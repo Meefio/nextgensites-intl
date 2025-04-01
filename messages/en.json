@@ -71,25 +71,30 @@
     "projects": {
       "project1": {
         "title": "Under Pressure",
-        "description": "A website for a new company specializing in cleaning paving stones, facades, and roofs.",
+        "description": "A website for a company specializing in cleaning paving stones, facades, and roofs.",
         "tags": [
-          "Webflow",
-          "Tailwind CSS",
-          "Strapi CMS",
-          "Optymalizacja SEO"
+          "Written in clean code",
+          "Extended photo gallery",
+          "Modal in certificates section",
+          "Google Analytics",
+          "SEO optimization",
+          "Handcrafted icons",
+          "AI-generated illustrations"
         ],
-        "imageAlt": "EcoSmart Solutions - Homepage"
+        "imageAlt": "Portfolio - Under Pressure"
       },
       "project2": {
-        "title": "Flower Shop Strelicja",
-        "description": "A website for a flower shop that offers many different flowers, decorations, and accessories.",
+        "title": "BuildWise",
+        "description": "A website for a construction and renovation company.",
         "tags": [
-          "Webflow",
-          "Tailwind CSS",
+          "Written in clean code",
+          "Sanity CMS",
           "Google Analytics",
+          "Blog",
+          "Job offers",
           "In progress"
         ],
-        "imageAlt": "FitLife Pro - Dashboard"
+        "imageAlt": "Portfolio - BuildWise"
       }
     }
   },
