@@ -16,6 +16,7 @@ interface Project {
   tags: string[]
   imageAlt: string
   link: string
+  viewLiveLink?: string
 }
 
 const Portfolio = () => {
@@ -29,7 +30,8 @@ const Portfolio = () => {
       description: t.raw('projects.project1.description'),
       tags: t.raw('projects.project1.tags') as string[],
       imageAlt: t('projects.project1.imageAlt'),
-      link: '/underpressure'
+      link: '/underpressure',
+      viewLiveLink: 'https://myciecisnieniem.pl'
     },
     {
       slug: 'buildwise.com.pl',
@@ -97,13 +99,28 @@ const Portfolio = () => {
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex justify-end">
-                    <Link href={project.link} target='_blank' rel='noopener noreferrer'>
-                      <Button className="group">
-                        Dowiedz się więcej
-                        <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                      </Button>
-                    </Link>
+                  <div className="flex justify-center gap-4">
+                    {project.viewLiveLink && (
+                      <>
+                        <Link href={project.viewLiveLink} target='_blank' rel='noopener noreferrer'>
+                          <Button variant="outline" className="group">
+                            {t('buttons.viewLive')}
+                          </Button>
+                        </Link>
+                        <Link href={project.link} target='_blank' rel='noopener noreferrer'>
+                          <Button className="group">
+                            {t('buttons.learnMore')}
+                          </Button>
+                        </Link>
+                      </>
+                    )}
+                    {!project.viewLiveLink && (
+                      <Link href={project.link} target='_blank' rel='noopener noreferrer'>
+                        <Button className="group">
+                          {t('buttons.viewLive')}
+                        </Button>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </CardContent>

@@ -68,10 +68,14 @@
     "why": "Zobacz efekty naszej pracy",
     "heading": "Portfolio, które mówi samo za siebie",
     "subheading": "Poznaj niektóre z naszych projektów, które pomogły klientom <strong>zwiększyć widoczność online</strong> i <strong>konwersję</strong>",
+    "buttons": {
+      "viewLive": "Zobacz projekt w akcji",
+      "learnMore": "Dowiedz się więcej"
+    },
     "projects": {
       "project1": {
         "title": "💦 Innowacyjna strona dla firmy zajmującej się myciem ciśnieniowym",
-        "description": "<p class='mb-2'>Strona łączy nowoczesny design z funkcjonalnością, oferując przejrzysty układ i interaktywne elementy.</p><p class='mb-2'>Rozbudowana galeria zdjęć pozwala na efektowne przedstawienie realizacji, a ręcznie tworzone ikony podkreślają profesjonalizm.</p><p>Dzięki zaawansowanej optymalizacji SEO i integracji z Google Analytics, strona skutecznie przyciąga klientów i poprawia konwersję.</p>",
+        "description": "<p class='mb-2'>Strona łączy nowoczesny design z funkcjonalnością, oferując przejrzysty układ i interaktywne elementy.</p><p class='mb-2'>📸 Rozbudowana galeria zdjęć pozwala na efektowne przedstawienie realizacji, a ręcznie tworzone ikony podkreślają profesjonalizm.</p><p class='mb-2'>🚀 Zaawansowana optymalizacja SEO sprawia, że strona zajmuje #1 miejsce w wielu wynikach wyszukiwania, generując większy ruch i lepszą konwersję.</p><p class='mb-2'><strong>Najważniejsze funkcje:</strong></p><ul class='list-none space-y-2 mb-2'><li>✨ Pisane w czystym kodzie dla maksymalnej wydajności</li><li>🖼️ Rozbudowana galeria zdjęć prezentująca realizacje</li><li>🏅 Modal w sekcji certyfikaty podkreślający wiarygodność</li><li>📊 Google Analytics dla śledzenia statystyk</li><li>🔍 Optymalizacja SEO zapewniająca topowe pozycje w Google</li><li>🎨 Ręcznie tworzone ikony i AI-generowane ilustracje</li></ul>",
         "tags": [
           "Pisane w czystym kodzie",
           "Rozbudowana galeria zdjęć",
@@ -84,8 +88,8 @@
         "imageAlt": "Portfolio - Under Pressure"
       },
       "project2": {
-        "title": "🏗️ Kompleksowe wsparcie dla branży budowlanej",
-        "description": "<p class='mb-2'>Projekt dla firmy budowlanej, który nie tylko prezentuje usługi, ale także buduje autorytet marki. Strona została zintegrowana z Sanity CMS, co pozwala klientowi na łatwą edycję treści.</p><ul class='list-none space-y-2 mb-2'><li>✅ Blog ekspercki wspiera pozycjonowanie i angażuje użytkowników</li><li>✅ Moduł ofert pracy ułatwia rekrutację nowych specjalistów</li><li>✅ Referencje i case studies zwiększają zaufanie potencjalnych klientów</li></ul><p>Dzięki przemyślanej architekturze i dbałości o szczegóły, BuildWise nie jest tylko stroną – to narzędzie do pozyskiwania klientów i budowania relacji w branży.</p>",
+        "title": "🏗️ Nowoczesna platforma dla firmy budowlanej",
+        "description": "<p class='mb-2'>Projekt dla firmy budowlanej, który nie tylko prezentuje usługi, ale także buduje autorytet marki. Strona została zintegrowana z Sanity CMS, co pozwala klientowi na łatwą edycję treści.</p><ul class='list-none space-y-2 mb-2'><li>📖 Blog ekspercki wspiera pozycjonowanie i angażuje użytkowników.</li><li>📋 Moduł ofert pracy ułatwia rekrutację nowych specjalistów.</li><li>⭐ Referencje i case studies zwiększają zaufanie potencjalnych klientów.</li></ul><p class='mb-2'>Dzięki przemyślanej architekturze, dbałości o szczegóły i pełnej responsywności, BuildWise to nie tylko strona – to narzędzie do pozyskiwania klientów i budowania relacji w branży.</p><p class='mb-2'><strong>Najważniejsze funkcje:</strong></p><ul class='list-none space-y-2 mb-2'><li>🏗️ Sanity CMS – łatwa edycja treści</li><li>✍️ Blog ekspercki zwiększający SEO</li><li>📋 Moduł ofert pracy wspierający rekrutację</li><li>📊 Google Analytics do analizy ruchu</li><li>🔍 Optymalizacja SEO dla lepszej widoczności</li></ul>",
         "tags": [
           "Pisane w czystym kodzie",
           "Sanity CMS",
