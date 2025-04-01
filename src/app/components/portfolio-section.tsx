@@ -2,10 +2,8 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Card, CardContent } from "@/app/components/ui/card"
-// import { Badge } from "@/app/components/ui/badge"
 import { AnimatedElement } from "@/app/components/motion/animated-element"
 import { Badge } from '@/app/components/ui/badge'
-import { ArrowRight } from 'lucide-react'
 import { Button } from '@/app/components/ui/button'
 
 interface Project {
