@@ -5,6 +5,8 @@ import { Card, CardContent } from "@/app/components/ui/card"
 // import { Badge } from "@/app/components/ui/badge"
 import { AnimatedElement } from "@/app/components/motion/animated-element"
 import { Badge } from '@/app/components/ui/badge'
+import { ArrowRight } from 'lucide-react'
+import { Button } from '@/app/components/ui/button'
 
 interface Project {
   slug: string
@@ -69,35 +71,43 @@ const Portfolio = () => {
             delay={index * 0.2}
             viewport={{ once: true, margin: "-20% 0px" }}
           >
-            <Link href={project.link} target='_blank' rel='noopener noreferrer'>
-              <Card className="overflow-hidden transition-transform hover:scale-[0.98] h-full flex flex-col">
-                <div className="aspect-video relative">
-                  <Image
-                    src={project.image}
-                    alt={project.imageAlt}
-                    width={1156}
-                    height={650}
-                    className="object-cover max-h-[420px] object-top"
+            <Card className="h-full flex flex-col group/card overflow-hidden">
+              <div className="aspect-video relative overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.imageAlt}
+                  width={1156}
+                  height={650}
+                  className="object-cover max-h-[420px] object-top transition-transform duration-500 group-hover/card:scale-105"
+                />
+              </div>
+              <CardContent className="p-6 flex flex-col flex-1">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                  <div
+                    className="text-sm text-muted-foreground mb-4 prose prose-sm prose-muted max-w-none"
+                    dangerouslySetInnerHTML={{ __html: project.description }}
                   />
                 </div>
-                <CardContent className="p-6 flex flex-col flex-1">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-                    <div
-                      className="text-sm text-muted-foreground mb-4 prose prose-sm prose-muted max-w-none"
-                      dangerouslySetInnerHTML={{ __html: project.description }}
-                    />
-                  </div>
-                  <div className="flex flex-wrap gap-2 mt-auto">
+                <div className="space-y-6">
+                  <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag: string) => (
                       <Badge key={tag} variant="secondary">
                         {tag}
                       </Badge>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
-            </Link>
+                  <div className="flex justify-end">
+                    <Link href={project.link} target='_blank' rel='noopener noreferrer'>
+                      <Button className="group">
+                        Dowiedz się więcej
+                        <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </AnimatedElement>
         ))}
       </div>
