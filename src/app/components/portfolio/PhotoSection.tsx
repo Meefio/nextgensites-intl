@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
-import { Card, CardHeader, CardTitle, CardContent } from '@/app/components/ui/card'
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/app/components/ui/card'
 import Link from 'next/link'
 
 export function PhotoSection() {
@@ -24,6 +24,16 @@ export function PhotoSection() {
                         {t('features.description')}
                       </p>
                     </CardContent>
+                    <CardFooter>
+                      <Link
+                        href="https://myciecisnieniem.pl"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                      >
+                        {t('viewLive')}
+                      </Link>
+                    </CardFooter>
                   </Card>
                 </AnimatedElement>
               </div>
@@ -41,6 +51,16 @@ export function PhotoSection() {
                         {t('design.description')}
                       </p>
                     </CardContent>
+                    <CardFooter>
+                      <Link
+                        href="https://myciecisnieniem.pl"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                      >
+                        {t('viewLive')}
+                      </Link>
+                    </CardFooter>
                   </Card>
                 </AnimatedElement>
               </div>
@@ -57,21 +77,31 @@ export function PhotoSection() {
                         {t('implementation.description')}
                       </p>
                     </CardContent>
+                    <CardFooter>
+                      <Link
+                        href="https://myciecisnieniem.pl"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                      >
+                        {t('viewLive')}
+                      </Link>
+                    </CardFooter>
                   </Card>
                 </AnimatedElement>
               </div>
             </div>
-            
+
           </div>
         </div>
         <div className="w-full md:w-2/3">
           <div className="relative w-full">
             <Image
-              src="/images/myciecisnieniem-min.png"
+              src="/images/myciecisnieniem-full-size.webp"
               alt="Under Pressure Website Preview"
-              height={11826}
-              width={1557}
-              className="object-contain rounded-xl"
+              height={12886}
+              width={1327}
+              className="object-contain object-top rounded-xl"
               quality={100}
             />
           </div>
@@ -94,6 +124,16 @@ export function PhotoSection() {
                           {t('Google-position-1.description')}
                         </p>
                       </CardContent>
+                      <CardFooter>
+                        <Link
+                          href="https://myciecisnieniem.pl"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                        >
+                          {t('viewLive')}
+                        </Link>
+                      </CardFooter>
                     </Card>
                   </AnimatedElement>
                 </div>
@@ -132,6 +172,16 @@ export function PhotoSection() {
                           {t('Google-position-2.description')}
                         </p>
                       </CardContent>
+                      <CardFooter>
+                        <Link
+                          href="https://myciecisnieniem.pl"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                        >
+                          {t('viewLive')}
+                        </Link>
+                      </CardFooter>
                     </Card>
                   </AnimatedElement>
                 </div>
@@ -151,19 +201,6 @@ export function PhotoSection() {
               />
             </div>
           </div>
-        </div>
-
-        <div className="flex justify-center gap-4">
-          <AnimatedElement>
-            <Link
-              href="https://myciecisnieniem.pl"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              {t('viewLive')}
-            </Link>
-          </AnimatedElement>
         </div>
       </div>
     </div>
