@@ -75,7 +75,7 @@
     "projects": {
       "project1": {
         "title": "💦 Innovative website for a pressure washing company",
-        "description": "<p class='mb-2'>The website combines modern design with functionality, offering a clear layout and interactive elements.</p><p class='mb-2'>An extensive photo gallery allows for impressive presentation of completed projects, while handcrafted icons emphasize professionalism.</p><p>Thanks to advanced SEO optimization and Google Analytics integration, the website effectively attracts customers and improves conversion rates.</p>",
+        "description": "<p class='mb-2'>Combines clean design with functionality – <strong>interactive elements</strong>, <strong>extensive photo gallery</strong> and <strong>handcrafted icons</strong> emphasize professionalism. Advanced <strong>SEO optimization</strong> ensures top positions in Google, increasing traffic and conversion.</p><p class='mb-4'><span class='font-semibold text-lg'>Key features:</span></p><ul class='list-none space-y-2 mb-2'><li>✨ Clean code for maximum performance</li><li>🖼️ Photo gallery showcasing projects</li><li>🏅 Certificate modal building trust</li><li>📊 Google Analytics for traffic analysis</li><li>🔍 Top-level SEO optimization</li><li>🎨 Unique icons and AI-generated illustrations</li></ul>",
         "tags": [
           "Written in clean code",
           "Extended photo gallery",
@@ -88,15 +88,17 @@
         "imageAlt": "Portfolio - Under Pressure"
       },
       "project2": {
-        "title": "🏗️ Comprehensive support for the construction industry",
-        "description": "<p class='mb-2'>A project for a construction company that not only presents services but also builds brand authority. The website has been integrated with Sanity CMS, allowing the client to easily edit content.</p><ul class='list-none space-y-2 mb-2'><li>✅ Expert blog supporting positioning and user engagement</li><li>✅ Job offers module facilitating recruitment of new specialists</li><li>✅ References and case studies increasing trust of potential clients</li></ul><p>Thanks to thoughtful architecture and attention to detail, BuildWise is not just a website – it's a tool for acquiring customers and building relationships in the industry.</p>",
+        "title": "🏗️ Comprehensive platform for a construction company",
+        "description": "<p class='mb-2'>The website not only presents services but also <strong>builds brand authority</strong>. Integrated with <strong>Sanity CMS</strong>, it enables easy content editing, supports <strong>SEO</strong> and recruitment, offering an <strong>expert blog</strong>, <strong>job offers module</strong> and references. It supports <strong>Dark Mode/Light Mode</strong>, is fully <strong>responsive</strong> and available in <strong>4 languages</strong>.</p><p class='mb-4'><span class='font-semibold text-lg'>Key features:</span></p><ul class='list-none space-y-2 mb-2'><li>📝 Sanity CMS – simple content editing</li><li>✍️ Blog increasing Google visibility</li><li>📋 Job offers module supporting recruitment</li><li>📊 Google Analytics for traffic analysis</li><li>🔍 Advanced SEO optimization</li><li>🌍 Language versions: PL, EN, DE, UA</li><li>🎨 Dark Mode/Light Mode for better UX</li></ul>",
         "tags": [
-          "Written in clean code",
+          "Written in code editor",
           "Sanity CMS",
+          "Expert blog",
+          "Job offers module",
           "Google Analytics",
-          "Blog",
-          "Job offers",
-          "In progress"
+          "SEO optimization",
+          "Dark/Light Mode",
+          "Multilingual (PL, EN, DE, UA)"
         ],
         "imageAlt": "Portfolio - BuildWise"
       }
