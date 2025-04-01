@@ -24,7 +24,7 @@ const Portfolio = () => {
       slug: 'myciecisnieniem.pl',
       image: '/images/underpressure-small-min.png',
       title: t('projects.project1.title'),
-      description: t('projects.project1.description'),
+      description: t.raw('projects.project1.description'),
       tags: t.raw('projects.project1.tags') as string[],
       imageAlt: t('projects.project1.imageAlt'),
       link: '/underpressure'
@@ -33,7 +33,7 @@ const Portfolio = () => {
       slug: 'buildwise.com.pl',
       image: '/images/BuildWise.webp',
       title: t('projects.project2.title'),
-      description: t('projects.project2.description'),
+      description: t.raw('projects.project2.description'),
       tags: t.raw('projects.project2.tags') as string[],
       imageAlt: t('projects.project2.imageAlt'),
       link: 'https://buildwise-alpha.vercel.app/pl'
@@ -70,7 +70,7 @@ const Portfolio = () => {
             viewport={{ once: true, margin: "-20% 0px" }}
           >
             <Link href={project.link} target='_blank' rel='noopener noreferrer'>
-              <Card className="overflow-hidden transition-transform hover:scale-[0.98]">
+              <Card className="overflow-hidden transition-transform hover:scale-[0.98] h-full flex flex-col">
                 <div className="aspect-video relative">
                   <Image
                     src={project.image}
@@ -80,10 +80,15 @@ const Portfolio = () => {
                     className="object-cover max-h-[420px] object-top"
                   />
                 </div>
-                <CardContent className="p-6 ">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-muted-foreground mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
+                <CardContent className="p-6 flex flex-col flex-1">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+                    <div
+                      className="text-sm text-muted-foreground mb-4 prose prose-sm prose-muted max-w-none"
+                      dangerouslySetInnerHTML={{ __html: project.description }}
+                    />
+                  </div>
+                  <div className="flex flex-wrap gap-2 mt-auto">
                     {project.tags.map((tag: string) => (
                       <Badge key={tag} variant="secondary">
                         {tag}

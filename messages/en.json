@@ -70,8 +70,8 @@
     "subheading": "Meet some of our projects that helped clients <strong>increase their online visibility</strong> and <strong>conversion</strong>",
     "projects": {
       "project1": {
-        "title": "Under Pressure",
-        "description": "A website for a company specializing in cleaning paving stones, facades, and roofs.",
+        "title": "💦 Innovative website for a pressure washing company",
+        "description": "<p class='mb-2'>The website combines modern design with functionality, offering a clear layout and interactive elements.</p><p class='mb-2'>An extensive photo gallery allows for impressive presentation of completed projects, while handcrafted icons emphasize professionalism.</p><p>Thanks to advanced SEO optimization and Google Analytics integration, the website effectively attracts customers and improves conversion rates.</p>",
         "tags": [
           "Written in clean code",
           "Extended photo gallery",
@@ -84,8 +84,8 @@
         "imageAlt": "Portfolio - Under Pressure"
       },
       "project2": {
-        "title": "BuildWise",
-        "description": "A website for a construction and renovation company.",
+        "title": "🏗️ Comprehensive support for the construction industry",
+        "description": "<p class='mb-2'>A project for a construction company that not only presents services but also builds brand authority. The website has been integrated with Sanity CMS, allowing the client to easily edit content.</p><ul class='list-none space-y-2 mb-2'><li>✅ Expert blog supporting positioning and user engagement</li><li>✅ Job offers module facilitating recruitment of new specialists</li><li>✅ References and case studies increasing trust of potential clients</li></ul><p>Thanks to thoughtful architecture and attention to detail, BuildWise is not just a website – it's a tool for acquiring customers and building relationships in the industry.</p>",
         "tags": [
           "Written in clean code",
           "Sanity CMS",
