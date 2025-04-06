@@ -13,7 +13,7 @@ const projectConfig = {
   },
   buildwise: {
     heroImage: '/images/background-buildwise.webp',
-    liveUrl: 'https://buildwise-alpha.vercel.app/pl', 
+    liveUrl: 'https://buildwise-alpha.vercel.app/pl',
     altText: 'BuildWise Hero',
     translationNamespace: 'BuildWise'
   }

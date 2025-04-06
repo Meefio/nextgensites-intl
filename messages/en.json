@@ -675,49 +675,49 @@
     },
     "BuildWise": {
       "title": "BuildWise",
-      "shortDescription": "Modern construction platform with support for 4 languages, Sanity CMS, and blog and job offer modules.",
-      "description": "Advanced platform for a construction company combining professional image with functionality",
-      "cta": "Get a free quote",
+      "shortDescription": "A professional construction website with a blog, recruitment module, CMS, 4-language support, and great SEO.",
+      "description": "A modern online platform that strengthens the image of a construction brand and supports its growth.",
+      "cta": "Wyceń swój projekt",
       "viewLive": "View live project",
       "clientInfo": {
         "title": "Client Information",
-        "company": "Company name",
+        "company": "Company Name",
         "location": "Warsaw, Poland",
         "website": "Website"
       },
       "projectDescription": {
         "title": "Project Description",
-        "content": "We created a modern, multilingual web platform for BuildWise, a company specializing in comprehensive construction services. Our implementation is not just a presentation of their offer, but also a tool for building brand authority, supporting recruitment, and communicating with customers in four languages."
+        "content": "BuildWise needed more than a basic website — they wanted a professional image, easy content editing, and effective recruitment tools. We delivered a platform that not only showcases their offer but also builds trust and helps grow the business. With CMS integration, a blog, and multilingual support, the site is ready for international expansion."
       },
       "design": {
         "title": "Design",
-        "description": "The design is based on modern aesthetics with Dark Mode/Light Mode functionality, providing comfortable content viewing at any time of day. Intuitive navigation, clear content layout, and convenient access to key information have been optimized for user experience. The site features a professional design that builds trust and emphasizes the company's credibility in the construction industry."
+        "description": "The visual design combines modern aesthetics with usability. The Light and Dark modes let users customize their experience. The layout ensures clarity, intuitive navigation, and quick access to key information. The overall look builds trust and emphasizes the company’s professionalism."
       },
       "implementation": {
         "title": "Implementation",
-        "description": "The platform was built using Next.js 15 and Sanity CMS, ensuring lightning-fast loading, full responsiveness, and easy content editing by the client. We implemented advanced solutions such as multilingualism (PL, EN, DE, UA), a blog module, job offer system, and an extensive contact form. Each element has been optimized for performance and SEO."
+        "description": "The site was built using Next.js 15 and integrated with Sanity CMS, ensuring high performance and simple content management. We implemented multilingual support (PL, EN, DE, UA), a professional blog, a job listing module, and an extended contact form. Every detail was optimized for speed, responsiveness, and SEO."
       },
       "features": {
         "title": "Features",
-        "description": "The platform is equipped with a range of advanced features: Sanity CMS for easy content editing, an expert blog increasing visibility in Google, a job offer module supporting recruitment, Light/Dark Mode switch, full responsiveness, and support for 4 languages. We also integrated Google Analytics for traffic analysis and an extensive contact form with attachment capabilities."
+        "description": "BuildWise is more than just a website — it’s a growth tool. With Sanity CMS, the client can easily manage content. The blog boosts Google visibility, and the job module supports recruitment. The platform supports 4 languages, includes Light and Dark modes, and integrates Google Analytics for traffic analysis. The contact form also allows file attachments."
       },
       "Common": {
         "portfolio": "Portfolio"
       },
       "Google-position-1": {
         "title": "Expert Blog",
-        "description": "The built-in blog module allows publishing specialized articles that build the company's expert image and improve visibility in search engines. Each post includes a contact form, facilitating direct communication with potential clients interested in the specific topic."
+        "description": "The blog module allows publishing specialized articles that attract organic traffic and position the company as an industry expert. Each post includes a contact form to easily connect with potential clients interested in the topic."
       },
       "Google-position-2": {
-        "title": "Job Offer Module",
-        "description": "The specially designed job offer system streamlines the recruitment process, presenting available positions in a clear manner. Each listing includes an application form with the ability to attach a CV, making it easier for candidates to contact the company and accelerating the recruitment process."
+        "title": "Easy Content Editing",
+        "description": "With Sanity CMS, the client can effortlessly update texts and images, add new blog posts, and manage job listings — all without technical skills."
       },
       "SEO": {
-        "title": "BuildWise - Modern Platform for a Construction Company | Portfolio",
-        "description": "See how we created a multilingual platform for BuildWise with CMS features, expert blog, and job offer module.",
+        "title": "BuildWise – A Modern Platform for a Construction Company | Portfolio",
+        "description": "See how we created a multilingual website for BuildWise, featuring CMS, expert blog, and job listing functionality.",
         "ogTitle": "BuildWise - Case Study | NextGen Sites",
-        "ogDescription": "See how we built an advanced multilingual platform with Sanity CMS, expert blog, and job offer system for a construction company.",
-        "ogImageAlt": "BuildWise - Web Platform Implementation"
+        "ogDescription": "Discover how we built a modern, multilingual platform with Sanity CMS, an expert blog, and recruitment tools for a construction company.",
+        "ogImageAlt": "BuildWise – Web platform showcase"
       }
     }
   },

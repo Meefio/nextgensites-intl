@@ -6,17 +6,17 @@ import { Building2, MapPin, Globe } from 'lucide-react'
 // Konfiguracja projektów
 const projectConfig = {
   underpressure: {
-    companyName: 'Under Pressure',
+    companyName: 'Under Pressure Sp. z o.o.',
     location: 'Warszawa, Polska',
     website: 'myciecisnieniem.pl',
     websiteUrl: 'https://myciecisnieniem.pl',
     translationNamespace: 'UnderPressure'
   },
   buildwise: {
-    companyName: 'BuildWise',
+    companyName: 'BuildWise Sp. z o.o.',
     location: 'Warszawa, Polska',
-    website: 'buildwise.pl', // Przykładowa domena
-    websiteUrl: '#', // Tymczasowo pusty link
+    website: 'buildwise.com.pl',
+    websiteUrl: 'https://buildwise-alpha.vercel.app/pl',
     translationNamespace: 'BuildWise'
   }
 }

@@ -667,8 +667,8 @@
     },
     "BuildWise": {
       "title": "BuildWise",
-      "shortDescription": "Nowoczesna platforma budowlana z obsługą 4 języków, CMS Sanity i modułami bloga oraz ofert pracy.",
-      "description": "Zaawansowana platforma dla firmy budowlanej łącząca profesjonalny wizerunek z funkcjonalnością",
+      "shortDescription": "Profesjonalna strona budowlana z blogiem, rekrutacją i CMS — gotowa na 4 języki i świetne SEO.",
+      "description": "Nowoczesna platforma online, która wzmacnia wizerunek marki budowlanej i wspiera jej rozwój.",
       "cta": "Wyceń swój projekt",
       "viewLive": "Zobacz projekt live",
       "clientInfo": {
@@ -679,36 +679,36 @@
       },
       "projectDescription": {
         "title": "Opis projektu",
-        "content": "Stworzyliśmy nowoczesną, wielojęzyczną platformę internetową dla firmy BuildWise, specjalizującej się w kompleksowych usługach budowlanych. Nasza realizacja to nie tylko prezentacja oferty, ale także narzędzie budujące autorytet marki, wspierające rekrutację oraz komunikację z klientami w czterech językach."
+        "content": "BuildWise to firma, która potrzebowała czegoś więcej niż klasycznej strony — zależało im na profesjonalnym wizerunku, łatwej edycji treści oraz skutecznych narzędziach do rekrutacji. Naszym zadaniem było stworzenie platformy, która nie tylko prezentuje ofertę, ale także buduje zaufanie i pomaga w rozwoju biznesu. Dzięki integracji z CMS, blogiem i wersjami językowymi, witryna jest gotowa na międzynarodowy sukces."
       },
       "design": {
         "title": "Design",
-        "description": "Projekt opiera się na nowoczesnej estetyce z funkcją Dark Mode/Light Mode, która zapewnia komfort przeglądania treści o każdej porze dnia. Intuicyjna nawigacja, klarowny układ treści oraz wygodny dostęp do kluczowych informacji zostały zoptymalizowane pod kątem doświadczenia użytkownika. Strona wyróżnia się profesjonalnym designem, który buduje zaufanie i podkreśla wiarygodność firmy w branży budowlanej."
+        "description": "Projekt graficzny łączy nowoczesność z funkcjonalnością. Dzięki trybom Light i Dark użytkownik może dostosować wygląd do własnych preferencji. Struktura strony została zaprojektowana z myślą o czytelności, intuicyjnej nawigacji oraz szybkim dostępie do najważniejszych informacji. Design buduje zaufanie i podkreśla profesjonalizm firmy."
       },
       "implementation": {
         "title": "Wdrożenie",
-        "description": "Platforma została zbudowana z wykorzystaniem Next.js 15 i Sanity CMS, co zapewnia błyskawiczne ładowanie, pełną responsywność oraz łatwą edycję treści przez klienta. Zaimplementowaliśmy zaawansowane rozwiązania, takie jak wielojęzyczność (PL, EN, DE, UA), moduł bloga, system ofert pracy oraz rozbudowany formularz kontaktowy. Każdy element został zoptymalizowany pod kątem wydajności i SEO."
+        "description": "Strona została zbudowana na Next.js 15 i zintegrowana z Sanity CMS, co zapewnia doskonałą wydajność i prostą edycję treści. Wdrożyliśmy wersje językowe (PL, EN, DE, UA), blog ekspercki, moduł rekrutacyjny i rozbudowany formularz kontaktowy. Każdy element został zoptymalizowany pod kątem SEO i responsywności, by użytkownicy mogli komfortowo korzystać z platformy na każdym urządzeniu."
       },
       "features": {
         "title": "Funkcjonalności",
-        "description": "Platforma została wyposażona w szereg zaawansowanych funkcji: Sanity CMS dla łatwej edycji treści, blog ekspercki zwiększający widoczność w Google, moduł ofert pracy wspierający rekrutację, przełącznik Light/Dark Mode, pełną responsywność oraz obsługę 4 języków. Zintegrowaliśmy również Google Analytics do analizy ruchu oraz rozbudowany formularz kontaktowy z możliwością dodawania załączników."
+        "description": "BuildWise to coś więcej niż strona — to cyfrowe narzędzie do rozwoju firmy. Dzięki CMS Sanity klient może samodzielnie zarządzać treścią, blog zwiększa widoczność w Google, a moduł ofert pracy wspiera proces rekrutacji. Strona obsługuje 4 języki, działa w trybie jasnym i ciemnym, a zintegrowane statystyki Google Analytics pomagają analizować zachowania użytkowników. Dodatkowo wdrożono formularz kontaktowy z opcją załączników."
       },
       "Common": {
         "portfolio": "Realizacje"
       },
       "Google-position-1": {
         "title": "Blog ekspercki",
-        "description": "Wbudowany moduł bloga umożliwia publikowanie specjalistycznych artykułów, które budują ekspercki wizerunek firmy i poprawiają widoczność w wyszukiwarkach. Każdy wpis zawiera formularz kontaktowy, ułatwiający bezpośrednią komunikację z potencjalnymi klientami zainteresowanymi danym tematem."
+        "description": "Specjalistyczne treści publikowane na blogu przyciągają ruch z wyszukiwarki i budują ekspercki wizerunek firmy. Każdy artykuł zawiera formularz kontaktowy, który ułatwia nawiązanie relacji z potencjalnymi klientami."
       },
       "Google-position-2": {
-        "title": "Moduł ofert pracy",
-        "description": "Specjalnie zaprojektowany system ofert pracy usprawnia proces rekrutacji, prezentując dostępne stanowiska w przejrzysty sposób. Każde ogłoszenie zawiera formularz aplikacyjny z możliwością załączenia CV, co ułatwia kandydatom kontakt z firmą i przyspiesza proces rekrutacyjny."
+        "title": "Łatwa edycja treści",
+        "description": "CMS Sanity pozwala klientowi bez trudu zarządzać zawartością strony – od aktualizacji treści i zdjęć, po dodawanie nowych wpisów blogowych i ofert pracy."
       },
       "SEO": {
         "title": "BuildWise - Nowoczesna platforma dla firmy budowlanej | Portfolio",
-        "description": "Sprawdź jak stworzyliśmy wielojęzyczną platformę dla firmy BuildWise z funkcjami CMS, bloga eksperckiego i modułu ofert pracy.",
+        "description": "Zobacz jak stworzyliśmy stronę internetową z blogiem, CMS-em i systemem rekrutacyjnym dla firmy BuildWise – gotową do rozwoju na wielu rynkach.",
         "ogTitle": "BuildWise - Case Study | NextGen Sites",
-        "ogDescription": "Zobacz jak zbudowaliśmy zaawansowaną platformę wielojęzyczną z CMS Sanity, blogiem eksperckim i systemem ofert pracy dla firmy budowlanej.",
+        "ogDescription": "Przekonaj się, jak zbudowaliśmy nowoczesną, wielojęzyczną platformę z blogiem eksperckim, CMS-em i modułem ofert pracy dla branży budowlanej.",
         "ogImageAlt": "BuildWise - Realizacja platformy internetowej"
       }
     }

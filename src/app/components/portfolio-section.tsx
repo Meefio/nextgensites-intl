@@ -38,7 +38,8 @@ const Portfolio = () => {
       description: t.raw('projects.project2.description'),
       tags: t.raw('projects.project2.tags') as string[],
       imageAlt: t('projects.project2.imageAlt'),
-      link: 'https://buildwise-alpha.vercel.app/pl'
+      link: '/buildwise',
+      viewLiveLink: 'https://buildwise-alpha.vercel.app/pl'
     }
   ]
 
@@ -105,7 +106,7 @@ const Portfolio = () => {
                             {t('buttons.viewLive')}
                           </Button>
                         </Link>
-                        <Link href={project.link} target='_blank' rel='noopener noreferrer'>
+                        <Link href={project.link}>
                           <Button className="group">
                             {t('buttons.learnMore')}
                           </Button>
@@ -113,9 +114,9 @@ const Portfolio = () => {
                       </>
                     )}
                     {!project.viewLiveLink && (
-                      <Link href={project.link} target='_blank' rel='noopener noreferrer'>
+                      <Link href={project.link}>
                         <Button className="group">
-                          {t('buttons.viewLive')}
+                          {t('buttons.learnMore')}
                         </Button>
                       </Link>
                     )}
