@@ -34,22 +34,22 @@ const projectConfig = {
     liveUrl: 'https://buildwise-alpha.vercel.app/pl',
     mainImage: {
       src: '/images/buildwise-fullsize.webp',
-      alt: 'BuildWise Website Preview',
+      alt: 'BuildWise Website',
       height: 11380,
       width: 1489
     },
     featureImages: [
       {
         src: '/images/blogbuildwise.webp',
-        alt: 'Blog Expert Feature',
+        alt: 'Blog',
         height: 939,
         width: 1387
       },
       {
-        src: '/images/BuildWise-cms.webp',
-        alt: 'Job Offers Module',
-        height: 1838,
-        width: 1158
+        src: '/images/BuildWise-CMS.webp',
+        alt: 'CMS',
+        height: 940,
+        width: 1468
       }
     ],
     translationNamespace: 'BuildWise'
