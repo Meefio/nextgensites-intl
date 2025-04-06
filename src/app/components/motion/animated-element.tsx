@@ -14,21 +14,21 @@ interface AnimatedElementProps extends HTMLMotionProps<"div"> {
 }
 
 export const AnimatedElement = forwardRef<HTMLElement, AnimatedElementProps>(
-  ({ 
-    as = "div", 
-    children, 
-    delay = 0, 
+  ({
+    as = "div",
+    children,
+    delay = 0,
     direction = "up",
-    viewport = { once: true, amount: 0.15 }, 
-    className, 
-    ...props 
+    viewport = { once: true, amount: 0.15 },
+    className,
+    ...props
   }, ref) => {
     const localRef = useRef(null)
     const targetRef = (ref || localRef) as React.RefObject<HTMLElement>
-    
+
     const isInView = useInView(targetRef, viewport)
 
-    const MotionComponent = (motion as any)[as] || motion.div
+    const MotionComponent = motion.div
 
     const getInitialDirection = () => {
       switch (direction) {
@@ -45,8 +45,8 @@ export const AnimatedElement = forwardRef<HTMLElement, AnimatedElementProps>(
         ref={targetRef}
         className={className}
         initial={{ opacity: 0, ...getInitialDirection() }}
-        animate={isInView ? { 
-          opacity: 1, 
+        animate={isInView ? {
+          opacity: 1,
           y: direction === "up" || direction === "down" ? 0 : undefined,
           x: direction === "left" || direction === "right" ? 0 : undefined
         } : undefined}

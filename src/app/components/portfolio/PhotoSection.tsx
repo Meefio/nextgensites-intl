@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/app/components/ui/card'
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 // Konfiguracja projektów
 const projectConfig = {
@@ -65,6 +66,9 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
 
   // Używamy dokładnej nazwy klucza zamiast dynamicznego tworzenia
   const t = useTranslations(`Portfolio-sections.${config.translationNamespace}`)
+
+  // Określamy link do następnego projektu
+  const nextProjectLink = projectKey === 'underpressure' ? '/buildwise' : '/underpressure'
 
   return (
     <div className="container ovflow-scroll flex flex-col gap-8">
@@ -261,6 +265,19 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex justify-end mt-8">
+        <AnimatedElement>
+          <Link
+            href={nextProjectLink}
+            className="group inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+          >
+            <span className="text-lg font-medium">{t('nextProject')}</span>
+            
+              <ArrowRight className="h-5 w-5" />
+         
+          </Link>
+        </AnimatedElement>
       </div>
     </div>
   )

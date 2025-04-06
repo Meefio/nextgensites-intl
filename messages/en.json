@@ -671,7 +671,8 @@
         "ogTitle": "Under Pressure - Case Study | NextGen Sites",
         "ogDescription": "See how we created a website that reached #1 in Google for key pressure washing phrases within 6 months.",
         "ogImageAlt": "Under Pressure - Website Implementation"
-      }
+      },
+      "nextProject": "View next project"
     },
     "BuildWise": {
       "title": "BuildWise",
@@ -691,7 +692,7 @@
       },
       "design": {
         "title": "Design",
-        "description": "The visual design combines modern aesthetics with usability. The Light and Dark modes let users customize their experience. The layout ensures clarity, intuitive navigation, and quick access to key information. The overall look builds trust and emphasizes the company’s professionalism."
+        "description": "The visual design combines modern aesthetics with usability. The Light and Dark modes let users customize their experience. The layout ensures clarity, intuitive navigation, and quick access to key information. The overall look builds trust and emphasizes the company's professionalism."
       },
       "implementation": {
         "title": "Implementation",
@@ -699,7 +700,7 @@
       },
       "features": {
         "title": "Features",
-        "description": "BuildWise is more than just a website — it’s a growth tool. With Sanity CMS, the client can easily manage content. The blog boosts Google visibility, and the job module supports recruitment. The platform supports 4 languages, includes Light and Dark modes, and integrates Google Analytics for traffic analysis. The contact form also allows file attachments."
+        "description": "BuildWise is more than just a website — it's a growth tool. With Sanity CMS, the client can easily manage content. The blog boosts Google visibility, and the job module supports recruitment. The platform supports 4 languages, includes Light and Dark modes, and integrates Google Analytics for traffic analysis. The contact form also allows file attachments."
       },
       "Common": {
         "portfolio": "Portfolio"
@@ -718,7 +719,8 @@
         "ogTitle": "BuildWise - Case Study | NextGen Sites",
         "ogDescription": "Discover how we built a modern, multilingual platform with Sanity CMS, an expert blog, and recruitment tools for a construction company.",
         "ogImageAlt": "BuildWise – Web platform showcase"
-      }
+      },
+      "nextProject": "View next project"
     }
   },
   "Metadata": {

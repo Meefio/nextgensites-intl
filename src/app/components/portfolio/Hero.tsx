@@ -6,7 +6,7 @@ import { AnimatedElement } from '@/app/components/motion/animated-element'
 // Mapa konfiguracji specyficznych dla projektów
 const projectConfig = {
   underpressure: {
-    heroImage: '/images/Hero-Underpressure-min.jpg',
+    heroImage: '/images/UnderpressureHero.webp',
     liveUrl: 'https://myciecisnieniem.pl',
     altText: 'Under Pressure Hero',
     translationNamespace: 'UnderPressure'
