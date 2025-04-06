@@ -628,51 +628,51 @@
   "Portfolio-sections": {
     "UnderPressure": {
       "title": "Under Pressure",
-      "shortDescription": "After 6 months, the website ranked 1st in Google results for many key phrases.",
-      "cta": "Get a quote",
+      "shortDescription": "A modern website that quickly brought a pressure washing company to the top of local Google search results.",
+      "cta": "Get a project quote",
       "clientInfo": {
         "title": "Client Information",
-        "company": "Company name",
+        "company": "Company Name",
         "location": "Location",
         "website": "Website"
       },
       "projectDescription": {
         "title": "Project Description",
-        "content": "We created a modern and functional website for Under Pressure, a company specializing in professional pressure washing. Our goal was to design a website that not only reflects the company's professionalism and experience but also provides users with easy access to information about the services offered."
+        "content": "We created a modern and functional website for Under Pressure, a company specializing in professional pressure washing. Our goal was to design a site that reflects the company's expertise while making it easy for users to find information about the services offered."
       },
       "design": {
         "title": "Design",
-        "description": "The website design is based on a minimalist aesthetic with contrasting colors that highlight the company's professional character. A clear content layout and intuitive navigation allow users to quickly find the information they need. Additionally, the use of high-quality graphics generated with artificial intelligence and iconography related to pressure washing services enhances the site's visual appeal."
+        "description": "The design is based on a minimalist aesthetic with contrasting colors that highlight the company's professional character. A clear content layout and intuitive navigation help users quickly find what they’re looking for. AI-generated high-quality visuals and pressure washing-related iconography enhance the visual impact."
       },
       "implementation": {
         "title": "Implementation",
-        "description": "The website was built with maximum performance and responsiveness in mind. We implemented advanced technical solutions such as lazy loading of images and SEO optimization. The site looks excellent on all devices, from smartphones to large desktop screens."
+        "description": "The website was built for maximum performance and responsiveness. We implemented advanced technical solutions such as image lazy loading and SEO optimization. It looks great on all devices, from smartphones to large desktop screens."
       },
       "features": {
         "title": "Features",
-        "description": "The website includes a range of modern features, such as a dynamic text animation in the hero section, a photo gallery, a contact form, two interactive maps, and search engine optimization. All these elements work together to create an effective marketing tool."
+        "description": "The site includes several modern features, such as a dynamic headline in the hero section, a photo gallery, a contact form, two interactive maps, and search engine optimization. All of these elements work together to create an effective marketing tool."
       },
-      "description": "Professional website for a pressure washing company",
-      "viewLive": "View project live",
+      "description": "A professional website for a pressure washing company",
+      "viewLive": "View live project",
       "Common": {
         "portfolio": "Portfolio"
       },
       "Google-position-1": {
         "title": "Google Position #1",
-        "description": "After 6 months from implementation, the website achieved the first position in Google for key phrases related to pressure washing in the region. Optimized content and site structure contributed to a significant increase in organic traffic."
+        "description": "Just 6 months after launch, the site reached the #1 position on Google for key local pressure washing-related phrases. Optimized content and site structure significantly increased organic traffic."
       },
       "Google-position-2": {
-        "title": "Google Dominance",
-        "description": "Consistently maintaining top positions, right after sponsored positions, translates into a steady flow of new customers. The site ranks at the top for many phrases related to cleaning paving stones, facades, and roofs."
+        "title": "Search Engine Dominance",
+        "description": "The website consistently ranks right below sponsored results, bringing in a steady stream of new customers. It dominates search results for queries related to paving cleaning, facade washing, and roof cleaning."
       },
       "SEO": {
         "title": "Under Pressure - Professional Pressure Washing | Portfolio",
-        "description": "See how we helped Under Pressure achieve first position in Google. Effective website for a pressure washing company.",
+        "description": "See how we helped Under Pressure achieve a #1 Google ranking. A high-performing website for a pressure washing business.",
         "ogTitle": "Under Pressure - Case Study | NextGen Sites",
-        "ogDescription": "See how we created a website that reached #1 in Google for key pressure washing phrases within 6 months.",
-        "ogImageAlt": "Under Pressure - Website Implementation"
+        "ogDescription": "Discover how we built a website that hit #1 in Google for key pressure washing phrases within 6 months.",
+        "ogImageAlt": "Under Pressure - Website project"
       },
-      "nextProject": "View next project"
+      "nextProject": "See next project"
     },
     "BuildWise": {
       "title": "BuildWise",

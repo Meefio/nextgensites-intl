@@ -620,7 +620,7 @@
   "Portfolio-sections": {
     "UnderPressure": {
       "title": "Under Pressure",
-      "shortDescription": "Strona po 6 miesiącach zajęła 1 miejsce w wynikach Google w wielu frazach kluczowych.",
+      "shortDescription": "Po 6 miesiącach od startu strona osiągnęła topowe pozycje w Google na wiele kluczowych fraz.",
       "cta": "Wyceń swój projekt",
       "clientInfo": {
         "title": "Informacje o kliencie",
@@ -630,38 +630,38 @@
       },
       "projectDescription": {
         "title": "Opis projektu",
-        "content": "Stworzyliśmy nowoczesną i funkcjonalną stronę internetową dla firmy Under Pressure, specjalizującej się w profesjonalnym myciu ciśnieniowym. Naszym celem było zaprojektowanie witryny, która nie tylko odzwierciedla profesjonalizm i doświadczenie firmy, ale także zapewnia użytkownikom łatwy dostęp do informacji o oferowanych usługach."
+        "content": "Dla firmy Under Pressure stworzyliśmy nowoczesną stronę internetową, która nie tylko przyciąga wzrok, ale również realnie wspiera rozwój biznesu. Głównym celem było zaprojektowanie platformy, która w profesjonalny sposób zaprezentuje ofertę usług mycia ciśnieniowego, wzbudzi zaufanie i zachęci użytkowników do kontaktu. Efekt? Wyraźny wzrost widoczności i liczby klientów już po kilku miesiącach."
       },
       "design": {
         "title": "Design",
-        "description": "Projekt strony opiera się na minimalistycznej estetyce z wykorzystaniem kontrastujących kolorów, które podkreślają profesjonalny charakter firmy. Przejrzysty układ treści oraz intuicyjna nawigacja umożliwiają użytkownikom szybkie odnalezienie potrzebnych informacji. Dodatkowo, zastosowanie wysokiej jakości grafik, wygenerowanych z wykorzystaniem sztucznej inteligencji i ikonografii związanej z usługami mycia ciśnieniowego wzbogaca wizualny odbiór strony."
+        "description": "Minimalistyczny, ale mocny wizualnie projekt oparty na kontrastach i wysokiej jakości grafikach stworzonych z użyciem AI. Przejrzysty layout, intuicyjna nawigacja oraz ikonografia tematyczna sprawiają, że użytkownik od razu wie, z jaką marką ma do czynienia — nowoczesną, precyzyjną i godną zaufania."
       },
       "implementation": {
         "title": "Wdrożenie",
-        "description": "Strona została zbudowana z myślą o maksymalnej wydajności i responsywności. Zaimplementowaliśmy zaawansowane rozwiązania techniczne, takie jak lazy loading obrazów i optymalizacja SEO. Witryna doskonale prezentuje się na wszystkich urządzeniach, od smartfonów po duże ekrany desktopowe."
+        "description": "Witryna została zbudowana z myślą o szybkości działania, pełnej responsywności i maksymalnej skuteczności SEO. Dzięki technikom takim jak lazy loading, optymalizacja obrazów i struktury strony, osiągnęliśmy znakomite wyniki wydajnościowe i wysoką pozycję w wynikach wyszukiwania."
       },
       "features": {
         "title": "Funkcjonalności",
-        "description": "Strona została wyposażona w szereg nowoczesnych funkcjonalności, takich jak zmieniający się napis w hero sekcji, galeria zdjęć, formularz kontaktowy, dwie interaktywne mapy, oraz optymalizację pod kątem wyszukiwarek. Wszystkie te elementy współpracują ze sobą, tworząc efektywne narzędzie marketingowe."
+        "description": "Strona została wyposażona w dynamiczny hero z rotującym tekstem, galerię realizacji, formularz kontaktowy, dwie interaktywne mapy oraz liczne optymalizacje pod kątem wyszukiwarek. Każdy element został zaprojektowany z myślą o użytkowniku i konwersji, tworząc skuteczne narzędzie marketingowe dla lokalnej firmy usługowej."
       },
-      "description": "Profesjonalna strona internetowa dla firmy zajmującej się myciem ciśnieniowym",
+      "description": "Nowoczesna strona, która w zaledwie kilka miesięcy wyniosła firmę myjącą ciśnieniowo na szczyt lokalnych wyników Google.",
       "viewLive": "Zobacz projekt live",
       "Common": {
         "portfolio": "Realizacje"
       },
       "Google-position-1": {
         "title": "Pozycja w Google #1",
-        "description": "Po 6 miesiącach od wdrożenia, strona osiągnęła pierwszą pozycję w Google dla kluczowych fraz związanych z myciem ciśnieniowym w regionie. Zoptymalizowana treść i struktura strony przyczyniły się do znacznego wzrostu organicznego ruchu."
+        "description": "Już po pół roku strona zaczęła dominować lokalne wyniki wyszukiwania dla fraz związanych z myciem dachów, elewacji i kostki. To efekt precyzyjnej optymalizacji SEO i jakościowej treści dopasowanej do intencji użytkowników."
       },
       "Google-position-2": {
         "title": "Dominacja w wynikach wyszukiwarki",
-        "description": "Konsekwentne utrzymywanie wysokich pozycji, zaraz po pozycjach sponsorowanych przekłada się na stały napływ nowych klientów. Strona zajmuje czołowe miejsca dla wielu fraz związanych z myciem kostki brukowej, elewacji i dachów."
+        "description": "Strona utrzymuje stabilne, wysokie pozycje w Google, tuż pod wynikami sponsorowanymi, co przekłada się na stały napływ zapytań i klientów. Od momentu wdrożenia witryna stała się jednym z głównych źródeł nowych zleceń."
       },
       "SEO": {
         "title": "Under Pressure - Profesjonalne Mycie Ciśnieniowe | Portfolio",
-        "description": "Sprawdź jak pomogliśmy firmie Under Pressure osiągnąć pierwszą pozycję w Google. Skuteczna strona internetowa dla firmy zajmującej się myciem ciśnieniowym.",
+        "description": "Zobacz, jak stworzyliśmy stronę internetową, która nie tylko świetnie wygląda, ale też osiągnęła pierwsze miejsce w Google dla lokalnych fraz.",
         "ogTitle": "Under Pressure - Case Study | NextGen Sites",
-        "ogDescription": "Zobacz jak stworzyliśmy stronę, która po 6 miesiącach zajęła 1 miejsce w Google dla kluczowych fraz związanych z myciem ciśnieniowym.",
+        "ogDescription": "Strona, która stała się lokalnym liderem wyszukiwań. Sprawdź, jak pomogliśmy firmie od mycia ciśnieniowego zdobyć klientów dzięki nowoczesnej witrynie.",
         "ogImageAlt": "Under Pressure - Realizacja strony internetowej"
       },
       "nextProject": "Zobacz następny projekt"
