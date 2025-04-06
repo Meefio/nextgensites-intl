@@ -4,8 +4,67 @@ import { AnimatedElement } from '@/app/components/motion/animated-element'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/app/components/ui/card'
 import Link from 'next/link'
 
-export function PhotoSection() {
-  const t = useTranslations('Portfolio-sections.UnderPressure')
+// Konfiguracja projektów
+const projectConfig = {
+  underpressure: {
+    liveUrl: 'https://myciecisnieniem.pl',
+    mainImage: {
+      src: '/images/myciecisnieniem-full-size.webp',
+      alt: 'Under Pressure Website Preview',
+      height: 12886,
+      width: 1327
+    },
+    featureImages: [
+      {
+        src: '/images/rank1-min.jpg',
+        alt: 'Google Rank photo',
+        height: 1690,
+        width: 1146
+      },
+      {
+        src: '/images/rank-2-min.jpg',
+        alt: 'Google Rank photo',
+        height: 1838,
+        width: 1158
+      }
+    ],
+    translationNamespace: 'UnderPressure'
+  },
+  buildwise: {
+    liveUrl: 'https://buildwise-alpha.vercel.app/pl',
+    mainImage: {
+      src: '/images/buildwise-fullsize.webp',
+      alt: 'BuildWise Website Preview',
+      height: 11380,
+      width: 1489
+    },
+    featureImages: [
+      {
+        src: '/images/blogbuildwise.webp',
+        alt: 'Blog Expert Feature',
+        height: 939,
+        width: 1387
+      },
+      {
+        src: '/images/BuildWise-cms.webp',
+        alt: 'Job Offers Module',
+        height: 1838,
+        width: 1158
+      }
+    ],
+    translationNamespace: 'BuildWise'
+  }
+}
+
+interface PhotoSectionProps {
+  projectKey: 'underpressure' | 'buildwise'
+}
+
+export function PhotoSection({ projectKey }: PhotoSectionProps) {
+  const config = projectConfig[projectKey] || projectConfig.underpressure
+
+  // Używamy dokładnej nazwy klucza zamiast dynamicznego tworzenia
+  const t = useTranslations(`Portfolio-sections.${config.translationNamespace}`)
 
   return (
     <div className="container ovflow-scroll flex flex-col gap-8">
@@ -26,7 +85,7 @@ export function PhotoSection() {
                     </CardContent>
                     <CardFooter>
                       <Link
-                        href="https://myciecisnieniem.pl"
+                        href={config.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
@@ -53,7 +112,7 @@ export function PhotoSection() {
                     </CardContent>
                     <CardFooter>
                       <Link
-                        href="https://myciecisnieniem.pl"
+                        href={config.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
@@ -79,7 +138,7 @@ export function PhotoSection() {
                     </CardContent>
                     <CardFooter>
                       <Link
-                        href="https://myciecisnieniem.pl"
+                        href={config.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
@@ -97,10 +156,10 @@ export function PhotoSection() {
         <div className="w-full md:w-2/3">
           <div className="relative w-full">
             <Image
-              src="/images/myciecisnieniem-full-size.webp"
-              alt="Under Pressure Website Preview"
-              height={12886}
-              width={1327}
+              src={config.mainImage.src}
+              alt={config.mainImage.alt}
+              height={config.mainImage.height}
+              width={config.mainImage.width}
               className="object-contain object-top rounded-xl"
               quality={100}
             />
@@ -126,7 +185,7 @@ export function PhotoSection() {
                       </CardContent>
                       <CardFooter>
                         <Link
-                          href="https://myciecisnieniem.pl"
+                          href={config.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
@@ -144,10 +203,10 @@ export function PhotoSection() {
           <div className="w-full md:w-2/3">
             <div className="relative w-full">
               <Image
-                src="/images/rank1-min.jpg"
-                alt="Google Rank photo"
-                height={1690}
-                width={1146}
+                src={config.featureImages[0].src}
+                alt={config.featureImages[0].alt}
+                height={config.featureImages[0].height}
+                width={config.featureImages[0].width}
                 className="object-contain rounded-xl"
                 quality={100}
               />
@@ -174,7 +233,7 @@ export function PhotoSection() {
                       </CardContent>
                       <CardFooter>
                         <Link
-                          href="https://myciecisnieniem.pl"
+                          href={config.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
@@ -192,10 +251,10 @@ export function PhotoSection() {
           <div className="w-full md:w-2/3">
             <div className="relative w-full">
               <Image
-                src="/images/rank-2-min.jpg"
-                alt="Google Rank photo"
-                height={1838}
-                width={1158}
+                src={config.featureImages[1].src}
+                alt={config.featureImages[1].alt}
+                height={config.featureImages[1].height}
+                width={config.featureImages[1].width}
                 className="object-contain rounded-xl"
                 quality={100}
               />

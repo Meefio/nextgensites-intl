@@ -664,6 +664,53 @@
         "ogDescription": "Zobacz jak stworzyliśmy stronę, która po 6 miesiącach zajęła 1 miejsce w Google dla kluczowych fraz związanych z myciem ciśnieniowym.",
         "ogImageAlt": "Under Pressure - Realizacja strony internetowej"
       }
+    },
+    "BuildWise": {
+      "title": "BuildWise",
+      "shortDescription": "Nowoczesna platforma budowlana z obsługą 4 języków, CMS Sanity i modułami bloga oraz ofert pracy.",
+      "description": "Zaawansowana platforma dla firmy budowlanej łącząca profesjonalny wizerunek z funkcjonalnością",
+      "cta": "Wyceń swój projekt",
+      "viewLive": "Zobacz projekt live",
+      "clientInfo": {
+        "title": "Informacje o kliencie",
+        "company": "Nazwa firmy",
+        "location": "Warszawa, Polska",
+        "website": "Strona internetowa"
+      },
+      "projectDescription": {
+        "title": "Opis projektu",
+        "content": "Stworzyliśmy nowoczesną, wielojęzyczną platformę internetową dla firmy BuildWise, specjalizującej się w kompleksowych usługach budowlanych. Nasza realizacja to nie tylko prezentacja oferty, ale także narzędzie budujące autorytet marki, wspierające rekrutację oraz komunikację z klientami w czterech językach."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Projekt opiera się na nowoczesnej estetyce z funkcją Dark Mode/Light Mode, która zapewnia komfort przeglądania treści o każdej porze dnia. Intuicyjna nawigacja, klarowny układ treści oraz wygodny dostęp do kluczowych informacji zostały zoptymalizowane pod kątem doświadczenia użytkownika. Strona wyróżnia się profesjonalnym designem, który buduje zaufanie i podkreśla wiarygodność firmy w branży budowlanej."
+      },
+      "implementation": {
+        "title": "Wdrożenie",
+        "description": "Platforma została zbudowana z wykorzystaniem Next.js 15 i Sanity CMS, co zapewnia błyskawiczne ładowanie, pełną responsywność oraz łatwą edycję treści przez klienta. Zaimplementowaliśmy zaawansowane rozwiązania, takie jak wielojęzyczność (PL, EN, DE, UA), moduł bloga, system ofert pracy oraz rozbudowany formularz kontaktowy. Każdy element został zoptymalizowany pod kątem wydajności i SEO."
+      },
+      "features": {
+        "title": "Funkcjonalności",
+        "description": "Platforma została wyposażona w szereg zaawansowanych funkcji: Sanity CMS dla łatwej edycji treści, blog ekspercki zwiększający widoczność w Google, moduł ofert pracy wspierający rekrutację, przełącznik Light/Dark Mode, pełną responsywność oraz obsługę 4 języków. Zintegrowaliśmy również Google Analytics do analizy ruchu oraz rozbudowany formularz kontaktowy z możliwością dodawania załączników."
+      },
+      "Common": {
+        "portfolio": "Realizacje"
+      },
+      "Google-position-1": {
+        "title": "Blog ekspercki",
+        "description": "Wbudowany moduł bloga umożliwia publikowanie specjalistycznych artykułów, które budują ekspercki wizerunek firmy i poprawiają widoczność w wyszukiwarkach. Każdy wpis zawiera formularz kontaktowy, ułatwiający bezpośrednią komunikację z potencjalnymi klientami zainteresowanymi danym tematem."
+      },
+      "Google-position-2": {
+        "title": "Moduł ofert pracy",
+        "description": "Specjalnie zaprojektowany system ofert pracy usprawnia proces rekrutacji, prezentując dostępne stanowiska w przejrzysty sposób. Każde ogłoszenie zawiera formularz aplikacyjny z możliwością załączenia CV, co ułatwia kandydatom kontakt z firmą i przyspiesza proces rekrutacyjny."
+      },
+      "SEO": {
+        "title": "BuildWise - Nowoczesna platforma dla firmy budowlanej | Portfolio",
+        "description": "Sprawdź jak stworzyliśmy wielojęzyczną platformę dla firmy BuildWise z funkcjami CMS, bloga eksperckiego i modułu ofert pracy.",
+        "ogTitle": "BuildWise - Case Study | NextGen Sites",
+        "ogDescription": "Zobacz jak zbudowaliśmy zaawansowaną platformę wielojęzyczną z CMS Sanity, blogiem eksperckim i systemem ofert pracy dla firmy budowlanej.",
+        "ogImageAlt": "BuildWise - Realizacja platformy internetowej"
+      }
     }
   },
   "Metadata": {

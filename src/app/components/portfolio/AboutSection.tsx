@@ -3,8 +3,33 @@ import { AnimatedElement } from '@/app/components/motion/animated-element'
 import { Card, CardHeader, CardTitle, CardContent } from '@/app/components/ui/card'
 import { Building2, MapPin, Globe } from 'lucide-react'
 
-export function AboutSection() {
-  const t = useTranslations('Portfolio-sections.UnderPressure')
+// Konfiguracja projektów
+const projectConfig = {
+  underpressure: {
+    companyName: 'Under Pressure',
+    location: 'Warszawa, Polska',
+    website: 'myciecisnieniem.pl',
+    websiteUrl: 'https://myciecisnieniem.pl',
+    translationNamespace: 'UnderPressure'
+  },
+  buildwise: {
+    companyName: 'BuildWise',
+    location: 'Warszawa, Polska',
+    website: 'buildwise.pl', // Przykładowa domena
+    websiteUrl: '#', // Tymczasowo pusty link
+    translationNamespace: 'BuildWise'
+  }
+}
+
+interface AboutSectionProps {
+  projectKey: 'underpressure' | 'buildwise'
+}
+
+export function AboutSection({ projectKey }: AboutSectionProps) {
+  const config = projectConfig[projectKey] || projectConfig.underpressure
+
+  // Używamy dokładnej nazwy klucza zamiast dynamicznego tworzenia
+  const t = useTranslations(`Portfolio-sections.${config.translationNamespace}`)
 
   return (
     <div className="container grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
@@ -18,7 +43,7 @@ export function AboutSection() {
               <Building2 className="h-5 w-5 text-primary" />
               <div>
                 <p className="text-sm text-muted-foreground">{t('clientInfo.company')}</p>
-                <p className="font-medium">Under Pressure</p>
+                <p className="font-medium">{config.companyName}</p>
               </div>
             </div>
 
@@ -26,7 +51,7 @@ export function AboutSection() {
               <MapPin className="h-5 w-5 text-primary" />
               <div>
                 <p className="text-sm text-muted-foreground">{t('clientInfo.location')}</p>
-                <p className="font-medium">Warszawa, Polska</p>
+                <p className="font-medium">{config.location}</p>
               </div>
             </div>
 
@@ -35,12 +60,12 @@ export function AboutSection() {
               <div>
                 <p className="text-sm text-muted-foreground">{t('clientInfo.website')}</p>
                 <a
-                  href="https://myciecisnieniem.pl"
+                  href={config.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-medium hover:text-primary transition-colors"
                 >
-                  myciecisnieniem.pl
+                  {config.website}
                 </a>
               </div>
             </div>

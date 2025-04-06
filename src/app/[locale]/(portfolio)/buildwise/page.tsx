@@ -7,7 +7,7 @@ import { Metadata } from 'next'
 
 // Dodajemy generowanie metadanych
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('Portfolio-sections.UnderPressure.SEO')
+  const t = await getTranslations('Portfolio-sections.BuildWise.SEO')
 
   return {
     title: t('title'),
@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: t('ogDescription'),
       images: [
         {
-          url: '/images/Hero-Underpressure-og-min.jpg',
+          url: '/images/Hero-Underpressure-og-min.jpg', // Tymczasowo używamy tego samego zdjęcia
           width: 1200,
           height: 630,
           alt: t('ogImageAlt'),
@@ -27,12 +27,12 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default function UnderPressureProject() {
+export default function BuildWiseProject() {
   return (
     <>
-      <Hero projectKey="underpressure" />
-      <AboutSection projectKey="underpressure" />
-      <PhotoSection projectKey="underpressure" />
+      <Hero projectKey="buildwise" />
+      <AboutSection projectKey="buildwise" />
+      <PhotoSection projectKey="buildwise" />
       <ContactForm />
     </>
   )
