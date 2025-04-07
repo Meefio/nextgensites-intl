@@ -117,19 +117,58 @@ const WhyNotWordPress = () => {
 
         {/* Cytat */}
         <div className="lg:w-1/2 flex items-center justify-center lg:sticky lg:top-80 self-start z-30 md:z-0">
-          <motion.div
+          <AnimatedElement
             className="relative px-6 py-12 max-w-lg bg-background rounded-lg"
+            delay={0.2}
+            direction="up"
+            viewport={{ once: true, margin: "-10% 0px" }}
           >
-            <span className="font-quote md:text-[120px] text-[80px] absolute md:-top-28 -top-16 left-0 text-primary rotate-180">&ldquo;</span>
-            <p className="text-xl md:text-2xl font-semibold leading-relaxed text-foreground text-balance relative z-10 mb-6 pl-4">
+            <motion.span
+              className="font-quote md:text-[120px] text-[80px] absolute md:-top-28 -top-16 left-0 text-primary rotate-180"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              &ldquo;
+            </motion.span>
+
+            <AnimatedElement
+              as="p"
+              delay={0.5}
+              className="text-xl md:text-2xl font-semibold leading-relaxed text-foreground text-balance relative z-10 mb-6 pl-4"
+            >
               {t('quote')}
-            </p>
-            <span className="font-quote md:text-[120px] text-[80px] absolute md:-bottom-28 -bottom-16 right-4 text-primary">&rdquo;</span>
+            </AnimatedElement>
+
+            <motion.span
+              className="font-quote md:text-[120px] text-[80px] absolute md:-bottom-28 -bottom-16 right-4 text-primary"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              &rdquo;
+            </motion.span>
+
             <div className="mt-6">
-              <p className="font-bold text-right text-[14px]">{t('author')}</p>
-              <p className="text-xs text-right text-muted-foreground">{t('position')}</p>
+              <AnimatedElement
+                as="p"
+                delay={0.7}
+                direction="right"
+                className="font-bold text-right text-[14px]"
+              >
+                {t('author')}
+              </AnimatedElement>
+
+              <AnimatedElement
+                as="p"
+                delay={0.8}
+                direction="right"
+                className="text-xs text-right text-muted-foreground"
+              >
+                {t('position')}
+              </AnimatedElement>
             </div>
-          </motion.div>
+          </AnimatedElement>
         </div>
       </div>
     </section>
