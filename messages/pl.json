@@ -54,6 +54,34 @@
       "description": "Dla <strong>pełnej optymalizacji</strong> i <strong>indywidualnego podejścia</strong> do każdego projektu."
     }
   },
+  "WhyNotWordPress": {
+    "tagline": "CZAS PRZESTAĆ ROBIĆ TO, CO WSZYSCY",
+    "heading": "Dlaczego nie WordPress?",
+    "subheading": "Nowoczesna firma potrzebuje nowoczesnych rozwiązań. WordPress to już nie ten standard.",
+    "quote": "Jak chcesz się wyróżnić, jeśli Twoja strona wygląda jak setki innych? Twoja firma zasługuje na coś więcej niż WordPressowy szablon.",
+    "author": "Michał Rowiński",
+    "position": "CEO NextGen Sites",
+    "card1": {
+      "title": "Strona jak tysiące innych",
+      "description": "Szablon to nie design. Wyróżnij się, zamiast zlewać z tłumem."
+    },
+    "card2": {
+      "title": "Przestarzała technologia",
+      "description": "WordPress ma ponad 20 lat. W świecie IT to wieczność. Next.js to standard nowoczesnych firm."
+    },
+    "card3": {
+      "title": "Problemy z wydajnością",
+      "description": "WordPress to często powolne ładowanie i frustrujące doświadczenie dla użytkowników. Next.js to błyskawiczna szybkość strony."
+    },
+    "card4": {
+      "title": "Bezpieczeństwo",
+      "description": "Popularność przyciąga ataki. Dodatkowe zabezpieczenia to kolejne drogie wtyczki i obowiązek ich aktualizacji."
+    },
+    "card5": {
+      "title": "Wysokie koszty utrzymania",
+      "description": "Drogi hosting, wtyczki, aktualizacje i wsparcie techniczne. Next.js działa na darmowym hostingu Vercel bez dodatkowych opłat."
+    }
+  },
   "About": {
     "why": "Poznaj nasze podejście",
     "heading": "Tworzenie stron internetowych przynoszących rezultaty",

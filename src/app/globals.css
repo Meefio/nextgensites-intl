@@ -103,6 +103,10 @@
 	body {
 		@apply bg-background text-foreground;
 	}
+
+	.font-quote {
+		font-family: var(--font-quote);
+	}
 }
 
 input:autofill,
@@ -181,8 +185,13 @@ textarea:-webkit-autofill:focus {
 }
 
 @keyframes progress {
-	0% { transform: translateX(-100%); }
-	100% { transform: translateX(100%); }
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(100%);
+	}
 }
 
 .animate-progress {

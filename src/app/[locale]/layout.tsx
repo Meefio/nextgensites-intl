@@ -1,6 +1,6 @@
 import { routing } from '@/i18n/routing'
 import { NextIntlClientProvider } from 'next-intl'
-import { Inter, Instrument_Sans } from "next/font/google";
+import { Inter, Instrument_Sans, Lily_Script_One } from "next/font/google";
 import '../globals.css'
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/app/components/theme-provider"
@@ -74,6 +74,12 @@ const fontHeading = Instrument_Sans({
 	subsets: ["latin"],
 });
 
+const fontQuote = Lily_Script_One({
+	variable: "--font-quote",
+	weight: "400",
+	subsets: ["latin"],
+});
+
 export default async function LocaleLayout({
 	children,
 	params,
@@ -108,7 +114,8 @@ export default async function LocaleLayout({
 					" font-sans antialiased scroll-smooth",
 					"w-full",
 					fontSans.variable,
-					fontHeading.variable
+					fontHeading.variable,
+					fontQuote.variable
 				)}
 			>
 				<ThemeProvider

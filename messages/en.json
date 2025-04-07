@@ -54,6 +54,34 @@
       "description": "For full optimization and a personalized approach to every project"
     }
   },
+  "WhyNotWordPress": {
+    "tagline": "TIME TO STOP DOING WHAT EVERYONE ELSE DOES",
+    "heading": "Why not WordPress?",
+    "subheading": "A modern business needs modern solutions. WordPress is no longer the standard.",
+    "quote": "How do you want to stand out if your website looks like hundreds of others? Your business deserves more than a WordPress template.",
+    "author": "Michał Rowiński",
+    "position": "CEO NextGen Sites",
+    "card1": {
+      "title": "A website like thousands of others",
+      "description": "A template is not design. Stand out instead of blending in with the crowd."
+    },
+    "card2": {
+      "title": "Outdated technology",
+      "description": "WordPress is over 20 years old. In the IT world, that's an eternity. Next.js is the standard for modern businesses."
+    },
+    "card3": {
+      "title": "Performance issues",
+      "description": "WordPress often means slow loading and a frustrating user experience. Next.js delivers lightning-fast page speeds."
+    },
+    "card4": {
+      "title": "Security",
+      "description": "Popularity attracts attacks. Additional security requires expensive plugins and constant updates."
+    },
+    "card5": {
+      "title": "High maintenance costs",
+      "description": "Expensive hosting, plugins, updates, and technical support. Next.js runs on free Vercel hosting with no additional fees."
+    }
+  },
   "About": {
     "why": "Discover our approach",
     "heading": "Creating websites that deliver results",
@@ -642,7 +670,7 @@
       },
       "design": {
         "title": "Design",
-        "description": "The design is based on a minimalist aesthetic with contrasting colors that highlight the company's professional character. A clear content layout and intuitive navigation help users quickly find what they’re looking for. AI-generated high-quality visuals and pressure washing-related iconography enhance the visual impact."
+        "description": "The design is based on a minimalist aesthetic with contrasting colors that highlight the company's professional character. A clear content layout and intuitive navigation help users quickly find what they're looking for. AI-generated high-quality visuals and pressure washing-related iconography enhance the visual impact."
       },
       "implementation": {
         "title": "Implementation",
