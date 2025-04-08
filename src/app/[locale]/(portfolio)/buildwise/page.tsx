@@ -12,6 +12,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
+    alternates: {
+      canonical: 'https://nextgensites.pl/buildwise',
+      languages: {
+        'pl-PL': 'https://nextgensites.pl/buildwise',
+        'en-US': 'https://nextgensites.pl/en/buildwise',
+      },
+    },
     openGraph: {
       title: t('ogTitle'),
       description: t('ogDescription'),

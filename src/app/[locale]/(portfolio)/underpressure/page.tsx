@@ -12,6 +12,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
+    alternates: {
+      canonical: 'https://nextgensites.pl/underpressure',
+      languages: {
+        'pl-PL': 'https://nextgensites.pl/underpressure',
+        'en-US': 'https://nextgensites.pl/en/underpressure',
+      },
+    },
     openGraph: {
       title: t('ogTitle'),
       description: t('ogDescription'),
