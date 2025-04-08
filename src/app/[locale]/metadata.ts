@@ -45,7 +45,10 @@ export const metadata = (locale: string): Metadata => ({
     card: 'summary_large_image',
     site: '@nextgensites',
     creator: '@nextgensites',
-    images: 'https://nextgensites.pl/images/og-image.png',
+    images: [{
+      url: 'https://nextgensites.pl/images/og-image.png',
+      alt: 'NextGen Sites',
+    }],
   },
   category: 'technology',
   other: {

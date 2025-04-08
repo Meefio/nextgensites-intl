@@ -38,6 +38,7 @@ export function Hero({ projectKey }: HeroProps) {
         priority
         className="object-cover object-top rounded-xl"
         quality={100}
+        title={config.altText}
       />
       <div className="absolute inset-0 container mx-auto px-4 flex flex-col justify-center">
         <div className="container">

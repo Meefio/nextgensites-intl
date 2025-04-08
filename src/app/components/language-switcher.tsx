@@ -37,6 +37,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
               height: '1.5em',
             }}
             title={currentLanguage?.label}
+            alt={`Flaga ${currentLanguage?.label}`}
           />
         </Button>
       </DropdownMenuTrigger>
@@ -56,6 +57,8 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                     width: '1.2em',
                     height: '1.2em',
                   }}
+                  title={lang.label}
+                  alt={`Flaga ${lang.label}`}
                 />
                 <span>{lang.label}</span>
               </div>

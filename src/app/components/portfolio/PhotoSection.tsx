@@ -166,6 +166,7 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
               width={config.mainImage.width}
               className="object-contain object-top rounded-xl"
               quality={100}
+              title={config.mainImage.alt}
             />
           </div>
         </div>
@@ -213,6 +214,7 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
                 width={config.featureImages[0].width}
                 className="object-contain rounded-xl"
                 quality={100}
+                title={config.featureImages[0].alt}
               />
             </div>
           </div>
@@ -261,6 +263,7 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
                 width={config.featureImages[1].width}
                 className="object-contain rounded-xl"
                 quality={100}
+                title={config.featureImages[1].alt}
               />
             </div>
           </div>
@@ -273,9 +276,9 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
             className="group inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
           >
             <span className="text-lg font-medium">{t('nextProject')}</span>
-            
-              <ArrowRight className="h-5 w-5" />
-         
+
+            <ArrowRight className="h-5 w-5" />
+
           </Link>
         </AnimatedElement>
       </div>

@@ -48,6 +48,7 @@ export function SocialProof() {
                   width={112}
                   height={32}
                   className={`px-2 ${logo.className}`}
+                  title={logo.title}
                 />
               </li>
             ))}
@@ -85,6 +86,7 @@ export function SocialProof() {
                     width={112}
                     height={32}
                     className={`px-2 ${logo.className}`}
+                    title={logo.title}
                   />
                 </AnimatedElement>
               ))}

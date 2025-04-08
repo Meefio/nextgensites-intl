@@ -28,7 +28,10 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: t('ogTitle'),
       description: t('ogDescription'),
-      images: ['/images/buildwise-og.jpg'],
+      images: [{
+        url: '/images/buildwise-og.jpg',
+        alt: t('ogImageAlt'),
+      }],
     },
   }
 }
