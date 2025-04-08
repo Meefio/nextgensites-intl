@@ -33,7 +33,7 @@ export function About() {
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 max-w-5xl mx-auto">
         <AnimatedElement
           className="lg:w-2/3"
-          delay={0.3}
+          delay={0.2}
           viewport={{ once: true, margin: "-20% 0px" }}
         >
           <div className="space-y-4">
@@ -57,7 +57,7 @@ export function About() {
 
         <AnimatedElement
           className="lg:w-1/3"
-          delay={0.4}
+          delay={0.2}
           viewport={{ once: true, margin: "-20% 0px" }}
         >
           <div className="flex justify-center flex-col items-center">

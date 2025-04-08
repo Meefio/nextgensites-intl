@@ -73,7 +73,7 @@ const Portfolio = () => {
             viewport={{ once: true, margin: "-20% 0px" }}
           >
             <Card className="h-full flex flex-col group/card overflow-hidden max-w-full">
-              <div className="aspect-video relative overflow-hidden">
+              <Link href={project.link} className="aspect-video relative overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.imageAlt}
@@ -81,7 +81,7 @@ const Portfolio = () => {
                   height={650}
                   className="object-cover max-h-[420px] object-top transition-transform duration-500 group-hover/card:scale-105"
                 />
-              </div>
+              </Link>
               <CardContent className="p-6 flex flex-col flex-1">
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
