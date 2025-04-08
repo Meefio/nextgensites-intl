@@ -8,6 +8,7 @@ interface MouseTrackImageProps {
   alt: string
   width: number
   height: number
+  title: string
   quality?: number
   sizes?: string
 }
@@ -17,6 +18,7 @@ export function MouseTrackImage({
   alt,
   width,
   height,
+  title,
   quality = 75,
   sizes,
 }: MouseTrackImageProps) {
@@ -44,6 +46,7 @@ export function MouseTrackImage({
         src={src}
         alt={alt}
         width={width}
+        title={title}
         height={height}
         quality={quality}
         sizes={sizes}

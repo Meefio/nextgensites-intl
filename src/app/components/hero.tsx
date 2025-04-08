@@ -65,6 +65,7 @@ export function Hero() {
 				<MouseTrackImage
 					alt='Przykład nowoczesnej strony internetowej'
 					src='/images/MacBookProHero.png'
+					title='Przykład nowoczesnej strony internetowej'
 					width={608}
 					height={368}
 					quality={100}

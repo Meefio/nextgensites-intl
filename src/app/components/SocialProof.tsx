@@ -15,10 +15,10 @@ export function SocialProof() {
   })
 
   const logos = [
-    { alt: "Nike", src: "/images/nike.svg", className: "dark:invert" },
-    { alt: "OpenAI", src: "/images/openai.svg", className: "dark:invert" },
-    { alt: "Tiktok", src: "/images/tiktok.svg", className: "dark:invert" },
-    { alt: "twitch", src: "/images/twitch.svg", className: "dark:brightness-95" }
+    { alt: "Nike", src: "/images/nike.svg", className: "dark:invert", title: "Nike - logo" },
+    { alt: "OpenAI", src: "/images/openai.svg", className: "dark:invert", title: "OpenAI - logo" },
+    { alt: "Tiktok", src: "/images/tiktok.svg", className: "dark:invert", title: "Tiktok - logo" },
+    { alt: "twitch", src: "/images/twitch.svg", className: "dark:brightness-95", title: "Twitch - logo" }
   ]
 
   return (
