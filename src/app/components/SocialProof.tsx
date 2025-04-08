@@ -27,10 +27,17 @@ export function SocialProof() {
       className="text-center mx-auto max-w-[80rem] px-6 md:px-8 min-h-72"
     >
       <div className="mx-auto max-w-screen-xl px-4 md:px-8">
-        <h2 className="md:hidden text-center text-sm font-semibold text-muted-foreground">
+        <AnimatedElement
+          as="h2"
+          delay={isInView ? 0.2 : 0}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+          className="text-center text-sm font-semibold text-muted-foreground"
+        >
           {t('title')}
-        </h2>
+        </AnimatedElement>
 
+        {/* Mobilna wersja listy logo */}
         <div className="mt-6 md:hidden">
           <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-16 [&_path]:fill-white">
             {logos.map((logo) => (
@@ -47,16 +54,7 @@ export function SocialProof() {
           </ul>
         </div>
 
-        <AnimatedElement
-          as="h2"
-          delay={isInView ? 0.2 : 0}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-          className="hidden md:block text-center text-sm font-semibold text-muted-foreground"
-        >
-          {t('title')}
-        </AnimatedElement>
-
+        {/* Desktopowa wersja listy logo z animacjami */}
         <AnimatedElement
           delay={isInView ? 0.3 : 0}
           initial={{ opacity: 0 }}
