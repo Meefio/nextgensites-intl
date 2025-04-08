@@ -17,12 +17,18 @@ export async function generateMetadata(): Promise<Metadata> {
       description: t('ogDescription'),
       images: [
         {
-          url: '/images/Hero-Underpressure-og-min.jpg', // Tymczasowo używamy tego samego zdjęcia
+          url: '/images/buildwise-og.jpg',
           width: 1200,
           height: 630,
           alt: t('ogImageAlt'),
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+      images: ['/images/buildwise-og.jpg'],
     },
   }
 }

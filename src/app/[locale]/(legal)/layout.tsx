@@ -44,12 +44,23 @@ const legalPagesSchema = {
   name: "NextGen Sites - Dokumenty prawne",
   description: "Dokumenty prawne, regulamin, polityka prywatności oraz informacje RODO dla NextGen Sites",
   url: "https://nextgensites.pl",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://nextgensites.pl/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
   publisher: {
     "@type": "Organization",
     name: "NextGen Sites",
     logo: {
       "@type": "ImageObject",
       url: "https://nextgensites.pl/images/logo.png"
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+48-694-671-786",
+      contactType: "customer service",
+      email: "kontakt@nextgensites.pl"
     }
   },
   hasPart: [
@@ -57,19 +68,22 @@ const legalPagesSchema = {
       "@type": "WebPage",
       name: "Polityka Prywatności",
       description: "Polityka Prywatności NextGen Sites - informacje o przetwarzaniu danych",
-      url: "https://nextgensites.pl/polityka-prywatnosci"
+      url: "https://nextgensites.pl/polityka-prywatnosci",
+      inLanguage: "pl-PL"
     },
     {
       "@type": "WebPage",
       name: "Regulamin",
       description: "Regulamin świadczenia usług przez NextGen Sites",
-      url: "https://nextgensites.pl/regulamin"
+      url: "https://nextgensites.pl/regulamin",
+      inLanguage: "pl-PL"
     },
     {
       "@type": "WebPage",
       name: "RODO",
       description: "Informacje o przetwarzaniu danych osobowych zgodnie z RODO",
-      url: "https://nextgensites.pl/rodo"
+      url: "https://nextgensites.pl/rodo",
+      inLanguage: "pl-PL"
     }
   ]
 };

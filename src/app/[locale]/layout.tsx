@@ -97,6 +97,39 @@ export default async function LocaleLayout({
 		? JSON.parse(cookieConsentStr)
 		: { necessary: true, analytics: false, marketing: false };
 
+	// Schema.org JSON-LD dla strony głównej
+	const websiteSchema = {
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"name": "NextGen Sites",
+		"url": locale === 'pl' ? "https://nextgensites.pl/" : `https://nextgensites.pl/${locale}/`,
+		"inLanguage": locale === 'pl' ? "pl-PL" : "en-US",
+		"potentialAction": {
+			"@type": "SearchAction",
+			"target": `https://nextgensites.pl/${locale === 'pl' ? '' : locale + '/'}search?q={search_term_string}`,
+			"query-input": "required name=search_term_string"
+		}
+	};
+
+	const organizationSchema = {
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "NextGen Sites",
+		"url": "https://nextgensites.pl",
+		"logo": "https://nextgensites.pl/images/logo.png",
+		"contactPoint": {
+			"@type": "ContactPoint",
+			"telephone": "+48-123-456-789",
+			"contactType": "customer service",
+			"email": "kontakt@nextgensites.pl"
+		},
+		"sameAs": [
+			"https://www.facebook.com/nextgensites",
+			"https://www.instagram.com/nextgensites/",
+			"https://www.linkedin.com/company/nextgensites/"
+		]
+	};
+
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<head>
@@ -107,6 +140,14 @@ export default async function LocaleLayout({
 				<GoogleAnalytics
 					measurementId="G-5YLJH8GHZ6"
 					consent={consent}
+				/>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+				/>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
 				/>
 			</head>
 			<body suppressHydrationWarning
