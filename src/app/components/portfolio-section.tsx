@@ -81,6 +81,7 @@ const Portfolio = () => {
                   height={650}
                   className="object-cover max-h-[420px] object-top transition-transform duration-500 group-hover/card:scale-105"
                   title={project.title}
+                  quality={95}
                 />
               </Link>
               <CardContent className="p-6 flex flex-col flex-1">
