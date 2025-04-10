@@ -48,7 +48,7 @@ export function Pricing() {
 	return (
 		<section
 			id='pricing'
-			className='w-full bg-[#0c0c0c] py-16 md:py-28 scroll-mt-header mt-14 md:mt-20 rounded-lg'
+			className='w-full bg-[#0c0c0c] dark:bg-background py-16 md:py-28 scroll-mt-header mt-14 md:mt-20 rounded-lg'
 		>
 			<div className='container flex flex-col items-center gap-6 sm:gap-7'>
 				<AnimatedElement className='flex flex-col gap-3'>
