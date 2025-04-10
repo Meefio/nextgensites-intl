@@ -84,7 +84,7 @@
   },
   "About": {
     "why": "Discover our approach",
-    "heading": "Creating websites that deliver results",
+    "heading": "Creating modern websites that deliver results",
     "subheading": "We combine modern technologies with thoughtful design to make your website stand out from the competition",
     "description1": "First, we need to <strong>thoroughly understand your business</strong> - its strengths, vision, approach to customers, and unique selling points against competition. We'll analyze the market, check what works for others, and select the best solutions for you. The target audience is also crucial - it determines whether the site should be modern and dynamic, or classic and serious.",
     "description2": "AI Chatbot for appointment booking? Newsletter system for promotional updates? Contact form, blog with customer tips? Or maybe an application that will replace Excel and automate company processes?",
@@ -133,37 +133,37 @@
       }
     }
   },
-  "Timeline": {
-    "why": "How we work",
-    "heading": "Cooperation process step by step",
-    "subheading": "Clear cooperation plan from contact to project completion",
-    "steps": {
-      "step1": {
-        "title": "Contact and Needs Analysis",
-        "content": "Contact us via form, phone, or email. We'll discuss your business, goals, and expectations. Share materials (photos, logo, colors, sections) so we can better understand your needs and recommend the best solutions."
-      },
-      "step2": {
-        "title": "Pricing and Planning",
-        "content": "Based on the collected information, we'll prepare a quote and project schedule. After cost approval, we create an action strategy and website structure, defining key functions and elements that will support your business goals."
-      },
-      "step3": {
-        "title": "Content and Layout Preparation",
-        "content": "We'll present content and layout proposals tailored to your brand and business goals. At this stage, you can provide feedback and suggestions that we'll incorporate before starting website construction."
-      },
-      "step4": {
-        "title": "Development and Optimization",
-        "content": "We execute the project, creating a responsive, fast, and optimized website. We ensure its performance, SEO, and proper functioning across all devices."
-      },
-      "step5": {
-        "title": "Testing and Deployment",
-        "content": "We thoroughly check every element of the site – forms, links, functionalities. After your final approval, we deploy the site to the server, configure email and analytics tools."
-      },
-      "step6": {
-        "title": "Post-Launch Support",
-        "content": "After launch, we offer technical support and development opportunities to ensure your website always meets expectations."
-      }
+ "Timeline": {
+  "why": "How We Work",
+  "heading": "Collaboration Process",
+  "subheading": "From first contact to a ready-to-launch website",
+  "steps": {
+    "step1": {
+      "title": "Intro Call & Needs Analysis",
+      "content": "Reach out via form, phone, or email. We’ll discuss your goals, collect materials, and suggest the best solutions."
+    },
+    "step2": {
+      "title": "Quote & Planning",
+      "content": "Based on your input, we prepare a quote, timeline, and site structure tailored to your business."
+    },
+    "step3": {
+      "title": "Content & Layout",
+      "content": "We propose content and layout aligned with your brand. Your feedback helps refine the final version."
+    },
+    "step4": {
+      "title": "Development & SEO",
+      "content": "We build a fast, responsive website optimized for performance, SEO, and mobile devices."
+    },
+    "step5": {
+      "title": "Testing & Launch",
+      "content": "We test every feature thoroughly. After your approval, we launch the site and set up email and analytics tools."
+    },
+    "step6": {
+      "title": "Ongoing Support",
+      "content": "After launch, we offer technical support and help grow your site as your business evolves."
     }
-  },
+  }
+},
   "CTA": {
     "title": "Ready for a new website that attracts customers?",
     "description": "Start transforming your online presence today! Consultations are free.",

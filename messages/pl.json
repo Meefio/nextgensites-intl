@@ -84,7 +84,7 @@
   },
   "About": {
     "why": "Poznaj nasze podejście",
-    "heading": "Tworzenie stron internetowych przynoszących rezultaty",
+    "heading": "Tworzenie nowoczesnych stron internetowych przynoszących rezultaty",
     "subheading": "Łączymy nowoczesne technologie z przemyślanym designem, by Twoja strona wyróżniała się na tle konkurencji",
     "description1": "Przede wszystkim musimy <strong>dokładnie poznać Twój biznes</strong> – jego mocne strony, wizję, podejście do klienta i wyróżniki na tle konkurencji. Przeanalizujemy rynek, sprawdzimy, co działa u innych, i dobierzemy najlepsze rozwiązania dla Ciebie. Kluczowa jest też grupa docelowa – to ona określi, czy strona powinna być nowoczesna i dynamiczna, czy klasyczna i poważna.",
     "description2": "Chatbot AI do rezerwacji wizyt? System newsletter do informowania o promocjach? Formularz kontaktowy, blog z poradami dla klientów? A może aplikacja, która zastąpi Excela i zautomatyzuje procesy w firmie?",
@@ -102,7 +102,7 @@
     },
     "projects": {
       "project1": {
-        "title": "💦 Innowacyjna strona dla firmy zajmującej się myciem ciśnieniowym",
+        "title": "💦 Innowacyjna strona internetowa dla firmy zajmującej się myciem ciśnieniowym",
         "description": "<p class='mb-2'>Łączy przejrzysty design z funkcjonalnością – <strong>interaktywne elementy</strong>, <strong>rozbudowana galeria zdjęć</strong> i <strong>ręcznie tworzone ikony</strong> podkreślają profesjonalizm. Zaawansowana <strong>optymalizacja SEO</strong> zapewnia topowe pozycje w Google, zwiększając ruch i konwersję.</p><p class='mb-4'><span class='font-semibold text-lg'>Najważniejsze funkcje:</span></p><ul class='list-none space-y-2 mb-2'><li>✨ Czysty kod dla maksymalnej wydajności</li><li>🖼️ Galeria zdjęć prezentująca realizacje</li><li>🏅 Modal z certyfikatami budujący zaufanie</li><li>📊 Google Analytics do analizy ruchu</li><li>🔍 SEO na najwyższym poziomie</li><li>🎨 Unikalne ikony i AI-generowane ilustracje</li></ul>",
         "tags": [
           "Pisane w czystym kodzie",
@@ -135,37 +135,37 @@
   },
   "Timeline": {
     "why": "Jak działamy",
-    "heading": "Proces współpracy krok po kroku",
-    "subheading": "Przejrzysty plan współpracy od kontaktu po finalizację projektu",
+    "heading": "Etapy współpracy",
+    "subheading": "Od pierwszego kontaktu po gotową stronę",
     "steps": {
       "step1": {
-        "title": "Kontakt i analiza potrzeb",
-        "content": "Skontaktuj się z nami przez formularz, telefon lub e-mail. Porozmawiamy o Twoim biznesie, celach i oczekiwaniach. Przekaż nam materiały (zdjęcia, logo, kolorystykę, sekcje), abyśmy mogli lepiej zrozumieć Twoje potrzeby i doradzić najlepsze rozwiązania."
+        "title": "Rozmowa i analiza",
+        "content": "Kontaktujesz się z nami – my poznajemy Twoje potrzeby i cele. Przekazujesz materiały, a my doradzamy najlepsze rozwiązania."
       },
       "step2": {
-        "title": "Wycena i planowanie",
-        "content": "Na podstawie zebranych informacji przygotujemy wycenę oraz harmonogram projektu. Po akceptacji kosztów tworzymy strategię działania i strukturę strony, określając kluczowe funkcje i elementy, które wesprą Twoje cele biznesowe."
+        "title": "Wycena i plan",
+        "content": "Tworzymy ofertę, harmonogram i strukturę strony dopasowaną do Twojego biznesu."
       },
       "step3": {
-        "title": "Przygotowanie treści i układu strony",
-        "content": "Przedstawimy propozycję treści oraz układu strony, dopasowaną do Twojej marki i celów biznesowych. Na tym etapie możesz zgłosić uwagi i sugestie, które uwzględnimy przed rozpoczęciem budowy strony."
+        "title": "Treści i układ",
+        "content": "Proponujemy teksty i wygląd strony. Wprowadzamy Twoje sugestie i dopracowujemy szczegóły."
       },
       "step4": {
-        "title": "Budowa i optymalizacja",
-        "content": "Realizujemy projekt, tworząc responsywną, szybką i zoptymalizowaną stronę internetową. Dbamy o jej wydajność, SEO oraz poprawne działanie na wszystkich urządzeniach."
+        "title": "Tworzenie i SEO",
+        "content": "Budujemy szybką, responsywną i zoptymalizowaną stronę zgodną z najlepszymi praktykami SEO."
       },
       "step5": {
-        "title": "Testy i wdrożenie",
-        "content": "Dokładnie sprawdzamy każdy element strony – formularze, linki, funkcjonalności. Po Twojej finalnej akceptacji wdrażamy stronę na serwer, konfigurujemy pocztę i narzędzia analityczne."
+        "title": "Testy i publikacja",
+        "content": "Sprawdzamy wszystko, a po Twojej akceptacji uruchamiamy stronę i konfigurujemy niezbędne narzędzia."
       },
       "step6": {
-        "title": "Wsparcie po wdrożeniu",
-        "content": "Po uruchomieniu strony oferujemy pomoc techniczną i możliwość dalszego rozwoju, aby Twoja witryna zawsze spełniała oczekiwania."
+        "title": "Stałe wsparcie",
+        "content": "Po wdrożeniu jesteśmy do dyspozycji – zapewniamy pomoc i rozwój strony w miarę potrzeb."
       }
     }
   },
   "CTA": {
-    "title": "Gotowy na nową stronę, która przyciągnie klientów?",
+    "title": "Gotowy na stronę premium, która przyciągnie klientów?",
     "description": "Rozpocznij transformację swojej obecności online już dziś! Konsultacje są bezpłatne.",
     "button": "Darmowa konsultacja"
   },
