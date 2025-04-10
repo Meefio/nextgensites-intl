@@ -36,6 +36,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.8
+    },
+    {
+      url: `${baseUrl}/buildwise`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8
     }
   ]
 
@@ -69,6 +75,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       },
       {
         url: `${baseUrl}/${locale}/underpressure`,
+        lastModified: currentDate,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8
+      },
+      {
+        url: `${baseUrl}/${locale}/buildwise`,
         lastModified: currentDate,
         changeFrequency: 'monthly' as const,
         priority: 0.8
