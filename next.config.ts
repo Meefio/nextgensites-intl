@@ -17,7 +17,11 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: true,
     scrollRestoration: true,
-  }
+  },
+  staticPageGenerationTimeout: 180,
+  output: 'standalone',
+  compress: true,
+  poweredByHeader: false,
 };
 
 export default withNextIntl(nextConfig);

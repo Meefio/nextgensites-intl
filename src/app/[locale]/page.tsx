@@ -12,6 +12,9 @@ import { Pricing } from '@/app/components/pricing'
 import { Faq } from '@/app/components/faq'
 import { ContactForm } from '@/app/components/contact-form'
 
+// Dodajemy ISR (Incremental Static Regeneration)
+export const revalidate = 3600 // Odświeżanie co godzinę
+
 export default function HomePage() {
 	return (
 		<>

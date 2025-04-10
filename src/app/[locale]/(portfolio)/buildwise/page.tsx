@@ -5,6 +5,9 @@ import { ContactForm } from '@/app/components/contact-form'
 import { getTranslations } from 'next-intl/server'
 import { Metadata } from 'next'
 
+// Dodajemy ISR (Incremental Static Regeneration)
+export const revalidate = 3600 // Odświeżanie co godzinę
+
 interface GenerateMetadataProps {
   params: Promise<{
     locale: string;
