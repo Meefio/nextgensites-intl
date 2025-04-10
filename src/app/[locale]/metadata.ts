@@ -23,8 +23,8 @@ export const metadata = (locale: string): Metadata => ({
   alternates: {
     canonical: `https://nextgensites.pl${locale === 'pl' ? '' : `/${locale}`}`,
     languages: {
-      'pl-PL': '/',
-      'en-US': '/en',
+      'pl-PL': locale === 'pl' ? 'https://nextgensites.pl' : 'https://nextgensites.pl',
+      'en-US': locale === 'en' ? 'https://nextgensites.pl/en' : 'https://nextgensites.pl/en',
     },
   },
   openGraph: {

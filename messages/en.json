@@ -651,7 +651,12 @@
     "privacy": "Privacy Policy",
     "gdpr": "GDPR",
     "backToHome": "Back to homepage",
-    "copyright": "© {year} NextGen Sites. All rights reserved."
+    "copyright": "© {year} NextGen Sites. All rights reserved.",
+    "title": "Legal Documents - NextGen Sites",
+    "description": "Legal documents, terms of service, privacy policy and GDPR information for NextGen Sites",
+    "ogTitle": "Legal Documents - NextGen Sites",
+    "ogDescription": "Legal documents, terms of service, privacy policy and GDPR information for NextGen Sites",
+    "ogImageAlt": "NextGen Sites - Legal Documents"
   },
   "Portfolio-sections": {
     "UnderPressure": {

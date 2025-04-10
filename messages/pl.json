@@ -639,6 +639,11 @@
     }
   },
   "Legal": {
+    "title": "Dokumenty prawne - NextGen Sites",
+    "description": "Dokumenty prawne, regulamin, polityka prywatności oraz informacje RODO dla NextGen Sites",
+    "ogTitle": "Dokumenty prawne - NextGen Sites",
+    "ogDescription": "Dokumenty prawne, regulamin, polityka prywatności oraz informacje RODO dla NextGen Sites",
+    "ogImageAlt": "NextGen Sites - Dokumenty prawne",
     "terms": "Regulamin",
     "privacy": "Polityka prywatności",
     "gdpr": "RODO",

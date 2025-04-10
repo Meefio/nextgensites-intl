@@ -5,18 +5,25 @@ import { ContactForm } from '@/app/components/contact-form'
 import { getTranslations } from 'next-intl/server'
 import { Metadata } from 'next'
 
+interface GenerateMetadataProps {
+  params: Promise<{
+    locale: string;
+  }>;
+}
+
 // Dodajemy generowanie metadanych
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations('Portfolio-sections.BuildWise.SEO')
 
   return {
     title: t('title'),
     description: t('description'),
     alternates: {
-      canonical: 'https://nextgensites.pl/buildwise',
+      canonical: `https://nextgensites.pl${locale === 'pl' ? '' : `/${locale}`}/buildwise`,
       languages: {
-        'pl-PL': 'https://nextgensites.pl/buildwise',
-        'en-US': 'https://nextgensites.pl/en/buildwise',
+        'pl-PL': locale === 'pl' ? 'https://nextgensites.pl/buildwise' : 'https://nextgensites.pl/buildwise',
+        'en-US': locale === 'en' ? 'https://nextgensites.pl/en/buildwise' : 'https://nextgensites.pl/en/buildwise',
       },
     },
     openGraph: {

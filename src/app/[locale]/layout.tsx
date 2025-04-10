@@ -27,9 +27,10 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
 	const baseMetadataWithLocale = baseMetadata(locale);
 
 	const alternateLanguages = {
-		languages: locale === 'pl'
-			? { 'en': 'https://nextgensites.pl/en' }
-			: { 'pl': 'https://nextgensites.pl' }
+		languages: {
+			'pl': locale === 'pl' ? 'https://nextgensites.pl' : 'https://nextgensites.pl',
+			'en': locale === 'en' ? 'https://nextgensites.pl/en' : 'https://nextgensites.pl/en'
+		}
 	};
 
 	const metadata: Metadata = {

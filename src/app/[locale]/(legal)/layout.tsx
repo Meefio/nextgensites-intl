@@ -5,37 +5,56 @@ import { Metadata } from "next";
 import { useTranslations } from 'next-intl';
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { ThemeSwitcher } from "@/app/components/theme-switcher";
+import { getTranslations } from 'next-intl/server';
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://nextgensites.pl'),
-  title: {
-    default: 'Dokumenty prawne - NextGen Sites',
-    template: '%s | NextGen Sites'
-  },
-  description: 'Dokumenty prawne, regulamin, polityka prywatności oraz informacje RODO dla NextGen Sites',
-  openGraph: {
-    type: 'website',
-    locale: 'pl_PL',
-    url: 'https://nextgensites.pl',
-    siteName: 'NextGen Sites',
-    title: 'Dokumenty prawne - NextGen Sites',
-    description: 'Dokumenty prawne, regulamin, polityka prywatności oraz informacje RODO dla NextGen Sites',
-    images: [
-      {
-        url: '/images/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'NextGen Sites - Dokumenty prawne',
+interface GenerateMetadataProps {
+  params: Promise<{
+    locale: string;
+  }>;
+}
+
+export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Legal' });
+
+  return {
+    metadataBase: new URL('https://nextgensites.pl'),
+    title: {
+      default: t('title'),
+      template: `%s | NextGen Sites`
+    },
+    description: t('description'),
+    alternates: {
+      canonical: `https://nextgensites.pl${locale === 'pl' ? '' : `/${locale}`}`,
+      languages: {
+        'pl-PL': locale === 'pl' ? 'https://nextgensites.pl' : 'https://nextgensites.pl',
+        'en-US': locale === 'en' ? 'https://nextgensites.pl/en' : 'https://nextgensites.pl/en',
       },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Dokumenty prawne - NextGen Sites',
-    description: 'Dokumenty prawne, regulamin, polityka prywatności oraz informacje RODO dla NextGen Sites',
-    images: ['/images/og-image.png'],
-  },
-};
+    },
+    openGraph: {
+      type: 'website',
+      locale: locale === 'pl' ? 'pl_PL' : 'en_US',
+      url: locale === 'pl' ? 'https://nextgensites.pl' : `https://nextgensites.pl/${locale}`,
+      siteName: 'NextGen Sites',
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+      images: [
+        {
+          url: '/images/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: t('ogImageAlt'),
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+      images: ['/images/og-image.png'],
+    },
+  };
+}
 
 // Schema.org JSON-LD dla dokumentów prawnych
 const legalPagesSchema = {

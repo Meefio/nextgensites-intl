@@ -5,18 +5,25 @@ import { ContactForm } from '@/app/components/contact-form'
 import { getTranslations } from 'next-intl/server'
 import { Metadata } from 'next'
 
+interface GenerateMetadataProps {
+  params: Promise<{
+    locale: string;
+  }>;
+}
+
 // Dodajemy generowanie metadanych
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations('Portfolio-sections.UnderPressure.SEO')
 
   return {
     title: t('title'),
     description: t('description'),
     alternates: {
-      canonical: 'https://nextgensites.pl/underpressure',
+      canonical: `https://nextgensites.pl${locale === 'pl' ? '' : `/${locale}`}/underpressure`,
       languages: {
-        'pl-PL': 'https://nextgensites.pl/underpressure',
-        'en-US': 'https://nextgensites.pl/en/underpressure',
+        'pl-PL': locale === 'pl' ? 'https://nextgensites.pl/underpressure' : 'https://nextgensites.pl/underpressure',
+        'en-US': locale === 'en' ? 'https://nextgensites.pl/en/underpressure' : 'https://nextgensites.pl/en/underpressure',
       },
     },
     openGraph: {
