@@ -84,9 +84,9 @@ const Portfolio = () => {
                   quality={95}
                 />
               </Link>
-              <CardContent className="p-6 flex flex-col flex-1">
+              <CardContent className="p-4 md:p-6 flex flex-col flex-1">
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold mb-3 text-center">{project.title}</h3>
+                  <h3 className="text-lg xl:text-xl font-semibold mb-3 text-center">{project.title}</h3>
                   <div
                     className="text-sm text-muted-foreground mb-4 prose prose-sm prose-muted max-w-none"
                     dangerouslySetInnerHTML={{ __html: project.description }}

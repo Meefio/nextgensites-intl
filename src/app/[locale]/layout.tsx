@@ -9,6 +9,7 @@ import { CookieBanner } from "@/app/components/cookie-banner";
 import { GoogleAnalytics } from "@/app/components/analytics/google-analytics";
 import { cookies } from 'next/headers';
 import { Analytics } from '@vercel/analytics/next';
+import { ScrollToTop } from '@/app/components/ScrollToTop';
 
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
@@ -348,6 +349,7 @@ export default async function LocaleLayout({
 						{children}
 						<Toaster />
 						<CookieBanner />
+						<ScrollToTop />
 					</NextIntlClientProvider>
 				</ThemeProvider>
 				<Analytics />
