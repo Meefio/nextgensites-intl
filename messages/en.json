@@ -1,6 +1,6 @@
 {
   "Hero": {
-    "pricing": "Special offer! Websites from just $349",
+    "pricing": "We write websites in clean code",
     "title": "A modern website that works, attracts, and sells ",
     "description": "We create fast, optimized, and modern websites using the latest technology Next.js 15+. Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
     "cta": "Learn more!"
@@ -133,37 +133,37 @@
       }
     }
   },
- "Timeline": {
-  "why": "How We Work",
-  "heading": "Collaboration Process",
-  "subheading": "From first contact to a ready-to-launch website",
-  "steps": {
-    "step1": {
-      "title": "Intro Call & Needs Analysis",
-      "content": "Reach out via form, phone, or email. We’ll discuss your goals, collect materials, and suggest the best solutions."
-    },
-    "step2": {
-      "title": "Quote & Planning",
-      "content": "Based on your input, we prepare a quote, timeline, and site structure tailored to your business."
-    },
-    "step3": {
-      "title": "Content & Layout",
-      "content": "We propose content and layout aligned with your brand. Your feedback helps refine the final version."
-    },
-    "step4": {
-      "title": "Development & SEO",
-      "content": "We build a fast, responsive website optimized for performance, SEO, and mobile devices."
-    },
-    "step5": {
-      "title": "Testing & Launch",
-      "content": "We test every feature thoroughly. After your approval, we launch the site and set up email and analytics tools."
-    },
-    "step6": {
-      "title": "Ongoing Support",
-      "content": "After launch, we offer technical support and help grow your site as your business evolves."
+  "Timeline": {
+    "why": "How We Work",
+    "heading": "Collaboration Process",
+    "subheading": "From first contact to a ready-to-launch website",
+    "steps": {
+      "step1": {
+        "title": "Intro Call & Needs Analysis",
+        "content": "Reach out via form, phone, or email. We'll discuss your goals, collect materials, and suggest the best solutions."
+      },
+      "step2": {
+        "title": "Quote & Planning",
+        "content": "Based on your input, we prepare a quote, timeline, and site structure tailored to your business."
+      },
+      "step3": {
+        "title": "Content & Layout",
+        "content": "We propose content and layout aligned with your brand. Your feedback helps refine the final version."
+      },
+      "step4": {
+        "title": "Development & SEO",
+        "content": "We build a fast, responsive website optimized for performance, SEO, and mobile devices."
+      },
+      "step5": {
+        "title": "Testing & Launch",
+        "content": "We test every feature thoroughly. After your approval, we launch the site and set up email and analytics tools."
+      },
+      "step6": {
+        "title": "Ongoing Support",
+        "content": "After launch, we offer technical support and help grow your site as your business evolves."
+      }
     }
-  }
-},
+  },
   "CTA": {
     "title": "Ready for a new website that attracts customers?",
     "description": "Start transforming your online presence today! Consultations are free.",
@@ -173,8 +173,8 @@
     "why": "Pricing",
     "heading": "Lowest prices on the market",
     "subheading": "Premium quality without overpaying!",
-    "promoHeader": "🎉 Promotion! -50% on all packages until the 16 March! 🎉",
-    "promoInfo": "50% off",
+    "promoHeader": "🎉 Promotion! -30% on all packages until April 16th! 🎉",
+    "promoInfo": "30% off",
     "promoEnds": "Promotion ends in:",
     "shimmer": "Professional websites starting from $699",
     "timer": {
@@ -186,9 +186,9 @@
     "plans": {
       "basic": {
         "name": "Basic",
-        "monthlyPrice": "150zł - 200zł*",
-        "oneTimePrice": "$699 - $1399*",
-        "promoPrice": "$349 - $699*",
+        "monthlyPrice": "$150-$200*",
+        "oneTimePrice": "$1 849 - $2 649*",
+        "promoPrice": "$1 299 - $1 849*",
         "description": "Ideal solution for small companies and startups that need a professional presence on the web",
         "timeframe": "5–7 business days",
         "features": [
@@ -197,26 +197,27 @@
           "Google Analytics integration",
           "GDPR and Cookies Policy",
           "SSL Certificate",
-          "Technical support for 1 month"
+          "Contact form",
+          "Free hosting",
+          "Animations for each section",
+          "Lifetime guarantee"
         ]
       },
       "professional": {
         "name": "Professional",
-        "monthlyPrice": "250zł*",
-        "oneTimePrice": "$999 - $1999*",
-        "promoPrice": "$499 - $999*",
+        "monthlyPrice": "$250*",
+        "oneTimePrice": "$2 149 - $5 299*",
+        "promoPrice": "$1 499 - $3 699*",
         "description": "Comprehensive business website for full presentation of your offer",
-        "timeframe": "7–15 business days",
+        "timeframe": "7–21 days",
         "features": [
           "Everything from Basic plan",
           "Subpages with responsive design",
-          "Professional company logo",
+          "Professional company logo creation",
           "Business email configuration",
-          "Contact form with automatic forwarding",
           "Dark mode / light mode switch",
           "Blog with content management system",
-          "Interactive Google Map with company location",
-          "Technical support for 2 months"
+          "Interactive Google Map with company location"
         ],
         "popular": "Most Popular"
       },
@@ -229,24 +230,24 @@
         "features": [
           "Everything from Professional plan",
           "Extended number of pages with CMS (Content Management System)",
-          "Option to add 3D elements and parallax effects",
+          "3D elements",
+          "Parallax effects",
           "Newsletter and automatic mailing system",
           "Advanced reviews and ratings module",
           "Integration with payment systems",
-          "E-commerce configuration option",
-          "Personalized ChatBot creation option",
-          "Technical support for 6 months"
+          "E-commerce configuration",
+          "Personalized ChatBot AI creation"
         ]
       }
     },
     "vatInfo": "* Prices are net amounts, 23% VAT to be added",
     "depositInfo": {
-      "basic": "* Project starts after 150$ deposit payment",
-      "professional": "* Project starts after 250$ deposit payment"
+      "basic": "* Project starts after $699 deposit payment",
+      "professional": "* Project starts after $1 099 deposit payment"
     },
     "lowestPrice": {
-      "basic": "* lowest price from the last 30 days - $699",
-      "professional": "* lowest price from the last 30 days - $999"
+      "basic": "* lowest price from the last 30 days - $1 849",
+      "professional": "* lowest price from the last 30 days - $2 149"
     },
     "contactCta": "Free consultation"
   },

@@ -10,7 +10,7 @@ export const ClientPromoHeader = () => {
   if (!isPromoActive) return null
 
   return (
-    <p className='text-lg font-semibold text-primary animate-pulse text-center'>
+    <p className='text-lg font-semibold text-[#0DA2E7] dark:text-primary animate-pulse text-center mt-4'>
       {t('promoHeader')}
     </p>
   )
