@@ -6,6 +6,7 @@ import { TextShimmer } from '@/app/components/magicui/text-shimmer'
 import { Button } from '@/app/components/ui/button'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
 import { MouseTrackImage } from '@/app/components/motion/mouse-track-image'
+import { FloatingCodeBlocks } from '@/app/components/motion/floating-code-blocks'
 
 export function Hero() {
 	const t = useTranslations('Hero')
@@ -58,20 +59,25 @@ export function Hero() {
 
 			<AnimatedElement
 				delay={0.5}
-				className='relative flex-1'
+				className='relative flex-1 lg:ml-24 z-10'
 				initial={{ opacity: 0, x: 20 }}
 				animate={{ opacity: 1, x: 0 }}
 			>
-				<MouseTrackImage
-					alt='Przykład nowoczesnej strony internetowej'
-					src='/images/MacBookProHero.png'
-					title='Przykład nowoczesnej strony internetowej'
-					width={608}
-					height={368}
-					quality={100}
-					sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1482px'
-				/>
-				<div className='absolute inset-0 -z-10 bg-primary/20 [filter:blur(180px)]' />
+				<div className="relative lg:ml-8">
+					<MouseTrackImage
+						alt='Przykład nowoczesnej strony internetowej'
+						src='/images/MacBookProHero.png'
+						title='Przykład nowoczesnej strony internetowej'
+						width={608}
+						height={368}
+						quality={100}
+						sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1482px'
+					/>
+					<div className='absolute inset-0 -z-10 bg-primary/20 [filter:blur(180px)]' />
+
+					{/* Floating code blocks */}
+					<FloatingCodeBlocks />
+				</div>
 			</AnimatedElement>
 		</section>
 	)
