@@ -2,10 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { useTranslations } from 'next-intl'
 
 export function FloatingCodeBlocks() {
-  const t = useTranslations('Hero')
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
