@@ -59,11 +59,11 @@ export function Hero() {
 
 			<AnimatedElement
 				delay={0.5}
-				className='relative flex-1 lg:ml-24 z-10'
+				className='relative flex-1 xl:ml-24'
 				initial={{ opacity: 0, x: 20 }}
 				animate={{ opacity: 1, x: 0 }}
 			>
-				<div className="relative lg:ml-8">
+				<div className="relative xl:ml-8">
 					<MouseTrackImage
 						alt='Przykład nowoczesnej strony internetowej'
 						src='/images/MacBookProHero.png'
