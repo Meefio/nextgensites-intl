@@ -176,7 +176,7 @@
     "promoHeader": "🎉 Promocja! -30% na wszystkie pakiety do 16 kwietnia! 🎉",
     "promoInfo": "Promocja -30%",
     "promoEnds": "Do końca promocji pozostało:",
-    "shimmer": "Profesjonalne strony już od 4 899zł",
+    "shimmer": "Profesjonalne strony już od 3 999zł",
     "timer": {
       "days": "dni",
       "hours": "godz",
@@ -187,8 +187,8 @@
       "basic": {
         "name": "Podstawowy",
         "monthlyPrice": "150zł-200zł*",
-        "oneTimePrice": "6 999zł - 9 999zł*",
-        "promoPrice": "4 899zł - 6 999zł*",
+        "oneTimePrice": "5 499zł - 9 999zł*",
+        "promoPrice": "3 849zł - 6 999zł*",
         "description": "Idealne rozwiązanie dla małych firm i startupów, które potrzebują profesjonalnej obecności w sieci",
         "timeframe": "5–7 dni roboczych",
         "features": [
@@ -246,7 +246,7 @@
       "professional": "* Rozpoczęcie projektu po wpłacie zadatku 4 000zł"
     },
     "lowestPrice": {
-      "basic": "* najniższa cena z ostatnich 30 dni - 6 999zł",
+      "basic": "* najniższa cena z ostatnich 30 dni - 5 499zł",
       "professional": "* najniższa cena z ostatnich 30 dni - 7 999zł"
     },
     "contactCta": "Darmowa konsultacja"

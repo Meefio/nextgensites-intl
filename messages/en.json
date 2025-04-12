@@ -176,7 +176,7 @@
     "promoHeader": "🎉 Promotion! -30% on all packages until April 16th! 🎉",
     "promoInfo": "30% off",
     "promoEnds": "Promotion ends in:",
-    "shimmer": "Professional websites starting from $699",
+    "shimmer": "Professional websites starting from $1 099",
     "timer": {
       "days": "days",
       "hours": "hrs",
@@ -187,8 +187,8 @@
       "basic": {
         "name": "Basic",
         "monthlyPrice": "$150-$200*",
-        "oneTimePrice": "$1 849 - $2 649*",
-        "promoPrice": "$1 299 - $1 849*",
+        "oneTimePrice": "$1 499 - $2 649*",
+        "promoPrice": "$1 049 - $1 849*",
         "description": "Ideal solution for small companies and startups that need a professional presence on the web",
         "timeframe": "5–7 business days",
         "features": [
@@ -207,7 +207,7 @@
         "name": "Professional",
         "monthlyPrice": "$250*",
         "oneTimePrice": "$2 149 - $5 299*",
-        "promoPrice": "$1 499 - $3 699*",
+        "promoPrice": "$1 099 - $3 699*",
         "description": "Comprehensive business website for full presentation of your offer",
         "timeframe": "7–21 days",
         "features": [
@@ -246,7 +246,7 @@
       "professional": "* Project starts after $1 099 deposit payment"
     },
     "lowestPrice": {
-      "basic": "* lowest price from the last 30 days - $1 849",
+      "basic": "* lowest price from the last 30 days - $1 499",
       "professional": "* lowest price from the last 30 days - $2 149"
     },
     "contactCta": "Free consultation"
