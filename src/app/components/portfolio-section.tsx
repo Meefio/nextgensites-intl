@@ -39,7 +39,7 @@ const Portfolio = () => {
       tags: t.raw('projects.project2.tags') as string[],
       imageAlt: t('projects.project2.imageAlt'),
       link: '/buildwise',
-      viewLiveLink: 'https://buildwise-alpha.vercel.app/pl'
+      viewLiveLink: '/buildwise'
     }
   ]
 
