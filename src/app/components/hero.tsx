@@ -49,7 +49,7 @@ export function Hero() {
 				>
 					<AnimatedTextCycle
 						texts={rotatingTexts}
-						interval={7000}
+						interval={4000}
 						className="font-semibold"
 						initialDelay={0}
 					/>

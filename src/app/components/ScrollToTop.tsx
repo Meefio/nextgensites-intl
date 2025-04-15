@@ -40,7 +40,7 @@ export const ScrollToTop = () => {
     <button
       onClick={scrollToTop}
       className={cn(
-        'fixed bottom-3 right-5 z-50 rounded-xl bg-primary p-2 text-white shadow-lg transition-all duration-300 hover:bg-primary hover:scale-110',
+        'fixed bottom-3 right-5 z-50 rounded-xl bg-secondary p-2 text-accent shadow-lg transition-all duration-300 hover:scale-110',
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
       )}
       aria-label="Przewiń do góry"
