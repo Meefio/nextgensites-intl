@@ -10,6 +10,7 @@ import { GoogleAnalytics } from "@/app/components/analytics/google-analytics";
 import { cookies } from 'next/headers';
 import { Analytics } from '@vercel/analytics/next';
 import { ScrollToTop } from '@/app/components/ScrollToTop';
+import ClientDocumentTitleWrapper from '@/app/components/ClientDocumentTitleWrapper';
 
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
@@ -98,6 +99,10 @@ export default async function LocaleLayout({
 	const consent = cookieConsentStr
 		? JSON.parse(cookieConsentStr)
 		: { necessary: true, analytics: false, marketing: false };
+
+	// Pobierz tytuł strony dla komponentu DocumentTitleChanger
+	const t = await getTranslations({ locale, namespace: 'Metadata' });
+	const defaultTitle = t('title.default');
 
 	// Schema.org JSON-LD dla strony głównej
 	const websiteSchema = {
@@ -344,7 +349,8 @@ export default async function LocaleLayout({
 					disableTransitionOnChange
 				>
 					<NextIntlClientProvider locale={locale} messages={messages}>
-
+						{/* Komponent zmieniający tytuł strony, gdy użytkownik przełączy się na inną kartę */}
+						<ClientDocumentTitleWrapper defaultTitle={defaultTitle} />
 
 						{children}
 						<Toaster />

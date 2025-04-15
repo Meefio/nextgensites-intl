@@ -5,6 +5,11 @@
     "description": "Tworzymy szybkie, zoptymalizowane i nowoczesne strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
     "cta": "Dowiedz się więcej!"
   },
+  "PageTitle": {
+    "whereAreYou": "Gdzie jesteś? 👀",
+    "comeBack": "Wróć do nas! 🔥",
+    "missYou": "Strona internetowa Premium 🚀"
+  },
   "Navigation": {
     "benefits": "Korzyści",
     "technologies": "Technologie",
@@ -771,7 +776,7 @@
   },
   "Metadata": {
     "title": {
-      "default": "Nowoczesne i szybkie strony internetowe premium w Next.js",
+      "default": "Nowoczesne strony internetowe premium w Next.js",
       "template": "%s | NextGen Sites - Wydajne Strony WWW"
     },
     "description": "🚀 Superszybkie, nowoczesne i zoptymalizowane pod SEO strony internetowe w Next.js. Wyróżnij się w sieci i przyciągnij więcej klientów! 🚀",
