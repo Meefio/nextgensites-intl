@@ -1,16 +1,28 @@
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
-import { CSSProperties } from 'react'
+import { useTranslations, useLocale } from 'next-intl'
 
 import { TextShimmer } from '@/app/components/magicui/text-shimmer'
 import { Button } from '@/app/components/ui/button'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
 import { MouseTrackImage } from '@/app/components/motion/mouse-track-image'
 import { FloatingCodeBlocks } from '@/app/components/motion/floating-code-blocks'
+import { AnimatedTextCycle } from '@/app/components/animated-text-cycle'
 
 export function Hero() {
 	const t = useTranslations('Hero')
+	const locale = useLocale()
+
+	// Tablica rotujących tekstów
+	const rotatingTexts = [
+		t('rotatingTexts.modern'),
+		t('rotatingTexts.fast'),
+		t('rotatingTexts.converting'),
+		t('rotatingTexts.attractive'),
+		t('rotatingTexts.responsive'),
+		t('rotatingTexts.optimized'),
+		t('rotatingTexts.professional')
+	]
 
 	return (
 		<section className='container flex flex-col items-center gap-10 pb-14 pt-10 md:pb-28 lg:pt-24 sm:gap-14 lg:flex-row'>
@@ -33,15 +45,32 @@ export function Hero() {
 				<AnimatedElement
 					as='h1'
 					delay={0.2}
-					className='max-w-[38rem] text-center font-heading text-4xl font-semibold sm:text-5xl lg:text-left tracking-tight'
+					className='max-w-[38rem] text-center font-heading text-3xl font-semibold sm:text-5xl lg:text-left tracking-tight'
 				>
-					{t.rich('title', {
-						premium: (chunks) => (
+					<AnimatedTextCycle
+						texts={rotatingTexts}
+						interval={7000}
+						className="font-semibold"
+						initialDelay={3000}
+					/>
+					{' '}
+					{locale === 'pl' ? (
+						<>
+							strona <br />
+							internetowa{' '}
 							<span className="animate-premium font-semibold">
-								{chunks}
-							</span>
-						)
-					})}
+								Premium
+							</span>{' '}
+							w Next.js
+						</>
+					) : (
+						<>
+							<span className="animate-premium font-semibold">
+								Premium
+							</span>{' '}<br />
+							website in Next.js
+						</>
+					)}
 					<span className="inline-block animate-rocket">🚀</span>
 				</AnimatedElement>
 

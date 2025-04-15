@@ -1,9 +1,18 @@
 {
   "Hero": {
     "pricing": "Piszemy strony w czystym kodzie",
-    "title": "Nowoczesna strona internetowa <premium>Premium</premium> w Next.js",
+    "title": "{rotating} strona </br>internetowa <premium>Premium</premium> w Next.js",
     "description": "Przyciągnij klientów dzięki nowoczesnej stronie internetowej w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
-    "cta": "Dowiedz się więcej!"
+    "cta": "Dowiedz się więcej!",
+    "rotatingTexts": {
+      "modern": "Nowoczesna",
+      "fast": "Błyskawiczna",
+      "converting": "Konwertująca",
+      "attractive": "Przyciągająca",
+      "responsive": "Responsywna",
+      "optimized": "Zoptymalizowana",
+      "professional": "Profesjonalna"
+    }
   },
   "PageTitle": {
     "whereAreYou": "Gdzie jesteś? 👀",

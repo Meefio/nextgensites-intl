@@ -1,9 +1,18 @@
 {
   "Hero": {
     "pricing": "We write websites in clean code",
-    "title": "Modern <premium>Premium</premium> website in Next.js",
+    "title": "{rotating} <premium>Premium</premium> website in Next.js",
     "description": "Attract customers with a modern website in the latest Next.js 15+ technology. Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
-    "cta": "Learn more!"
+    "cta": "Learn more!",
+    "rotatingTexts": {
+      "modern": "Modern",
+      "fast": "Fast",
+      "converting": "Converting",
+      "attractive": "Attractive",
+      "responsive": "Responsive",
+      "optimized": "Optimized",
+      "professional": "Professional"
+    }
   },
   "Navigation": {
     "benefits": "Benefits",

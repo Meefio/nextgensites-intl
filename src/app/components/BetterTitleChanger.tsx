@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import usePageVisibility from '../hooks/use-page-visibility';
 
@@ -18,12 +18,12 @@ export default function BetterTitleChanger({ defaultTitle }: BetterTitleChangerP
   const titleIndexRef = useRef<number>(0);
   const originalTitleRef = useRef<string>(defaultTitle);
 
-  // Lista alternatywnych tytułów z tłumaczeń
-  const alternativeTitles = [
+  // Lista alternatywnych tytułów z tłumaczeń opakowana w useMemo
+  const alternativeTitles = useMemo(() => [
     `${t('whereAreYou')} | NextGenSites`,
     `${t('comeBack')} | NextGenSites`,
     `${t('missYou')} | NextGenSites`
-  ];
+  ], [t]); // zależność tylko od funkcji tłumaczącej
 
   // Efekt przechowujący oryginalny tytuł
   useEffect(() => {
