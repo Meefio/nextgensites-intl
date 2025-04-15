@@ -79,7 +79,7 @@ export function About() {
 
       <AnimatedElement
         className="flex justify-center mt-8"
-        delay={0.5}
+        delay={0.1}
         viewport={{ once: true, margin: "-20% 0px" }}
       >
         <Button size="lg" asChild>
