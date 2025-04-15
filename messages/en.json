@@ -1,8 +1,8 @@
 {
   "Hero": {
     "pricing": "We write websites in clean code",
-    "title": "A modern website that works, attracts, and sells ",
-    "description": "We create fast, optimized, and modern websites using the latest technology Next.js 15+. Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
+    "title": "Modern <premium>Premium</premium> website in Next.js",
+    "description": "Attract customers with a modern website in the latest Next.js 15+ technology. Outstanding design, SEO, mobile responsiveness, and low maintenance costs – all in one package.",
     "cta": "Learn more!"
   },
   "Navigation": {
@@ -779,7 +779,7 @@
   },
   "Metadata": {
     "title": {
-      "default": "Premium Websites in Next.js",
+      "default": "Premium modern websites in Next.js",
       "template": "%s | NextGen Sites - Professional Website Development"
     },
     "description": "🚀 Get a blazing-fast, SEO-optimized Next.js website with stunning design and full responsiveness. Maximize conversions and stand out online!",

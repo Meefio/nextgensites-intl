@@ -138,6 +138,35 @@ textarea:-webkit-autofill:focus {
 	background-color: hsl(var(--accent));
 }
 
+@keyframes premium-gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.animate-premium {
+	animation: premium-gradient 4s ease-in-out infinite;
+	background-size: 200% 200%;
+	background-image: linear-gradient(45deg,
+			hsl(var(--accent)),
+			hsl(var(--accent)/0.8),
+			hsl(var(--accent)/1),
+			hsl(var(--accent)/0.8),
+			hsl(var(--accent)));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+}
+
 @keyframes rocketAnimation {
 
 	0%,

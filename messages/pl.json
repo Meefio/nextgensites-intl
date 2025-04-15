@@ -1,8 +1,8 @@
 {
   "Hero": {
     "pricing": "Piszemy strony w czystym kodzie",
-    "title": "Nowoczesna strona internetowa, która działa, przyciąga i sprzedaje ",
-    "description": "Tworzymy szybkie, zoptymalizowane i nowoczesne strony w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
+    "title": "Nowoczesna strona internetowa <premium>Premium</premium> w Next.js",
+    "description": "Przyciągnij klientów dzięki nowoczesnej stronie internetowej w najnowszej technologii Next.js 15+. Doskonały wygląd, SEO, mobilna responsywność i niskie koszty utrzymania – wszystko w jednej ofercie.",
     "cta": "Dowiedz się więcej!"
   },
   "PageTitle": {
@@ -777,9 +777,9 @@
   "Metadata": {
     "title": {
       "default": "Nowoczesne strony internetowe premium w Next.js",
-      "template": "%s | NextGen Sites - Wydajne Strony WWW"
+      "template": "%s | Strony Internetowe Premium"
     },
-    "description": "🚀 Superszybkie, nowoczesne i zoptymalizowane pod SEO strony internetowe w Next.js. Wyróżnij się w sieci i przyciągnij więcej klientów! 🚀",
+    "description": "🚀 Superszybkie, nowoczesne i zoptymalizowane pod SEO strony internetowe w Next.js. Wyróżnij się w sieci i przyciągnij więcej klientów!",
     "applicationName": "NextGen Sites - Profesjonalne Tworzenie Stron Internetowych",
     "authors": {
       "name": "Michał Rowiński",

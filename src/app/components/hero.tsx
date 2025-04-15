@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import { CSSProperties } from 'react'
 
 import { TextShimmer } from '@/app/components/magicui/text-shimmer'
 import { Button } from '@/app/components/ui/button'
@@ -34,14 +35,20 @@ export function Hero() {
 					delay={0.2}
 					className='max-w-[38rem] text-center font-heading text-4xl font-semibold sm:text-5xl lg:text-left tracking-tight'
 				>
-					{t('title')}
+					{t.rich('title', {
+						premium: (chunks) => (
+							<span className="animate-premium font-semibold">
+								{chunks}
+							</span>
+						)
+					})}
 					<span className="inline-block animate-rocket">🚀</span>
 				</AnimatedElement>
 
 				<AnimatedElement
 					as='p'
 					delay={0.3}
-					className='max-w-md text-center text-lg text-muted-foreground lg:text-left'
+					className='max-w-xl text-center text-lg text-muted-foreground lg:text-left'
 				>
 					{t('description')}
 				</AnimatedElement>
