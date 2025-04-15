@@ -32,7 +32,7 @@ export function SocialProof() {
           delay={isInView ? 0.2 : 0}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
-          className="text-center text-sm font-semibold text-muted-foreground"
+          className="text-center text-sm font-semibold text-muted-foreground mt-6 md:mt-16"
         >
           {t('title')}
         </AnimatedElement>
@@ -61,9 +61,9 @@ export function SocialProof() {
           delay={isInView ? 0.3 : 0}
           initial={{ opacity: 0 }}
           animate={{ opacity: isInView ? 1 : 0 }}
-          className="hidden md:block"
+          className="hidden md:block mt-8"
         >
-          <div className="mt-6">
+          <div className="mt-8">
             <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-16 [&_path]:fill-white">
               {logos.map((logo, index) => (
                 <AnimatedElement

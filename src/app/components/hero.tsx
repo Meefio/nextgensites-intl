@@ -83,10 +83,15 @@ export function Hero() {
 				</AnimatedElement>
 
 				<AnimatedElement delay={0.4}>
-					<div className='grid gap-3'>
+					<div className='grid md:grid-cols-2 gap-3'>
 						<Button size='lg' asChild>
 							<Link href="/#benefits">
 								{t('cta')}
+							</Link>
+						</Button>
+						<Button className='hidden md:flex' size='lg' variant='outline' asChild>
+							<Link href="/#portfolio">
+								Portfolio
 							</Link>
 						</Button>
 					</div>
