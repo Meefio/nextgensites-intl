@@ -183,6 +183,26 @@
       "minutes": "min",
       "seconds": "sec"
     },
+    "maintenanceCosts": {
+      "heading": "Low Maintenance Costs",
+      "description": "With us, maintenance costs are just around $10/year – saving you $150-$250 annually compared to traditional solutions!",
+      "domain": {
+        "title": "Domain",
+        "description": "Website name: approx. $4.99/year"
+      },
+      "hosting": {
+        "title": "Hosting",
+        "description": "Always included in your package, no extra fees"
+      },
+      "email": {
+        "title": "Business Email",
+        "description": "Optional: approx. $5.99/year with Hostinger"
+      },
+      "form": {
+        "title": "Contact Forms",
+        "description": "100 form submissions daily included – attract customers at no additional cost"
+      }
+    },
     "plans": {
       "basic": {
         "name": "Basic",

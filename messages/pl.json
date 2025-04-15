@@ -183,6 +183,26 @@
       "minutes": "min",
       "seconds": "sek"
     },
+    "maintenanceCosts": {
+      "heading": "Niskie koszty utrzymania",
+      "description": "U nas koszty utrzymania to ok. 40 zł/rok – oszczędność nawet 600-1000 zł rocznie w porównaniu z tradycyjnymi rozwiązaniami!",
+      "domain": {
+        "title": "Domena",
+        "description": "Nazwa strony internetowej: ok. 16,99 zł/rok"
+      },
+      "hosting": {
+        "title": "Hosting",
+        "description": "Zawsze w cenie pakietu, bez dodatkowych opłat"
+      },
+      "email": {
+        "title": "Firmowa poczta e-mail",
+        "description": "Opcjonalnie: ok. 23,88 zł/rok w Hostingerze"
+      },
+      "form": {
+        "title": "Formularze kontaktowe",
+        "description": "100 wypełnień dziennie w cenie – przyciągaj klientów bez dodatkowych kosztów"
+      }
+    },
     "plans": {
       "basic": {
         "name": "Podstawowy",

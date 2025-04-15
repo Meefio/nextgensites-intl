@@ -180,6 +180,35 @@ export function Pricing() {
 						</AnimatedElement>
 					))}
 				</div>
+
+				<AnimatedElement className='mt-10 md:mt-16 max-w-4xl mx-auto'>
+					<div className='bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 md:p-8'>
+						<h3 className='text-xl md:text-2xl font-semibold text-white text-center mb-4'>{t('maintenanceCosts.heading')}</h3>
+						<p className='text-gray-200 text-center text-lg mb-6'>{t('maintenanceCosts.description')}</p>
+
+						<div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+							<div className='flex flex-col items-center p-4 bg-zinc-800/40 rounded-lg'>
+								<h4 className='text-primary font-medium mb-2'>{t('maintenanceCosts.domain.title')}</h4>
+								<p className='text-gray-300 text-center'>{t('maintenanceCosts.domain.description')}</p>
+							</div>
+							<div className='flex flex-col items-center p-4 bg-zinc-800/40 rounded-lg'>
+								<h4 className='text-primary font-medium mb-2'>{t('maintenanceCosts.hosting.title')}</h4>
+								<p className='text-gray-300 text-center'>{t('maintenanceCosts.hosting.description')}</p>
+							</div>
+							<div className='flex flex-col items-center p-4 bg-zinc-800/40 rounded-lg'>
+								<h4 className='text-primary font-medium mb-2'>{t('maintenanceCosts.email.title')}</h4>
+								<p className='text-gray-300 text-center'>{t('maintenanceCosts.email.description')}</p>
+							</div>
+						</div>
+
+						<div className='mt-6'>
+							<div className='p-4 bg-zinc-800/40 rounded-lg md:max-w-md mx-auto'>
+								<h4 className='text-primary font-medium mb-2 text-center'>{t('maintenanceCosts.form.title')}</h4>
+								<p className='text-gray-300 text-center'>{t('maintenanceCosts.form.description')}</p>
+							</div>
+						</div>
+					</div>
+				</AnimatedElement>
 			</div>
 		</section>
 	)
