@@ -1,7 +1,6 @@
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { Link } from '@/i18n/routing'
-import NextLink from 'next/link'
+import Link from 'next/link'
 import { Card, CardContent } from "@/app/components/ui/card"
 import { AnimatedElement } from "@/app/components/motion/animated-element"
 import { Badge } from '@/app/components/ui/badge'
@@ -14,7 +13,7 @@ interface Project {
   description: string
   tags: string[]
   imageAlt: string
-  link: '/underpressure' | '/buildwise'
+  link: string
   viewLiveLink?: string
 }
 
@@ -104,12 +103,12 @@ const Portfolio = () => {
                   <div className="flex flex-wrap justify-center gap-4">
                     {project.viewLiveLink && (
                       <>
-                        <NextLink href={project.viewLiveLink} target='_blank' rel='noopener noreferrer'>
+                        <Link href={project.viewLiveLink} prefetch={true} target='_blank' rel='noopener noreferrer'>
                           <Button variant="outline" className="group">
                             {t('buttons.viewLive')}
                           </Button>
-                        </NextLink>
-                        <Link href={project.link} prefetch={true}>
+                        </Link>
+                        <Link href={project.link}>
                           <Button className="group">
                             {t('buttons.learnMore')}
                           </Button>
