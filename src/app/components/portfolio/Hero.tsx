@@ -75,6 +75,7 @@ export function Hero({ projectKey }: HeroProps) {
           <AnimatedElement delay={0.5} className="flex gap-4">
             <Link
               href={`/${projectKey}/#contact`}
+              prefetch={true}
               className="inline-flex h-11 items-center text-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
             >
               {t('cta')}

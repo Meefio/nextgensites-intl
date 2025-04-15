@@ -273,6 +273,7 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
         <AnimatedElement>
           <Link
             href={nextProjectLink}
+            prefetch={true}
             className="group inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
           >
             <span className="text-lg font-medium">{t('nextProject')}</span>

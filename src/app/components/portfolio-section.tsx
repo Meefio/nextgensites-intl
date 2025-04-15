@@ -74,7 +74,7 @@ const Portfolio = () => {
             viewport={{ once: true, margin: "-20% 0px" }}
           >
             <Card className="h-full flex flex-col group/card overflow-hidden max-w-full">
-              <Link href={project.link} className="aspect-video relative overflow-hidden">
+              <Link href={project.link} prefetch={true} className="aspect-video relative overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.imageAlt}
@@ -109,7 +109,7 @@ const Portfolio = () => {
                             {t('buttons.viewLive')}
                           </Button>
                         </NextLink>
-                        <Link href={project.link}>
+                        <Link href={project.link} prefetch={true}>
                           <Button className="group">
                             {t('buttons.learnMore')}
                           </Button>
@@ -117,7 +117,7 @@ const Portfolio = () => {
                       </>
                     )}
                     {!project.viewLiveLink && (
-                      <Link href={project.link}>
+                      <Link href={project.link} prefetch={true}>
                         <Button className="group">
                           {t('buttons.learnMore')}
                         </Button>
