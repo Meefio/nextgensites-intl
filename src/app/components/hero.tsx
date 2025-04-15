@@ -51,7 +51,7 @@ export function Hero() {
 						texts={rotatingTexts}
 						interval={7000}
 						className="font-semibold"
-						initialDelay={3000}
+						initialDelay={0}
 					/>
 					{' '}
 					{locale === 'pl' ? (
