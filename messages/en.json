@@ -789,10 +789,10 @@
   "Metadata": {
     "title": {
       "default": "Premium modern websites in Next.js",
-      "template": "%s | NextGen Sites - Professional Website Development"
+      "template": "%s | Premium modern websites"
     },
-    "description": "🚀 Get a blazing-fast, SEO-optimized Next.js website with stunning design and full responsiveness. Maximize conversions and stand out online!",
-    "applicationName": "NextGen Sites - Professional Website Development",
+    "description": "Get a blazing-fast, SEO-optimized Next.js website with stunning design and full responsiveness. Maximize conversions and stand out online!",
+    "applicationName": "NextGen Sites - Premium modern websites",
     "authors": {
       "name": "Michał Rowiński",
       "url": "https://nextgensites.pl"
