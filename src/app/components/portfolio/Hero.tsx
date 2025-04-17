@@ -40,7 +40,7 @@ export function Hero({ projectKey }: HeroProps) {
         quality={100}
         title={config.altText}
       />
-      <div className="absolute inset-0 container mx-auto px-4 flex flex-col justify-center">
+      <div className="absolute inset-0 container mx-auto px-4 flex flex-col justify-center md:-mt-28">
         <div className="container">
           <AnimatedElement as='span' delay={0.1}>
             <p className="font-bold uppercase text-white mb-4">
@@ -51,7 +51,7 @@ export function Hero({ projectKey }: HeroProps) {
           <AnimatedElement
             as='h1'
             delay={0.2}
-            className='font-heading text-4xl font-semibold sm:text-5xl tracking-tight text-white mb-4'
+            className='font-heading text-4xl max-w-2xl font-semibold sm:text-5xl tracking-tight text-white mb-6'
           >
             {t('title')}
           </AnimatedElement>
@@ -59,17 +59,9 @@ export function Hero({ projectKey }: HeroProps) {
           <AnimatedElement
             as='p'
             delay={0.3}
-            className='text-lg text-white/90 mb-4 max-w-xl'
+            className='text-lg text-white/90 mb-10 max-w-xl'
           >
             {t('description')}
-          </AnimatedElement>
-
-          <AnimatedElement
-            as='p'
-            delay={0.4}
-            className='text-white/80 mb-8 max-w-md'
-          >
-            {t('shortDescription')}
           </AnimatedElement>
 
           <AnimatedElement delay={0.5} className="flex gap-4">

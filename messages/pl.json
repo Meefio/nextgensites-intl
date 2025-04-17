@@ -687,8 +687,7 @@
   },
   "Portfolio-sections": {
     "UnderPressure": {
-      "title": "Under Pressure",
-      "shortDescription": "Po 6 miesiącach od startu strona osiągnęła topowe pozycje w Google na wiele kluczowych fraz.",
+      "title": "Strona internetowa dla firmy sprzątającej",
       "cta": "Wyceń swój projekt",
       "clientInfo": {
         "title": "Informacje o kliencie",
@@ -712,10 +711,10 @@
         "title": "Funkcjonalności",
         "description": "Strona została wyposażona w dynamiczny hero z rotującym tekstem, galerię realizacji, formularz kontaktowy, dwie interaktywne mapy oraz liczne optymalizacje pod kątem wyszukiwarek. Każdy element został zaprojektowany z myślą o użytkowniku i konwersji, tworząc skuteczne narzędzie marketingowe dla lokalnej firmy usługowej."
       },
-      "description": "Nowoczesna strona, która w zaledwie kilka miesięcy wyniosła firmę myjącą ciśnieniowo na szczyt lokalnych wyników Google.",
+      "description": "Nowoczesna wizytówka, która w zaledwie kilka miesięcy wyniosła firmę myjącą ciśnieniowo na szczyt lokalnych wyników Google.",
       "viewLive": "Zobacz projekt live",
       "Common": {
-        "portfolio": "Realizacje"
+        "portfolio": "REALIZACJE"
       },
       "Google-position-1": {
         "title": "Pozycja w Google #1",
@@ -735,8 +734,7 @@
       "nextProject": "Zobacz następny projekt"
     },
     "BuildWise": {
-      "title": "BuildWise",
-      "shortDescription": "Profesjonalna strona budowlana z blogiem, rekrutacją i CMS — gotowa na 4 języki i świetne SEO.",
+      "title": "Strona internetowa dla firmy budowlano-remontowej",
       "description": "Nowoczesna platforma online, która wzmacnia wizerunek marki budowlanej i wspiera jej rozwój.",
       "cta": "Wyceń swój projekt",
       "viewLive": "Zobacz projekt live",
@@ -748,11 +746,11 @@
       },
       "projectDescription": {
         "title": "Opis projektu",
-        "content": "BuildWise to firma, która potrzebowała czegoś więcej niż klasycznej strony — zależało im na profesjonalnym wizerunku, łatwej edycji treści oraz skutecznych narzędziach do rekrutacji. Naszym zadaniem było stworzenie platformy, która nie tylko prezentuje ofertę, ale także buduje zaufanie i pomaga w rozwoju biznesu. Dzięki integracji z CMS, blogiem i wersjami językowymi, witryna jest gotowa na międzynarodowy sukces."
+        "content": "BuildWise to firma budowlana, która potrzebowała czegoś więcej niż klasycznej strony internetowej — zależało im na profesjonalnym wizerunku, łatwej edycji treści oraz skutecznych narzędziach do rekrutacji pracowników. Naszym zadaniem było stworzenie platformy, która nie tylko prezentuje ofertę, ale także buduje zaufanie i pomaga w rozwoju biznesu. Dzięki integracji z CMS, blogiem i 4 wersjami językowymi, witryna jest gotowa na międzynarodowy sukces. Stara strona oparta na Wordpress została zastąpiona nowoczesnym rozwiązaniem zbudowanym na Next.js i Sanity CMS."
       },
       "design": {
         "title": "Design",
-        "description": "Projekt graficzny łączy nowoczesność z funkcjonalnością. Dzięki trybom Light i Dark użytkownik może dostosować wygląd do własnych preferencji. Struktura strony została zaprojektowana z myślą o czytelności, intuicyjnej nawigacji oraz szybkim dostępie do najważniejszych informacji. Design buduje zaufanie i podkreśla profesjonalizm firmy."
+        "description": "Projekt graficzny łączy nowoczesność z funkcjonalnością. Tryb Light i Dark mode powoduje, że strona automatycznie dostosowuje się do kolorystyki jaką użytkownik ma wybraną jako domyślną w swoim systemie operacyjnym. Dzięki temu robi większe wrażenie na osobach preferujących ciemne kolory, a jednocześnie pozostaje przyjazna dla tych, którzy wolą jasny wygląd. Struktura strony została zaprojektowana z myślą o czytelności, intuicyjnej nawigacji oraz szybkim dostępie do najważniejszych informacji."
       },
       "implementation": {
         "title": "Wdrożenie",
@@ -760,14 +758,14 @@
       },
       "features": {
         "title": "Funkcjonalności",
-        "description": "BuildWise to coś więcej niż strona — to cyfrowe narzędzie do rozwoju firmy. Dzięki CMS Sanity klient może samodzielnie zarządzać treścią, blog zwiększa widoczność w Google, a moduł ofert pracy wspiera proces rekrutacji. Strona obsługuje 4 języki, działa w trybie jasnym i ciemnym, a zintegrowane statystyki Google Analytics pomagają analizować zachowania użytkowników. Dodatkowo wdrożono formularz kontaktowy z opcją załączników."
+        "description": "Dzięki CMS Sanity, klient może samodzielnie zarządzać treścią, blog zwiększa widoczność w Google, a moduł ofert pracy wspiera proces rekrutacji. Strona obsługuje 4 języki, działa w trybie jasnym i ciemnym, a zintegrowane statystyki Google Analytics pomagają analizować zachowania użytkowników. Dodatkowo wdrożono formularz kontaktowy z opcją załączników."
       },
       "Common": {
         "portfolio": "Realizacje"
       },
       "Google-position-1": {
         "title": "Blog ekspercki",
-        "description": "Specjalistyczne treści publikowane na blogu przyciągają ruch z wyszukiwarki i budują ekspercki wizerunek firmy. Każdy artykuł zawiera formularz kontaktowy, który ułatwia nawiązanie relacji z potencjalnymi klientami."
+        "description": "Specjalistyczne treści publikowane na blogu przyciągają ruch z wyszukiwarki Google i budują ekspercki wizerunek firmy. Każdy artykuł zawiera formularz kontaktowy, który ułatwia nawiązanie relacji z potencjalnymi klientami."
       },
       "Google-position-2": {
         "title": "Łatwa edycja treści",

@@ -691,7 +691,6 @@
   "Portfolio-sections": {
     "UnderPressure": {
       "title": "Under Pressure",
-      "shortDescription": "A modern website that quickly brought a pressure washing company to the top of local Google search results.",
       "cta": "Get a project quote",
       "clientInfo": {
         "title": "Client Information",
@@ -739,7 +738,6 @@
     },
     "BuildWise": {
       "title": "BuildWise",
-      "shortDescription": "A professional construction website with a blog, recruitment module, CMS, 4-language support, and great SEO.",
       "description": "A modern online platform that strengthens the image of a construction brand and supports its growth.",
       "cta": "Wyceń swój projekt",
       "viewLive": "View live project",
@@ -763,7 +761,7 @@
       },
       "features": {
         "title": "Features",
-        "description": "BuildWise is more than just a website — it's a growth tool. With Sanity CMS, the client can easily manage content. The blog boosts Google visibility, and the job module supports recruitment. The platform supports 4 languages, includes Light and Dark modes, and integrates Google Analytics for traffic analysis. The contact form also allows file attachments."
+        "description": "With Sanity CMS, the client can manage content independently, the blog increases Google visibility, and the job offers module supports the recruitment process. The site supports 4 languages, works in light and dark mode, and integrated Google Analytics helps analyze user behavior. Additionally, a contact form with attachment options has been implemented."
       },
       "Common": {
         "portfolio": "Portfolio"
