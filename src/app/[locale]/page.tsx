@@ -29,6 +29,9 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
 	const canonicalUrl = createCanonicalUrl('/', locale);
 
 	return {
+		title: {
+			absolute: ""  // Pusty string, aby użyć domyślnego tytułu z głównego layout.tsx
+		},
 		alternates: {
 			canonical: canonicalUrl,
 			languages: {

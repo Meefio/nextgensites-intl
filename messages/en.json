@@ -728,7 +728,7 @@
         "description": "The website consistently ranks right below sponsored results, bringing in a steady stream of new customers. It dominates search results for queries related to paving cleaning, facade washing, and roof cleaning."
       },
       "SEO": {
-        "title": "Under Pressure | NextGen Sites",
+        "title": "Modern Website for a Pressure Washing Company - Portfolio",
         "description": "See how we helped Under Pressure achieve a #1 Google ranking. A high-performing website for a pressure washing business.",
         "ogTitle": "Under Pressure - Case Study | NextGen Sites",
         "ogDescription": "Discover how we built a website that hit #1 in Google for key pressure washing phrases within 6 months.",
@@ -775,7 +775,7 @@
         "description": "With Sanity CMS, the client can effortlessly update texts and images, add new blog posts, and manage job listings — all without technical skills."
       },
       "SEO": {
-        "title": "BuildWise – A Modern Platform for a Construction Company | NextGen Sites",
+        "title": "Modern Website for a Construction Company - Portfolio",
         "description": "See how we created a multilingual website for BuildWise, featuring CMS, expert blog, and job listing functionality.",
         "ogTitle": "BuildWise - Case Study | NextGen Sites",
         "ogDescription": "Discover how we built a modern, multilingual platform with Sanity CMS, an expert blog, and recruitment tools for a construction company.",
@@ -787,7 +787,7 @@
   "Metadata": {
     "title": {
       "default": "Premium modern websites in Next.js",
-      "template": "%s | Premium modern websites"
+      "template": "%s | NextGen Sites"
     },
     "description": "Get a blazing-fast, SEO-optimized Next.js website with stunning design and full responsiveness. Maximize conversions and stand out online!",
     "applicationName": "NextGen Sites - Premium modern websites",

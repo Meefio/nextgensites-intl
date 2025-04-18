@@ -3,6 +3,7 @@
 import { useEffect, useRef, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import usePageVisibility from '../hooks/use-page-visibility';
+import { usePathname } from 'next/navigation';
 
 interface BetterTitleChangerProps {
   defaultTitle: string;
@@ -13,10 +14,11 @@ interface BetterTitleChangerProps {
  */
 export default function BetterTitleChanger({ defaultTitle }: BetterTitleChangerProps) {
   const isHidden = usePageVisibility();
+  const pathname = usePathname(); // Hook do śledzenia ścieżki URL
   const t = useTranslations('PageTitle');
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const titleIndexRef = useRef<number>(0);
-  const originalTitleRef = useRef<string>(defaultTitle);
+  const originalTitleRef = useRef<string>("");
 
   // Lista alternatywnych tytułów z tłumaczeń opakowana w useMemo
   const alternativeTitles = useMemo(() => [
@@ -25,18 +27,13 @@ export default function BetterTitleChanger({ defaultTitle }: BetterTitleChangerP
     `${t('missYou')} | NextGenSites`
   ], [t]); // zależność tylko od funkcji tłumaczącej
 
-  // Efekt przechowujący oryginalny tytuł
+  // Efekt przechowujący oryginalny tytuł - uruchamiany przy zmianie ścieżki
   useEffect(() => {
     if (typeof document !== 'undefined') {
+      // Zapamiętaj aktualny tytuł strony przy każdej zmianie URL
       originalTitleRef.current = document.title || defaultTitle;
     }
-    // Czyszczenie przy odmontowaniu
-    return () => {
-      if (typeof document !== 'undefined') {
-        document.title = originalTitleRef.current;
-      }
-    };
-  }, [defaultTitle]);
+  }, [pathname, defaultTitle]); // Dodajemy pathname jako zależność
 
   // Efekt reagujący na zmiany stanu widoczności
   useEffect(() => {
@@ -72,7 +69,7 @@ export default function BetterTitleChanger({ defaultTitle }: BetterTitleChangerP
         intervalRef.current = null;
       }
     };
-  }, [isHidden, alternativeTitles, defaultTitle]);
+  }, [isHidden, alternativeTitles, pathname]); // Dodajemy pathname jako zależność
 
   // Komponent nie renderuje żadnego UI
   return null;
