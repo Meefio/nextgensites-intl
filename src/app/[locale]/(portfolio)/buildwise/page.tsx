@@ -58,6 +58,38 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
 export default function BuildWiseProject() {
   return (
     <>
+      {/* Schema.org Article - zwiększenie widoczności case study w wyszukiwarkach */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "BuildWise - Nowoczesna strona internetowa dla firmy budowlanej",
+            "image": "https://nextgensites.pl/images/buildwise-og.jpg",
+            "author": {
+              "@type": "Person",
+              "name": "Michał Rowiński"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "NextGen Sites",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://nextgensites.pl/images/logo.png"
+              }
+            },
+            "datePublished": "2025-03-18",
+            "dateModified": "2025-04-18",
+            "description": "Case study prezentujące realizację wielojęzycznej strony internetowej z CMS, blogiem eksperckim i modułem ofert pracy dla firmy BuildWise",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://nextgensites.pl/buildwise"
+            },
+            "keywords": "case study, budowlana, buildwise, next.js, cms, blog, rekrutacja, wielojęzyczność, strona internetowa"
+          })
+        }}
+      />
       <Hero projectKey="buildwise" />
       <AboutSection projectKey="buildwise" />
       <PhotoSection projectKey="buildwise" />

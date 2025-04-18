@@ -816,6 +816,15 @@
     "screenshots": {
       "home": {
         "label": "Strona główna NextGen Sites"
+      },
+      "portfolio": {
+        "label": "Portfolio projektów NextGen Sites"
+      },
+      "pricing": {
+        "label": "Cennik usług NextGen Sites"
+      },
+      "contact": {
+        "label": "Formularz kontaktowy NextGen Sites"
       }
     },
     "shortcuts": {
@@ -823,6 +832,16 @@
         "name": "Strona główna",
         "shortName": "Home",
         "description": "Przejdź do strony głównej"
+      },
+      "portfolio": {
+        "name": "Portfolio",
+        "shortName": "Portfolio",
+        "description": "Zobacz nasze realizacje"
+      },
+      "contact": {
+        "name": "Kontakt",
+        "shortName": "Kontakt",
+        "description": "Skontaktuj się z nami"
       }
     }
   }

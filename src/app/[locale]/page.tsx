@@ -43,6 +43,52 @@ export default function HomePage() {
 		<>
 			<Header />
 			<main>
+				{/* Schema.org LocalBusiness - poprawa widoczności w wyszukiwaniach lokalnych */}
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "ProfessionalService",
+							"name": "NextGen Sites",
+							"image": "https://nextgensites.pl/images/og-image.png",
+							"@id": "https://nextgensites.pl",
+							"url": "https://nextgensites.pl",
+							"telephone": "+48-694-671-786",
+							"priceRange": "PLN",
+							"address": {
+								"@type": "PostalAddress",
+								"addressLocality": "Warszawa",
+								"addressRegion": "mazowieckie",
+								"addressCountry": "PL"
+							},
+							"geo": {
+								"@type": "GeoCoordinates",
+								"latitude": 52.2297,
+								"longitude": 21.0122
+							},
+							"openingHoursSpecification": {
+								"@type": "OpeningHoursSpecification",
+								"dayOfWeek": [
+									"Monday",
+									"Tuesday",
+									"Wednesday",
+									"Thursday",
+									"Friday"
+								],
+								"opens": "09:00",
+								"closes": "19:00"
+							},
+							// "sameAs": [
+							// 	"https://www.facebook.com/nextgensites",
+							// 	"https://www.instagram.com/nextgensites/",
+							// 	"https://www.linkedin.com/company/nextgensites/"
+							// ],
+							"areaServed": ["Warszawa", "Polska"],
+							"serviceType": ["Tworzenie stron internetowych", "Next.js", "SEO"]
+						})
+					}}
+				/>
 				<Hero />
 				<SocialProof />
 				<Features />

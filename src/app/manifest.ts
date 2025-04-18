@@ -57,6 +57,24 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
         type: 'image/png',
         label: t('screenshots.home.label')
       },
+      {
+        src: '/images/portfolio.png',
+        sizes: '1920x1080',
+        type: 'image/png',
+        label: t('screenshots.portfolio.label')
+      },
+      {
+        src: '/images/pricing.png',
+        sizes: '1920x1080',
+        type: 'image/png',
+        label: t('screenshots.pricing.label')
+      },
+      {
+        src: '/images/contact.png',
+        sizes: '1920x1080',
+        type: 'image/png',
+        label: t('screenshots.contact.label')
+      }
     ],
     related_applications: [],
     shortcuts: [
@@ -65,6 +83,20 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
         short_name: t('shortcuts.home.shortName'),
         description: t('shortcuts.home.description'),
         url: "/",
+        icons: [{ src: '/icon-192.png', sizes: '192x192' }]
+      },
+      {
+        name: t('shortcuts.portfolio.name'),
+        short_name: t('shortcuts.portfolio.shortName'),
+        description: t('shortcuts.portfolio.description'),
+        url: "/#portfolio",
+        icons: [{ src: '/icon-192.png', sizes: '192x192' }]
+      },
+      {
+        name: t('shortcuts.contact.name'),
+        short_name: t('shortcuts.contact.shortName'),
+        description: t('shortcuts.contact.description'),
+        url: "/#contact",
         icons: [{ src: '/icon-192.png', sizes: '192x192' }]
       }
     ]

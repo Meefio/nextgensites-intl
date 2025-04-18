@@ -819,6 +819,15 @@
     "screenshots": {
       "home": {
         "label": "NextGen Sites Homepage"
+      },
+      "portfolio": {
+        "label": "NextGen Sites Portfolio"
+      },
+      "pricing": {
+        "label": "NextGen Sites Pricing"
+      },
+      "contact": {
+        "label": "NextGen Sites Contact Form"
       }
     },
     "shortcuts": {
@@ -826,6 +835,16 @@
         "name": "Homepage",
         "shortName": "Home",
         "description": "Go to homepage"
+      },
+      "portfolio": {
+        "name": "Portfolio",
+        "shortName": "Portfolio",
+        "description": "See our projects"
+      },
+      "contact": {
+        "name": "Contact",
+        "shortName": "Contact",
+        "description": "Get in touch with us"
       }
     }
   },

@@ -58,6 +58,38 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
 export default function UnderPressureProject() {
   return (
     <>
+      {/* Schema.org Article - zwiększenie widoczności case study w wyszukiwarkach */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "UnderPressure - Nowoczesna strona internetowa dla firmy sprzątającej",
+            "image": "https://nextgensites.pl/images/Hero-Underpressure-og-min.jpg",
+            "author": {
+              "@type": "Person",
+              "name": "Michał Rowiński"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "NextGen Sites",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://nextgensites.pl/images/logo.png"
+              }
+            },
+            "datePublished": "2025-03-15",
+            "dateModified": "2025-04-18",
+            "description": "Case study prezentujące realizację nowoczesnej strony internetowej dla firmy sprzątającej",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://nextgensites.pl/underpressure"
+            },
+            "keywords": "case study, firma sprzątająca, underpressure, next.js, strona internetowa, ciemny motyw"
+          })
+        }}
+      />
       <Hero projectKey="underpressure" />
       <AboutSection projectKey="underpressure" />
       <PhotoSection projectKey="underpressure" />
