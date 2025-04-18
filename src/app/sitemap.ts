@@ -38,13 +38,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     // Portfolio pages - higher priority for marketing impact
     {
-      url: `${baseUrl}/underpressure`,
+      url: `${baseUrl}/strona-internetowa-dla-firmy-sprzatajacej`,
       lastModified: portfolioLastMod,
       changeFrequency: 'monthly' as const,
       priority: 0.8
     },
     {
-      url: `${baseUrl}/buildwise`,
+      url: `${baseUrl}/strona-internetowa-dla-firmy-budowlano-remontowej`,
       lastModified: portfolioLastMod,
       changeFrequency: 'monthly' as const,
       priority: 0.8
@@ -83,13 +83,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       },
       // Portfolio pages for each language
       {
-        url: `${baseUrl}/${locale}/underpressure`,
+        url: `${baseUrl}/${locale}/cleaning-company-website`,
         lastModified: portfolioLastMod,
         changeFrequency: 'monthly' as const,
         priority: 0.8
       },
       {
-        url: `${baseUrl}/${locale}/buildwise`,
+        url: `${baseUrl}/${locale}/construction-and-renovation-company-website`,
         lastModified: portfolioLastMod,
         changeFrequency: 'monthly' as const,
         priority: 0.8

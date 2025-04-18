@@ -18,8 +18,9 @@ interface GenerateMetadataProps {
 // Dodajemy generowanie metadanych
 export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations('Portfolio-sections.UnderPressure.SEO')
-  const canonicalUrl = createCanonicalUrl('/underpressure', locale);
+  const t = await getTranslations('Portfolio-sections.BuildWise.SEO')
+  const path = locale === 'pl' ? '/strona-internetowa-dla-firmy-budowlano-remontowej' : '/construction-and-renovation-company-website';
+  const canonicalUrl = createCanonicalUrl(path, locale);
 
   return {
     title: t('title'),
@@ -27,8 +28,8 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
     alternates: {
       canonical: canonicalUrl,
       languages: {
-        'pl-PL': createCanonicalUrl('/underpressure', 'pl'),
-        'en-US': createCanonicalUrl('/underpressure', 'en'),
+        'pl-PL': createCanonicalUrl('/strona-internetowa-dla-firmy-budowlano-remontowej', 'pl'),
+        'en-US': createCanonicalUrl('/construction-and-renovation-company-website', 'en'),
       },
     },
     openGraph: {
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
       description: t('ogDescription'),
       images: [
         {
-          url: '/images/Hero-Underpressure-og-min.jpg',
+          url: '/images/buildwise-og.jpg',
           width: 1200,
           height: 630,
           alt: t('ogImageAlt'),
@@ -48,14 +49,14 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
       title: t('ogTitle'),
       description: t('ogDescription'),
       images: [{
-        url: '/images/Hero-Underpressure-og-min.jpg',
+        url: '/images/buildwise-og.jpg',
         alt: t('ogImageAlt'),
       }],
     },
   }
 }
 
-export default function UnderPressureProject() {
+export default function BuildWiseProject() {
   return (
     <>
       {/* Schema.org Article - zwiększenie widoczności case study w wyszukiwarkach */}
@@ -65,8 +66,8 @@ export default function UnderPressureProject() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "UnderPressure - Nowoczesna strona internetowa dla firmy sprzątającej",
-            "image": "https://nextgensites.pl/images/Hero-Underpressure-og-min.jpg",
+            "headline": "BuildWise - Nowoczesna strona internetowa dla firmy budowlanej",
+            "image": "https://nextgensites.pl/images/buildwise-og.jpg",
             "author": {
               "@type": "Person",
               "name": "Michał Rowiński"
@@ -79,20 +80,20 @@ export default function UnderPressureProject() {
                 "url": "https://nextgensites.pl/images/logo.png"
               }
             },
-            "datePublished": "2025-03-15",
+            "datePublished": "2025-03-18",
             "dateModified": "2025-04-18",
-            "description": "Case study prezentujące realizację nowoczesnej strony internetowej dla firmy sprzątającej",
+            "description": "Case study prezentujące realizację wielojęzycznej strony internetowej z CMS, blogiem eksperckim i modułem ofert pracy dla firmy BuildWise",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://nextgensites.pl/underpressure"
+              "@id": "https://nextgensites.pl/strona-internetowa-dla-firmy-budowlano-remontowej"
             },
-            "keywords": "case study, firma sprzątająca, underpressure, next.js, strona internetowa, ciemny motyw"
+            "keywords": "case study, budowlana, buildwise, next.js, cms, blog, rekrutacja, wielojęzyczność, strona internetowa"
           })
         }}
       />
-      <Hero projectKey="underpressure" />
-      <AboutSection projectKey="underpressure" />
-      <PhotoSection projectKey="underpressure" />
+      <Hero projectKey="buildwise" />
+      <AboutSection projectKey="buildwise" />
+      <PhotoSection projectKey="buildwise" />
       <ContactForm />
     </>
   )

@@ -68,7 +68,9 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
   const t = useTranslations(`Portfolio-sections.${config.translationNamespace}`)
 
   // Określamy link do następnego projektu
-  const nextProjectLink = projectKey === 'underpressure' ? '/buildwise' : '/underpressure'
+  const nextProjectLink = projectKey === 'underpressure'
+    ? '/strona-internetowa-dla-firmy-budowlano-remontowej'
+    : '/strona-internetowa-dla-firmy-sprzatajacej'
 
   return (
     <div className="container ovflow-scroll flex flex-col gap-8">

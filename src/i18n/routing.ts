@@ -22,13 +22,13 @@ export const routing = defineRouting({
       pl: '/rodo',
       en: '/gdpr'
     },
-    '/underpressure': {
-      pl: '/underpressure',
-      en: '/underpressure'
+    '/strona-internetowa-dla-firmy-sprzatajacej': {
+      pl: '/strona-internetowa-dla-firmy-sprzatajacej',
+      en: '/cleaning-company-website'
     },
-    '/buildwise': {
-      pl: '/buildwise',
-      en: '/buildwise'
+    '/strona-internetowa-dla-firmy-budowlano-remontowej': {
+      pl: '/strona-internetowa-dla-firmy-budowlano-remontowej',
+      en: '/construction-and-renovation-company-website'
     }
   }
 });

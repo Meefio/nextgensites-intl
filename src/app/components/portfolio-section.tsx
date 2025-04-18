@@ -28,7 +28,7 @@ const Portfolio = () => {
       description: t.raw('projects.project1.description'),
       tags: t.raw('projects.project1.tags') as string[],
       imageAlt: t('projects.project1.imageAlt'),
-      link: '/underpressure',
+      link: '/strona-internetowa-dla-firmy-sprzatajacej',
       viewLiveLink: 'https://myciecisnieniem.pl'
     },
     {
@@ -38,8 +38,8 @@ const Portfolio = () => {
       description: t.raw('projects.project2.description'),
       tags: t.raw('projects.project2.tags') as string[],
       imageAlt: t('projects.project2.imageAlt'),
-      link: '/buildwise',
-      viewLiveLink: '/buildwise'
+      link: '/strona-internetowa-dla-firmy-budowlano-remontowej',
+      viewLiveLink: '/strona-internetowa-dla-firmy-budowlano-remontowej'
     }
   ]
 

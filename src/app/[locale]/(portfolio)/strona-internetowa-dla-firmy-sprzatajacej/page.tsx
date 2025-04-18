@@ -18,8 +18,9 @@ interface GenerateMetadataProps {
 // Dodajemy generowanie metadanych
 export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations('Portfolio-sections.BuildWise.SEO')
-  const canonicalUrl = createCanonicalUrl('/buildwise', locale);
+  const t = await getTranslations('Portfolio-sections.UnderPressure.SEO')
+  const path = locale === 'pl' ? '/strona-internetowa-dla-firmy-sprzatajacej' : '/cleaning-company-website';
+  const canonicalUrl = createCanonicalUrl(path, locale);
 
   return {
     title: t('title'),
@@ -27,8 +28,8 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
     alternates: {
       canonical: canonicalUrl,
       languages: {
-        'pl-PL': createCanonicalUrl('/buildwise', 'pl'),
-        'en-US': createCanonicalUrl('/buildwise', 'en'),
+        'pl-PL': createCanonicalUrl('/strona-internetowa-dla-firmy-sprzatajacej', 'pl'),
+        'en-US': createCanonicalUrl('/cleaning-company-website', 'en'),
       },
     },
     openGraph: {
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
       description: t('ogDescription'),
       images: [
         {
-          url: '/images/buildwise-og.jpg',
+          url: '/images/Hero-Underpressure-og-min.jpg',
           width: 1200,
           height: 630,
           alt: t('ogImageAlt'),
@@ -48,14 +49,14 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
       title: t('ogTitle'),
       description: t('ogDescription'),
       images: [{
-        url: '/images/buildwise-og.jpg',
+        url: '/images/Hero-Underpressure-og-min.jpg',
         alt: t('ogImageAlt'),
       }],
     },
   }
 }
 
-export default function BuildWiseProject() {
+export default function UnderPressureProject() {
   return (
     <>
       {/* Schema.org Article - zwiększenie widoczności case study w wyszukiwarkach */}
@@ -65,8 +66,8 @@ export default function BuildWiseProject() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "BuildWise - Nowoczesna strona internetowa dla firmy budowlanej",
-            "image": "https://nextgensites.pl/images/buildwise-og.jpg",
+            "headline": "UnderPressure - Nowoczesna strona internetowa dla firmy sprzątającej",
+            "image": "https://nextgensites.pl/images/Hero-Underpressure-og-min.jpg",
             "author": {
               "@type": "Person",
               "name": "Michał Rowiński"
@@ -79,20 +80,20 @@ export default function BuildWiseProject() {
                 "url": "https://nextgensites.pl/images/logo.png"
               }
             },
-            "datePublished": "2025-03-18",
+            "datePublished": "2025-03-15",
             "dateModified": "2025-04-18",
-            "description": "Case study prezentujące realizację wielojęzycznej strony internetowej z CMS, blogiem eksperckim i modułem ofert pracy dla firmy BuildWise",
+            "description": "Case study prezentujące realizację nowoczesnej strony internetowej dla firmy sprzątającej",
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": "https://nextgensites.pl/buildwise"
+              "@id": "https://nextgensites.pl/strona-internetowa-dla-firmy-sprzatajacej"
             },
-            "keywords": "case study, budowlana, buildwise, next.js, cms, blog, rekrutacja, wielojęzyczność, strona internetowa"
+            "keywords": "case study, firma sprzątająca, underpressure, next.js, strona internetowa, ciemny motyw"
           })
         }}
       />
-      <Hero projectKey="buildwise" />
-      <AboutSection projectKey="buildwise" />
-      <PhotoSection projectKey="buildwise" />
+      <Hero projectKey="underpressure" />
+      <AboutSection projectKey="underpressure" />
+      <PhotoSection projectKey="underpressure" />
       <ContactForm />
     </>
   )
