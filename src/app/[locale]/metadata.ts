@@ -12,6 +12,7 @@ export const metadata = (locale: string): Metadata => ({
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -32,6 +33,7 @@ export const metadata = (locale: string): Metadata => ({
     type: 'website',
     locale: locale === 'pl' ? 'pl_PL' : 'en_US',
     url: createCanonicalUrl('/', locale),
+    siteName: 'NextGen Sites',
     images: [
       {
         url: 'https://nextgensites.pl/images/og-image.png',
@@ -52,12 +54,21 @@ export const metadata = (locale: string): Metadata => ({
     }],
   },
   category: 'technology',
+  verification: {
+    google: '4DF508BDA9824D31C606EEF153D9F5C2',
+    yandex: 'yandex-verification-code',
+    other: {
+      me: ['kontakt@nextgensites.pl'],
+      'msvalidate.01': '4DF508BDA9824D31C606EEF153D9F5C2',
+    }
+  },
   other: {
     'color-scheme': 'dark',
     'theme-color': '#020817',
     'apple-mobile-web-app-status-bar-style': 'black-translucent',
-    'msvalidate.01': '4DF508BDA9824D31C606EEF153D9F5C2',
   },
+  archives: ['https://nextgensites.pl/blog/archives'],
+  keywords: ['strony internetowe', 'next.js', 'web development', 'aplikacje webowe', 'SEO'],
   authors: [
     { name: 'Michał Rowiński', url: 'https://nextgensites.pl' }
   ],

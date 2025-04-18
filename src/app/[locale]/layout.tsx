@@ -126,21 +126,67 @@ export default async function LocaleLayout({
 
 	const organizationSchema = {
 		"@context": "https://schema.org",
-		"@type": "Organization",
+		"@type": "ProfessionalService",
 		"name": "NextGen Sites",
 		"url": "https://nextgensites.pl",
 		"logo": "https://nextgensites.pl/images/logo.png",
+		"image": "https://nextgensites.pl/images/og-image.png",
+		"description": locale === 'pl'
+			? "Tworzymy nowoczesne strony internetowe w technologii Next.js o wysokiej wydajności i doskonałym SEO."
+			: "We create modern websites using Next.js technology with high performance and excellent SEO.",
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Warszawa",
+			"addressRegion": "Mazowieckie",
+			"postalCode": "00-001",
+			"addressCountry": "PL"
+		},
+		"geo": {
+			"@type": "GeoCoordinates",
+			"latitude": "52.2297",
+			"longitude": "21.0122"
+		},
 		"contactPoint": {
 			"@type": "ContactPoint",
 			"telephone": "+48-694-671-786",
 			"contactType": "customer service",
-			"email": "kontakt@nextgensites.pl"
+			"email": "kontakt@nextgensites.pl",
+			"availableLanguage": ["Polish", "English"]
 		},
 		"sameAs": [
 			"https://www.facebook.com/nextgensites",
 			"https://www.instagram.com/nextgensites/",
 			"https://www.linkedin.com/company/nextgensites/"
-		]
+		],
+		"priceRange": "$$",
+		"openingHoursSpecification": [
+			{
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+				"opens": "09:00",
+				"closes": "17:00"
+			}
+		],
+		"hasOfferCatalog": {
+			"@type": "OfferCatalog",
+			"name": locale === 'pl' ? "Usługi tworzenia stron internetowych" : "Web Development Services",
+			"itemListElement": [
+				{
+					"@type": "Offer",
+					"name": locale === 'pl' ? "Strona podstawowa" : "Basic Website",
+					"description": locale === 'pl' ? "Strona typu Single Page" : "Single Page Website",
+					"price": locale === 'pl' ? "5499" : "1499",
+					"priceCurrency": locale === 'pl' ? "PLN" : "USD"
+				},
+				{
+					"@type": "Offer",
+					"name": locale === 'pl' ? "Strona zaawansowana" : "Advanced Website",
+					"description": locale === 'pl' ? "Strona wielopodstronowa" : "Multi-page Website",
+					"price": locale === 'pl' ? "7999" : "2149",
+					"priceCurrency": locale === 'pl' ? "PLN" : "USD"
+				}
+			]
+		}
 	};
 
 	return (
