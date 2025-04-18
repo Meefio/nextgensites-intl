@@ -44,7 +44,7 @@ export const CountdownTimer = () => {
     calculateTimeLeft() // Inicjalne sprawdzenie
 
     return () => clearInterval(timer)
-  }, [])
+  }, [targetDate])
 
   if (!isPromoActive) return null
 

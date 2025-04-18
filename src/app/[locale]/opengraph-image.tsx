@@ -73,7 +73,7 @@ export default async function Image({ params }: { params: { locale: string } }) 
             />
           </svg>
           <div style={{ fontSize: 72, fontWeight: 'bold' }}>
-            NextGen Sites
+            {t('siteTitle')}
           </div>
         </div>
 
@@ -100,7 +100,7 @@ export default async function Image({ params }: { params: { locale: string } }) 
               fontSize: 24,
             }}
           >
-            {params.locale === 'pl' ? 'Wysokie SEO' : 'High SEO'}
+            {t('featureSeo')}
           </div>
           <div
             style={{
@@ -110,7 +110,7 @@ export default async function Image({ params }: { params: { locale: string } }) 
               fontSize: 24,
             }}
           >
-            {params.locale === 'pl' ? 'Szybkie ładowanie' : 'Fast loading'}
+            {t('featureSpeed')}
           </div>
           <div
             style={{
@@ -120,7 +120,7 @@ export default async function Image({ params }: { params: { locale: string } }) 
               fontSize: 24,
             }}
           >
-            {params.locale === 'pl' ? 'Responsywność' : 'Responsive'}
+            {t('featureResponsive')}
           </div>
         </div>
       </div>
