@@ -40,10 +40,10 @@ export function Hero({ projectKey }: HeroProps) {
         quality={100}
         title={config.altText}
       />
-      <div className="absolute inset-0 container mx-auto px-4 flex flex-col justify-center md:-mt-28">
+      <div className="absolute inset-0 container mx-auto px-4 flex flex-col justify-center">
         <div className="container">
           <AnimatedElement as='span' delay={0.1}>
-            <p className="font-bold uppercase text-white mb-4">
+            <p className="font-bold uppercase text-white mb-4 md:-mt-28">
               {t('Common.portfolio')}
             </p>
           </AnimatedElement>
