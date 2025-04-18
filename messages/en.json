@@ -690,7 +690,7 @@
   },
   "Portfolio-sections": {
     "UnderPressure": {
-      "title": "Under Pressure",
+      "title": "Modern website for a pressure washing company",
       "cta": "Get a project quote",
       "clientInfo": {
         "title": "Client Information",
@@ -700,24 +700,24 @@
       },
       "projectDescription": {
         "title": "Project Description",
-        "content": "We created a modern and functional website for Under Pressure, a company specializing in professional pressure washing. Our goal was to design a site that reflects the company's expertise while making it easy for users to find information about the services offered."
+        "content": "For Under Pressure, we created a modern website that not only catches the eye but also actively supports business growth. The main goal was to design a platform that professionally showcases their pressure washing services, builds trust, and encourages users to get in touch. The result? A noticeable increase in visibility and customer numbers within just a few months."
       },
       "design": {
         "title": "Design",
-        "description": "The design is based on a minimalist aesthetic with contrasting colors that highlight the company's professional character. A clear content layout and intuitive navigation help users quickly find what they're looking for. AI-generated high-quality visuals and pressure washing-related iconography enhance the visual impact."
+        "description": "A minimalist yet visually impactful design based on strong contrasts and high-quality AI-generated graphics. A clean layout, intuitive navigation, and themed iconography make it immediately clear what kind of brand users are interacting with — modern, precise, and trustworthy."
       },
       "implementation": {
         "title": "Implementation",
-        "description": "The website was built for maximum performance and responsiveness. We implemented advanced technical solutions such as image lazy loading and SEO optimization. It looks great on all devices, from smartphones to large desktop screens."
+        "description": "The website was built with speed, full responsiveness, and maximum SEO efficiency in mind. Using techniques like lazy loading, image optimization, and structured page layout, we achieved excellent performance scores and high rankings in search results."
       },
       "features": {
         "title": "Features",
-        "description": "The site includes several modern features, such as a dynamic headline in the hero section, a photo gallery, a contact form, two interactive maps, and search engine optimization. All of these elements work together to create an effective marketing tool."
+        "description": "The site includes a dynamic hero section with rotating text, a project gallery, contact form, two interactive maps, and numerous SEO optimizations. Every element was designed with user experience and conversion in mind, creating an effective marketing tool for a local service business."
       },
-      "description": "A professional website for a pressure washing company",
+      "description": "A modern showcase site that elevated a pressure washing company to the top of local Google search results in just a few months.",
       "viewLive": "View live project",
       "Common": {
-        "portfolio": "Portfolio"
+        "portfolio": "PORTFOLIO"
       },
       "Google-position-1": {
         "title": "Google Position #1",
@@ -737,9 +737,9 @@
       "nextProject": "See next project"
     },
     "BuildWise": {
-      "title": "BuildWise",
+      "title": "Modern website for a construction company",
       "description": "A modern online platform that strengthens the image of a construction brand and supports its growth.",
-      "cta": "Wyceń swój projekt",
+      "cta": "Get a project quote",
       "viewLive": "View live project",
       "clientInfo": {
         "title": "Client Information",
@@ -749,11 +749,11 @@
       },
       "projectDescription": {
         "title": "Project Description",
-        "content": "BuildWise needed more than a basic website — they wanted a professional image, easy content editing, and effective recruitment tools. We delivered a platform that not only showcases their offer but also builds trust and helps grow the business. With CMS integration, a blog, and multilingual support, the site is ready for international expansion."
+        "content": "The design combines modern aesthetics with functionality. Light and Dark mode support allows the website to automatically adapt to the user’s preferred color scheme set in their operating system. This creates a stronger impression on users who prefer dark themes, while still remaining friendly to those who favor a lighter look. The page structure was designed with readability, intuitive navigation, and quick access to key information in mind."
       },
       "design": {
         "title": "Design",
-        "description": "The visual design combines modern aesthetics with usability. The Light and Dark modes let users customize their experience. The layout ensures clarity, intuitive navigation, and quick access to key information. The overall look builds trust and emphasizes the company's professionalism."
+        "description": "Buildwise is "
       },
       "implementation": {
         "title": "Implementation",

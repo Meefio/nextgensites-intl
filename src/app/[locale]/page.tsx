@@ -18,17 +18,14 @@ import { Metadata } from 'next'
 export const revalidate = 3600 // Odświeżanie co godzinę
 
 // Poprawiona definicja typów
-type Params = {
-	locale: string;
+interface GenerateMetadataProps {
+	params: Promise<{
+		locale: string;
+	}>;
 }
 
-export async function generateMetadata({
-	params: paramsPromise
-}: {
-	params: Promise<Params> | Params
-}): Promise<Metadata> {
-	const params = await Promise.resolve(paramsPromise);
-	const { locale } = params;
+export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
+	const { locale } = await params;
 	const canonicalUrl = createCanonicalUrl('/', locale);
 
 	return {
@@ -42,13 +39,8 @@ export async function generateMetadata({
 	}
 }
 
-export default async function HomePage({
-	params: paramsPromise
-}: {
-	params: Promise<Params> | Params
-}) {
-	const params = await Promise.resolve(paramsPromise);
-	const { locale } = params;
+export default async function HomePage({ params }: GenerateMetadataProps) {
+	const { locale } = await params;
 
 	// FAQ Schema.org JSON-LD
 	const faqSchema = {
