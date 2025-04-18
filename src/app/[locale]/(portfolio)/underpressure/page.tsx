@@ -4,6 +4,7 @@ import { PhotoSection } from '@/app/components/portfolio/PhotoSection'
 import { ContactForm } from '@/app/components/contact-form'
 import { getTranslations } from 'next-intl/server'
 import { Metadata } from 'next'
+import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl'
 
 // Dodajemy ISR (Incremental Static Regeneration)
 export const revalidate = 3600 // Odświeżanie co godzinę
@@ -18,15 +19,16 @@ interface GenerateMetadataProps {
 export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations('Portfolio-sections.UnderPressure.SEO')
+  const canonicalUrl = createCanonicalUrl('/underpressure', locale);
 
   return {
     title: t('title'),
     description: t('description'),
     alternates: {
-      canonical: `https://nextgensites.pl${locale === 'pl' ? '' : `/${locale}`}/underpressure`,
+      canonical: canonicalUrl,
       languages: {
-        'pl-PL': locale === 'pl' ? 'https://nextgensites.pl/underpressure' : 'https://nextgensites.pl/underpressure',
-        'en-US': locale === 'en' ? 'https://nextgensites.pl/en/underpressure' : 'https://nextgensites.pl/en/underpressure',
+        'pl-PL': createCanonicalUrl('/underpressure', 'pl'),
+        'en-US': createCanonicalUrl('/underpressure', 'en'),
       },
     },
     openGraph: {

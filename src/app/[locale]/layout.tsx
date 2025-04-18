@@ -15,6 +15,7 @@ import ClientDocumentTitleWrapper from '@/app/components/ClientDocumentTitleWrap
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { metadata as baseMetadata } from './metadata';
+import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl';
 
 interface GenerateMetadataProps {
 	params: Promise<{
@@ -30,8 +31,8 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
 
 	const alternateLanguages = {
 		languages: {
-			'pl': locale === 'pl' ? 'https://nextgensites.pl' : 'https://nextgensites.pl',
-			'en': locale === 'en' ? 'https://nextgensites.pl/en' : 'https://nextgensites.pl/en'
+			'pl': createCanonicalUrl('/', 'pl'),
+			'en': createCanonicalUrl('/', 'en')
 		}
 	};
 
@@ -304,10 +305,6 @@ export default async function LocaleLayout({
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<head>
-				<link
-					rel="canonical"
-					href={`https://nextgensites.pl${locale === 'pl' ? '' : `/${locale}`}`}
-				/>
 				<GoogleAnalytics
 					measurementId="G-5YLJH8GHZ6"
 					consent={consent}

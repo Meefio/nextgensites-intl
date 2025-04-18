@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl';
 
 export const metadata = (locale: string): Metadata => ({
   metadataBase: new URL('https://nextgensites.pl'),
@@ -21,16 +22,16 @@ export const metadata = (locale: string): Metadata => ({
     },
   },
   alternates: {
-    canonical: `https://nextgensites.pl${locale === 'pl' ? '' : `/${locale}`}`,
+    canonical: createCanonicalUrl('/', locale),
     languages: {
-      'pl-PL': locale === 'pl' ? 'https://nextgensites.pl' : 'https://nextgensites.pl',
-      'en-US': locale === 'en' ? 'https://nextgensites.pl/en' : 'https://nextgensites.pl/en',
+      'pl-PL': createCanonicalUrl('/', 'pl'),
+      'en-US': createCanonicalUrl('/', 'en'),
     },
   },
   openGraph: {
     type: 'website',
     locale: locale === 'pl' ? 'pl_PL' : 'en_US',
-    url: locale === 'pl' ? 'https://nextgensites.pl' : 'https://nextgensites.pl/en',
+    url: createCanonicalUrl('/', locale),
     images: [
       {
         url: 'https://nextgensites.pl/images/og-image.png',

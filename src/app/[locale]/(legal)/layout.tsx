@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { ThemeSwitcher } from "@/app/components/theme-switcher";
 import { getTranslations } from 'next-intl/server';
+import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl';
 
 interface GenerateMetadataProps {
   params: Promise<{
@@ -16,6 +17,7 @@ interface GenerateMetadataProps {
 export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Legal' });
+  const canonicalUrl = createCanonicalUrl('/', locale);
 
   return {
     metadataBase: new URL('https://nextgensites.pl'),
@@ -25,10 +27,10 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
     },
     description: t('description'),
     alternates: {
-      canonical: `https://nextgensites.pl${locale === 'pl' ? '' : `/${locale}`}`,
+      canonical: canonicalUrl,
       languages: {
-        'pl-PL': locale === 'pl' ? 'https://nextgensites.pl' : 'https://nextgensites.pl',
-        'en-US': locale === 'en' ? 'https://nextgensites.pl/en' : 'https://nextgensites.pl/en',
+        'pl-PL': createCanonicalUrl('/', 'pl'),
+        'en-US': createCanonicalUrl('/', 'en'),
       },
     },
     openGraph: {
