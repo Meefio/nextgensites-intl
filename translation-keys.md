@@ -1,0 +1,721 @@
+# Translation Keys Documentation
+Generated: 2025-04-18T18:13:30.077Z
+
+This document provides an overview of all translation keys used in the project.
+
+## Available Locales
+The following locales are configured:
+- en
+- pl
+
+## Translation Key Structure
+Below is a hierarchical view of all translation keys based on the `en` locale.
+
+### Hero
+- `Hero.pricing`: We write websites in clean code
+- `Hero.title`: {rotating} <premium>Premium</premium> website in Next.js
+- `Hero.description`: Attract customers with a modern website in the latest Next.js 15+ t...
+- `Hero.cta`: Learn more!
+### Hero.rotatingTexts
+- `Hero.rotatingTexts.modern`: Modern
+- `Hero.rotatingTexts.fast`: Fast
+- `Hero.rotatingTexts.converting`: Converting
+- `Hero.rotatingTexts.attractive`: Attractive
+- `Hero.rotatingTexts.responsive`: Responsive
+- `Hero.rotatingTexts.optimized`: Optimized
+- `Hero.rotatingTexts.professional`: Professional
+### Navigation
+- `Navigation.benefits`: Benefits
+- `Navigation.technologies`: Technologies
+- `Navigation.pricing`: Pricing
+- `Navigation.contact`: Contact
+- `Navigation.portfolio`: Portfolio
+- `Navigation.getFreeQuote`: Get Free Quote
+- `Navigation.openMenu`: Open menu
+- `Navigation.closeMenu`: Close menu
+- `Navigation.navigationMenu`: Navigation menu
+### Navigation.sections
+- `Navigation.sections.benefits`: benefits
+- `Navigation.sections.pricing`: pricing
+- `Navigation.sections.contact`: contact
+- `Navigation.sections.portfolio`: portfolio
+### SocialProof
+- `SocialProof.title`: COMPANIES USING NEXT.JS
+### Features
+- `Features.why`: Why nextgen sites?
+- `Features.heading`: Modernity that pays off
+- `Features.subheading`: Modern technology, better results – attract customers and stay ahea...
+### Features.speed
+- `Features.speed.title`: Lightning-Fast Loading and Perfect Optimization
+- `Features.speed.description`: Your website loads in the blink of an eye, <strong>boosting convers...
+### Features.design
+- `Features.design.title`: Modern, Clear, and High-Converting Design
+- `Features.design.description`: Attract customers with a <strong>visually appealing layout</strong>...
+### Features.responsive
+- `Features.responsive.title`: Flawless Performance on Every Device
+- `Features.responsive.description`: Your website looks and works perfectly on <strong>smartphones</stro...
+### Features.technology
+- `Features.technology.title`: Cutting-Edge Next.js Technology
+- `Features.technology.description`: <strong>Stability</strong>, <strong>speed</strong>, and <strong>sec...
+### Features.seo
+- `Features.seo.title`: Google Optimization = More Customers
+- `Features.seo.description`: <strong>Higher search rankings</strong> without extra advertising c...
+### Features.multilingual
+- `Features.multilingual.title`: We write websites in clean code
+- `Features.multilingual.description`: For full optimization and a personalized approach to every project
+### WhyNotWordPress
+- `WhyNotWordPress.tagline`: TIME TO STOP DOING WHAT EVERYONE ELSE DOES
+- `WhyNotWordPress.heading`: Why not WordPress?
+- `WhyNotWordPress.subheading`: A modern business needs modern solutions. WordPress is no longer th...
+- `WhyNotWordPress.quote`: How do you want to stand out if your website will look like hundred...
+- `WhyNotWordPress.author`: Michał Rowiński
+- `WhyNotWordPress.position`: CEO NextGen Sites
+### WhyNotWordPress.card1
+- `WhyNotWordPress.card1.title`: A website like thousands of others
+- `WhyNotWordPress.card1.description`: A template is not design. Stand out instead of blending in with the...
+### WhyNotWordPress.card2
+- `WhyNotWordPress.card2.title`: Outdated technology
+- `WhyNotWordPress.card2.description`: WordPress is over 20 years old. In the IT world, that's an eternity...
+### WhyNotWordPress.card3
+- `WhyNotWordPress.card3.title`: Performance issues
+- `WhyNotWordPress.card3.description`: WordPress often means slow loading and a frustrating user experienc...
+### WhyNotWordPress.card4
+- `WhyNotWordPress.card4.title`: Security
+- `WhyNotWordPress.card4.description`: Popularity attracts attacks. Additional security requires expensive...
+### WhyNotWordPress.card5
+- `WhyNotWordPress.card5.title`: High maintenance costs
+- `WhyNotWordPress.card5.description`: Expensive hosting, plugins, updates, and technical support. Next.js...
+### About
+- `About.why`: Discover our approach
+- `About.heading`: Creating modern websites that deliver results
+- `About.subheading`: We combine modern technologies with thoughtful design to make your ...
+- `About.description1`: First, we need to <strong>thoroughly understand your business</stro...
+- `About.description2`: AI Chatbot for appointment booking? Newsletter system for promotion...
+- `About.description3`: Together, we'll <strong>find the best solutions</strong> that will ...
+- `About.imageAlt`: Owner's photo
+- `About.freeConsultation`: Free consultation
+### Portfolio
+- `Portfolio.why`: See our work
+- `Portfolio.heading`: Portfolio that speaks for itself
+- `Portfolio.subheading`: Meet some of our projects that helped clients <strong>increase thei...
+### Portfolio.buttons
+- `Portfolio.buttons.viewLive`: View project live
+- `Portfolio.buttons.learnMore`: Learn more
+### Portfolio.projects
+### Portfolio.projects.project1
+- `Portfolio.projects.project1.title`: 💦 Innovative website for a pressure washing company
+- `Portfolio.projects.project1.description`: <p class='mb-2'>Combines clean design with functionality – <strong>...
+### Portfolio.projects.project1.tags
+- `Portfolio.projects.project1.tags.0`: Written in clean code
+- `Portfolio.projects.project1.tags.1`: Extended photo gallery
+- `Portfolio.projects.project1.tags.2`: Modal in certificates section
+- `Portfolio.projects.project1.tags.3`: Google Analytics
+- `Portfolio.projects.project1.tags.4`: SEO optimization
+- `Portfolio.projects.project1.tags.5`: Handcrafted icons
+- `Portfolio.projects.project1.tags.6`: AI-generated illustrations
+- `Portfolio.projects.project1.imageAlt`: Portfolio - Under Pressure
+### Portfolio.projects.project2
+- `Portfolio.projects.project2.title`: 🏗️ Comprehensive platform for a construction company
+- `Portfolio.projects.project2.description`: <p class='mb-2'>The website not only presents services but also <st...
+### Portfolio.projects.project2.tags
+- `Portfolio.projects.project2.tags.0`: Written in code editor
+- `Portfolio.projects.project2.tags.1`: Sanity CMS
+- `Portfolio.projects.project2.tags.2`: Expert blog
+- `Portfolio.projects.project2.tags.3`: Job offers module
+- `Portfolio.projects.project2.tags.4`: Google Analytics
+- `Portfolio.projects.project2.tags.5`: SEO optimization
+- `Portfolio.projects.project2.tags.6`: Dark/Light Mode
+- `Portfolio.projects.project2.tags.7`: Multilingual (PL, EN, DE, UA)
+- `Portfolio.projects.project2.tags.8`: In progress
+- `Portfolio.projects.project2.imageAlt`: Portfolio - BuildWise
+### Timeline
+- `Timeline.why`: How We Work
+- `Timeline.heading`: Collaboration Process
+- `Timeline.subheading`: From first contact to a ready-to-launch website
+### Timeline.steps
+### Timeline.steps.step1
+- `Timeline.steps.step1.title`: Intro Call & Needs Analysis
+- `Timeline.steps.step1.content`: Reach out via form, phone, or email. We'll discuss your goals, coll...
+### Timeline.steps.step2
+- `Timeline.steps.step2.title`: Quote & Planning
+- `Timeline.steps.step2.content`: Based on your input, we prepare a quote, timeline, and site structu...
+### Timeline.steps.step3
+- `Timeline.steps.step3.title`: Content & Layout
+- `Timeline.steps.step3.content`: We propose content and layout aligned with your brand. Your feedbac...
+### Timeline.steps.step4
+- `Timeline.steps.step4.title`: Development & SEO
+- `Timeline.steps.step4.content`: We build a fast, responsive website optimized for performance, SEO,...
+### Timeline.steps.step5
+- `Timeline.steps.step5.title`: Testing & Launch
+- `Timeline.steps.step5.content`: We test every feature thoroughly. After your approval, we launch th...
+### Timeline.steps.step6
+- `Timeline.steps.step6.title`: Ongoing Support
+- `Timeline.steps.step6.content`: After launch, we offer technical support and help grow your site as...
+### CTA
+- `CTA.title`: Ready for a new website that attracts customers?
+- `CTA.description`: Start transforming your online presence today! Consultations are free.
+- `CTA.button`: Contact us
+### Pricing
+- `Pricing.why`: Pricing
+- `Pricing.heading`: Lowest prices on the market
+- `Pricing.subheading`: Premium quality without overpaying!
+- `Pricing.promoHeader`: 🎉 Promotion! -30% on all packages! 🎉
+- `Pricing.promoInfo`: 30% off
+- `Pricing.promoEnds`: Promotion ends in:
+- `Pricing.shimmer`: Professional websites starting from $1 499
+### Pricing.timer
+- `Pricing.timer.days`: days
+- `Pricing.timer.hours`: hrs
+- `Pricing.timer.minutes`: min
+- `Pricing.timer.seconds`: sec
+### Pricing.maintenanceCosts
+- `Pricing.maintenanceCosts.heading`: Low Maintenance Costs
+- `Pricing.maintenanceCosts.description`: With us, maintenance costs are just around $10/year – saving you $1...
+### Pricing.maintenanceCosts.domain
+- `Pricing.maintenanceCosts.domain.title`: Domain
+- `Pricing.maintenanceCosts.domain.description`: Website name: approx. $4.99/year
+### Pricing.maintenanceCosts.hosting
+- `Pricing.maintenanceCosts.hosting.title`: Hosting
+- `Pricing.maintenanceCosts.hosting.description`: Always included in your package, no extra fees
+### Pricing.maintenanceCosts.email
+- `Pricing.maintenanceCosts.email.title`: Business Email
+- `Pricing.maintenanceCosts.email.description`: Optional: approx. $5.99/year with Hostinger
+### Pricing.maintenanceCosts.form
+- `Pricing.maintenanceCosts.form.title`: Contact Forms
+- `Pricing.maintenanceCosts.form.description`: 100 form submissions daily included – attract customers at no addit...
+### Pricing.plans
+### Pricing.plans.basic
+- `Pricing.plans.basic.name`: Basic
+- `Pricing.plans.basic.monthlyPrice`: $150-$200*
+- `Pricing.plans.basic.oneTimePrice`: $1 499 - $2 649*
+- `Pricing.plans.basic.promoPrice`: $1 049 - $1 849*
+- `Pricing.plans.basic.description`: Ideal solution for small companies and startups that need a profess...
+- `Pricing.plans.basic.timeframe`: 5–7 business days
+### Pricing.plans.basic.features
+- `Pricing.plans.basic.features.0`: Single-page website (landing page) with responsive design on all de...
+- `Pricing.plans.basic.features.1`: Detailed SEO optimization for every page element
+- `Pricing.plans.basic.features.2`: Google Analytics integration
+- `Pricing.plans.basic.features.3`: GDPR and Cookies Policy
+- `Pricing.plans.basic.features.4`: SSL Certificate
+- `Pricing.plans.basic.features.5`: Contact form
+- `Pricing.plans.basic.features.6`: Free hosting
+- `Pricing.plans.basic.features.7`: Animations for each section
+- `Pricing.plans.basic.features.8`: One year guarantee
+### Pricing.plans.professional
+- `Pricing.plans.professional.name`: Professional
+- `Pricing.plans.professional.monthlyPrice`: $250*
+- `Pricing.plans.professional.oneTimePrice`: $2 149 - $5 299*
+- `Pricing.plans.professional.promoPrice`: $1 099 - $3 699*
+- `Pricing.plans.professional.description`: Comprehensive business website for full presentation of your offer
+- `Pricing.plans.professional.timeframe`: 7–21 days
+### Pricing.plans.professional.features
+- `Pricing.plans.professional.features.0`: Everything from Basic plan
+- `Pricing.plans.professional.features.1`: Subpages with responsive design
+- `Pricing.plans.professional.features.2`: Professional company logo creation
+- `Pricing.plans.professional.features.3`: Business email configuration
+- `Pricing.plans.professional.features.4`: Dark mode / light mode switch
+- `Pricing.plans.professional.features.5`: Blog with content management system
+- `Pricing.plans.professional.features.6`: Interactive Google Map with company location
+- `Pricing.plans.professional.popular`: Most Popular
+### Pricing.plans.premium
+- `Pricing.plans.premium.name`: Premium Solution
+- `Pricing.plans.premium.monthlyPrice`: Individual pricing
+- `Pricing.plans.premium.oneTimePrice`: Individual pricing
+- `Pricing.plans.premium.description`: A comprehensive project fully tailored to your individual needs
+- `Pricing.plans.premium.timeframe`: 20–30 business days
+### Pricing.plans.premium.features
+- `Pricing.plans.premium.features.0`: Everything from Professional plan
+- `Pricing.plans.premium.features.1`: Extended number of pages with CMS (Content Management System)
+- `Pricing.plans.premium.features.2`: 3D elements
+- `Pricing.plans.premium.features.3`: Parallax effects
+- `Pricing.plans.premium.features.4`: Newsletter and automatic mailing system
+- `Pricing.plans.premium.features.5`: Advanced reviews and ratings module
+- `Pricing.plans.premium.features.6`: Integration with payment systems
+- `Pricing.plans.premium.features.7`: E-commerce configuration
+- `Pricing.plans.premium.features.8`: Personalized ChatBot AI creation
+- `Pricing.vatInfo`: * Prices are net amounts, 23% VAT to be added
+### Pricing.depositInfo
+- `Pricing.depositInfo.basic`: * Project starts after $699 deposit payment
+- `Pricing.depositInfo.professional`: * Project starts after $1 099 deposit payment
+### Pricing.lowestPrice
+- `Pricing.lowestPrice.basic`: * lowest price from the last 30 days - $1 499
+- `Pricing.lowestPrice.professional`: * lowest price from the last 30 days - $2 149
+- `Pricing.contactCta`: Select package
+### Faq
+- `Faq.why`: FAQ
+- `Faq.heading`: Frequently Asked Questions
+- `Faq.subheading`: Learn more about our work, website development process and benefits
+### Faq.questions
+### Faq.questions.Question1
+- `Faq.questions.Question1.question`: Why do we use Next.js?
+- `Faq.questions.Question1.answer`: Next.js is a modern technology that ensures excellent <strong>SEO o...
+### Faq.questions.Question2
+- `Faq.questions.Question2.question`: What additional costs may occur?
+- `Faq.questions.Question2.answer`: <ul class='list-none space-y-2 mt-2'><li>- <strong>Domain</strong> ...
+### Faq.questions.Question3
+- `Faq.questions.Question3.question`: How long does it take to create a website?
+- `Faq.questions.Question3.answer`: Development time depends on the chosen package. A <strong>simple we...
+### Faq.questions.Question4
+- `Faq.questions.Question4.question`: Can I edit the website content myself?
+- `Faq.questions.Question4.answer`: Absolutely! However, remember to request this feature during the pr...
+### Faq.questions.Question5
+- `Faq.questions.Question5.question`: Will my website be visible in Google?
+- `Faq.questions.Question5.answer`: Yes, all our websites are <strong>SEO optimized</strong>, which inc...
+### Faq.questions.Question6
+- `Faq.questions.Question6.question`: Can I add additional features to the website?
+- `Faq.questions.Question6.answer`: Yes, you can order additional features such as <strong>multilingual...
+### Faq.questions.Question7
+- `Faq.questions.Question7.question`: How much does a website cost?
+- `Faq.questions.Question7.answer`: The price depends on the chosen package and project complexity. Sim...
+### Faq.questions.Question8
+- `Faq.questions.Question8.question`: What rights will I have to the website after project completion?
+- `Faq.questions.Question8.answer`: After project completion, you receive <strong>full rights to the we...
+### Contact
+- `Contact.formLabel`: Contact form
+- `Contact.title`: Contact us
+- `Contact.description`: Have questions? Write to us!
+### Contact.phone
+- `Contact.phone.label`: Call us:
+- `Contact.phone.copyAria`: Copy phone number
+- `Contact.phone.title`: Phone
+### Contact.email
+- `Contact.email.label`: Email us:
+- `Contact.email.copyAria`: Copy email address
+- `Contact.email.title`: Email
+### Contact.form
+### Contact.form.name
+- `Contact.form.name.label`: How should we address you?
+- `Contact.form.name.placeholder`: Name
+### Contact.form.email
+- `Contact.form.email.label`: Where should we send the response?
+- `Contact.form.email.placeholder`: Email
+- `Contact.form.email.title`: Email
+### Contact.form.subject
+- `Contact.form.subject.label`: How can we help you?
+- `Contact.form.subject.placeholder`: Message subject
+### Contact.form.message
+- `Contact.form.message.label`: Tell us about your project
+- `Contact.form.message.placeholder`: Message
+### Contact.form.rodo
+- `Contact.form.rodo.label`: GDPR Consent
+- `Contact.form.rodo.text`: I agree to the processing of my personal data in accordance with the
+- `Contact.form.rodo.privacyLink`: privacy policy
+### Contact.validation
+### Contact.validation.name
+- `Contact.validation.name.required`: Name is required
+- `Contact.validation.name.minLength`: Name must be at least 2 characters long
+### Contact.validation.email
+- `Contact.validation.email.required`: Email is required
+- `Contact.validation.email.invalid`: Please enter a valid email address
+### Contact.validation.subject
+- `Contact.validation.subject.required`: Subject is required
+- `Contact.validation.subject.minLength`: Subject must be at least 3 characters long
+### Contact.validation.message
+- `Contact.validation.message.required`: Message is required
+- `Contact.validation.message.minLength`: Message must be at least 10 characters long
+### Contact.validation.rodo
+- `Contact.validation.rodo.required`: You must agree to the processing of personal data
+### Contact.copied
+- `Contact.copied.title`: Copied!
+- `Contact.copied.email`: Email address has been copied to clipboard.
+- `Contact.copied.phone`: Phone number has been copied to clipboard.
+### Contact.success
+- `Contact.success.title`: Success!
+- `Contact.success.message`: Your message has been sent successfully.
+### Contact.error
+- `Contact.error.title`: Error!
+- `Contact.error.message`: An error occurred while sending the message.
+### Contact.info
+- `Contact.info.label`: Response time information
+- `Contact.info.title`: We respond quickly!
+- `Contact.info.description`: We usually respond within 2 business hours.
+### Contact.button
+- `Contact.button.default`: Send message
+- `Contact.button.loading`: Sending...
+### Footer
+- `Footer.navigation`: Navigation
+- `Footer.benefits`: Benefits
+- `Footer.process`: Process
+- `Footer.technologies`: Technologies
+- `Footer.pricing`: Pricing
+- `Footer.contact`: Contact
+- `Footer.services`: Services
+- `Footer.websites`: Websites
+- `Footer.onlineStores`: Online Stores
+- `Footer.cms`: CMS Systems
+- `Footer.seo`: SEO Optimization
+- `Footer.support`: Technical Support
+- `Footer.documents`: Documents
+- `Footer.privacy`: Privacy Policy
+- `Footer.terms`: Terms of Service
+- `Footer.gdpr`: GDPR
+- `Footer.copyright`: NextGen Sites © {year}. All rights reserved.
+### CookieBanner
+- `CookieBanner.title`: We respect your privacy
+- `CookieBanner.mainDescription`: This website uses cookies to ensure the best experience while using...
+- `CookieBanner.detailedDescription`: We use cookies to improve your experience on our site. Some are nec...
+### CookieBanner.buttons
+- `CookieBanner.buttons.rejectAll`: Reject all
+- `CookieBanner.buttons.customize`: Customize
+- `CookieBanner.buttons.acceptAll`: Accept all
+- `CookieBanner.buttons.acceptSelected`: Accept selected
+- `CookieBanner.buttons.back`: Back to previous view
+### CookieBanner.cookies
+### CookieBanner.cookies.necessary
+- `CookieBanner.cookies.necessary.title`: Necessary (required)
+- `CookieBanner.cookies.necessary.description`: Essential for website functionality
+### CookieBanner.cookies.analytics
+- `CookieBanner.cookies.analytics.title`: Analytics (PostHog)
+- `CookieBanner.cookies.analytics.description`: Help us understand how you use the site
+### CookieBanner.cookies.marketing
+- `CookieBanner.cookies.marketing.title`: Marketing
+- `CookieBanner.cookies.marketing.description`: Help us with marketing activities
+### CookieBanner.privacyLink
+- `CookieBanner.privacyLink.text`: For more information, see our
+- `CookieBanner.privacyLink.linkText`: Privacy Policy
+- `CookieBanner.closeButton`: Close cookie banner
+### privacy
+- `privacy.title`: Privacy Policy
+- `privacy.description`: Learn how we protect and process your personal data
+- `privacy.lastUpdate`: Last update
+### privacy.sections
+### privacy.sections.general
+- `privacy.sections.general.title`: 1. General Information
+- `privacy.sections.general.content`: This privacy policy sets out the rules for the processing and prote...
+### privacy.sections.administrator
+- `privacy.sections.administrator.title`: 2. Data Controller
+- `privacy.sections.administrator.content`: The controller of personal data is NextGen Sites based in Warsaw.
+### privacy.sections.cookies
+- `privacy.sections.cookies.title`: 3. Cookies
+- `privacy.sections.cookies.intro`: We use the following types of cookies:
+### privacy.sections.cookies.firstParty
+- `privacy.sections.cookies.firstParty.title`: First-party cookies:
+### privacy.sections.cookies.firstParty.items
+- `privacy.sections.cookies.firstParty.items.0`: Necessary - enabling basic website functionality
+- `privacy.sections.cookies.firstParty.items.1`: Preferences - remembering selected settings
+- `privacy.sections.cookies.firstParty.items.2`: Statistics - for website traffic analysis
+### privacy.sections.cookies.thirdParty
+- `privacy.sections.cookies.thirdParty.title`: Third-party cookies:
+### privacy.sections.cookies.thirdParty.items
+- `privacy.sections.cookies.thirdParty.items.0`: PostHog - user behavior analysis
+- `privacy.sections.cookies.thirdParty.items.1`: Sentry - error monitoring
+- `privacy.sections.cookies.thirdParty.items.2`: Google Analytics - visit statistics
+### privacy.sections.purposes
+- `privacy.sections.purposes.title`: 4. Data Processing Purposes
+- `privacy.sections.purposes.intro`: Personal data is processed for the following purposes:
+### privacy.sections.purposes.items
+- `privacy.sections.purposes.items.0`: Contract execution (Art. 6(1)(b) GDPR)
+- `privacy.sections.purposes.items.1`: Responding to inquiries (Art. 6(1)(f) GDPR)
+- `privacy.sections.purposes.items.2`: Direct marketing and profiling (Art. 6(1)(f) GDPR)
+- `privacy.sections.purposes.items.3`: Website traffic analysis (Art. 6(1)(f) GDPR)
+- `privacy.sections.purposes.items.4`: Automated marketing (Art. 6(1)(a) GDPR - with consent)
+- `privacy.sections.purposes.items.5`: Customizing content to user preferences (Art. 6(1)(f) GDPR)
+- `privacy.sections.purposes.note`: Detailed information about the scope and basis of data processing c...
+### privacy.sections.analytics
+- `privacy.sections.analytics.title`: 5. Analytics Tools
+- `privacy.sections.analytics.intro`: We use the following tools:
+### privacy.sections.analytics.items
+- `privacy.sections.analytics.items.0`: PostHog - for user behavior analysis
+- `privacy.sections.analytics.items.1`: Sentry - for error and performance monitoring
+### privacy.sections.rights
+- `privacy.sections.rights.title`: 6. User Rights
+- `privacy.sections.rights.intro`: The user has the right to:
+### privacy.sections.rights.items
+- `privacy.sections.rights.items.0`: Access their data
+- `privacy.sections.rights.items.1`: Rectify data
+- `privacy.sections.rights.items.2`: Delete data
+- `privacy.sections.rights.items.3`: Restrict processing
+- `privacy.sections.rights.items.4`: Data portability
+- `privacy.sections.rights.items.5`: Object
+- `privacy.sections.rights.items.6`: Withdraw consent for processing
+### privacy.sections.contact
+- `privacy.sections.contact.title`: 7. Contact
+- `privacy.sections.contact.content`: For matters related to personal data protection, you can contact us...
+### terms
+- `terms.title`: Terms of Service
+- `terms.description`: Learn about the rules of using our services
+- `terms.lastUpdate`: Last update
+### terms.sections
+### terms.sections.general
+- `terms.sections.general.title`: §1. General Provisions
+### terms.sections.general.items
+- `terms.sections.general.items.0`: These terms and conditions define the rules for providing services ...
+- `terms.sections.general.items.1`: Placing an order means accepting the terms and conditions.
+### terms.sections.definitions
+- `terms.sections.definitions.title`: §2. Definitions
+### terms.sections.definitions.items
+- `terms.sections.definitions.items.0`: Service Provider - NextGen Sites
+- `terms.sections.definitions.items.1`: Client - natural or legal person ordering services
+- `terms.sections.definitions.items.2`: Services - creation and maintenance of websites
+### terms.sections.scope
+- `terms.sections.scope.title`: §3. Scope of Services
+- `terms.sections.scope.intro`: The Service Provider provides services in the following areas:
+### terms.sections.scope.items
+- `terms.sections.scope.items.0`: Website design and implementation
+- `terms.sections.scope.items.1`: Hosting and website maintenance
+- `terms.sections.scope.items.2`: SEO optimization
+- `terms.sections.scope.items.3`: Technical support
+### terms.sections.payment
+- `terms.sections.payment.title`: §4. Payment Terms
+### terms.sections.payment.subscription
+- `terms.sections.payment.subscription.title`: Subscription model:
+### terms.sections.payment.subscription.items
+- `terms.sections.payment.subscription.items.0`: Monthly fee according to the selected package
+- `terms.sections.payment.subscription.items.1`: Payment in advance for each month
+- `terms.sections.payment.subscription.items.2`: Option to cancel with one month's notice
+### terms.sections.payment.oneTime
+- `terms.sections.payment.oneTime.title`: One-time model:
+### terms.sections.payment.oneTime.items
+- `terms.sections.payment.oneTime.items.0`: 500 PLN deposit before starting work
+- `terms.sections.payment.oneTime.items.1`: Remaining amount after project acceptance
+### terms.sections.ownership
+- `terms.sections.ownership.title`: §5. Ownership Rights
+### terms.sections.ownership.subscription
+- `terms.sections.ownership.subscription.title`: In the subscription model:
+### terms.sections.ownership.subscription.items
+- `terms.sections.ownership.subscription.items.0`: Code rights transfer to the Client after 3 years
+- `terms.sections.ownership.subscription.items.1`: Early termination means loss of code rights
+### terms.sections.ownership.oneTime
+- `terms.sections.ownership.oneTime.title`: In the one-time model:
+### terms.sections.ownership.oneTime.items
+- `terms.sections.ownership.oneTime.items.0`: Full ownership rights after full payment
+### terms.sections.responsibility
+- `terms.sections.responsibility.title`: §6. Responsibility
+- `terms.sections.responsibility.intro`: The Service Provider commits to:
+### terms.sections.responsibility.items
+- `terms.sections.responsibility.items.0`: Providing services with due diligence
+- `terms.sections.responsibility.items.1`: Maintaining data confidentiality
+- `terms.sections.responsibility.items.2`: Providing technical support
+### terms.sections.final
+- `terms.sections.final.title`: §7. Final Provisions
+### terms.sections.final.items
+- `terms.sections.final.items.0`: In matters not regulated, Polish law shall apply.
+- `terms.sections.final.items.1`: Any disputes will be resolved by the court competent for the Servic...
+### gdpr
+- `gdpr.title`: Information on Personal Data Processing (GDPR)
+- `gdpr.description`: Detailed information about how we process your data in accordance w...
+- `gdpr.lastUpdate`: Last update
+### gdpr.sections
+### gdpr.sections.administrator
+- `gdpr.sections.administrator.title`: 1. Data Controller
+- `gdpr.sections.administrator.content`: The controller of your personal data is NextGen Sites based in Warsaw.
+### gdpr.sections.purposes
+- `gdpr.sections.purposes.title`: 2. Processing Purposes
+- `gdpr.sections.purposes.intro`: We process personal data for the following purposes:
+### gdpr.sections.purposes.items
+- `gdpr.sections.purposes.items.0`: Contract execution (Art. 6(1)(b) GDPR)
+- `gdpr.sections.purposes.items.1`: Responding to inquiries (Art. 6(1)(f) GDPR)
+- `gdpr.sections.purposes.items.2`: Direct marketing (Art. 6(1)(f) GDPR)
+- `gdpr.sections.purposes.items.3`: Website traffic analysis (Art. 6(1)(f) GDPR)
+### gdpr.sections.recipients
+- `gdpr.sections.recipients.title`: 3. Data Recipients
+- `gdpr.sections.recipients.intro`: Your data may be transferred to:
+### gdpr.sections.recipients.items
+- `gdpr.sections.recipients.items.0`: IT service providers (Sentry, PostHog)
+- `gdpr.sections.recipients.items.1`: Hosting companies
+- `gdpr.sections.recipients.items.2`: Legal and accounting service providers
+### gdpr.sections.storage
+- `gdpr.sections.storage.title`: 4. Storage Period
+- `gdpr.sections.storage.intro`: We store data for the period of:
+### gdpr.sections.storage.items
+- `gdpr.sections.storage.items.0`: Contract duration and up to 6 years after its completion
+- `gdpr.sections.storage.items.1`: Until objection for marketing purposes
+- `gdpr.sections.storage.items.2`: 3 months for contact form data
+### gdpr.sections.rights
+- `gdpr.sections.rights.title`: 5. Individual Rights
+- `gdpr.sections.rights.intro`: You have the right to:
+### gdpr.sections.rights.items
+- `gdpr.sections.rights.items.0`: Access your data
+- `gdpr.sections.rights.items.1`: Rectify your data
+- `gdpr.sections.rights.items.2`: Delete your data
+- `gdpr.sections.rights.items.3`: Restrict processing
+- `gdpr.sections.rights.items.4`: Data portability
+- `gdpr.sections.rights.items.5`: Object
+- `gdpr.sections.rights.items.6`: Withdraw consent
+- `gdpr.sections.rights.items.7`: Complain to the Data Protection Authority
+### gdpr.sections.transfer
+- `gdpr.sections.transfer.title`: 6. Data Transfer
+- `gdpr.sections.transfer.intro`: Data may be transferred outside the EEA in connection with the use ...
+### gdpr.sections.transfer.items
+- `gdpr.sections.transfer.items.0`: Sentry (USA) - error monitoring
+- `gdpr.sections.transfer.items.1`: PostHog (USA) - analytics
+- `gdpr.sections.transfer.note`: Transfers are based on standard contractual clauses.
+### gdpr.sections.contact
+- `gdpr.sections.contact.title`: 7. Contact
+- `gdpr.sections.contact.intro`: For matters concerning personal data protection, you can contact us...
+### gdpr.sections.contact.items
+- `gdpr.sections.contact.items.0`: Email: contact@nextgensites.pl
+- `gdpr.sections.contact.items.1`: Phone: 694-671-786
+### Legal
+- `Legal.terms`: Terms of Service
+- `Legal.privacy`: Privacy Policy
+- `Legal.gdpr`: GDPR
+- `Legal.backToHome`: Back to homepage
+- `Legal.copyright`: © {year} NextGen Sites. All rights reserved.
+- `Legal.title`: Legal Documents - NextGen Sites
+- `Legal.description`: Legal documents, terms of service, privacy policy and GDPR informat...
+- `Legal.ogTitle`: Legal Documents - NextGen Sites
+- `Legal.ogDescription`: Legal documents, terms of service, privacy policy and GDPR informat...
+- `Legal.ogImageAlt`: NextGen Sites - Legal Documents
+### Portfolio-sections
+### Portfolio-sections.UnderPressure
+- `Portfolio-sections.UnderPressure.title`: Modern website for a pressure washing company
+- `Portfolio-sections.UnderPressure.cta`: Get a project quote
+### Portfolio-sections.UnderPressure.clientInfo
+- `Portfolio-sections.UnderPressure.clientInfo.title`: Client Information
+- `Portfolio-sections.UnderPressure.clientInfo.company`: Company Name
+- `Portfolio-sections.UnderPressure.clientInfo.location`: Location
+- `Portfolio-sections.UnderPressure.clientInfo.website`: Website
+### Portfolio-sections.UnderPressure.projectDescription
+- `Portfolio-sections.UnderPressure.projectDescription.title`: Project Description
+- `Portfolio-sections.UnderPressure.projectDescription.content`: For Under Pressure, we created a modern website that not only catch...
+### Portfolio-sections.UnderPressure.design
+- `Portfolio-sections.UnderPressure.design.title`: Design
+- `Portfolio-sections.UnderPressure.design.description`: A minimalist yet visually impactful design based on strong contrast...
+### Portfolio-sections.UnderPressure.implementation
+- `Portfolio-sections.UnderPressure.implementation.title`: Implementation
+- `Portfolio-sections.UnderPressure.implementation.description`: The website was built with speed, full responsiveness, and maximum ...
+### Portfolio-sections.UnderPressure.features
+- `Portfolio-sections.UnderPressure.features.title`: Features
+- `Portfolio-sections.UnderPressure.features.description`: The site includes a dynamic hero section with rotating text, a proj...
+- `Portfolio-sections.UnderPressure.description`: A modern showcase site that elevated a pressure washing company to ...
+- `Portfolio-sections.UnderPressure.viewLive`: View live project
+### Portfolio-sections.UnderPressure.Common
+- `Portfolio-sections.UnderPressure.Common.portfolio`: PORTFOLIO
+### Portfolio-sections.UnderPressure.Google-position-1
+- `Portfolio-sections.UnderPressure.Google-position-1.title`: Google Position #1
+- `Portfolio-sections.UnderPressure.Google-position-1.description`: Just 6 months after launch, the site reached the #1 position on Goo...
+### Portfolio-sections.UnderPressure.Google-position-2
+- `Portfolio-sections.UnderPressure.Google-position-2.title`: Search Engine Dominance
+- `Portfolio-sections.UnderPressure.Google-position-2.description`: The website consistently ranks right below sponsored results, bring...
+### Portfolio-sections.UnderPressure.SEO
+- `Portfolio-sections.UnderPressure.SEO.title`: Modern Website for a Pressure Washing Company - Portfolio
+- `Portfolio-sections.UnderPressure.SEO.description`: See how we helped Under Pressure achieve a #1 Google ranking. A hig...
+- `Portfolio-sections.UnderPressure.SEO.ogTitle`: Under Pressure - Case Study | NextGen Sites
+- `Portfolio-sections.UnderPressure.SEO.ogDescription`: Discover how we built a website that hit #1 in Google for key press...
+- `Portfolio-sections.UnderPressure.SEO.ogImageAlt`: Under Pressure - Website project
+- `Portfolio-sections.UnderPressure.nextProject`: See next project
+### Portfolio-sections.BuildWise
+- `Portfolio-sections.BuildWise.title`: Modern website for a construction company
+- `Portfolio-sections.BuildWise.description`: A modern online platform that strengthens the image of a constructi...
+- `Portfolio-sections.BuildWise.cta`: Get a project quote
+- `Portfolio-sections.BuildWise.viewLive`: View live project
+### Portfolio-sections.BuildWise.clientInfo
+- `Portfolio-sections.BuildWise.clientInfo.title`: Client Information
+- `Portfolio-sections.BuildWise.clientInfo.company`: Company Name
+- `Portfolio-sections.BuildWise.clientInfo.location`: Warsaw, Poland
+- `Portfolio-sections.BuildWise.clientInfo.website`: Website
+### Portfolio-sections.BuildWise.projectDescription
+- `Portfolio-sections.BuildWise.projectDescription.title`: Project Description
+- `Portfolio-sections.BuildWise.projectDescription.content`: The design combines modern aesthetics with functionality. Light and...
+### Portfolio-sections.BuildWise.design
+- `Portfolio-sections.BuildWise.design.title`: Design
+- `Portfolio-sections.BuildWise.design.description`: Buildwise is 
+### Portfolio-sections.BuildWise.implementation
+- `Portfolio-sections.BuildWise.implementation.title`: Implementation
+- `Portfolio-sections.BuildWise.implementation.description`: The site was built using Next.js 15 and integrated with Sanity CMS,...
+### Portfolio-sections.BuildWise.features
+- `Portfolio-sections.BuildWise.features.title`: Features
+- `Portfolio-sections.BuildWise.features.description`: With Sanity CMS, the client can manage content independently, the b...
+### Portfolio-sections.BuildWise.Common
+- `Portfolio-sections.BuildWise.Common.portfolio`: Portfolio
+### Portfolio-sections.BuildWise.Google-position-1
+- `Portfolio-sections.BuildWise.Google-position-1.title`: Expert Blog
+- `Portfolio-sections.BuildWise.Google-position-1.description`: The blog module allows publishing specialized articles that attract...
+### Portfolio-sections.BuildWise.Google-position-2
+- `Portfolio-sections.BuildWise.Google-position-2.title`: Easy Content Editing
+- `Portfolio-sections.BuildWise.Google-position-2.description`: With Sanity CMS, the client can effortlessly update texts and image...
+### Portfolio-sections.BuildWise.SEO
+- `Portfolio-sections.BuildWise.SEO.title`: Modern Website for a Construction Company - Portfolio
+- `Portfolio-sections.BuildWise.SEO.description`: See how we created a multilingual website for BuildWise, featuring ...
+- `Portfolio-sections.BuildWise.SEO.ogTitle`: BuildWise - Case Study | NextGen Sites
+- `Portfolio-sections.BuildWise.SEO.ogDescription`: Discover how we built a modern, multilingual platform with Sanity C...
+- `Portfolio-sections.BuildWise.SEO.ogImageAlt`: BuildWise – Web platform showcase
+- `Portfolio-sections.BuildWise.nextProject`: View next project
+### Metadata
+### Metadata.title
+- `Metadata.title.default`: Premium modern websites in Next.js
+- `Metadata.title.template`: %s | NextGen Sites
+- `Metadata.description`: Get a blazing-fast, SEO-optimized Next.js website with stunning des...
+- `Metadata.applicationName`: NextGen Sites - Premium modern websites
+### Metadata.authors
+- `Metadata.authors.name`: Michał Rowiński
+- `Metadata.authors.url`: https://nextgensites.pl
+- `Metadata.generator`: Next.js
+- `Metadata.keywords`: website development, next.js websites, modern websites, small busin...
+- `Metadata.creator`: NextGen Sites - Professional Website Development
+- `Metadata.publisher`: NextGen Sites
+### Metadata.openGraph
+- `Metadata.openGraph.siteName`: NextGen Sites - Professional Website Development
+- `Metadata.openGraph.title`: Professional Website Development | Next.js 15+
+- `Metadata.openGraph.description`: Outstanding design, SEO, mobile responsiveness, and low maintenance...
+- `Metadata.openGraph.imageAlt`: NextGen Sites - Professional Website Development in Next.js
+### Metadata.twitter
+- `Metadata.twitter.title`: Website development in Next.js | NextGen Sites
+- `Metadata.twitter.description`: Professional websites and landing pages. Modern Next.js-based solut...
+- `Metadata.twitter.imageAlt`: NextGen Sites - Professional Website Development in Next.js
+### Manifest
+- `Manifest.name`: NextGen Sites
+- `Manifest.shortName`: NextGen Sites
+- `Manifest.description`: 🚀 We create fast and modern websites with Next.js – great design, ...
+- `Manifest.categories`: business, technology, web development
+### Manifest.screenshots
+### Manifest.screenshots.home
+- `Manifest.screenshots.home.label`: NextGen Sites Homepage
+### Manifest.screenshots.portfolio
+- `Manifest.screenshots.portfolio.label`: NextGen Sites Portfolio
+### Manifest.screenshots.pricing
+- `Manifest.screenshots.pricing.label`: NextGen Sites Pricing
+### Manifest.screenshots.contact
+- `Manifest.screenshots.contact.label`: NextGen Sites Contact Form
+### Manifest.shortcuts
+### Manifest.shortcuts.home
+- `Manifest.shortcuts.home.name`: Homepage
+- `Manifest.shortcuts.home.shortName`: Home
+- `Manifest.shortcuts.home.description`: Go to homepage
+### Manifest.shortcuts.portfolio
+- `Manifest.shortcuts.portfolio.name`: Portfolio
+- `Manifest.shortcuts.portfolio.shortName`: Portfolio
+- `Manifest.shortcuts.portfolio.description`: See our projects
+### Manifest.shortcuts.contact
+- `Manifest.shortcuts.contact.name`: Contact
+- `Manifest.shortcuts.contact.shortName`: Contact
+- `Manifest.shortcuts.contact.description`: Get in touch with us
+### PageTitle
+- `PageTitle.whereAreYou`: Where are you? 👀
+- `PageTitle.comeBack`: Come back! 🔥
+- `PageTitle.missYou`: Get a Premium website 🚀
+
+## How to Use These Keys
+
+### In Server Components
+```tsx
+import {useTranslations} from 'next-intl';
+
+export default function MyComponent() {
+  const t = useTranslations('Namespace');
+  return <h1>{t('key')}</h1>;
+}
+```
+
+### In Client Components
+```tsx
+'use client';
+import {useTranslations} from 'next-intl';
+
+export default function MyClientComponent() {
+  const t = useTranslations('Namespace');
+  return <button onClick={() => alert(t('message'))}>{t('buttonText')}</button>;
+}
+```
+
+### In Server Actions
+```tsx
+import {getTranslations} from 'next-intl/server';
+
+export async function myAction() {
+  'use server';
+  const t = await getTranslations('Namespace');
+  return { message: t('actionComplete') };
+}
+```
