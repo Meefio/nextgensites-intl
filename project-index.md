@@ -36,6 +36,7 @@ Check `.env` for environment variables.
 
 ## Notes
 This project uses:
+- Project has routing '/' for Polish content and '/en' for english content. For eg. 'https://nextgensites.pl/strona-internetowa-dla-firmy-sprzatajacej' and 'https://nextgensites.pl/en/cleaning-company-website'
 - App Router for routing
 - Server Components for server-rendered content
 - Client Components where interactivity is needed
