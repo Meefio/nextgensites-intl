@@ -14,11 +14,11 @@ const intlMiddleware = createMiddleware({
    ...routing,
    // Default locale shouldn't have a prefix
    localePrefix: 'as-needed',
-   // Set a longer max age for the locale cookie to reduce middleware calls
-   localeDetection: {
-      cookieName: 'NEXT_LOCALE',
-      cookieMaxAge: LOCALE_COOKIE_MAX_AGE
-   }
+   // Enable locale detection (but configure the cookie in a different way)
+   localeDetection: true,
+   // Use cookie configuration options directly
+   cookieName: 'NEXT_LOCALE',
+   cookieMaxAge: LOCALE_COOKIE_MAX_AGE
 });
 
 // Handle redirects efficiently using a map lookup instead of conditional logic
