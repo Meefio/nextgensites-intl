@@ -9,10 +9,10 @@ const BetterTitleChanger = dynamic(
 );
 
 interface ClientDocumentTitleWrapperProps {
-  defaultTitle: string;
+  defaultTitle?: string;
 }
 
-export default function ClientDocumentTitleWrapper({ defaultTitle }: ClientDocumentTitleWrapperProps) {
+export default function ClientDocumentTitleWrapper({ defaultTitle = 'NextGenSites' }: ClientDocumentTitleWrapperProps) {
   // Usuwamy efekt ustawiający tytuł na początku, aby nie nadpisywał tytułu ustawionego przez metadane
 
   return <BetterTitleChanger defaultTitle={defaultTitle} />;

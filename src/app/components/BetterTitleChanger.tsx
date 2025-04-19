@@ -6,13 +6,13 @@ import usePageVisibility from '../hooks/use-page-visibility';
 import { usePathname } from 'next/navigation';
 
 interface BetterTitleChangerProps {
-  defaultTitle: string;
+  defaultTitle?: string;
 }
 
 /**
  * Komponent do zmiany tytułu strony, gdy użytkownik przejdzie na inną kartę
  */
-export default function BetterTitleChanger({ defaultTitle }: BetterTitleChangerProps) {
+export default function BetterTitleChanger({ defaultTitle = 'NextGenSites' }: BetterTitleChangerProps) {
   const isHidden = usePageVisibility();
   const pathname = usePathname(); // Hook do śledzenia ścieżki URL
   const t = useTranslations('PageTitle');
