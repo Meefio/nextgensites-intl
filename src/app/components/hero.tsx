@@ -9,9 +9,15 @@ import { MouseTrackImage } from '@/app/components/motion/mouse-track-image'
 import { FloatingCodeBlocks } from '@/app/components/motion/floating-code-blocks'
 import { AnimatedTextCycle } from '@/app/components/animated-text-cycle'
 
-export function Hero() {
+interface HeroProps {
+	locale?: string;
+	priorityImage?: boolean;
+}
+
+export function Hero({ locale: propLocale, priorityImage = true }: HeroProps) {
 	const t = useTranslations('Hero')
-	const locale = useLocale()
+	const contextLocale = useLocale()
+	const locale = propLocale || contextLocale
 
 	// Tablica rotujących tekstów
 	const rotatingTexts = [
@@ -112,7 +118,7 @@ export function Hero() {
 						width={608}
 						height={368}
 						quality={80}
-						priority={true}
+						priority={priorityImage}
 						sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1482px'
 					/>
 					<div className='absolute inset-0 -z-10 bg-primary/20 [filter:blur(180px)]' />

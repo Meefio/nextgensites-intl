@@ -13,6 +13,13 @@ import { Faq } from '@/app/components/faq'
 import { ContactForm } from '@/app/components/contact-form'
 import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl'
 import { Metadata } from 'next'
+import Script from 'next/script'
+import dynamic from 'next/dynamic'
+
+// Dynamically import non-critical components
+const WhyNotWordPressSection = dynamic(() => import('@/app/components/WhyNotWordPress-section').then(mod => mod.default), { ssr: true })
+const PortfolioSection = dynamic(() => import('@/app/components/portfolio-section').then(mod => mod.default), { ssr: true })
+const FeaturesSection = dynamic(() => import('@/app/components/features-section').then(mod => mod.default), { ssr: true })
 
 // Dodajemy ISR (Incremental Static Regeneration)
 export const revalidate = 3600 // Odświeżanie co godzinę
@@ -208,6 +215,12 @@ export default async function HomePage({ params }: GenerateMetadataProps) {
 
 	return (
 		<>
+			{/* Google Tag Manager script with worker strategy for better performance */}
+			<Script
+				src="https://www.googletagmanager.com/gtag/js?id=G-5YLJH8GHZ6"
+				strategy="worker"
+			/>
+
 			<Header />
 			<main>
 				{/* Schema.org LocalBusiness - poprawa widoczności w wyszukiwaniach lokalnych */}
@@ -381,16 +394,16 @@ export default async function HomePage({ params }: GenerateMetadataProps) {
 					}}
 				/>
 
-				<Hero />
+				<Hero locale={locale} priorityImage={true} />
 				<SocialProof />
-				<Features />
+				<FeaturesSection />
 				<About />
-				<Portfolio />
-				<WhyNotWordPress />
+				<PortfolioSection />
+				<WhyNotWordPressSection />
 				<TimelineSection />
-				<CtaSection />
 				<Pricing />
 				<Faq />
+				<CtaSection />
 				<ContactForm />
 			</main>
 			<Footer />

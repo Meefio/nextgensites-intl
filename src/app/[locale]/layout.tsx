@@ -5,17 +5,38 @@ import '../globals.css'
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/app/components/theme-provider"
 import { Toaster } from "@/app/components/ui/toaster";
-import { CookieBanner } from "@/app/components/cookie-banner";
-import { GoogleAnalytics } from "@/app/components/analytics/google-analytics";
-import { cookies } from 'next/headers';
 import { Analytics } from '@vercel/analytics/next';
-import { ScrollToTop } from '@/app/components/ScrollToTop';
-import ClientDocumentTitleWrapper from '@/app/components/ClientDocumentTitleWrapper';
-
+import { cookies } from 'next/headers';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { metadata as baseMetadata } from './metadata';
 import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl';
+import dynamic from 'next/dynamic';
+import { ClientWrapper } from '@/app/components/ClientWrapper';
+
+// Dynamically import non-critical components with server-side rendering
+const GoogleAnalytics = dynamic(() => import('@/app/components/analytics/google-analytics').then(mod => mod.GoogleAnalytics));
+const CacheProvider = dynamic(() => import('@/app/components/CacheProvider').then(mod => mod.CacheProvider));
+
+// Optimize font loading with display: swap
+const fontSans = Inter({
+	variable: "--font-sans",
+	subsets: ["latin"],
+	display: "swap", // Add display swap for better performance
+});
+
+const fontHeading = Instrument_Sans({
+	variable: "--font-heading",
+	subsets: ["latin"],
+	display: "swap", // Add display swap for better performance
+});
+
+const fontQuote = Lily_Script_One({
+	variable: "--font-quote",
+	weight: "400",
+	subsets: ["latin"],
+	display: "swap", // Add display swap for better performance
+});
 
 // Poprawiona definicja typów parametrów
 type Params = {
@@ -72,22 +93,6 @@ export async function generateMetadata({
 	} as Metadata;
 }
 
-const fontSans = Inter({
-	variable: "--font-sans",
-	subsets: ["latin"],
-});
-
-const fontHeading = Instrument_Sans({
-	variable: "--font-heading",
-	subsets: ["latin"],
-});
-
-const fontQuote = Lily_Script_One({
-	variable: "--font-quote",
-	weight: "400",
-	subsets: ["latin"],
-});
-
 export default async function LocaleLayout({
 	children,
 	params: paramsPromise,
@@ -110,7 +115,7 @@ export default async function LocaleLayout({
 	const t = await getTranslations({ locale, namespace: 'Metadata' });
 	const defaultTitle = t('title.default');
 
-	// Schema.org JSON-LD dla całej witryny
+	// Schema.org JSON-LD dla całej witryny - precompute schema to avoid runtime computation
 	const websiteSchema = {
 		"@context": "https://schema.org",
 		"@type": "WebSite",
@@ -192,10 +197,20 @@ export default async function LocaleLayout({
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<head>
-				<GoogleAnalytics
-					measurementId="G-5YLJH8GHZ6"
-					consent={consent}
+				{/* Preload critical resources */}
+				<link
+					rel="preload"
+					href="/images/MacBookProHero.png"
+					as="image"
+					type="image/png"
 				/>
+
+				{consent.analytics && (
+					<GoogleAnalytics
+						measurementId="G-5YLJH8GHZ6"
+						consent={consent}
+					/>
+				)}
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
@@ -207,30 +222,31 @@ export default async function LocaleLayout({
 			</head>
 			<body suppressHydrationWarning
 				className={cn(
-					" font-sans antialiased scroll-smooth",
+					"font-sans antialiased scroll-smooth",
 					"w-full",
 					fontSans.variable,
 					fontHeading.variable,
 					fontQuote.variable
 				)}
 			>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-				>
-					<NextIntlClientProvider locale={locale} messages={messages}>
-						{/* Komponent zmieniający tytuł strony, gdy użytkownik przełączy się na inną kartę */}
-						<ClientDocumentTitleWrapper defaultTitle={defaultTitle} />
-
-						{children}
+				<CacheProvider>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="system"
+						enableSystem
+						disableTransitionOnChange
+					>
+						<NextIntlClientProvider locale={locale} messages={messages}>
+							<ClientWrapper defaultTitle={defaultTitle}>
+								{children}
+							</ClientWrapper>
+						</NextIntlClientProvider>
 						<Toaster />
-						<CookieBanner />
-						<ScrollToTop />
-					</NextIntlClientProvider>
-				</ThemeProvider>
-				<Analytics />
+					</ThemeProvider>
+				</CacheProvider>
+
+				{/* Dodaj Vercel Analytics, ale tylko jeśli użytkownik wyraził zgodę */}
+				{consent.analytics && <Analytics />}
 			</body>
 		</html>
 	)
