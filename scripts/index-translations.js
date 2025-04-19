@@ -10,7 +10,14 @@ const path = require('path');
 
 // Configuration
 const messagesDir = path.join(process.cwd(), 'messages');
-const outputFile = path.join(process.cwd(), 'translation-keys.md');
+const outputFile = path.join(process.cwd(), '.cursor', 'rules', 'translation-keys.md');
+
+// Ensure output directory exists
+const outputDir = path.dirname(outputFile);
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, {recursive: true});
+  console.log(`Created output directory: ${outputDir}`);
+}
 
 // Start with the overview
 let output = `# Translation Keys Documentation

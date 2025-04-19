@@ -13,7 +13,14 @@ const {execSync} = require('child_process');
 const ignoreDirs = ['.git', '.next', 'node_modules', 'out', 'dist'];
 const ignoreFiles = ['.DS_Store', '.env.local'];
 const maxDepth = 3; // Maximum directory depth to traverse
-const outputFile = path.join(process.cwd(), 'project-structure.md');
+const outputFile = path.join(process.cwd(), '.cursor', 'rules', 'project-structure.md');
+
+// Ensure output directory exists
+const outputDir = path.dirname(outputFile);
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, {recursive: true});
+  console.log(`Created output directory: ${outputDir}`);
+}
 
 // Start with the project overview
 let output = `# Project Structure Documentation

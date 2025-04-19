@@ -1,5 +1,5 @@
 # Project Structure Documentation
-Generated: 2025-04-18T18:13:17.739Z
+Generated: 2025-04-19T13:25:18.277Z
 
 ## Overview
 This document provides a detailed overview of the project structure to help with navigation and development.
@@ -59,6 +59,12 @@ No description provided.
 - `lint`: next lint
 
 ## Directory Structure
+├── 📁 **.cursor/**
+│   └── 📁 **rules/**
+│       ├── 📚 PROJECT-DOCS.md
+│       ├── 📚 project-index.md
+│       ├── 📚 project-structure.md
+│       └── 📚 translation-keys.md
 ├── 📄 .env
 ├── 📄 .gitignore
 ├── 📄 eslint.config.mjs
@@ -70,7 +76,6 @@ No description provided.
 ├── ⚙️ package.json
 ├── ⚙️ pnpm-lock.yaml
 ├── 📄 postcss.config.mjs
-├── 📚 project-index.md
 ├── 📁 **public/**
 │   ├── 📄 android-chrome-192x192.png
 │   ├── 📄 android-chrome-512x512.png
@@ -162,7 +167,7 @@ No description provided.
 │   │   │   ├── 📁 **api/**
 │   │   │   ├── 📝 layout.tsx
 │   │   │   ├── 📝 metadata.ts
-│   │   │   ├── 📝 opengraph-image.tsx
+│   │   │   ├── 📁 **og-preview/**
 │   │   │   ├── 📝 page.tsx
 │   │   │   └── 📝 twitter-image.tsx
 │   │   └── 📁 **_actions/**

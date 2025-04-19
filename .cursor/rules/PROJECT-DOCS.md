@@ -1,6 +1,6 @@
 # Project Documentation Guide
 
-This repository includes several documentation files to help you navigate and understand the project structure.
+This repository includes several documentation files to help you navigate and understand the project structure. These files are now stored in the `.cursor/rules` directory for better organization.
 
 ## Documentation Files
 
@@ -34,6 +34,14 @@ Use `translation-keys.md` to:
 - Understand the translation key hierarchy
 - Learn how to implement translations in different contexts
 
+## File Locations
+
+All documentation files are now stored in the `.cursor/rules` directory:
+- `.cursor/rules/PROJECT-DOCS.md` (this file)
+- `.cursor/rules/project-index.md`
+- `.cursor/rules/translation-keys.md`
+- `.cursor/rules/project-structure.md` (to be generated)
+
 ## Regenerating Documentation
 
 To regenerate the documentation, run:
@@ -45,6 +53,8 @@ node scripts/index-project.js
 # Generate translations documentation
 node scripts/index-translations.js
 ```
+
+Be sure to update the output paths in these scripts to write to the `.cursor/rules` directory.
 
 ## Best Practices
 

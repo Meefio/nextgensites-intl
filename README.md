@@ -1,5 +1,16 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Project Documentation
+
+This project contains documentation files in the `.cursor/rules` directory:
+
+- `.cursor/rules/PROJECT-DOCS.md` - Overview of documentation structure
+- `.cursor/rules/project-index.md` - High-level project overview
+- `.cursor/rules/project-structure.md` - Detailed directory structure
+- `.cursor/rules/translation-keys.md` - Translation keys and usage
+
+Please refer to these files for detailed project information.
+
 ## Getting Started
 
 First, run the development server:
