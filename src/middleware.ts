@@ -11,14 +11,12 @@ import {
 
 // Create the next-intl middleware with performance optimizations
 const intlMiddleware = createMiddleware({
+   // Spread the routing config
    ...routing,
    // Default locale shouldn't have a prefix
    localePrefix: 'as-needed',
-   // Enable locale detection (but configure the cookie in a different way)
-   localeDetection: true,
-   // Use cookie configuration options directly
-   cookieName: 'NEXT_LOCALE',
-   cookieMaxAge: LOCALE_COOKIE_MAX_AGE
+   // Enable locale detection
+   localeDetection: true
 });
 
 // Handle redirects efficiently using a map lookup instead of conditional logic
@@ -50,8 +48,19 @@ export default function middleware(request: NextRequest) {
    const redirectResponse = handleRedirects(request);
    if (redirectResponse) return redirectResponse;
 
-   // Add cache headers to static resources
+   // Get response from next-intl middleware
    const response = intlMiddleware(request);
+
+   // Set cookie with longer expiration if we detect a locale
+   if (request.cookies.has('NEXT_LOCALE')) {
+      const locale = request.cookies.get('NEXT_LOCALE')?.value;
+      if (locale) {
+         response.cookies.set('NEXT_LOCALE', locale, {
+            maxAge: LOCALE_COOKIE_MAX_AGE,
+            path: '/'
+         });
+      }
+   }
 
    // Set immutable cache headers for static assets
    if (pathname.startsWith('/_next/static/') ||
