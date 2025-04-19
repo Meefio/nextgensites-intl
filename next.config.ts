@@ -9,6 +9,19 @@ const withBundleAnalyzer = process.env.ANALYZE === 'true'
   : (config: NextConfig) => config;
 
 const nextConfig: NextConfig = {
+  // Set environment variables
+  env: {
+    NEXT_PUBLIC_ENV: process.env.NODE_ENV
+  },
+  // Enable React strict mode for better development experience
+  reactStrictMode: true,
+  // Disable logging completely to prevent console spam
+  logging: false,
+  // Disable development logging completely to reduce noise
+  onDemandEntries: {
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
+  },
   images: {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 64, 96, 128, 256, 384],
@@ -38,6 +51,10 @@ const nextConfig: NextConfig = {
       '@radix-ui/react-switch',
       '@radix-ui/react-toast',
     ],
+    // Track only the most important metrics to reduce overhead
+    // LCP is the most important metric for user experience
+    // CLS is important for layout stability
+    webVitalsAttribution: ['LCP', 'CLS'],
   },
   staticPageGenerationTimeout: 180,
   output: 'standalone',
