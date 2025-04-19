@@ -35,7 +35,7 @@ export function Faq() {
           <Accordion type="single" collapsible>
             {firstHalf.map((key) => (
               <AccordionItem key={key} value={key}>
-                <AccordionTrigger className="py-4 text-left text-base hover:no-underline">
+                <AccordionTrigger className="py-4 text-left text-base hover:no-underline" id={`faq-question-${key}`}>
                   {t(`questions.${key}.question`)}
                 </AccordionTrigger>
                 <AccordionContent className="text-base text-muted-foreground pt-2 pb-4">
@@ -45,8 +45,8 @@ export function Faq() {
             ))}
             <div className="md:hidden">
               {secondHalf.map((key) => (
-                <AccordionItem key={key} value={key}>
-                  <AccordionTrigger className="py-4 text-left text-base hover:no-underline">
+                <AccordionItem key={`mobile-${key}`} value={`mobile-${key}`}>
+                  <AccordionTrigger className="py-4 text-left text-base hover:no-underline" id={`faq-question-mobile-${key}`}>
                     {t(`questions.${key}.question`)}
                   </AccordionTrigger>
                   <AccordionContent className="text-base text-muted-foreground pt-2 pb-4">
@@ -66,7 +66,7 @@ export function Faq() {
           <Accordion type="single" collapsible>
             {secondHalf.map((key) => (
               <AccordionItem key={key} value={key}>
-                <AccordionTrigger className="py-4 text-left text-base hover:no-underline">
+                <AccordionTrigger className="py-4 text-left text-base hover:no-underline" id={`faq-question-${key}`}>
                   {t(`questions.${key}.question`)}
                 </AccordionTrigger>
                 <AccordionContent className="text-base text-muted-foreground pt-2 pb-4">

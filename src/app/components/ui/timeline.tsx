@@ -86,15 +86,16 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 							<div className='h-14 absolute left-3 w-10 rounded-full bg-background flex items-center justify-center'>
 								<div className='h-4 w-4 rounded-full bg-muted-foreground p-2' />
 							</div>
-							<motion.h3
+							<motion.div
 								initial={{ opacity: 0 }}
 								whileInView={{ opacity: 1 }}
 								viewport={{ once: true, margin: "-20%" }}
 								transition={{ duration: 0.5 }}
 								className='hidden md:block text-lg md:pl-20 md:text-lg font-bold text-muted-foreground'
+								aria-hidden="true"
 							>
 								{item.title}
-							</motion.h3>
+							</motion.div>
 						</motion.div>
 
 						<motion.div
@@ -109,7 +110,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 								whileInView={{ opacity: 1 }}
 								viewport={{ once: true, margin: "-20%" }}
 								transition={{ duration: 0.5 }}
-								className='-mt-[14px] md:hidden block text-lg mb-4 text-left font-bold text-muted-foreground'
+								className='-mt-[14px] text-lg mb-4 text-left font-bold text-muted-foreground'
+								id={`timeline-step-${index}`}
 							>
 								{item.title}
 							</motion.h3>
@@ -118,6 +120,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 								whileInView={{ opacity: 1 }}
 								viewport={{ once: true, margin: "-20%" }}
 								transition={{ duration: 0.5 }}
+								aria-labelledby={`timeline-step-${index}`}
 							>
 								{item.content}
 							</motion.div>

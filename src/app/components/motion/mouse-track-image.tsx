@@ -11,6 +11,7 @@ interface MouseTrackImageProps {
   title: string
   quality?: number
   sizes?: string
+  priority?: boolean
 }
 
 export function MouseTrackImage({
@@ -20,7 +21,8 @@ export function MouseTrackImage({
   height,
   title,
   quality = 75,
-  sizes,
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+  priority = false,
 }: MouseTrackImageProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
@@ -50,6 +52,12 @@ export function MouseTrackImage({
         height={height}
         quality={quality}
         sizes={sizes}
+        priority={priority}
+        loading={priority ? "eager" : "lazy"}
+        style={{
+          maxWidth: "100%",
+          height: "auto",
+        }}
       />
     </div>
   )

@@ -111,7 +111,8 @@ export function Hero() {
 						title='Przykład nowoczesnej strony internetowej'
 						width={608}
 						height={368}
-						quality={100}
+						quality={80}
+						priority={true}
 						sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1482px'
 					/>
 					<div className='absolute inset-0 -z-10 bg-primary/20 [filter:blur(180px)]' />

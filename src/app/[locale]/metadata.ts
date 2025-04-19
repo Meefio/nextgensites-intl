@@ -5,9 +5,9 @@ export const metadata = (locale: string): Metadata => ({
   metadataBase: new URL('https://nextgensites.pl'),
   referrer: 'origin-when-cross-origin',
   formatDetection: {
-    email: true,
-    address: true,
-    telephone: true,
+    email: false,
+    address: false,
+    telephone: false,
   },
   robots: {
     index: true,
@@ -25,13 +25,13 @@ export const metadata = (locale: string): Metadata => ({
   alternates: {
     canonical: createCanonicalUrl('/', locale),
     languages: {
-      'pl-PL': createCanonicalUrl('/', 'pl'),
-      'en-US': createCanonicalUrl('/', 'en'),
+      'pl': createCanonicalUrl('/', 'pl'),
+      'en': createCanonicalUrl('/', 'en'),
     },
   },
   openGraph: {
     type: 'website',
-    locale: locale === 'pl' ? 'pl_PL' : 'en_US',
+    locale: locale === 'pl' ? 'pl' : 'en',
     url: createCanonicalUrl('/', locale),
     siteName: 'NextGen Sites',
     images: [
