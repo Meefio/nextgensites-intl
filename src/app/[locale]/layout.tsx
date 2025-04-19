@@ -203,6 +203,7 @@ export default async function LocaleLayout({
 					href="/images/MacBookProHero.png"
 					as="image"
 					type="image/png"
+					fetchPriority="high"
 				/>
 
 				{consent.analytics && (

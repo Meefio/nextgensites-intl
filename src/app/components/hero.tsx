@@ -119,7 +119,7 @@ export function Hero({ locale: propLocale, priorityImage = true }: HeroProps) {
 						height={368}
 						quality={80}
 						priority={priorityImage}
-						sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1482px'
+						sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 608px'
 					/>
 					<div className='absolute inset-0 -z-10 bg-primary/20 [filter:blur(180px)]' />
 

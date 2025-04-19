@@ -58,6 +58,7 @@ export function MouseTrackImage({
           maxWidth: "100%",
           height: "auto",
         }}
+        fetchPriority={priority ? "high" : "auto"}
       />
     </div>
   )
