@@ -1,9 +1,10 @@
 'use client'
-import { CSSProperties } from "react";
-import { usePromoStatus } from "../client-countdown-timer";
+import { CSSProperties, useEffect, useState } from "react";
 import { useTranslations } from 'next-intl';
-
 import { cn } from "@/lib/utils";
+
+// Import from our new server component
+import { isPromoActive as checkPromoActive } from "../promo-status";
 
 interface TextShimmerProps {
   className?: string;
@@ -12,9 +13,15 @@ interface TextShimmerProps {
 
 export function TextShimmer({ className, shimmerWidth = 100 }: TextShimmerProps) {
   const t = useTranslations('Pricing');
-  const isPromoActive = usePromoStatus();
+  // Initialize with server-side value but then check client-side to handle potential time differences
+  const [promoActive, setPromoActive] = useState(checkPromoActive());
 
-  const displayText = isPromoActive
+  useEffect(() => {
+    // Recheck on client side to ensure correct time-based rendering
+    setPromoActive(checkPromoActive());
+  }, []);
+
+  const displayText = promoActive
     ? t('promoHeader')
     : t('shimmer');
 

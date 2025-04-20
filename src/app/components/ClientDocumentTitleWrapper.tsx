@@ -2,9 +2,9 @@
 
 import dynamic from 'next/dynamic';
 
-// Dynamiczne importowanie komponentu zmiany tytułu
+// Dynamically import the title changer component
 const BetterTitleChanger = dynamic(
-  () => import('./BetterTitleChanger'),
+  () => import('./BetterTitleChanger').then(mod => mod.default),
   { ssr: false }
 );
 
@@ -12,8 +12,10 @@ interface ClientDocumentTitleWrapperProps {
   defaultTitle?: string;
 }
 
-export default function ClientDocumentTitleWrapper({ defaultTitle = 'NextGenSites' }: ClientDocumentTitleWrapperProps) {
+export function ClientDocumentTitleWrapper({ defaultTitle = 'NextGenSites' }: ClientDocumentTitleWrapperProps) {
   // Usuwamy efekt ustawiający tytuł na początku, aby nie nadpisywał tytułu ustawionego przez metadane
 
   return <BetterTitleChanger defaultTitle={defaultTitle} />;
-} 
+}
+
+export default ClientDocumentTitleWrapper; 

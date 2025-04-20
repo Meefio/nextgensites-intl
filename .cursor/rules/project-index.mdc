@@ -1,7 +1,12 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
 # NextGenSites Project Index
 
 ## Project Overview
-This is a Next.js 15 project using:
+This is a Next.js 15.1.6 project using:
 - next-intl for internationalization
 - Tailwind CSS for styling
 - React 19
@@ -15,6 +20,7 @@ This is a Next.js 15 project using:
 - `/src/app`: Main application code
 - `/src/app/[locale]`: Language-specific routes
 - `/src/app/components`: UI components
+- `/src/app/components/pricing`: Pricing-related components
 - `/src/i18n`: Internationalization configuration
 - `/messages`: Translation message files
 - `/public`: Static assets
@@ -27,6 +33,7 @@ Check `.env` for environment variables.
 - `tailwind.config.ts`: Tailwind CSS configuration
 - `src/middleware.ts`: Handles internationalization routing
 - `src/i18n/routing.ts`: i18n routing configuration
+- `src/app/components/promo-status.ts`: Core utility for time-based promotions
 
 ## Build Commands
 - `pnpm dev`: Run development server with Turbopack
@@ -38,8 +45,8 @@ Check `.env` for environment variables.
 This project uses:
 - Project has routing '/' for Polish content and '/en' for english content. For eg. 'https://nextgensites.pl/strona-internetowa-dla-firmy-sprzatajacej' and 'https://nextgensites.pl/en/cleaning-company-website'
 - App Router for routing
-- Server Components for server-rendered content
-- Client Components where interactivity is needed
+- Server Components for server-rendered content (especially for pricing section)
+- Client Components where interactivity is needed (animations, countdown seconds)
 - i18n routing for multilingual support
 
 ## Core Features
@@ -47,10 +54,13 @@ This project uses:
 - Responsive design with Tailwind CSS
 - Type-safe code with TypeScript
 - Modern UI components
+- Server-first architecture for optimal performance
 
 ## Best Practices for Changes
 1. Check existing components before creating new ones
 2. Follow the established code patterns
 3. Use the internationalization system for all user-facing text
 4. Keep components single-purpose
-5. Follow the established directory structure 
+5. Follow the established directory structure
+6. Prefer server components over client components when possible
+7. Use minimal client components for interactive elements

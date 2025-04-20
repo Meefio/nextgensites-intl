@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 
 const CookieBanner = dynamic(() => import('@/app/components/cookie-banner').then(mod => mod.CookieBanner), { ssr: false })
 const ScrollToTop = dynamic(() => import('@/app/components/ScrollToTop').then(mod => mod.ScrollToTop), { ssr: false })
-const ClientDocumentTitleWrapper = dynamic(() => import('@/app/components/ClientDocumentTitleWrapper'), { ssr: false })
+const ClientDocumentTitleWrapper = dynamic(() => import('@/app/components/ClientDocumentTitleWrapper').then(mod => mod.default), { ssr: false })
 
 // Optimized WebVitals component that only loads in development with minimal overhead
 const WebVitals = process.env.NODE_ENV === 'development'

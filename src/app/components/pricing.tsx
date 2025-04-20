@@ -5,9 +5,10 @@ import { Button } from '@/app/components/ui/button'
 import Link from 'next/link'
 // import { Switch } from '@/app/components/ui/switch'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
-import { CountdownTimer } from '@/app/components/client-countdown-timer'
-import { ClientPriceDisplay } from './client-price-display'
-import { ClientPromoHeader } from './client-promo-header'
+import { PriceDisplay } from './price-display'
+import { PromoHeader } from './promo-header'
+import { CountdownTimer } from './countdown-timer'
+import { ClientAnimatedWrapper, ClientAnimatedCard, ClientAnimatedCosts } from './pricing/client-animated-pricing'
 
 export function Pricing() {
 	const t = useTranslations('Pricing')
@@ -51,7 +52,7 @@ export function Pricing() {
 			className='w-full bg-[#0c0c0c] dark:bg-background py-16 md:py-28 scroll-mt-header mt-14 md:mt-20 rounded-lg'
 		>
 			<div className='container flex flex-col items-center gap-6 sm:gap-7'>
-				<AnimatedElement className='flex flex-col gap-3'>
+				<ClientAnimatedWrapper className='flex flex-col gap-3'>
 					<span className='font-bold uppercase text-primary text-center'>
 						{t('why')}
 					</span>
@@ -61,9 +62,9 @@ export function Pricing() {
 					<p className='text-lg text-gray-300 text-balance max-w-lg text-center'>
 						{t('subheading')}
 					</p>
-					<ClientPromoHeader />
+					<PromoHeader />
 					<CountdownTimer />
-				</AnimatedElement>
+				</ClientAnimatedWrapper>
 
 				{/* <AnimatedElement className='flex items-center gap-2 mt-4'>
 					<span
@@ -93,10 +94,10 @@ export function Pricing() {
 				</AnimatedElement> */}
 
 				<div className='mt-7 grid w-full grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3'>
-					{plans.map((plan, index) => (
-						<AnimatedElement
+					{plans.map((plan) => (
+						<ClientAnimatedCard
 							key={plan.key}
-							delay={typeof window !== 'undefined' && window.innerWidth >= 768 ? index * 0.2 : 0}
+							delay={0}
 						>
 							<Card
 								className={`relative h-full shadow-lg bg-zinc-900 ${plan.isPopular ? 'border-2 border-primary' : 'border-zinc-800'}`}
@@ -119,7 +120,7 @@ export function Pricing() {
 											<span>{plan.timeframe}</span>
 										</div>
 										<div className='mt-5  text-[#e0e0e0]'>
-											<ClientPriceDisplay plan={plan} />
+											<PriceDisplay plan={plan} />
 										</div>
 										<div className='hidden md:block mt-6 w-full'>
 											<Button size='lg' asChild className='w-full bg-primary hover:bg-primary/90'>
@@ -177,11 +178,11 @@ export function Pricing() {
 									</div>
 								</CardContent>
 							</Card>
-						</AnimatedElement>
+						</ClientAnimatedCard>
 					))}
 				</div>
 
-				<AnimatedElement className='mt-10 md:mt-16 max-w-4xl mx-auto'>
+				<ClientAnimatedCosts>
 					<div className='bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 md:p-8'>
 						<h3 className='text-xl md:text-2xl font-semibold text-white text-center mb-4'>{t('maintenanceCosts.heading')}</h3>
 						<p className='text-gray-200 text-center text-lg mb-6'>{t('maintenanceCosts.description')}</p>
@@ -208,7 +209,7 @@ export function Pricing() {
 							</div>
 						</div>
 					</div>
-				</AnimatedElement>
+				</ClientAnimatedCosts>
 			</div>
 		</section>
 	)

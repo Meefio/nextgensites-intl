@@ -25,8 +25,11 @@ export function MouseTrackImage({
   priority = false,
 }: MouseTrackImageProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
+
     const handleMouseMove = (e: MouseEvent) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 2
       const y = (e.clientY / window.innerHeight - 0.5) * 2
@@ -58,7 +61,7 @@ export function MouseTrackImage({
           maxWidth: "100%",
           height: "auto",
         }}
-        fetchPriority={priority ? "high" : "auto"}
+        {...(isMounted && priority ? { fetchPriority: "high" } : {})}
       />
     </div>
   )
