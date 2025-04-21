@@ -1,3 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
 # Project Structure Documentation
 Generated: 2025-04-19T13:25:18.277Z
 
@@ -182,7 +187,6 @@ No description provided.
 │   └── 📝 middleware.ts
 ├── 📝 tailwind.config.ts
 └── ⚙️ tsconfig.json
-
 ## Key Files
 - `next.config.ts`: Configuration for next
 - `tailwind.config.ts`: Configuration for tailwind

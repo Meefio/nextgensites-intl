@@ -1,3 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
 # Translation Keys Documentation
 Generated: 2025-04-19T13:23:28.086Z
 
@@ -712,7 +717,6 @@ export default function MyClientComponent() {
 ### In Server Actions
 ```tsx
 import {getTranslations} from 'next-intl/server';
-
 export async function myAction() {
   'use server';
   const t = await getTranslations('Namespace');

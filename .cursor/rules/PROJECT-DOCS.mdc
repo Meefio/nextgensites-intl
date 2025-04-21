@@ -1,3 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
 # Project Documentation Guide
 
 This repository includes several documentation files to help you navigate and understand the project structure. These files are now stored in the `.cursor/rules` directory for better organization.
@@ -61,5 +66,4 @@ Be sure to update the output paths in these scripts to write to the `.cursor/rul
 1. **Keep Documentation Updated** - After making significant changes to the project structure or translations, regenerate the documentation.
 
 2. **Reference Documentation** - When working on the project, refer to these documentation files to understand conventions and patterns.
-
 3. **Send Documentation Links** - When sharing the project with someone new, point them to these documentation files first. 
