@@ -1,6 +1,4 @@
-'use client'
-
-import { usePromoStatus } from './client-countdown-timer'
+import { isPromoActive } from './promo-status'
 import { useTranslations } from 'next-intl'
 
 type PlanType = {
@@ -9,11 +7,11 @@ type PlanType = {
   promoPrice?: string
 }
 
-export const ClientPriceDisplay = ({ plan }: { plan: PlanType }) => {
+export function PriceDisplay({ plan }: { plan: PlanType }) {
   const t = useTranslations('Pricing')
-  const isPromoActive = usePromoStatus()
+  const promoActive = isPromoActive()
 
-  if (plan.key === 'premium' || !isPromoActive) {
+  if (plan.key === 'premium' || !promoActive) {
     return (
       <div className='relative h-[60px] flex items-center justify-center'>
         <span className='font-heading text-2xl text-center font-semibold'>

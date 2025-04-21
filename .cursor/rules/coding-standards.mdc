@@ -1,0 +1,142 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Coding Standards
+Generated: 2025-04-20
+
+This document outlines the coding standards and best practices to follow when working on this project.
+
+## General Principles
+
+- **DRY (Don't Repeat Yourself)**: Avoid code duplication by extracting reusable logic.
+- **Early Returns**: Use early returns to reduce nesting and improve readability.
+- **Readability Over Performance**: Prioritize clear, readable code over micro-optimizations.
+- **Single Responsibility**: Each component, function, or module should have a single responsibility.
+
+## Naming Conventions
+
+- **Components**: PascalCase (e.g., `Header.tsx`, `ContactForm.tsx`)
+- **Hooks**: camelCase with `use` prefix (e.g., `usePageVisibility`, `useToast`)
+- **Event Handlers**: camelCase with `handle` prefix (e.g., `handleClick`, `handleSubmit`)
+- **Files**: kebab-case for general files, PascalCase for React components
+- **Variables**: Descriptive names in camelCase
+- **Constants**: All uppercase with underscores for global constants (e.g., `MAX_COUNT`)
+
+## TypeScript Usage
+
+- Use TypeScript interfaces/types for component props
+- Define the return type of functions, especially for utility functions
+- Use enums for predefined sets of values
+- Prefer interfaces for public APIs and types for complex types
+- Avoid using `any` type - use `unknown` or proper types instead
+
+## React & Next.js Patterns
+
+- Use Server Components wherever possible
+- Only switch to Client Components when needed for interactivity
+- Leverage the App Router for routing
+- Prefer using React Context for state that needs to be shared across components
+- Use custom hooks to encapsulate and reuse stateful logic
+
+## Component Structure
+
+- Use functional components with hooks
+- Organize imports in this order:
+  1. React and Next.js imports
+  2. Third-party library imports
+  3. Project imports (components, utilities, types)
+  4. CSS/style imports
+- Destructure props when beneficial for readability
+- Keep components focused on a single responsibility
+
+```tsx
+// Example component structure
+import { useState } from 'react';
+import { useTranslations } from 'next-intl';
+
+import { Button } from '@/components/ui/button';
+import { formatDate } from '@/lib/utils';
+import type { User } from '@/types';
+
+interface UserProfileProps {
+  user: User;
+  isEditable?: boolean;
+}
+
+export function UserProfile({ user, isEditable = false }: UserProfileProps) {
+  const t = useTranslations('UserProfile');
+  const [isEditing, setIsEditing] = useState(false);
+  
+  const handleEditClick = () => setIsEditing(true);
+  
+  return (
+    // Component JSX
+  );
+}
+```
+
+## CSS & Styling
+
+- Use Tailwind CSS for all styling
+- Follow mobile-first responsive design principles
+- Use `class:` conditional syntax instead of ternary operators where appropriate
+- Leverage Tailwind's utility classes for consistent spacing, colors, and typography
+- Use CSS variables for theme values
+
+## Accessibility
+
+- Include proper ARIA attributes on interactive elements
+- Ensure proper keyboard navigation by adding `tabIndex`, `onKeyDown` handlers
+- Use semantic HTML elements (`button` for buttons, `a` for links, etc.)
+- Maintain sufficient color contrast ratios
+- Provide alternative text for images
+
+## Internationalization
+
+- Use the `next-intl` hooks for all user-facing text
+- Follow the established translation key hierarchy
+- Avoid hardcoded strings in components
+- Use interpolation for dynamic values in translations
+- Ensure all new UI elements have corresponding translation keys
+
+## State Management
+
+- Use React's built-in state management (useState, useReducer) for component-level state
+- Use Context API for shared state across components
+- Keep state as close as possible to where it's used
+- Use React Query for server state management
+
+## Error Handling
+
+- Implement proper error boundaries
+- Use try/catch blocks for async operations
+- Provide meaningful error messages to users
+- Log errors for debugging purposes
+
+## Performance Considerations
+
+- Memoize expensive calculations with useMemo
+- Prevent unnecessary re-renders with useCallback for event handlers
+- Use image optimization techniques with Next.js Image component
+- Implement proper loading states and skeleton loaders
+- Employ code splitting and lazy loading for large components
+
+## Testing
+
+- Write unit tests for utilities and hooks
+- Write component tests for key UI components
+- Test both success and error paths
+- Mock external dependencies
+
+## Code Reviews
+
+- Ensure code meets all standards in this document
+- Verify all tests pass
+- Check for potential edge cases
+- Review for accessibility compliance
+- Verify translations are properly implemented
+
+
+

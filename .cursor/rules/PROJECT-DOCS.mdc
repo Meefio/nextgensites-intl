@@ -9,17 +9,23 @@ This repository includes several documentation files to help you navigate and un
 
 ## Documentation Files
 
-1. **project-index.md** - A high-level overview of the project, its dependencies, and best practices.
+1. **project-index.mdc** - A high-level overview of the project, its dependencies, and best practices.
 
-2. **project-structure.md** - Detailed documentation of the project structure, generated automatically.
+2. **project-structure.mdc** - Detailed documentation of the project structure, generated automatically.
 
-3. **translation-keys.md** - A comprehensive list of translation keys used in the project.
+3. **translation-keys.mdc** - A comprehensive list of translation keys used in the project.
+
+4. **coding-standards.mdc** - Guidelines for code style, patterns, and best practices.
+
+5. **contribution-guide.mdc** - Information about development workflow and process.
+
+6. **deployment.mdc** - Details about deployment processes and environments.
 
 ## How to Use
 
 ### For Project Overview
 
-Read `project-index.md` for a quick understanding of:
+Read `project-index.mdc` for a quick understanding of:
 - Key technologies used
 - Directory structure
 - Build commands
@@ -27,25 +33,35 @@ Read `project-index.md` for a quick understanding of:
 
 ### For Detailed Structure
 
-Use `project-structure.md` to understand:
+Use `project-structure.mdc` to understand:
 - Complete directory tree
 - Dependencies
 - Key configuration files
 
 ### For Translations
 
-Use `translation-keys.md` to:
+Use `translation-keys.mdc` to:
 - See all available translations
 - Understand the translation key hierarchy
 - Learn how to implement translations in different contexts
 
+### For Development
+
+Use `coding-standards.mdc` and `contribution-guide.mdc` to:
+- Follow the project's coding standards
+- Understand the development workflow
+- Learn how to contribute to the project
+
 ## File Locations
 
 All documentation files are now stored in the `.cursor/rules` directory:
-- `.cursor/rules/PROJECT-DOCS.md` (this file)
-- `.cursor/rules/project-index.md`
-- `.cursor/rules/translation-keys.md`
-- `.cursor/rules/project-structure.md` (to be generated)
+- `.cursor/rules/PROJECT-DOCS.mdc` (this file)
+- `.cursor/rules/project-index.mdc`
+- `.cursor/rules/translation-keys.mdc`
+- `.cursor/rules/project-structure.mdc`
+- `.cursor/rules/coding-standards.mdc`
+- `.cursor/rules/contribution-guide.mdc`
+- `.cursor/rules/deployment.mdc`
 
 ## Regenerating Documentation
 

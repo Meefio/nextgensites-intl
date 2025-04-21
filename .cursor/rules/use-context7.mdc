@@ -1,0 +1,40 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Use Context7 MCP for Research
+
+When assisting with this project, follow these steps before making changes or thinking through solutions:
+
+1. **Use Context7 MCP agent** to retrieve relevant documentation for any libraries, frameworks, or technologies involved in the task.
+
+2. Begin by resolving library IDs using `mcp_context7_resolve-library-id` for any technology that might be relevant to the current task, including:
+   - Next.js
+   - React
+   - TypeScript
+   - Tailwind CSS
+   - next-intl
+   - React Hook Form
+   - Zod
+   - Radix UI
+   - Framer Motion
+
+3. Once you have the library ID, use `mcp_context7_get-library-docs` to fetch current documentation.
+
+4. Only after researching the relevant documentation, proceed with analyzing the codebase and proposing solutions.
+
+5. When implementing changes, ensure they align with both the project standards documented in `.cursor/rules/coding-standards.mdc` and the latest best practices from the documentation you retrieved.
+
+6. **Suggest technology improvements**: If you discover newer tools, libraries, or approaches that could significantly improve the project in terms of:
+   - Performance
+   - Developer experience
+   - Maintainability
+   - Security
+   - User experience
+   - Accessibility
+   
+   Then propose these improvements to the user. Explain the benefits, potential migration effort, and compatibility with the existing codebase.
+
+This approach will ensure that all suggestions and implementations are based on current best practices and accurate documentation for the technologies used in this project.
+

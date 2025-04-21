@@ -1,0 +1,158 @@
+---
+description: Deploy the project. Push changes to the git. Deploy.
+globs: 
+alwaysApply: false
+---
+# Deployment Documentation
+Generated: 2025-04-20
+
+This document provides information about the deployment processes and environments for the project.
+
+## Environments
+
+| Environment | URL                                | Branch   | Purpose                      |
+|-------------|-----------------------------------|----------|------------------------------|
+| Production  | https://nextgensites.pl           | main     | Live customer-facing site    |
+| Staging     | https://staging.nextgensites.pl   | develop  | Pre-release testing          |
+| Development | localhost:3000                    | feature/* | Local development            |
+
+## Infrastructure
+
+The project is deployed on Vercel with the following configuration:
+
+- **Framework Preset**: Next.js
+- **Node.js Version**: 20.x
+- **Build Command**: `pnpm build`
+- **Install Command**: `pnpm install`
+- **Output Directory**: `.next`
+
+## Environment Variables
+
+The following environment variables are required for deployment:
+
+| Variable                  | Description                        | Required in Production |
+|---------------------------|------------------------------------|------------------------|
+| NEXT_PUBLIC_SITE_URL      | Base URL for the website           | Yes                    |
+| RESEND_API_KEY            | API key for Resend email service   | Yes                    |
+| CONTACT_EMAIL             | Email address for contact form     | Yes                    |
+| NEXT_PUBLIC_ANALYTICS_ID  | Analytics service ID               | Yes                    |
+
+## Deployment Process
+
+### Automated Deployments
+
+1. **Push to Feature Branch**: Creates a preview deployment on Vercel.
+2. **Merge to Develop**: Automatically deploys to the staging environment.
+3. **Merge to Main**: Automatically deploys to the production environment.
+
+### Manual Deployments
+
+In case of emergency, manual deployments can be triggered from the Vercel dashboard:
+
+1. Go to the Vercel project dashboard.
+2. Select the appropriate branch.
+3. Click "Deploy" or "Redeploy".
+
+## Release Checklist
+
+Before deploying to production, ensure:
+
+- [ ] All tests pass in the CI/CD pipeline
+- [ ] The staging environment has been thoroughly tested
+- [ ] All translations are complete and accurate
+- [ ] Performance metrics are acceptable (Core Web Vitals)
+- [ ] SEO metadata is properly set up
+- [ ] Analytics tracking is working correctly
+- [ ] Forms and interactive elements function as expected
+- [ ] Responsive design works on all target devices
+
+## Rollback Procedure
+
+If issues are discovered in production:
+
+1. Go to the Vercel dashboard.
+2. Navigate to the "Deployments" tab.
+3. Find the last stable deployment.
+4. Click the three-dot menu and select "Promote to Production".
+
+## Monitoring
+
+The production environment is monitored using:
+
+- Vercel Analytics for performance monitoring
+- Sentry for error tracking
+- Google Analytics for user behavior tracking
+
+## Database Backups
+
+N/A - This project does not use a database. All content is stored as follows:
+- Static content directly in components
+- Translation strings in JSON files (`/messages/en.json` and `/messages/pl.json`)
+- Form submissions are sent via email using the Resend API, not stored in a database
+- Portfolio projects and case studies are implemented as static pages
+
+## Content Management
+
+The website doesn't use an internal CMS system. Content is managed through:
+
+1. **Translation System**: All user-facing text is stored in translation files in the `/messages` directory:
+   - English text in `messages/en.json`
+   - Polish text in `messages/pl.json`
+   - Organized hierarchically by component/feature for easy maintenance
+
+2. **React Server Components**: Content is rendered using React Server Components, providing:
+   - SEO benefits of server-side rendering
+   - Static generation where appropriate
+   - Dynamic content where needed
+
+3. **Structured Data**: SEO is enhanced with extensive Schema.org JSON-LD structured data:
+   - Web page metadata
+   - Organization information
+   - Service offerings
+   - FAQ content
+   - How-to guides
+
+4. **Form Handling**: Contact form submissions are processed through:
+   - Server actions in `src/app/_actions/contact.ts`
+   - Email delivery via Resend API
+   - Form validation with Zod
+
+5. **External CMS for Portfolio Projects**: For client sites requiring CMS functionality (like the BuildWise project), Sanity CMS is used, but this is not part of the core NextGenSites project.
+
+## CDN Configuration
+
+The site uses Vercel's Edge Network as a CDN with the following configuration:
+
+- Default caching behavior
+- Static assets cached at the edge
+- API routes and dynamic pages rendered at the edge when possible
+
+## Security Considerations
+
+- SSL/TLS certificate is automatically managed by Vercel
+- HTTP security headers are configured in the middleware
+- Content Security Policy is implemented for all pages
+- CORS policies are configured for API routes
+
+## Domain Configuration
+
+- Primary domain: nextgensites.pl
+- Redirects: www.nextgensites.pl → nextgensites.pl
+- DNS is managed through the domain registrar
+
+## Performance Optimization
+
+The following optimizations are applied during deployment:
+
+- Next.js image optimization
+- CSS and JavaScript minification
+- Code splitting and tree shaking
+- Deferred loading of non-critical resources
+- Server-side rendering and static generation where appropriate
+- Schema.org JSON-LD structured data for SEO
+
+
+
+
+
+

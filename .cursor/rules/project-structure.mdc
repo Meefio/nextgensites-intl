@@ -4,7 +4,7 @@ globs:
 alwaysApply: true
 ---
 # Project Structure Documentation
-Generated: 2025-04-19T13:25:18.277Z
+Generated: 2025-04-20
 
 ## Overview
 This document provides a detailed overview of the project structure to help with navigation and development.
@@ -66,10 +66,10 @@ No description provided.
 ## Directory Structure
 ├── 📁 **.cursor/**
 │   └── 📁 **rules/**
-│       ├── 📚 PROJECT-DOCS.md
-│       ├── 📚 project-index.md
-│       ├── 📚 project-structure.md
-│       └── 📚 translation-keys.md
+│       ├── 📚 PROJECT-DOCS.mdc
+│       ├── 📚 project-index.mdc
+│       ├── 📚 project-structure.mdc
+│       └── 📚 translation-keys.mdc
 ├── 📄 .env
 ├── 📄 .gitignore
 ├── 📄 eslint.config.mjs
@@ -126,12 +126,11 @@ No description provided.
 │   │   │   ├── 📁 **animated-text-cycle/**
 │   │   │   ├── 📝 BetterTitleChanger.tsx
 │   │   │   ├── 📝 breadcrumb.tsx
-│   │   │   ├── 📝 client-countdown-timer.tsx
-│   │   │   ├── 📝 client-price-display.tsx
-│   │   │   ├── 📝 client-promo-header.tsx
+│   │   │   ├── 📝 client-seconds-display.tsx
 │   │   │   ├── 📝 ClientDocumentTitleWrapper.tsx
 │   │   │   ├── 📝 contact-form.tsx
 │   │   │   ├── 📝 cookie-banner.tsx
+│   │   │   ├── 📝 countdown-timer.tsx
 │   │   │   ├── 📝 cta.tsx
 │   │   │   ├── 📁 **emails/**
 │   │   │   ├── 📝 faq.tsx
@@ -145,7 +144,13 @@ No description provided.
 │   │   │   ├── 📁 **motion/**
 │   │   │   ├── 📁 **portfolio/**
 │   │   │   ├── 📝 portfolio-section.tsx
+│   │   │   ├── 📝 price-display.tsx
+│   │   │   ├── 📁 **pricing/**
+│   │   │   │   ├── 📝 client-animated-pricing.tsx
+│   │   │   │   └── 📝 index.ts
 │   │   │   ├── 📝 pricing.tsx
+│   │   │   ├── 📝 promo-header.tsx
+│   │   │   ├── 📝 promo-status.ts
 │   │   │   ├── 📝 ScrollToTop.tsx
 │   │   │   ├── 📝 SocialProof.tsx
 │   │   │   ├── 📝 theme-provider.tsx
@@ -188,8 +193,25 @@ No description provided.
 ├── 📝 tailwind.config.ts
 └── ⚙️ tsconfig.json
 ## Key Files
-- `next.config.ts`: Configuration for next
-- `tailwind.config.ts`: Configuration for tailwind
-- `src/middleware.ts`: Configuration for middleware
-- `src/i18n/routing.ts`: Configuration for routing
-- `.env`: Configuration for 
+- `next.config.ts`: Configuration for Next.js, including internationalization setup
+- `tailwind.config.ts`: Configuration for Tailwind CSS styling system
+- `src/middleware.ts`: Configuration for middleware that handles routing and internationalization
+- `src/i18n/routing.ts`: Configuration for internationalization routing
+- `.env`: Environment variables configuration for both development and production
+- `messages/en.json` & `messages/pl.json`: Translation message files for English and Polish languages
+- `src/app/[locale]/layout.tsx`: Main layout component with locale-specific configuration
+- `src/app/components/ui/`: Reusable UI components following the project's design system
+- `src/lib/validations/`: Validation schemas for forms and data structures
+
+## Component Structure
+- Components are organized by feature and functionality
+- UI components are placed in the `src/app/components/ui/` directory
+- Page-specific components are placed in their respective page directories
+- Animation components are placed in the `src/app/components/motion/` directory
+- Shared functionality is implemented in custom hooks in `src/app/hooks/`
+
+## Internationalization 
+- The project uses next-intl for internationalization
+- Translation keys are organized hierarchically by feature/component
+- Locale is determined by the URL route (/en for English, / for Polish)
+- Translation files are stored in the `messages/` directory
