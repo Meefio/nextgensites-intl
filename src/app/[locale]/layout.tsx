@@ -5,7 +5,7 @@ import '../globals.css'
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/app/components/theme-provider"
 import { Toaster } from "@/app/components/ui/toaster";
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from '@vercel/analytics/react';
 import { cookies } from 'next/headers';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
@@ -246,8 +246,8 @@ export default async function LocaleLayout({
 					</ThemeProvider>
 				</CacheProvider>
 
-				{/* Dodaj Vercel Analytics, ale tylko jeśli użytkownik wyraził zgodę */}
-				{consent.analytics && <Analytics />}
+				{/* Vercel Analytics - no conditional for tracking pageviews, but respects privacy */}
+				<Analytics />
 			</body>
 		</html>
 	)
