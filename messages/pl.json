@@ -861,7 +861,8 @@
     "updatedOn": "Zaktualizowano",
     "breadcrumbs": {
       "home": "Strona główna",
-      "knowledgeBase": "Baza Wiedzy"
+      "knowledgeBase": "Baza Wiedzy",
+      "article": "Artykuł"
     }
   },
   "BlogArticle": {

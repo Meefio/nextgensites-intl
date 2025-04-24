@@ -856,20 +856,21 @@
   },
   "KnowledgeBase": {
     "title": "Knowledge Base",
-    "description": "Discover articles, guides, and expert tips to help you make better decisions about your website and online presence",
+    "description": "Discover articles, guides, and expert tips to help you make better decisions about your website",
     "metadata": {
       "title": "Knowledge Base | NextGen Sites",
-      "description": "Explore our knowledge base with practical guides and tips for website development, SEO, and digital marketing."
+      "description": "Check our knowledge base with practical guides and tips on website creation, SEO, and digital marketing."
     },
-    "emptyState": "Articles coming soon! Check back later for valuable content.",
+    "emptyState": "Articles coming soon! Check back later to find valuable content.",
     "readMore": "Read more",
-    "backToList": "Back to Articles",
+    "backToList": "Back to articles",
     "relatedArticles": "Related Articles",
     "publishedOn": "Published on",
     "updatedOn": "Updated on",
     "breadcrumbs": {
       "home": "Home",
-      "knowledgeBase": "Knowledge Base"
+      "knowledgeBase": "Knowledge Base",
+      "article": "Article"
     }
   },
   "BlogArticle": {

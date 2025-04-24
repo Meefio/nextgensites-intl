@@ -1,8 +1,8 @@
-import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 import { Header } from '@/app/components/header';
 import { Footer } from '@/app/components/footer';
-import { Breadcrumb } from '@/app/components/breadcrumb';
+import { DynamicBreadcrumb } from '@/app/components/dynamic-breadcrumb';
+import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata({
   params
@@ -29,13 +29,6 @@ export default async function KnowledgeBaseLayout({
   children: React.ReactNode;
   params: { locale: string }
 }) {
-  const t = await getTranslations({ locale: params.locale, namespace: 'KnowledgeBase' });
-
-  const breadcrumbItems = [
-    { label: t('breadcrumbs.home'), href: '/' },
-    { label: t('breadcrumbs.knowledgeBase'), href: '/knowledge-base', isCurrentPage: true }
-  ];
-
   return (
     <>
       <Header />
@@ -43,7 +36,8 @@ export default async function KnowledgeBaseLayout({
       <div className="bg-gradient-to-b from-muted/50 to-background pt-10 pb-6 border-b">
         <div className="container">
           <div className="mb-6">
-            <Breadcrumb items={breadcrumbItems} locale={params.locale} />
+            {/* Using DynamicBreadcrumb to handle article detection automatically */}
+            <DynamicBreadcrumb locale={params.locale} />
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
-import { ArrowLeft, Calendar, Clock, Tag, CheckCircle2 } from 'lucide-react';
-import { Breadcrumb } from '@/app/components/breadcrumb';
+import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
+import { ContactForm } from '@/app/components/contact-form';
 
 interface BlogArticle {
   title: string;
@@ -45,6 +45,7 @@ export default async function KnowledgeBaseArticlePage({
   params: Promise<{ locale: string; slug: string }>
 }) {
   const { locale } = await params;
+
   const t = await getTranslations({ locale, namespace: 'KnowledgeBase' });
   const blogArticle = await getTranslations({ locale, namespace: 'BlogArticle.howToChooseWebsite' });
 
@@ -355,13 +356,6 @@ export default async function KnowledgeBaseArticlePage({
     `
   };
 
-  // Create breadcrumb items
-  const breadcrumbItems = [
-    { label: t('breadcrumbs.home'), href: '/' },
-    { label: t('breadcrumbs.knowledgeBase'), href: '/baza-wiedzy' },
-    { label: article.title, isCurrentPage: true }
-  ];
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
       {/* Sticky Table of Contents Sidebar */}
@@ -380,28 +374,11 @@ export default async function KnowledgeBaseArticlePage({
               </a>
             ))}
           </nav>
-
-          <div className="mt-6 p-4 border border-border rounded-lg bg-card">
-            <h4 className="font-medium text-sm mb-3">{locale === 'pl' ? 'Zapisz na później:' : 'Save for later:'}</h4>
-            <div className="flex flex-col space-y-2">
-              <button className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <CheckCircle2 className="h-4 w-4" />
-                <span>{locale === 'pl' ? 'Dodaj do zakładek' : 'Add to bookmarks'}</span>
-              </button>
-              <button className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <span className="i-lucide-share2 h-4 w-4"></span>
-                <span>{locale === 'pl' ? 'Udostępnij' : 'Share'}</span>
-              </button>
-            </div>
-          </div>
         </div>
       </aside>
 
       {/* Main Content */}
       <div className="md:col-span-9 lg:col-span-8">
-        {/* Breadcrumbs */}
-        <Breadcrumb items={breadcrumbItems} locale={locale} />
-
         {/* Back button */}
         <div className="mb-6">
           <Link
@@ -415,7 +392,7 @@ export default async function KnowledgeBaseArticlePage({
 
         {/* Article header */}
         <div className="mb-8 border-b pb-6">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{article.title}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4" data-article-title={article.title}>{article.title}</h1>
           <p className="text-xl text-muted-foreground mb-4">{article.description}</p>
 
           <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mt-4">
@@ -498,6 +475,19 @@ export default async function KnowledgeBaseArticlePage({
             </div>
           </div>
         </div>
+
+        {/* Contact form */}
+        <div className="mt-16 border-t pt-8">
+          <h3 className="text-2xl font-bold mb-6 text-center">
+            {locale === 'pl' ? 'Skontaktuj się z nami' : 'Contact us'}
+          </h3>
+          <p className="text-muted-foreground text-center max-w-3xl mx-auto mb-8">
+            {locale === 'pl'
+              ? 'Masz pytania dotyczące naszych usług lub potrzebujesz pomocy w wyborze odpowiedniej strony dla swojego biznesu? Wypełnij formularz kontaktowy poniżej, a my odezwiemy się do Ciebie najszybciej jak to możliwe.'
+              : 'Do you have questions about our services or need help choosing the right website for your business? Fill out the contact form below, and we will get back to you as soon as possible.'}
+          </p>
+          <ContactForm />
+        </div>
       </div>
 
       {/* Right sidebar with CTA */}
@@ -516,20 +506,6 @@ export default async function KnowledgeBaseArticlePage({
             >
               {locale === 'pl' ? 'Skontaktuj się' : 'Contact us'}
             </Link>
-          </div>
-
-          <div className="bg-muted/50 rounded-lg p-4">
-            <h4 className="font-medium mb-3">{locale === 'pl' ? 'Zapisz na później:' : 'Save for later:'}</h4>
-            <div className="flex flex-col space-y-2">
-              <button className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <CheckCircle2 className="h-4 w-4" />
-                <span>{locale === 'pl' ? 'Dodaj do zakładek' : 'Add to bookmarks'}</span>
-              </button>
-              <button className="flex items-center space-x-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <span className="i-lucide-share2 h-4 w-4"></span>
-                <span>{locale === 'pl' ? 'Udostępnij' : 'Share'}</span>
-              </button>
-            </div>
           </div>
         </div>
       </aside>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from '@/i18n/routing';
 import { ChevronRightIcon, HomeIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -24,6 +24,14 @@ const asPathname = (path: string) => {
 };
 
 export const Breadcrumb = ({ items, className, locale }: BreadcrumbProps) => {
+  // Use state to prevent hydration mismatch
+  const [mounted, setMounted] = useState(false);
+
+  // After hydration is complete, set mounted to true
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Generate the structured data for breadcrumbs
   const baseUrl = "https://nextgensites.pl";
   const breadcrumbStructuredData = {
@@ -37,12 +45,15 @@ export const Breadcrumb = ({ items, className, locale }: BreadcrumbProps) => {
     }))
   };
 
+  // Create a stable string representation for server-side rendering
+  const jsonLdString = JSON.stringify(breadcrumbStructuredData);
+
   return (
     <>
       {/* Structured data JSON-LD */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdString }}
       />
 
       {/* Visible breadcrumb component */}
@@ -57,7 +68,15 @@ export const Breadcrumb = ({ items, className, locale }: BreadcrumbProps) => {
                 <ChevronRightIcon className="h-4 w-4 mx-1 text-gray-400" />
               )}
 
-              {item.isCurrentPage ? (
+              {/* During SSR and initial hydration, render placeholders */}
+              {!mounted ? (
+                // Simple span to ensure consistent server/client rendering
+                <span className="inline-flex items-center">
+                  {index === 0 && <HomeIcon className="h-4 w-4 mr-1" />}
+                  {item.label}
+                </span>
+              ) : item.isCurrentPage ? (
+                // After hydration, render the real components
                 <span
                   className="inline-flex items-center font-medium text-gray-700 dark:text-gray-300"
                   aria-current="page"
