@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
+import { Link as IntlLink } from '@/i18n/routing';
 
 import { Button } from "@/app/components/ui/button";
 import { MobileNavbar } from "@/app/components/mobile-navbar";
@@ -9,9 +10,12 @@ import { ThemeSwitcher } from "@/app/components/theme-switcher";
 
 export function Header() {
   const t = useTranslations('Navigation');
+  const kbT = useTranslations('KnowledgeBase');
+
   const navigationItems = [
     { href: `/#benefits`, label: t('benefits') },
     { href: `/#portfolio`, label: t('portfolio') },
+    { href: `/baza-wiedzy`, label: kbT('title') },
     { href: `/#pricing`, label: t('pricing') },
     { href: `/#contact`, label: t('contact') }
   ];

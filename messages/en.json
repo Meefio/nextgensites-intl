@@ -750,7 +750,7 @@
       },
       "projectDescription": {
         "title": "Project Description",
-        "content": "The design combines modern aesthetics with functionality. Light and Dark mode support allows the website to automatically adapt to the user’s preferred color scheme set in their operating system. This creates a stronger impression on users who prefer dark themes, while still remaining friendly to those who favor a lighter look. The page structure was designed with readability, intuitive navigation, and quick access to key information in mind."
+        "content": "The design combines modern aesthetics with functionality. Light and Dark mode support allows the website to automatically adapt to the user's preferred color scheme set in their operating system. This creates a stronger impression on users who prefer dark themes, while still remaining friendly to those who favor a lighter look. The page structure was designed with readability, intuitive navigation, and quick access to key information in mind."
       },
       "design": {
         "title": "Design",
@@ -853,5 +853,32 @@
     "whereAreYou": "Where are you? 👀",
     "comeBack": "Come back! 🔥",
     "missYou": "Get a Premium website 🚀"
+  },
+  "KnowledgeBase": {
+    "title": "Knowledge Base",
+    "description": "Discover articles, guides, and expert tips to help you make better decisions about your website and online presence",
+    "metadata": {
+      "title": "Knowledge Base | NextGen Sites",
+      "description": "Explore our knowledge base with practical guides and tips for website development, SEO, and digital marketing."
+    },
+    "emptyState": "Articles coming soon! Check back later for valuable content.",
+    "readMore": "Read more",
+    "backToList": "Back to Articles",
+    "relatedArticles": "Related Articles",
+    "publishedOn": "Published on",
+    "updatedOn": "Updated on",
+    "breadcrumbs": {
+      "home": "Home",
+      "knowledgeBase": "Knowledge Base"
+    }
+  },
+  "BlogArticle": {
+    "howToChooseWebsite": {
+      "title": "How to Choose the Right Website for Your Business",
+      "description": "A comprehensive guide to help you make informed decisions when selecting a website solution for your business in 2025.",
+      "publishDate": "April 21, 2025",
+      "category": "Business",
+      "readingTime": "5 min read"
+    }
   }
 }

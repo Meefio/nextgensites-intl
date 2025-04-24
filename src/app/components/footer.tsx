@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 
 export function Footer() {
   const t = useTranslations('Footer');
+  const kbT = useTranslations('KnowledgeBase');
 
   return (
     <footer className="container max-w-6xl mt-10 flex flex-wrap justify-between pb-16 pt-10 ">
@@ -43,6 +44,9 @@ export function Footer() {
         <Link href="/#portfolio" className="text-sm text-muted-foreground hover:text-foreground">
           Portfolio
         </Link>
+        <Link href="/baza-wiedzy" className="text-sm text-muted-foreground hover:text-foreground">
+          {kbT('title')}
+        </Link>
         <Link href="/#proces" className="text-sm text-muted-foreground hover:text-foreground">
           {t('process')}
         </Link>
@@ -78,7 +82,7 @@ export function Footer() {
         <Link href="/polityka-prywatnosci" className="text-sm text-muted-foreground hover:text-foreground">
           {t('privacy')}
         </Link>
-        <Link  href="/regulamin" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link href="/regulamin" className="text-sm text-muted-foreground hover:text-foreground">
           {t('terms')}
         </Link>
         <Link href="/rodo" className="text-sm text-muted-foreground hover:text-foreground">

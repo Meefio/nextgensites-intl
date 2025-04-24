@@ -29,6 +29,14 @@ export const routing = defineRouting({
     '/strona-internetowa-dla-firmy-budowlano-remontowej': {
       pl: '/strona-internetowa-dla-firmy-budowlano-remontowej',
       en: '/construction-and-renovation-company-website'
+    },
+    '/baza-wiedzy': {
+      pl: '/baza-wiedzy',
+      en: '/knowledge-base'
+    },
+    '/baza-wiedzy/[slug]': {
+      pl: '/baza-wiedzy/[slug]',
+      en: '/knowledge-base/[slug]'
     }
   }
 });

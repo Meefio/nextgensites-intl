@@ -3,9 +3,11 @@
 import { Menu, X } from 'lucide-react'
 import { ReactNode, useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 
 export function MobileNavbar({ children }: { children: ReactNode }) {
 	const t = useTranslations('Navigation')
+	const kbT = useTranslations('KnowledgeBase')
 	const [isOpen, setIsOpen] = useState(false)
 
 	useEffect(() => {
@@ -50,6 +52,24 @@ export function MobileNavbar({ children }: { children: ReactNode }) {
 					className='fixed inset-0 top-[50px] z-40 size-full overflow-auto bg-black/40 animate-in slide-in-from-bottom-24 xl:hidden'
 					onClick={() => setIsOpen(false)}
 				>
+					<Link
+						href="/#portfolio"
+						className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
+					>
+						{t('portfolio')}
+					</Link>
+					<Link
+						href="/baza-wiedzy"
+						className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
+					>
+						{kbT('title')}
+					</Link>
+					<Link
+						href="/#pricing"
+						className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
+					>
+						{t('pricing')}
+					</Link>
 					{children}
 				</div>
 			)}

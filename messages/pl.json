@@ -845,5 +845,32 @@
         "description": "Skontaktuj się z nami"
       }
     }
+  },
+  "KnowledgeBase": {
+    "title": "Baza Wiedzy",
+    "description": "Odkryj artykuły, poradniki i eksperckie wskazówki, które pomogą Ci podejmować lepsze decyzje dotyczące Twojej strony internetowej",
+    "metadata": {
+      "title": "Baza Wiedzy | NextGen Sites",
+      "description": "Sprawdź naszą bazę wiedzy z praktycznymi poradnikami i wskazówkami dotyczącymi tworzenia stron, SEO i marketingu cyfrowego."
+    },
+    "emptyState": "Artykuły już wkrótce! Zajrzyj do nas później, aby znaleźć wartościowe treści.",
+    "readMore": "Czytaj więcej",
+    "backToList": "Powrót do artykułów",
+    "relatedArticles": "Powiązane artykuły",
+    "publishedOn": "Opublikowano",
+    "updatedOn": "Zaktualizowano",
+    "breadcrumbs": {
+      "home": "Strona główna",
+      "knowledgeBase": "Baza Wiedzy"
+    }
+  },
+  "BlogArticle": {
+    "howToChooseWebsite": {
+      "title": "Jak wybrać dobrą stronę internetową dla swojej firmy?",
+      "description": "Kompleksowy przewodnik, który pomoże Ci podjąć świadome decyzje przy wyborze strony internetowej dla Twojej firmy w 2025 roku.",
+      "publishDate": "21 kwietnia 2025",
+      "category": "Biznes",
+      "readingTime": "5 min czytania"
+    }
   }
 }
