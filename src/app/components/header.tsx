@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useTranslations } from 'next-intl';
-import { Link as IntlLink } from '@/i18n/routing';
 
 import { Button } from "@/app/components/ui/button";
 import { MobileNavbar } from "@/app/components/mobile-navbar";

@@ -30,7 +30,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; slug: string }>
 }) {
-  const { locale, slug } = await params;
+  const { locale } = await params;
   const blogArticle = await getTranslations({ locale, namespace: 'BlogArticle.howToChooseWebsite' });
 
   return {
@@ -44,7 +44,7 @@ export default async function KnowledgeBaseArticlePage({
 }: {
   params: Promise<{ locale: string; slug: string }>
 }) {
-  const { locale, slug } = await params;
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'KnowledgeBase' });
   const blogArticle = await getTranslations({ locale, namespace: 'BlogArticle.howToChooseWebsite' });
 
@@ -206,7 +206,7 @@ export default async function KnowledgeBaseArticlePage({
         <h3 class="text-xl font-semibold text-green-700 dark:text-green-300 mb-2">🤝 Potrzebujesz wsparcia w wyborze?</h3>
         <p class="text-green-700 dark:text-green-300 mb-4">Nie musisz wszystkiego robić sam.<br>
         Jeśli chcesz, możemy wspólnie przejść przez ten proces — krok po kroku, bez presji.</p>
-        <a href="/#contact" class="inline-block bg-primary text-primary-foreground px-6 py-2 rounded-md hover:bg-primary/90 transition-colors">📩 Skontaktuj się z nami — pomożemy Ci wybrać rozsądnie.</a>
+        <Link href={{ pathname: '/', hash: 'contact' }} className="inline-block bg-primary text-primary-foreground px-6 py-2 rounded-md hover:bg-primary/90 transition-colors">📩 Skontaktuj się z nami — pomożemy Ci wybrać rozsądnie.</Link>
       </div>
       </section>
     ` : `
@@ -349,7 +349,7 @@ export default async function KnowledgeBaseArticlePage({
         <h3 class="text-xl font-semibold text-green-700 dark:text-green-300 mb-2">🤝 Need help choosing?</h3>
         <p class="text-green-700 dark:text-green-300 mb-4">You don't have to do everything yourself.<br>
         If you want, we can go through this process together — step by step, no pressure.</p>
-        <a href="/#contact" class="inline-block bg-primary text-primary-foreground px-6 py-2 rounded-md hover:bg-primary/90 transition-colors">📩 Contact us — we'll help you choose wisely.</a>
+        <Link href={{ pathname: '/', hash: 'contact' }} className="inline-block bg-primary text-primary-foreground px-6 py-2 rounded-md hover:bg-primary/90 transition-colors">📩 Contact us — we'll help you choose wisely.</Link>
       </div>
       </section>
     `
@@ -510,12 +510,12 @@ export default async function KnowledgeBaseArticlePage({
                 ? 'Skontaktuj się z nami, aby omówić Twój projekt strony internetowej.'
                 : 'Contact us to discuss your website project.'}
             </p>
-            <a
-              href="/#contact"
+            <Link
+              href={{ pathname: '/', hash: 'contact' }}
               className="w-full bg-primary text-primary-foreground text-center py-2 px-4 rounded-md text-sm inline-block hover:bg-primary/90 transition-colors"
             >
               {locale === 'pl' ? 'Skontaktuj się' : 'Contact us'}
-            </a>
+            </Link>
           </div>
 
           <div className="bg-muted/50 rounded-lg p-4">
