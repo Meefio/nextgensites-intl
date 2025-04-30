@@ -78,7 +78,7 @@ export const Breadcrumb = ({ items, className, locale }: BreadcrumbProps) => {
               ) : item.isCurrentPage ? (
                 // After hydration, render the real components
                 <span
-                  className="inline-flex items-center font-medium text-gray-700 dark:text-gray-300"
+                  className="inline-flex items-center font-medium text-accent dark:text-accent"
                   aria-current="page"
                 >
                   {index === 0 && (
@@ -89,7 +89,7 @@ export const Breadcrumb = ({ items, className, locale }: BreadcrumbProps) => {
               ) : (
                 <Link
                   href={item.href ? asPathname(item.href) : asPathname('/')}
-                  className="inline-flex items-center hover:text-blue-600 dark:hover:text-blue-500"
+                  className="inline-flex items-center text-gray-500 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors"
                 >
                   {index === 0 && (
                     <HomeIcon className="h-4 w-4 mr-1" />

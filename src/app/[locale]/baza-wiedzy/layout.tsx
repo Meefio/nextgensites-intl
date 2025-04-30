@@ -2,6 +2,8 @@ import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 import { Header } from '@/app/components/header';
 import { Footer } from '@/app/components/footer';
+import { DynamicBreadcrumb } from '@/app/components/dynamic-breadcrumb';
+import { KnowledgeBaseArticleProps } from '../knowledge-base/[slug]/page';
 
 export async function generateMetadata({
   params
@@ -27,20 +29,30 @@ export default async function KnowledgeBaseLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string, articleData?: KnowledgeBaseArticleProps }>;
 }) {
-  // We get the locale here for potential future use
-  const { locale: localeValue } = await params;
+  // Resolve params to get locale and article data if available
+  const resolvedParams = await params;
+  const { locale } = resolvedParams;
 
-  // Using a comment to make ESLint aware that we're intentionally storing this value
-  // for potential future use in this component
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const locale = localeValue;
+  // Extract article title if available (when on an article page)
+  const articleTitle = resolvedParams.articleData?.articleTitle;
 
   return (
     <>
       <Header />
       {/* Knowledge Base Header */}
+      <div className="pt-10 pb-6 border-b">
+        <div className="container">
+          <div className="mb-6">
+            {/* Passing article title to DynamicBreadcrumb when available */}
+            <DynamicBreadcrumb
+              locale={locale}
+              articleTitle={articleTitle}
+            />
+          </div>
+        </div>
+      </div>
 
       <main className="container py-10">
         {children}

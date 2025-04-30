@@ -7,6 +7,7 @@ import matter from 'gray-matter'
 import { getPostBySlug, getPostSlugs, getTableOfContents } from '@/utils/mdx'
 import { Metadata } from 'next'
 import ArticleContent from './article-content'
+import { KnowledgeBaseArticleProps } from '../../knowledge-base/[slug]/page'
 
 interface PageProps {
   params: Promise<{
@@ -72,6 +73,15 @@ export default async function BlogPage({ params }: PageProps) {
     notFound()
   }
 
+  // Store article data for breadcrumb component
+  const articleData: KnowledgeBaseArticleProps = {
+    articleTitle: post.title,
+    slug
+  };
+
+  // @ts-ignore - we know this property is used by the layout
+  params.articleData = articleData;
+
   // Get MDX content for table of contents
   const contentPath = path.join(process.cwd(), 'src', 'content', 'blog', locale, `${slug}.mdx`)
 
@@ -86,7 +96,7 @@ export default async function BlogPage({ params }: PageProps) {
   const tocItems = getTableOfContents(content)
 
   return (
-    <main className="container py-16 max-w-7xl">
+    <main className="container py-4 max-w-7xl" data-article-title={post.title}>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* Main Content Area */}
         <div className="lg:col-span-8 lg:pr-10">
