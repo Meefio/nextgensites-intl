@@ -26,7 +26,7 @@ export default async function KnowledgeBaseArticlePage({
   };
 
   // Store article data to be accessed by layout
-  // @ts-ignore - we know this property is available because we created it
+  // @ts-expect-error - we know this property is available because we created it
   params.articleData = articleData;
 
   // Redirect to the Polish version for now

@@ -79,7 +79,7 @@ export default async function BlogPage({ params }: PageProps) {
     slug
   };
 
-  // @ts-ignore - we know this property is used by the layout
+  // @ts-expect-error - we know this property is used by the layout
   params.articleData = articleData;
 
   // Get MDX content for table of contents
