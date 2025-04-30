@@ -68,34 +68,44 @@ export const SummaryBox = ({ points, className = '', children }: SummaryBoxProps
       if (React.isValidElement(node)) {
         // If it's a list element (ul/ol)
         if (node.type === 'ul' || node.type === 'ol') {
-          return React.Children.toArray(node.props.children)
+          // Type assertion to inform TypeScript that props has the children property
+          const nodeProps = node.props as { children?: React.ReactNode };
+
+          // Now safely access the children property with proper type checking
+          return React.Children.toArray(nodeProps.children)
             .filter(child => React.isValidElement(child) && child.type === 'li')
             .map(child => {
               if (React.isValidElement(child)) {
-                if (typeof child.props.children === 'string') {
-                  return child.props.children.trim()
+                // Use type assertion for child.props as well
+                const childProps = child.props as { children?: React.ReactNode };
+
+                if (typeof childProps.children === 'string') {
+                  return childProps.children.trim();
                 }
                 // Handle nested content in li
-                if (React.isValidElement(child.props.children) || Array.isArray(child.props.children)) {
-                  return React.Children.toArray(child.props.children)
+                if (React.isValidElement(childProps.children) || Array.isArray(childProps.children)) {
+                  return React.Children.toArray(childProps.children)
                     .map(c => typeof c === 'string' ? c.trim() : 'Item')
-                    .join(' ')
+                    .join(' ');
                 }
               }
-              return 'Item'
+              return 'Item';
             })
-            .filter(Boolean)
+            .filter(Boolean);
         }
 
         // Handle paragraphs or other elements that might contain list items
-        if (node.props.children) {
-          if (typeof node.props.children === 'string' && node.props.children.includes('-')) {
-            return extractPointsFromReactNode(node.props.children)
+        // Use type assertion here too
+        const nodeProps = node.props as { children?: React.ReactNode };
+
+        if (nodeProps.children) {
+          if (typeof nodeProps.children === 'string' && nodeProps.children.includes('-')) {
+            return extractPointsFromReactNode(nodeProps.children);
           }
 
           // Recursive handling for nested elements
-          if (Array.isArray(node.props.children)) {
-            return node.props.children.flatMap(child => extractPointsFromReactNode(child))
+          if (Array.isArray(nodeProps.children)) {
+            return nodeProps.children.flatMap(child => extractPointsFromReactNode(child));
           }
         }
       }
