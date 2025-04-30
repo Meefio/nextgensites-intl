@@ -19,8 +19,10 @@ export const NextArticleBox = ({ title, slug, description, locale = 'pl', classN
   // Check if slug is valid (not undefined, null, empty or just whitespace)
   const isValidSlug = slug && slug.trim().length > 0
 
-  // Construct the href based on locale and slug, only if slug is valid
-  const href = isValidSlug ? `/${locale === 'en' ? 'en/' : ''}baza-wiedzy/${slug}` : undefined
+  // Construct the href based on locale and slug, or default to homepage if no valid slug
+  const href = isValidSlug
+    ? `/${locale === 'en' ? 'en/' : ''}baza-wiedzy/${slug}`
+    : '/' // Default to homepage when no valid slug is available
 
   // If no valid slug is provided, render without Link
   if (!isValidSlug) {
