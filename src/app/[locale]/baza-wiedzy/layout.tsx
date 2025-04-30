@@ -36,14 +36,7 @@ export default async function KnowledgeBaseLayout({
     <>
       <Header />
       {/* Knowledge Base Header */}
-      <div className="bg-gradient-to-b from-muted/50 to-background pt-10 pb-6 border-b">
-        <div className="container">
-          <div className="mb-6">
-            {/* Using DynamicBreadcrumb to handle article detection automatically */}
-            <DynamicBreadcrumb locale={locale} />
-          </div>
-        </div>
-      </div>
+     
       <main className="container py-10">
         {children}
       </main>

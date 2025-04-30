@@ -1,13 +1,20 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { BookOpen, Clock, ChevronRight, BookText, Sparkles } from 'lucide-react';
+import Image from 'next/image';
+import { getAllPosts } from '@/utils/mdx';
+import { Metadata } from 'next';
+
+interface PageProps {
+  params: {
+    locale: string
+  }
+}
 
 export async function generateMetadata({
   params
-}: {
-  params: Promise<{ locale: string }>
-}) {
-  const { locale } = await params;
+}: PageProps): Promise<Metadata> {
+  const { locale } = params;
   const t = await getTranslations({ locale, namespace: 'KnowledgeBase' });
 
   return {
@@ -22,29 +29,16 @@ export async function generateMetadata({
 
 export default async function KnowledgeBasePage({
   params
-}: {
-  params: Promise<{ locale: string }>
-}) {
-  const { locale } = await params;
+}: PageProps) {
+  const { locale } = params;
+  unstable_setRequestLocale(locale);
+
   const t = await getTranslations({ locale, namespace: 'KnowledgeBase' });
-  const blogArticle = await getTranslations({ locale, namespace: 'BlogArticle.howToChooseWebsite' });
 
-  // Define articles (for now we only have one)
-  const articles = [
-    {
-      id: 'how-to-choose-website',
-      title: blogArticle('title'),
-      description: blogArticle('description'),
-      publishDate: blogArticle('publishDate'),
-      category: blogArticle('category'),
-      readingTime: blogArticle('readingTime'),
-      slug: locale === 'pl' ? 'jak-wybrac-dobra-strone-internetowa-dla-swojej-firmy' : 'how-to-choose-the-right-website-for-your-business',
-      featured: true,
-      imageUrl: '/images/buildwise-fullsize.webp'
-    }
-  ];
+  // Get all posts for the current locale
+  const posts = getAllPosts(locale);
 
-  // Upcoming articles (placeholders)
+  // Define upcoming articles (placeholders)
   const upcomingArticles = [
     {
       id: 'website-cost',
@@ -93,62 +87,72 @@ export default async function KnowledgeBasePage({
         </div>
       </div>
 
-      {/* Featured Article */}
-      {articles.length > 0 && (
+      {/* Featured Articles */}
+      {posts.length > 0 && (
         <div className="mb-16">
           <h2 className="text-2xl font-bold mb-6 flex items-center">
             <BookText className="mr-2 h-6 w-6 text-primary" />
-            {locale === 'pl' ? 'Wyróżniony artykuł' : 'Featured Article'}
+            {locale === 'pl' ? 'Opublikowane artykuły' : 'Published Articles'}
           </h2>
 
-          <Link
-            href={{
-              pathname: '/baza-wiedzy/[slug]',
-              params: { slug: articles[0].slug }
-            }}
-            className="group"
-          >
-            <div className="border border-border hover:border-primary/20 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]">
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-                <div className="md:col-span-2 aspect-video md:aspect-auto relative overflow-hidden bg-muted">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="h-full w-full flex items-center justify-center">
-                    <BookOpen className="h-12 w-12 text-muted-foreground" />
-                  </div>
-                  <div className="absolute bottom-3 left-3">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      {articles[0].category}
-                    </span>
+          <div className="space-y-8">
+            {posts.map((post, index) => (
+              <Link
+                key={post.slug}
+                href={{
+                  pathname: '/baza-wiedzy/[slug]',
+                  params: { slug: post.slug }
+                }}
+                className="group block"
+              >
+                <div className="border border-border hover:border-primary/20 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+                  <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+                    <div className="md:col-span-2 aspect-video md:aspect-auto relative overflow-hidden bg-muted">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="h-full w-full flex items-center justify-center">
+                        <Image
+                          src={post.coverImage}
+                          alt={post.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="absolute bottom-3 left-3">
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                          {post.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="md:col-span-3 p-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="inline-flex items-center text-sm text-muted-foreground">
+                          <Clock className="h-4 w-4 mr-1" />
+                          <span>{post.readingTime}</span>
+                        </span>
+                        <span className="text-sm text-muted-foreground">
+                          {post.date}
+                        </span>
+                      </div>
+
+                      <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                        {post.title}
+                      </h3>
+
+                      <p className="text-muted-foreground mb-4 line-clamp-3">
+                        {post.summaryPoints && post.summaryPoints[0]}
+                      </p>
+
+                      <div className="flex items-center text-primary font-medium">
+                        <span>{t('readMore')}</span>
+                        <ChevronRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                <div className="md:col-span-3 p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="inline-flex items-center text-sm text-muted-foreground">
-                      <Clock className="h-4 w-4 mr-1" />
-                      <span>{articles[0].readingTime}</span>
-                    </span>
-                    <span className="text-sm text-muted-foreground">
-                      {articles[0].publishDate}
-                    </span>
-                  </div>
-
-                  <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
-                    {articles[0].title}
-                  </h3>
-
-                  <p className="text-muted-foreground mb-4 line-clamp-3">
-                    {articles[0].description}
-                  </p>
-
-                  <div className="flex items-center text-primary font-medium">
-                    <span>{t('readMore')}</span>
-                    <ChevronRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Link>
+              </Link>
+            ))}
+          </div>
         </div>
       )}
 
@@ -192,7 +196,7 @@ export default async function KnowledgeBasePage({
       </div>
 
       {/* Empty State - Used when no articles are available */}
-      {articles.length === 0 && upcomingArticles.length === 0 && (
+      {posts.length === 0 && upcomingArticles.length === 0 && (
         <div className="text-center py-16 border border-dashed rounded-lg">
           <BookOpen className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
           <h3 className="text-xl font-semibold mb-2">{t('emptyState')}</h3>

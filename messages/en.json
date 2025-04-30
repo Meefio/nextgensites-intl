@@ -684,10 +684,32 @@
     "backToHome": "Back to homepage",
     "copyright": "© {year} NextGen Sites. All rights reserved.",
     "title": "Legal Documents - NextGen Sites",
-    "description": "Legal documents, terms of service, privacy policy and GDPR information for NextGen Sites",
+    "description": "Legal documents, terms of service, privacy policy and GDPR information for NextGen Sites.",
     "ogTitle": "Legal Documents - NextGen Sites",
-    "ogDescription": "Legal documents, terms of service, privacy policy and GDPR information for NextGen Sites",
+    "ogDescription": "Legal documents, terms of service, privacy policy and GDPR information for NextGen Sites.",
     "ogImageAlt": "NextGen Sites - Legal Documents"
+  },
+  "BlogComponents": {
+    "summary": {
+      "title": "In this article you will learn:"
+    },
+    "worthKnowing": {
+      "title": "Worth knowing"
+    },
+    "tableOfContents": {
+      "title": "Table of contents"
+    },
+    "nextArticle": {
+      "title": "Read also",
+      "cta": "Go to article"
+    },
+    "meta": {
+      "postedOn": "Posted on",
+      "readingTime": "Reading time",
+      "minutes": "min",
+      "category": "Category",
+      "author": "Author"
+    }
   },
   "Portfolio-sections": {
     "UnderPressure": {

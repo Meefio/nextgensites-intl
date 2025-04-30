@@ -675,16 +675,38 @@
     }
   },
   "Legal": {
-    "title": "Dokumenty prawne - NextGen Sites",
-    "description": "Dokumenty prawne, regulamin, polityka prywatności oraz informacje RODO dla NextGen Sites",
-    "ogTitle": "Dokumenty prawne - NextGen Sites",
-    "ogDescription": "Dokumenty prawne, regulamin, polityka prywatności oraz informacje RODO dla NextGen Sites",
-    "ogImageAlt": "NextGen Sites - Dokumenty prawne",
+    "title": "Dokumenty Prawne - NextGen Sites",
+    "description": "Dokumenty prawne, regulamin, polityka prywatności i informacje o RODO dla NextGen Sites.",
+    "ogTitle": "Dokumenty Prawne - NextGen Sites",
+    "ogDescription": "Dokumenty prawne, regulamin, polityka prywatności i informacje o RODO dla NextGen Sites.",
+    "ogImageAlt": "NextGen Sites - Dokumenty Prawne",
     "terms": "Regulamin",
     "privacy": "Polityka prywatności",
     "gdpr": "RODO",
     "backToHome": "Powrót do strony głównej",
     "copyright": "© {year} NextGen Sites. Wszelkie prawa zastrzeżone."
+  },
+  "BlogComponents": {
+    "summary": {
+      "title": "Z tego artykułu dowiesz się:"
+    },
+    "worthKnowing": {
+      "title": "Warto wiedzieć"
+    },
+    "tableOfContents": {
+      "title": "Spis treści"
+    },
+    "nextArticle": {
+      "title": "Przeczytaj również",
+      "cta": "Przejdź do artykułu"
+    },
+    "meta": {
+      "postedOn": "Opublikowano",
+      "readingTime": "Czas czytania",
+      "minutes": "min",
+      "category": "Kategoria",
+      "author": "Autor"
+    }
   },
   "Portfolio-sections": {
     "UnderPressure": {

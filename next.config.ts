@@ -16,7 +16,6 @@ const nextConfig: NextConfig = {
   // Enable React strict mode for better development experience
   reactStrictMode: true,
   // Disable logging completely to prevent console spam
-  logging: false,
   // Disable development logging completely to reduce noise
   onDemandEntries: {
     maxInactiveAge: 25 * 1000,

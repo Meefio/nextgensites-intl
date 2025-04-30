@@ -1,0 +1,154 @@
+---
+title: "Przykładowy wpis wykorzystujący wszystkie komponenty blogowe"
+slug: "przyklad-wpisu-wykorzystujacego-wszystkie-komponenty"
+date: "2025-02-15"
+readingTime: "4 min"
+author: "Michał Rowiński"
+authorPosition: "CEO NextGen Sites"
+category: "Poradniki"
+coverImage: "/images/blog-example.jpg"
+summaryPoints: [
+  "Jak używać komponentu SummaryBox do podsumowania najważniejszych punktów artykułu",
+  "Jak używać komponentu WorthKnowingBox do wyróżnienia ważnych informacji",
+  "Jak używać komponentu NextArticleBox do linkowania do powiązanych artykułów",
+  "Jak strukturyzować zawartość artykułu w sekcje dla lepszej nawigacji"
+]
+worthKnowing: "Ten szablon artykułu pokazuje, jak wykorzystać wszystkie dostępne komponenty MDX w systemie blogowym NextGen Sites. Możesz go używać jako punkt odniesienia przy tworzeniu nowych artykułów."
+---
+
+## Wprowadzenie
+
+Ten artykuł jest szablonem, który pokazuje, jak używać wszystkich dostępnych komponentów blogowych w systemie NextGen Sites. Używając tego szablonu, możesz tworzyć spójne i atrakcyjne wizualnie artykuły, które skutecznie przekazują wartościowe informacje.
+
+Każdy artykuł powinien zaczynać się od wprowadzenia, które jasno określa, o czym będzie artykuł i co czytelnik wyniesie z jego przeczytania. Wprowadzenie powinno być zwięzłe i zachęcające do dalszej lektury.
+
+<SummaryBox>
+- Poznasz wszystkie dostępne komponenty blogowe
+- Zobaczysz przykłady użycia każdego komponentu
+- Nauczysz się strukturyzować artykuły dla lepszej czytelności
+- Dowiesz się, jak tworzyć angażujące treści
+</SummaryBox>
+
+## Komponenty blogowe
+
+### Komponent SummaryBox
+
+SummaryBox to komponent, który służy do wyświetlania podsumowania najważniejszych punktów artykułu. Zazwyczaj umieszcza się go na początku artykułu, aby czytelnik mógł szybko zorientować się, czego może się spodziewać.
+
+Możesz go używać w następujący sposób:
+
+```jsx
+<SummaryBox>
+- Punkt pierwszy
+- Punkt drugi
+- Punkt trzeci
+</SummaryBox>
+```
+
+### Komponent WorthKnowingBox
+
+WorthKnowingBox służy do wyróżnienia ważnych informacji, które czytelnik powinien zapamiętać. Jest to idealne miejsce na umieszczenie kluczowych faktów, wskazówek lub ostrzeżeń.
+
+<WorthKnowingBox>
+Komponent WorthKnowingBox może być również automatycznie wypełniony informacją z frontmatter, jeśli zdefiniujesz pole `worthKnowing` w metadanych artykułu.
+</WorthKnowingBox>
+
+### Komponent NextArticleBox
+
+NextArticleBox służy do linkowania do powiązanych artykułów. Jest to świetny sposób na zachęcenie czytelników do dalszej eksploracji treści na twojej stronie.
+
+<NextArticleBox 
+  title="Jak stworzyć efektywną stronę internetową dla małej firmy" 
+  slug="jak-stworzyc-efektywna-strone-internetowa-dla-malej-firmy"
+  description="Poznaj strategie projektowania stron internetowych, które przyciągają klientów i zwiększają konwersję dla małych firm."
+/>
+
+## Formatowanie tekstu
+
+W artykułach możesz używać różnych elementów formatowania tekstu, takich jak:
+
+### Listy wypunktowane
+
+* Pierwszy punkt
+* Drugi punkt
+  * Podpunkt A
+  * Podpunkt B
+* Trzeci punkt
+
+### Listy numerowane
+
+1. Pierwszy krok
+2. Drugi krok
+3. Trzeci krok
+
+### Kod
+
+Możesz wstawiać bloki kodu w następujący sposób:
+
+```javascript
+function przyklad() {
+  console.log("To jest przykładowy kod");
+  return true;
+}
+```
+
+Lub wstawiać `kod w linii` tekstu.
+
+### Cytaty
+
+> Dobrze zaprojektowana strona internetowa to nie luksus, to konieczność w dzisiejszym cyfrowym świecie.
+
+### Tabele
+
+| Nagłówek 1 | Nagłówek 2 | Nagłówek 3 |
+|------------|------------|------------|
+| Komórka 1  | Komórka 2  | Komórka 3  |
+| Komórka 4  | Komórka 5  | Komórka 6  |
+
+## Spis treści
+
+Spis treści jest generowany automatycznie na podstawie nagłówków poziomu 2 (##) w artykule. Dlatego ważne jest, aby używać odpowiedniej hierarchii nagłówków:
+
+- Nagłówki poziomu 2 (##) dla głównych sekcji
+- Nagłówki poziomu 3 (###) dla podsekcji
+- Nagłówki poziomu 4 (####) dla dalszych podsekcji
+
+## Dobre praktyki
+
+### Długość artykułu
+
+Artykuły powinny mieć odpowiednią długość, zazwyczaj między 1000 a 2000 słów. Zbyt krótkie artykuły mogą nie dostarczać wystarczającej wartości, a zbyt długie mogą zniechęcać czytelników.
+
+### Struktura artykułu
+
+Dobrze skonstruowany artykuł powinien mieć następującą strukturę:
+
+1. Wprowadzenie
+2. Podsumowanie głównych punktów (SummaryBox)
+3. Rozwinięcie tematu w sekcjach
+4. Ważne informacje wyróżnione (WorthKnowingBox)
+5. Podsumowanie
+6. Sugestie dalszej lektury (NextArticleBox)
+
+### Optymalizacja pod SEO
+
+Pamiętaj o optymalizacji artykułu pod kątem wyszukiwarek:
+
+- Używaj słów kluczowych w treści artykułu
+- Dodawaj alternatywne opisy do obrazów
+- Używaj nagłówków do strukturyzowania treści
+- Linkuj do innych artykułów na stronie
+
+## Podsumowanie
+
+Ten szablon artykułu pokazuje, jak używać wszystkich dostępnych komponentów blogowych w systemie NextGen Sites. Postępując zgodnie z tymi wytycznymi, możesz tworzyć wysokiej jakości treści, które będą angażować czytelników i przyciągać ruch na Twoją stronę.
+
+<WorthKnowingBox>
+Pamiętaj, że najważniejsza jest wartość, jaką dostarczasz czytelnikom. Nawet najlepiej sformatowany artykuł nie będzie skuteczny, jeśli nie zawiera wartościowych informacji.
+</WorthKnowingBox>
+
+<NextArticleBox 
+  title="Jak SEO wpływa na sukces Twojej strony internetowej" 
+  slug="jak-seo-wplywa-na-sukces-twojej-strony-internetowej"
+  description="Dowiedz się, jak skutecznie optymalizować swoją stronę pod kątem wyszukiwarek, aby zwiększyć widoczność i przyciągnąć więcej potencjalnych klientów."
+/> 
