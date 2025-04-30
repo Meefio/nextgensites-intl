@@ -167,10 +167,10 @@ export const SummaryBox = ({ points, className = '', children }: SummaryBoxProps
         {pointsToRender.map((point, index) => (
           <motion.li
             key={index}
-            className="flex items-start gap-3"
+            className="flex items-center gap-3"
             variants={itemVariants}
           >
-            <div className="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></div>
             <span>{point}</span>
           </motion.li>
         ))}

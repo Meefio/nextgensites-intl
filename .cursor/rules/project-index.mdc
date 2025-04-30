@@ -15,6 +15,7 @@ This is a Next.js 15.1.6 project using:
 - React Hook Form
 - Zod for validation
 - Framer Motion for animations
+- MDX for blog content
 
 ## Key Directories
 - `/src/app`: Main application code
@@ -24,6 +25,8 @@ This is a Next.js 15.1.6 project using:
 - `/src/i18n`: Internationalization configuration
 - `/messages`: Translation message files
 - `/public`: Static assets
+- `/src/content/blog`: Blog posts in MDX format
+- `/src/app/[locale]/baza-wiedzy`: Knowledge base routes
 
 ## Environment Configuration
 Check `.env` for environment variables.
@@ -48,6 +51,8 @@ This project uses:
 - Server Components for server-rendered content (especially for pricing section)
 - Client Components where interactivity is needed (animations, countdown seconds)
 - i18n routing for multilingual support
+- MDX for rich blog content
+- Dynamic routes for knowledge base articles
 
 ## Core Features
 - Internationalization with next-intl
@@ -55,6 +60,13 @@ This project uses:
 - Type-safe code with TypeScript
 - Modern UI components
 - Server-first architecture for optimal performance
+- Knowledge base with dynamic article pages
+- Blog with MDX content
+
+## Content Management
+- Blog posts are stored as MDX files in `/src/content/blog/[locale]/`
+- Routes for content are configured in `src/i18n/routing.ts`
+- Knowledge base articles use dynamic routes with the pattern `/baza-wiedzy/[slug]` (Polish) and `/knowledge-base/[slug]` (English)
 
 ## Best Practices for Changes
 1. Check existing components before creating new ones
@@ -64,3 +76,5 @@ This project uses:
 5. Follow the established directory structure
 6. Prefer server components over client components when possible
 7. Use minimal client components for interactive elements
+8. Update routing configuration when adding new pages or content
+9. Create content in both Polish and English languages

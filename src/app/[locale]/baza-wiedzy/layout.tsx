@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { Header } from '@/app/components/header';
 import { Footer } from '@/app/components/footer';
 import { DynamicBreadcrumb } from '@/app/components/dynamic-breadcrumb';
-import { KnowledgeBaseArticleProps } from '../knowledge-base/[slug]/page';
+import { KnowledgeBaseArticleProps } from './types';
 
 export async function generateMetadata({
   params

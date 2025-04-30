@@ -7,7 +7,7 @@ import matter from 'gray-matter'
 import { getPostBySlug, getPostSlugs, getTableOfContents } from '@/utils/mdx'
 import { Metadata } from 'next'
 import ArticleContent from './article-content'
-import { KnowledgeBaseArticleProps } from '../../knowledge-base/[slug]/page'
+import { KnowledgeBaseArticleProps } from '../types'
 
 interface PageProps {
   params: Promise<{

@@ -21,6 +21,8 @@ This repository includes several documentation files to help you navigate and un
 
 6. **deployment.mdc** - Details about deployment processes and environments.
 
+7. **blog-guide.mdc** - Guidelines for creating and managing blog posts and knowledge base articles.
+
 ## How to Use
 
 ### For Project Overview
@@ -52,6 +54,13 @@ Use `coding-standards.mdc` and `contribution-guide.mdc` to:
 - Understand the development workflow
 - Learn how to contribute to the project
 
+### For Content Management
+
+Use `blog-guide.mdc` to:
+- Learn how to create new blog posts and knowledge base articles
+- Understand the internationalization workflow for content
+- Follow best practices for content structure and SEO
+
 ## File Locations
 
 All documentation files are now stored in the `.cursor/rules` directory:
@@ -62,6 +71,14 @@ All documentation files are now stored in the `.cursor/rules` directory:
 - `.cursor/rules/coding-standards.mdc`
 - `.cursor/rules/contribution-guide.mdc`
 - `.cursor/rules/deployment.mdc`
+- `.cursor/rules/blog-guide.mdc`
+
+## Project Structure Updates
+
+The project now includes:
+- A knowledge base section (`/baza-wiedzy` for Polish, `/knowledge-base` for English)
+- Blog content stored in MDX format in `src/content/blog/[locale]/`
+- Internationalized routing defined in `src/i18n/routing.ts`
 
 ## Regenerating Documentation
 
@@ -82,4 +99,7 @@ Be sure to update the output paths in these scripts to write to the `.cursor/rul
 1. **Keep Documentation Updated** - After making significant changes to the project structure or translations, regenerate the documentation.
 
 2. **Reference Documentation** - When working on the project, refer to these documentation files to understand conventions and patterns.
-3. **Send Documentation Links** - When sharing the project with someone new, point them to these documentation files first. 
+
+3. **Send Documentation Links** - When sharing the project with someone new, point them to these documentation files first.
+
+4. **Update Routing Configuration** - When adding new pages or content, remember to update the internationalization routing in `src/i18n/routing.ts`. 

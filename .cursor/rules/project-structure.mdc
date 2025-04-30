@@ -4,7 +4,7 @@ globs:
 alwaysApply: true
 ---
 # Project Structure Documentation
-Generated: 2025-04-20
+Generated: 2025-04-23
 
 ## Overview
 This document provides a detailed overview of the project structure to help with navigation and development.
@@ -172,6 +172,13 @@ No description provided.
 │   │   ├── 📁 **utils/**
 │   │   │   └── 📝 createCanonicalUrl.ts
 │   │   ├── 📁 **[locale]/**
+│   │   │   ├── 📁 **baza-wiedzy/**
+│   │   │   │   ├── 📝 layout.tsx
+│   │   │   │   ├── 📝 page.tsx
+│   │   │   │   ├── 📝 types.ts
+│   │   │   │   └── 📁 **[slug]/**
+│   │   │   │       ├── 📝 article-content.tsx
+│   │   │   │       └── 📝 page.tsx
 │   │   │   ├── 📁 **(legal)/**
 │   │   │   ├── 📁 **(portfolio)/**
 │   │   │   ├── 📁 **api/**
@@ -182,6 +189,12 @@ No description provided.
 │   │   │   └── 📝 twitter-image.tsx
 │   │   └── 📁 **_actions/**
 │   │       └── 📝 contact.ts
+│   ├── 📁 **content/**
+│   │   └── 📁 **blog/**
+│   │       ├── 📁 **en/**
+│   │       │   └── 📝 example-post-using-all-components.mdx
+│   │       └── 📁 **pl/**
+│   │           └── 📝 przyklad-wpisu-wykorzystujacego-wszystkie-komponenty.mdx
 │   ├── 📁 **i18n/**
 │   │   ├── 📝 request.ts
 │   │   └── 📝 routing.ts
@@ -196,12 +209,13 @@ No description provided.
 - `next.config.ts`: Configuration for Next.js, including internationalization setup
 - `tailwind.config.ts`: Configuration for Tailwind CSS styling system
 - `src/middleware.ts`: Configuration for middleware that handles routing and internationalization
-- `src/i18n/routing.ts`: Configuration for internationalization routing
+- `src/i18n/routing.ts`: Configuration for internationalization routing with defined pathnames for different locales
 - `.env`: Environment variables configuration for both development and production
 - `messages/en.json` & `messages/pl.json`: Translation message files for English and Polish languages
 - `src/app/[locale]/layout.tsx`: Main layout component with locale-specific configuration
 - `src/app/components/ui/`: Reusable UI components following the project's design system
 - `src/lib/validations/`: Validation schemas for forms and data structures
+- `src/content/blog/`: Directory containing blog posts in MDX format, organized by language
 
 ## Component Structure
 - Components are organized by feature and functionality
@@ -215,3 +229,11 @@ No description provided.
 - Translation keys are organized hierarchically by feature/component
 - Locale is determined by the URL route (/en for English, / for Polish)
 - Translation files are stored in the `messages/` directory
+- Blog posts and content are organized by language in `src/content/blog/[locale]/`
+- Routing configuration in `src/i18n/routing.ts` defines path mappings for different languages
+
+## Blog and Knowledge Base
+- Knowledge base articles are accessible via `/baza-wiedzy` (Polish) and `/knowledge-base` (English)
+- Individual articles use the dynamic route `/baza-wiedzy/[slug]` or `/knowledge-base/[slug]`
+- Blog content is stored in MDX format in the `src/content/blog/` directory
+- Blog posts have locale-specific routes defined in the routing configuration

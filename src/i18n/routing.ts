@@ -8,6 +8,9 @@ export const routing = defineRouting({
   // Used when no locale matches
   defaultLocale: 'pl',
 
+  // Change from default 'always' to 'as-needed' so the default locale (pl) doesn't have a prefix
+  localePrefix: 'as-needed',
+
   pathnames: {
     '/': '/',
     '/privacy-policy': {
@@ -38,14 +41,15 @@ export const routing = defineRouting({
       pl: '/baza-wiedzy/[slug]',
       en: '/knowledge-base/[slug]'
     },
-    // Adding routes for new blog posts
-    '/baza-wiedzy/jak-seo-wplywa-na-sukces-twojej-strony-internetowej': {
-      pl: '/baza-wiedzy/jak-seo-wplywa-na-sukces-twojej-strony-internetowej',
-      en: '/knowledge-base/how-seo-affects-your-websites-success'
+
+    'jak-wybrac-dobra-strone-internetowa-dla-swojej-firmy': {
+      pl: 'jak-wybrac-dobra-strone-internetowa-dla-swojej-firmy',
+      en: '/how-to-choose-the-right-website-for-your-business'
     },
-    '/baza-wiedzy/jak-stworzyc-efektywna-strone-internetowa-dla-malej-firmy': {
-      pl: '/baza-wiedzy/jak-stworzyc-efektywna-strone-internetowa-dla-malej-firmy',
-      en: '/knowledge-base/how-to-create-an-effective-website-for-small-businesses'
+    // Add new blog post
+    'przyklad-wpisu-wykorzystujacego-wszystkie-komponenty': {
+      pl: 'przyklad-wpisu-wykorzystujacego-wszystkie-komponenty',
+      en: 'example-post-using-all-components'
     }
   }
 });
