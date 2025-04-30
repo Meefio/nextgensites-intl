@@ -7,9 +7,10 @@ import { getTranslations } from 'next-intl/server';
 export async function generateMetadata({
   params
 }: {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }): Promise<Metadata> {
-  const t = await getTranslations({ locale: params.locale, namespace: 'KnowledgeBase' });
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'KnowledgeBase' });
 
   return {
     title: t('title'),
@@ -27,8 +28,10 @@ export default async function KnowledgeBaseLayout({
   params
 }: {
   children: React.ReactNode;
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }) {
+  const { locale } = await params;
+
   return (
     <>
       <Header />
@@ -37,7 +40,7 @@ export default async function KnowledgeBaseLayout({
         <div className="container">
           <div className="mb-6">
             {/* Using DynamicBreadcrumb to handle article detection automatically */}
-            <DynamicBreadcrumb locale={params.locale} />
+            <DynamicBreadcrumb locale={locale} />
           </div>
         </div>
       </div>

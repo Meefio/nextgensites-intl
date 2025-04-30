@@ -37,6 +37,15 @@ export const routing = defineRouting({
     '/baza-wiedzy/[slug]': {
       pl: '/baza-wiedzy/[slug]',
       en: '/knowledge-base/[slug]'
+    },
+    // Adding routes for new blog posts
+    '/baza-wiedzy/jak-seo-wplywa-na-sukces-twojej-strony-internetowej': {
+      pl: '/baza-wiedzy/jak-seo-wplywa-na-sukces-twojej-strony-internetowej',
+      en: '/knowledge-base/how-seo-affects-your-websites-success'
+    },
+    '/baza-wiedzy/jak-stworzyc-efektywna-strone-internetowa-dla-malej-firmy': {
+      pl: '/baza-wiedzy/jak-stworzyc-efektywna-strone-internetowa-dla-malej-firmy',
+      en: '/knowledge-base/how-to-create-an-effective-website-for-small-businesses'
     }
   }
 });

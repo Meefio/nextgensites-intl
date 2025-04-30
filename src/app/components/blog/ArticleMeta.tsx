@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Calendar, Clock, Tag, User } from 'lucide-react'
+import { Calendar, Clock, Tag } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 

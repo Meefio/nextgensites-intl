@@ -15,7 +15,7 @@ interface TableOfContentsProps {
   locale?: string
 }
 
-export const TableOfContents = ({ items, locale, className = '' }: TableOfContentsProps) => {
+export const TableOfContents = ({ items, className = '' }: TableOfContentsProps) => {
   const t = useTranslations('BlogComponents')
   const [activeId, setActiveId] = useState<string>('')
 

@@ -13,7 +13,9 @@ export const size = {
 export const contentType = 'image/png'
 
 // Image generation
-export default async function Image({ params }: { params: { locale: string } }) {
+export default async function Image({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+
   return new ImageResponse(
     (
       <div
@@ -32,7 +34,7 @@ export default async function Image({ params }: { params: { locale: string } }) 
         }}
       >
         <div style={{ fontSize: 36, opacity: 0.8, marginBottom: 20 }}>
-          {params.locale === 'pl' ? '👋 Poznaj' : '👋 Meet'}
+          {locale === 'pl' ? '👋 Poznaj' : '👋 Meet'}
         </div>
 
         <div
@@ -49,7 +51,7 @@ export default async function Image({ params }: { params: { locale: string } }) 
         </div>
 
         <div style={{ fontSize: 40, opacity: 0.9, marginBottom: 40, maxWidth: '90%' }}>
-          {params.locale === 'pl'
+          {locale === 'pl'
             ? 'Nowoczesne strony internetowe z Next.js o doskonałym SEO'
             : 'Modern Next.js websites with excellent SEO'}
         </div>

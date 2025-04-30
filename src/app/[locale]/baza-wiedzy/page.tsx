@@ -6,15 +6,15 @@ import { getAllPosts } from '@/utils/mdx';
 import { Metadata } from 'next';
 
 interface PageProps {
-  params: {
+  params: Promise<{
     locale: string
-  }
+  }>;
 }
 
 export async function generateMetadata({
   params
 }: PageProps): Promise<Metadata> {
-  const { locale } = params;
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'KnowledgeBase' });
 
   return {
@@ -30,7 +30,7 @@ export async function generateMetadata({
 export default async function KnowledgeBasePage({
   params
 }: PageProps) {
-  const { locale } = params;
+  const { locale } = await params;
   unstable_setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: 'KnowledgeBase' });
@@ -96,7 +96,7 @@ export default async function KnowledgeBasePage({
           </h2>
 
           <div className="space-y-8">
-            {posts.map((post, index) => (
+            {posts.map((post) => (
               <Link
                 key={post.slug}
                 href={{

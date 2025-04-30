@@ -7,7 +7,6 @@ import matter from 'gray-matter'
 import { getPostBySlug, getPostSlugs, getTableOfContents } from '@/utils/mdx'
 import { Metadata } from 'next'
 import ArticleContent from './article-content'
-import { Link } from '@/i18n/routing'
 
 interface PageProps {
   params: Promise<{

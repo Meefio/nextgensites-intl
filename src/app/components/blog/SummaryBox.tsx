@@ -11,7 +11,7 @@ interface SummaryBoxProps {
   children?: React.ReactNode
 }
 
-export const SummaryBox = ({ points, locale, className = '', children }: SummaryBoxProps) => {
+export const SummaryBox = ({ points, className = '', children }: SummaryBoxProps) => {
   const t = useTranslations('BlogComponents')
 
   // Animation variants for the container

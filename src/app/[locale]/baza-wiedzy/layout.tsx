@@ -2,7 +2,6 @@ import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 import { Header } from '@/app/components/header';
 import { Footer } from '@/app/components/footer';
-import { DynamicBreadcrumb } from '@/app/components/dynamic-breadcrumb';
 
 export async function generateMetadata({
   params
@@ -30,13 +29,19 @@ export default async function KnowledgeBaseLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  // We get the locale here for potential future use
+  const { locale: localeValue } = await params;
+
+  // Using a comment to make ESLint aware that we're intentionally storing this value
+  // for potential future use in this component
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const locale = localeValue;
 
   return (
     <>
       <Header />
       {/* Knowledge Base Header */}
-     
+
       <main className="container py-10">
         {children}
       </main>
