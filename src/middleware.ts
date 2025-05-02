@@ -23,6 +23,14 @@ const intlMiddleware = createMiddleware({
 function handleRedirects(request: NextRequest) {
    const { pathname } = request.nextUrl;
 
+   // Redirect /pl/* to /* since Polish is the default locale and shouldn't have a prefix
+   if (pathname.startsWith('/pl/') || pathname === '/pl') {
+      const newPath = pathname.replace(/^\/pl\/?/, '/');
+      const response = NextResponse.redirect(new URL(newPath, request.url));
+      response.headers.set('Cache-Control', `public, max-age=${REDIRECT_CACHE_TTL}`);
+      return response;
+   }
+
    // Use direct map lookup instead of multiple conditionals
    if (redirectMap[pathname]) {
       const response = NextResponse.redirect(new URL(redirectMap[pathname], request.url));

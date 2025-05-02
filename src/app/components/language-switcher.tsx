@@ -1,7 +1,6 @@
 'use client'
 
 import { Button } from "@/app/components/ui/button"
-import { Link } from "@/i18n/routing"
 import { usePathname } from "next/navigation"
 import ReactCountryFlag from "react-country-flag"
 import {
@@ -10,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/app/components/ui/dropdown-menu"
+import { getLocalizedPath } from "@/i18n/blog-localization"
 
 const languages = [
   { code: 'pl', label: 'Polski', countryCode: 'PL', path: '/' },
@@ -20,10 +20,6 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   const pathname = usePathname()
   const currentLang = pathname.startsWith('/en') ? 'en' : 'pl'
   const currentLanguage = languages.find(lang => lang.code === currentLang)
-
-  const currentPath = pathname
-    .replace(/^\/en/, '')
-    || '/'
 
   return (
     <DropdownMenu>
@@ -42,29 +38,36 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {languages.map((lang) => (
-          <DropdownMenuItem key={lang.code} asChild>
-            <Link
-              href={currentPath as any}
-              locale={lang.code}
-              aria-label={`Zmień język na ${lang.label}`}
-            >
-              <div className="flex items-center gap-2">
-                <ReactCountryFlag
-                  countryCode={lang.countryCode}
-                  svg
-                  style={{
-                    width: '1.2em',
-                    height: '1.2em',
-                  }}
-                  title={lang.label}
-                  alt={`Flaga ${lang.label}`}
-                />
-                <span>{lang.label}</span>
-              </div>
-            </Link>
-          </DropdownMenuItem>
-        ))}
+        {languages.map((lang) => {
+          // Skip rendering the current language option
+          if (lang.code === currentLang) {
+            return null;
+          }
+
+          // Get the translated path for this language
+          const href = getLocalizedPath(pathname, lang.code)
+
+          // For all languages, we use direct string URLs now
+          return (
+            <DropdownMenuItem key={lang.code} asChild className="cursor-pointer">
+              <a href={href.toString()} aria-label={`Zmień język na ${lang.label}`}>
+                <div className="flex items-center gap-2">
+                  <ReactCountryFlag
+                    countryCode={lang.countryCode}
+                    svg
+                    style={{
+                      width: '1.2em',
+                      height: '1.2em',
+                    }}
+                    title={lang.label}
+                    alt={`Flaga ${lang.label}`}
+                  />
+                  <span>{lang.label}</span>
+                </div>
+              </a>
+            </DropdownMenuItem>
+          )
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   )
