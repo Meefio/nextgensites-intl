@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 import { Button } from "@/app/components/ui/button";
 import { MobileNavbar } from "@/app/components/mobile-navbar";
@@ -10,13 +10,20 @@ import { ThemeSwitcher } from "@/app/components/theme-switcher";
 export function Header() {
   const t = useTranslations('Navigation');
   const kbT = useTranslations('KnowledgeBase');
+  const locale = useLocale();
+
+  // Determine the correct knowledge base paths with absolute URLs for each locale
+  const kbAbsolutePath = locale === 'en' ? '/en/knowledge-base' : '/baza-wiedzy';
+
+  // Root path based on locale
+  const rootPath = locale === 'en' ? '/en' : '/';
 
   const navigationItems = [
-    { href: `/#benefits`, label: t('benefits') },
-    { href: `/#portfolio`, label: t('portfolio') },
-    { href: `/baza-wiedzy`, label: kbT('title') },
-    { href: `/#pricing`, label: t('pricing') },
-    { href: `/#contact`, label: t('contact') }
+    { href: `${rootPath}#benefits`, label: t('benefits') },
+    { href: `${rootPath}#portfolio`, label: t('portfolio') },
+    { href: `${rootPath}#pricing`, label: t('pricing') },
+    { href: `${rootPath}#contact`, label: t('contact') },
+    { href: kbAbsolutePath, label: kbT('title') }
   ];
 
   return (
@@ -26,7 +33,7 @@ export function Header() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        <Link href="/" className="flex items-center gap-3">
+        <Link href={rootPath} className="flex items-center gap-3">
           <svg fill="none" viewBox="0 0 238 238" className="size-6 text-primary" role="img"
             aria-labelledby="logo-title">
             <title id="logo-title">Logo NextGen Sites</title>
@@ -77,7 +84,7 @@ export function Header() {
             }}
           >
             <Button size="sm" asChild variant="outline">
-              <Link href="/#contact" className="cursor-pointer">
+              <Link href={`${rootPath}#contact`} className="cursor-pointer">
                 {t('getFreeQuote')}
               </Link>
             </Button>
@@ -125,31 +132,31 @@ export function Header() {
             <div className="rounded-b-lg bg-background py-4 container text-foreground shadow-xl">
               <nav className="flex flex-col gap-1 pt-2">
                 <Link
-                  href="/#benefits"
+                  href={`${rootPath}#benefits`}
                   className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
                 >
                   {t('benefits')}
                 </Link>
                 <Link
-                  href="/#portfolio"
+                  href={`${rootPath}#portfolio`}
                   className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
                 >
                   {t('portfolio')}
                 </Link>
                 <Link
-                  href="/#pricing"
+                  href={`${rootPath}#pricing`}
                   className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
                 >
                   {t('pricing')}
                 </Link>
                 <Link
-                  href="/#contact"
+                  href={`${rootPath}#contact`}
                   className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
                 >
                   {t('contact')}
                 </Link>
                 <Button size="lg" asChild className="mt-2 w-full">
-                  <Link href="/#contact" className="cursor-pointer">
+                  <Link href={`${rootPath}#contact`} className="cursor-pointer">
                     {t('getFreeQuote')}
                   </Link>
                 </Button>
