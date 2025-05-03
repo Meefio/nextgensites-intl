@@ -18,27 +18,24 @@ import { ClientWrapper } from '@/app/components/ClientWrapper';
 const GoogleAnalytics = dynamic(() => import('@/app/components/analytics/google-analytics').then(mod => mod.GoogleAnalytics));
 const CacheProvider = dynamic(() => import('@/app/components/CacheProvider').then(mod => mod.CacheProvider));
 
-// Optimize font loading with display: optional
+// Optimize font loading with display: swap
 const fontSans = Inter({
 	variable: "--font-sans",
 	subsets: ["latin"],
-	display: "optional", // Use optional to avoid unnecessary preloads
-	preload: true,
+	display: "swap", // Add display swap for better performance
 });
 
 const fontHeading = Instrument_Sans({
 	variable: "--font-heading",
 	subsets: ["latin"],
-	display: "optional", // Use optional to avoid unnecessary preloads
-	preload: false, // Only preload the main font
+	display: "swap", // Add display swap for better performance
 });
 
 const fontQuote = Lily_Script_One({
 	variable: "--font-quote",
 	weight: "400",
 	subsets: ["latin"],
-	display: "optional", // Use optional to avoid unnecessary preloads
-	preload: false, // Only preload the main font
+	display: "swap", // Add display swap for better performance
 });
 
 // Poprawiona definicja typów parametrów
