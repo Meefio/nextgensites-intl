@@ -1,11 +1,12 @@
 'use client'
 
 import { Menu, X } from 'lucide-react'
-import { ReactNode, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import NextLink from 'next/link'
+import { Button } from './ui/button'
 
-export function MobileNavbar({ children }: { children: ReactNode }) {
+export function MobileNavbar() {
 	const t = useTranslations('Navigation')
 	const kbT = useTranslations('KnowledgeBase')
 	const locale = useLocale()
@@ -56,33 +57,56 @@ export function MobileNavbar({ children }: { children: ReactNode }) {
 					aria-modal='true'
 					aria-label={t('navigationMenu')}
 					className='fixed inset-0 top-[50px] z-40 size-full overflow-auto bg-black/40 animate-in slide-in-from-bottom-24 xl:hidden'
-					onClick={() => setIsOpen(false)}
+					onClick={(e) => e.target === e.currentTarget && setIsOpen(false)}
 				>
-					<NextLink
-						href={`${rootPath}#portfolio`}
-						className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
-					>
-						{t('portfolio')}
-					</NextLink>
-					<NextLink
-						href={`${rootPath}#pricing`}
-						className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
-					>
-						{t('pricing')}
-					</NextLink>
-					<NextLink
-						href={`${rootPath}#contact`}
-						className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
-					>
-						{t('contact')}
-					</NextLink>
-					<NextLink
-						href={kbAbsolutePath}
-						className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
-					>
-						{kbT('title')}
-					</NextLink>
-					{children}
+					<div className="rounded-b-lg bg-background py-4 container text-foreground shadow-xl" onClick={(e) => e.stopPropagation()}>
+						<nav className="flex flex-col gap-1 pt-2">
+							<NextLink
+								href={`${rootPath}#benefits`}
+								className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
+								onClick={() => setIsOpen(false)}
+							>
+								{t('benefits')}
+							</NextLink>
+							<NextLink
+								href={`${rootPath}#portfolio`}
+								className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
+								onClick={() => setIsOpen(false)}
+							>
+								{t('portfolio')}
+							</NextLink>
+							<NextLink
+								href={`${rootPath}#pricing`}
+								className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
+								onClick={() => setIsOpen(false)}
+							>
+								{t('pricing')}
+							</NextLink>
+							<NextLink
+								href={`${rootPath}#contact`}
+								className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
+								onClick={() => setIsOpen(false)}
+							>
+								{t('contact')}
+							</NextLink>
+							<NextLink
+								href={kbAbsolutePath}
+								className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
+								onClick={() => setIsOpen(false)}
+							>
+								{kbT('title')}
+							</NextLink>
+							<Button size="lg" asChild className="mt-2 w-full">
+								<NextLink
+									href={`${rootPath}#contact`}
+									className="cursor-pointer"
+									onClick={() => setIsOpen(false)}
+								>
+									{t('getFreeQuote')}
+								</NextLink>
+							</Button>
+						</nav>
+					</div>
 				</div>
 			)}
 		</>

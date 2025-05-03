@@ -128,41 +128,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
           <ThemeSwitcher />
-          <MobileNavbar>
-            <div className="rounded-b-lg bg-background py-4 container text-foreground shadow-xl">
-              <nav className="flex flex-col gap-1 pt-2">
-                <Link
-                  href={`${rootPath}#benefits`}
-                  className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
-                >
-                  {t('benefits')}
-                </Link>
-                <Link
-                  href={`${rootPath}#portfolio`}
-                  className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
-                >
-                  {t('portfolio')}
-                </Link>
-                <Link
-                  href={`${rootPath}#pricing`}
-                  className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
-                >
-                  {t('pricing')}
-                </Link>
-                <Link
-                  href={`${rootPath}#contact`}
-                  className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
-                >
-                  {t('contact')}
-                </Link>
-                <Button size="lg" asChild className="mt-2 w-full">
-                  <Link href={`${rootPath}#contact`} className="cursor-pointer">
-                    {t('getFreeQuote')}
-                  </Link>
-                </Button>
-              </nav>
-            </div>
-          </MobileNavbar>
+          <MobileNavbar />
         </div>
       </AnimatedElement>
     </header>
