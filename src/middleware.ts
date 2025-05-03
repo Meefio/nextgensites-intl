@@ -15,7 +15,7 @@ const intlMiddleware = createMiddleware({
    ...routing,
    // Default locale shouldn't have a prefix
    localePrefix: 'as-needed',
-   // Enable locale detection
+   // Enable locale detections
    localeDetection: true
 });
 
