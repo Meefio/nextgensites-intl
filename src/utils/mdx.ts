@@ -81,14 +81,25 @@ export const getTableOfContents = (content: string) => {
   return matches.map((match) => {
     const title = match[1].trim()
 
-    // Create a slugified version of the heading that preserves special characters
-    // but is still URL-safe for Polish (and other non-ASCII) characters
-    const id = title
+    // Use similar algorithm to github-slugger (which rehype-slug uses)
+    // 1. Convert to lowercase
+    // 2. Use Unicode normalization to handle diacritical marks
+    // 3. Remove non-alphanumeric characters
+    // 4. Replace spaces with hyphens and handle consecutive hyphens
+
+    let id = title
       .toLowerCase()
-      .replace(/[\s_]+/g, '-')  // Replace spaces and underscores with a single hyphen
-      .replace(/-+/g, '-')      // Replace multiple hyphens with a single hyphen
-      .replace(/^-+|-+$/g, '')  // Remove leading and trailing hyphens
-    // We no longer strip out non-ASCII characters like ł, ś, ć, etc.
+      // Unicode normalization (NFD) separates diacritical marks from base characters
+      .normalize('NFD')
+      // Remove diacritical marks after normalization
+      .replace(/[\u0300-\u036f]/g, '')
+      // Remove anything that is not alphanumeric, space, or hyphen
+      .replace(/[^\w\s-]/g, '')
+      // Replace spaces and repeated hyphens with a single dash
+      .replace(/[\s_]+/g, '-')
+      .replace(/-+/g, '-')
+      // Remove leading/trailing dashes
+      .replace(/^-+|-+$/g, '')
 
     return { id, title }
   })
