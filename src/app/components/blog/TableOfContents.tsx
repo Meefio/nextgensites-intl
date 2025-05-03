@@ -54,6 +54,8 @@ export const TableOfContents = ({ items, className = '' }: TableOfContentsProps)
 
     // Create an observer for each section
     items.forEach(item => {
+      // The ID is already URL-safe (from our updated getTableOfContents function),
+      // so we don't need to encode it for lookup
       const element = document.getElementById(item.id)
       if (!element) return
 
