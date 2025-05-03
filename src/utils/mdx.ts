@@ -1,4 +1,3 @@
-import path from 'path'
 import { getCachedMdxData, getCachedSlugs } from './mdx-cache'
 
 // Define types for blog post metadata
