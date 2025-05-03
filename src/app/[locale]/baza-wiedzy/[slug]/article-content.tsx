@@ -6,7 +6,6 @@ import path from 'path'
 import matter from 'gray-matter'
 import { MDXComponents } from '@/app/components/blog/MDXComponents'
 import rehypeSlug from 'rehype-slug'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import remarkGfm from 'remark-gfm'
 
 interface ArticleContentProps {
@@ -47,7 +46,6 @@ export const ArticleContent = ({ locale, slug }: ArticleContentProps) => {
           mdxOptions: {
             rehypePlugins: [
               rehypeSlug,
-              [rehypeAutolinkHeadings, { behavior: 'wrap' }],
             ],
             remarkPlugins: [remarkGfm],
           },

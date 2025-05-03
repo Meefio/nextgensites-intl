@@ -6,16 +6,16 @@ import { NextArticleBox } from './NextArticleBox'
 export const MDXComponents = {
   // Override default elements
   h1: (props: any) => (
-    <h1 className="text-4xl font-bold my-6 tracking-tight" {...props} />
+    <h1 className="text-4xl font-bold my-6 tracking-tight text-foreground" {...props} />
   ),
   h2: (props: any) => (
-    <h2 className="text-3xl font-bold mt-12 mb-6 tracking-tight" {...props} />
+    <h2 className="text-3xl font-bold mt-12 mb-6 tracking-tight text-foreground" {...props} />
   ),
   h3: (props: any) => (
-    <h3 className="text-2xl font-semibold mt-10 mb-4" {...props} />
+    <h3 className="text-2xl font-semibold mt-10 mb-4 text-foreground" {...props} />
   ),
   h4: (props: any) => (
-    <h4 className="text-xl font-semibold mt-8 mb-3" {...props} />
+    <h4 className="text-xl font-semibold mt-8 mb-3 text-foreground" {...props} />
   ),
   p: (props: any) => (
     <p className="my-4 text-lg leading-relaxed" {...props} />

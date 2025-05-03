@@ -59,7 +59,7 @@ export const NextArticleBox = ({ title, slug, description, locale = 'pl', classN
 
   return (
     <motion.div
-      className={`my-12 p-6 border border-primary/20 rounded-xl bg-primary/5 shadow-sm ${className}`}
+      className={`my-12 p-6 border border-primary/20 rounded-xl bg-primary/[0.01] shadow-sm ${className}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -80,12 +80,12 @@ export const NextArticleBox = ({ title, slug, description, locale = 'pl', classN
         </Link>
 
         {description && (
-          <p className="mt-2 text-muted-foreground">{description}</p>
+          <p className="mt-2">{description}</p>
         )}
 
         <Link
           href={asPathname(hrefPath)}
-          className="mt-4 inline-block text-sm font-medium text-primary hover:underline"
+          className="mt-4 inline-block text-sm font-medium text-primary"
         >
           {t('nextArticle.cta')} →
         </Link>

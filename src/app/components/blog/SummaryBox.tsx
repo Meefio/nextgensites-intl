@@ -14,26 +14,28 @@ interface SummaryBoxProps {
 export const SummaryBox = ({ points, className = '', children }: SummaryBoxProps) => {
   const t = useTranslations('BlogComponents')
 
-  // Animation variants for the container
+  // Simplified animation variants for the container - just fade in
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
+        duration: 0.5,
         staggerChildren: 0.1
       }
     }
   }
 
-  // Animation variants for each item
+  // Simplified animation variants for each item - slide in from bottom
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: 'spring',
-        stiffness: 100
+        type: 'slide-up',
+        stiffness: 50,
+        damping: 10
       }
     }
   }
@@ -126,36 +128,15 @@ export const SummaryBox = ({ points, className = '', children }: SummaryBoxProps
     ? points
     : getPointsFromChildren()
 
-  // If no points are available, don't render anything
-  if (!pointsToRender || pointsToRender.length === 0) {
-    // Fallback to a defensive render if we can't extract points but have children
-    if (children) {
-      return (
-        <motion.div
-          className={`my-8 p-6 border border-border rounded-xl bg-card shadow-sm ${className}`}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-        >
-          <h3 className="text-xl font-semibold mb-4 flex items-center">
-            <span className="w-1 h-5 bg-primary rounded-full mr-2"></span>
-            {t('summary.title')}
-          </h3>
-
-          {children}
-        </motion.div>
-      )
-    }
-    return null
-  }
+  // If we have children that might be direct JSX content, render it as is
+  const hasDirectContent = !pointsToRender || pointsToRender.length === 0;
 
   return (
     <motion.div
       className={`my-8 p-6 border border-border rounded-xl bg-card shadow-sm ${className}`}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-50px" }}
       variants={containerVariants}
     >
       <h3 className="text-xl font-semibold mb-4 flex items-center">
@@ -163,18 +144,24 @@ export const SummaryBox = ({ points, className = '', children }: SummaryBoxProps
         {t('summary.title')}
       </h3>
 
-      <ul className="space-y-3">
-        {pointsToRender.map((point, index) => (
-          <motion.li
-            key={index}
-            className="flex items-center gap-3"
-            variants={itemVariants}
-          >
-            <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></div>
-            <span>{point}</span>
-          </motion.li>
-        ))}
-      </ul>
+      {hasDirectContent ? (
+        // If we have direct JSX content, render it as is
+        <div>{children}</div>
+      ) : (
+        // Otherwise render the extracted points
+        <ul className="space-y-3">
+          {pointsToRender.map((point, index) => (
+            <motion.li
+              key={index}
+              className="flex items-center gap-3"
+              variants={itemVariants}
+            >
+              <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></div>
+              <span>{point}</span>
+            </motion.li>
+          ))}
+        </ul>
+      )}
     </motion.div>
   )
 }

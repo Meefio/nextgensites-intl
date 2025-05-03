@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { unstable_setRequestLocale } from 'next-intl/server'
-import { TableOfContents, ArticleMeta } from '@/app/components/blog'
+import { TableOfContents, ArticleMeta, HelpBox } from '@/app/components/blog'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
@@ -96,7 +96,7 @@ export default async function BlogPage({ params }: PageProps) {
   const tocItems = getTableOfContents(content)
 
   return (
-    <main className="py-4 max-w-7xl" data-article-title={post.title}>
+    <main className="py-4 max-w-7xl mx-auto" data-article-title={post.title}>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* Main Content Area */}
         <div className="lg:col-span-8 lg:pr-10">
@@ -130,23 +130,7 @@ export default async function BlogPage({ params }: PageProps) {
             </div>
 
             {/* Simple Contact Section */}
-            <div className="p-6 border rounded-xl bg-muted/20">
-              <h3 className="font-semibold text-lg mb-3">
-                {locale === 'pl' ? 'Potrzebujesz pomocy?' : 'Need help?'}
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                {locale === 'pl'
-                  ? 'Skontaktuj się z nami, aby uzyskać bezpłatną konsultację dotyczącą Twojego projektu.'
-                  : 'Contact us for a free consultation about your project.'
-                }
-              </p>
-              <a
-                href={locale === 'pl' ? '/#contact' : '/en/#contact'}
-                className="block w-full bg-primary text-primary-foreground text-center py-2 px-4 rounded-md hover:bg-primary/90 transition"
-              >
-                {locale === 'pl' ? 'Skontaktuj się' : 'Contact Us'}
-              </a>
-            </div>
+            <HelpBox locale={locale} />
           </div>
         </div>
       </div>

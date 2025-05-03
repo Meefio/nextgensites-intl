@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 64, 96, 128, 256, 384],
     formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 86400, // 24 hours
+    minimumCacheTTL: process.env.NODE_ENV === 'development' ? 0 : 86400, // 0 for dev, 24 hours for prod
     remotePatterns: [
       {
         protocol: 'https',
@@ -67,7 +67,9 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: process.env.NODE_ENV === 'development'
+              ? 'no-store, no-cache, must-revalidate, proxy-revalidate'
+              : 'public, max-age=31536000, immutable',
           },
         ],
       },
@@ -76,7 +78,9 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: process.env.NODE_ENV === 'development'
+              ? 'no-store, no-cache, must-revalidate, proxy-revalidate'
+              : 'public, max-age=31536000, immutable',
           },
         ],
       },
@@ -85,7 +89,9 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: process.env.NODE_ENV === 'development'
+              ? 'no-store, no-cache, must-revalidate, proxy-revalidate'
+              : 'public, max-age=31536000, immutable',
           },
         ],
       },
@@ -94,7 +100,9 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: process.env.NODE_ENV === 'development'
+              ? 'no-store, no-cache, must-revalidate, proxy-revalidate'
+              : 'public, max-age=31536000, immutable',
           },
         ],
       },

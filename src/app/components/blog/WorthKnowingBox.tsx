@@ -14,24 +14,22 @@ export const WorthKnowingBox = ({ children, className = '' }: WorthKnowingBoxPro
 
   return (
     <motion.div
-      className={`my-10 p-6 border border-accent/20 rounded-xl bg-accent/5 shadow-sm ${className}`}
+      className={`my-10 p-6 rounded-xl shadow-sm relative 
+        before:absolute before:inset-0 before:rounded-xl before:border before:border-accent/50 before:shadow-[0_0_15px_rgba(var(--accent-color)/0.15)]
+        ${className}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ type: 'spring', stiffness: 100 }}
     >
-      <div className="flex gap-4">
-        <div className="flex-shrink-0 mt-1">
-          <div className="rounded-full bg-accent/20 p-2 text-accent">
-            <Sparkles size={18} />
-          </div>
-        </div>
+      <div className="flex gap-4 relative z-10">
+
 
         <div>
-          <h3 className="text-xl font-semibold mb-2 text-accent">
+          <h3 className="mt-2 text-xl font-semibold mb-2 text-accent text-center">
             {t('worthKnowing.title')}
           </h3>
-          <div className="text-accent/90">
+          <div>
             {children}
           </div>
         </div>
