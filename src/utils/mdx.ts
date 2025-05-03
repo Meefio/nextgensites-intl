@@ -1,6 +1,5 @@
-import fs from 'fs'
 import path from 'path'
-import matter from 'gray-matter'
+import { getCachedMdxData, getCachedSlugs } from './mdx-cache'
 
 // Define types for blog post metadata
 export interface PostMeta {
@@ -17,37 +16,26 @@ export interface PostMeta {
   locale: string
 }
 
-// Get absolute path to content directory
-const getContentDirectory = (locale: string) => {
-  return path.join(process.cwd(), 'src', 'content', 'blog', locale)
-}
 
-// Get post slugs for a specific locale
+// Get post slugs for a specific locale - using cache
 export const getPostSlugs = (locale: string): string[] => {
   try {
-    const postsDirectory = getContentDirectory(locale)
-    return fs.readdirSync(postsDirectory)
-      .filter((file) => file.endsWith('.mdx'))
-      .map((file) => file.replace(/\.mdx$/, ''))
+    return getCachedSlugs(locale)
   } catch (error) {
     console.error(`Error getting post slugs for locale ${locale}:`, error)
     return []
   }
 }
 
-// Get post metadata for a specific slug and locale
+// Get post metadata for a specific slug and locale - using cache
 export const getPostBySlug = (slug: string, locale: string): PostMeta | null => {
   try {
-    const postsDirectory = getContentDirectory(locale)
-    const fullPath = path.join(postsDirectory, `${slug}.mdx`)
+    const data = getCachedMdxData(slug, locale)
 
-    if (!fs.existsSync(fullPath)) {
-      console.warn(`Post not found: ${fullPath}`)
+    if (!data) {
+      console.warn(`Post not found: ${slug} (${locale})`)
       return null
     }
-
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
-    const { data } = matter(fileContents)
 
     return {
       ...data,

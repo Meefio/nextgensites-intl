@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getPostBySlug } from '@/utils/mdx'
-import fs from 'fs'
+import { getCachedMdxContent } from '@/utils/mdx-cache'
 import path from 'path'
 import matter from 'gray-matter'
 import { MDXComponents } from '@/app/components/blog/MDXComponents'
@@ -23,15 +23,15 @@ export const ArticleContent = ({ locale, slug }: ArticleContentProps) => {
       notFound()
     }
 
-    // Get MDX content
+    // Get MDX content with caching
     const contentPath = path.join(process.cwd(), 'src', 'content', 'blog', locale, `${slug}.mdx`)
+    const fileContent = getCachedMdxContent(contentPath)
 
-    if (!fs.existsSync(contentPath)) {
+    if (!fileContent) {
       console.error(`MDX file not found at path: ${contentPath}`)
       notFound()
     }
 
-    const fileContent = fs.readFileSync(contentPath, 'utf8')
     const { content, data: frontMatter } = matter(fileContent)
 
     if (!content || content.trim() === '') {

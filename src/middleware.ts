@@ -43,6 +43,9 @@ function handleRedirects(request: NextRequest) {
    return null;
 }
 
+// Cache time for article pages in seconds (5 minutes)
+const ARTICLE_CACHE_TTL = 300;
+
 // Export the combined middleware with performance optimizations
 export default function middleware(request: NextRequest) {
    const { pathname } = request.nextUrl;
@@ -91,6 +94,14 @@ export default function middleware(request: NextRequest) {
       Object.entries(CACHE_HEADERS).forEach(([key, value]) => {
          response.headers.set(key, value);
       });
+   }
+
+   // Add caching for article pages in knowledge base
+   if (pathname.includes('/baza-wiedzy/') || pathname.includes('/knowledge-base/')) {
+      // Only add cache for GET requests
+      if (method === 'GET') {
+         response.headers.set('Cache-Control', `public, max-age=${ARTICLE_CACHE_TTL}, s-maxage=${ARTICLE_CACHE_TTL * 2}, stale-while-revalidate=${ARTICLE_CACHE_TTL * 4}`);
+      }
    }
 
    return response;

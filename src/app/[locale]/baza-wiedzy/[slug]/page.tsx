@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation'
 import { unstable_setRequestLocale } from 'next-intl/server'
 import { TableOfContents, ArticleMeta, HelpBox } from '@/app/components/blog'
-import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { getPostBySlug, getPostSlugs, getTableOfContents } from '@/utils/mdx'
+import { getCachedMdxContent } from '@/utils/mdx-cache'
 import { Metadata } from 'next'
 import ArticleContent from './article-content'
 import { KnowledgeBaseArticleProps } from '../types'
@@ -84,12 +84,12 @@ export default async function BlogPage({ params }: PageProps) {
 
   // Get MDX content for table of contents
   const contentPath = path.join(process.cwd(), 'src', 'content', 'blog', locale, `${slug}.mdx`)
+  const fileContent = getCachedMdxContent(contentPath)
 
-  if (!fs.existsSync(contentPath)) {
+  if (!fileContent) {
     notFound()
   }
 
-  const fileContent = fs.readFileSync(contentPath, 'utf8')
   const { content } = matter(fileContent)
 
   // Generate table of contents

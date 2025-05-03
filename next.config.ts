@@ -55,7 +55,8 @@ const nextConfig: NextConfig = {
     // CLS is important for layout stability
     webVitalsAttribution: ['LCP', 'CLS'],
   },
-  staticPageGenerationTimeout: 180,
+  // Increase timeout for static page generation
+  staticPageGenerationTimeout: 300,
   output: 'standalone',
   compress: true,
   poweredByHeader: false,
@@ -116,6 +117,18 @@ const nextConfig: NextConfig = {
             value: process.env.NODE_ENV === 'development'
               ? 'no-store, no-cache, must-revalidate, proxy-revalidate'
               : 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Add caching headers for knowledge base articles
+      {
+        source: '/(baza-wiedzy|knowledge-base)/:slug*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: process.env.NODE_ENV === 'development'
+              ? 'no-store, no-cache, must-revalidate, proxy-revalidate'
+              : 'public, max-age=300, s-maxage=600, stale-while-revalidate=1200',
           },
         ],
       },
