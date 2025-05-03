@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { getAllPosts } from "@/utils/mdx";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import { Clock, ChevronRight, BookText } from "lucide-react";
+import { Clock, ChevronRight } from "lucide-react";
 import { AnimatedElement } from "@/app/components/motion/animated-element";
 
 interface LatestBlogPostsProps {
