@@ -109,7 +109,7 @@ export default async function KnowledgeBasePage({
                   <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
                     <div className="md:col-span-2 aspect-video md:aspect-auto relative overflow-hidden bg-muted">
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="h-full w-full flex items-center justify-center relative">
+                      <div className="h-full w-full flex items-center justify-center relative min-h-[250px]">
                         <Image
                           src={post.coverImage}
                           alt={post.title}
@@ -125,7 +125,7 @@ export default async function KnowledgeBasePage({
                       </div>
                     </div>
 
-                    <div className="md:col-span-3 p-6">
+                    <div className="md:col-span-3 p-6 flex flex-col justify-between">
                       <div className="flex items-center justify-between mb-3">
                         <span className="inline-flex items-center text-sm text-muted-foreground">
                           <Clock className="h-4 w-4 mr-1" />
