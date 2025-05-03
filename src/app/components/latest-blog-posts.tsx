@@ -59,9 +59,9 @@ export async function LatestBlogPosts({ locale }: LatestBlogPostsProps) {
                     height={225}
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    style={{
-                      objectFit: "cover",
-                    }}
+                    loading="lazy"
+                    fetchPriority="low"
+                    priority={false}
                   />
                   <div className="absolute bottom-3 left-3">
                     <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary text-primary-foreground">
