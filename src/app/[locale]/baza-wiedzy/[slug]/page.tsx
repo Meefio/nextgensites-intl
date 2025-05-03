@@ -96,7 +96,7 @@ export default async function BlogPage({ params }: PageProps) {
   const tocItems = getTableOfContents(content)
 
   return (
-    <main className="container py-4 max-w-7xl" data-article-title={post.title}>
+    <main className="py-4 max-w-7xl" data-article-title={post.title}>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* Main Content Area */}
         <div className="lg:col-span-8 lg:pr-10">

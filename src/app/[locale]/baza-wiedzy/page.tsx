@@ -65,7 +65,7 @@ export default async function KnowledgeBasePage({
   ];
 
   return (
-    <div className="container max-w-6xl mx-auto px-4 py-12">
+    <div className="max-w-6xl mx-auto py-6">
       {/* Page Header with improved visual styling */}
       <div className="relative mb-16">
         <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl opacity-70 z-0"></div>

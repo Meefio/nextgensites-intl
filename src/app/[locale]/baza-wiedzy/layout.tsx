@@ -42,7 +42,7 @@ export default async function KnowledgeBaseLayout({
     <>
       <Header />
       {/* Knowledge Base Header */}
-      <div className="pt-10 pb-6 border-b">
+      <div className="pt-4 md:pt-10 pb-4 md:pb-6 border-b">
         <div className="container">
           <div className="mb-6">
             {/* Passing article title to DynamicBreadcrumb when available */}
@@ -54,7 +54,7 @@ export default async function KnowledgeBaseLayout({
         </div>
       </div>
 
-      <main className="container py-10">
+      <main className="container pb-4 md:pb-10">
         {children}
       </main>
       <Footer />

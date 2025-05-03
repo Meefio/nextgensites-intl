@@ -59,42 +59,42 @@ export const Breadcrumb = ({ items, className, locale }: BreadcrumbProps) => {
       {/* Visible breadcrumb component */}
       <nav
         aria-label="Breadcrumb"
-        className={cn("flex text-sm text-gray-600 dark:text-gray-400", className)}
+        className={cn("flex w-full text-xs sm:text-sm text-gray-600 dark:text-gray-400 my-1 sm:my-2 overflow-hidden", className)}
       >
-        <ol className="inline-flex items-center space-x-1 md:space-x-2">
+        <ol className="inline-flex items-center flex-wrap space-x-0.5 md:space-x-2 w-full overflow-hidden">
           {items.map((item, index) => (
-            <li key={index} className="inline-flex items-center">
+            <li key={index} className="inline-flex items-center max-w-[150px] sm:max-w-fit">
               {index > 0 && (
-                <ChevronRightIcon className="h-4 w-4 mx-1 text-gray-400" />
+                <ChevronRightIcon className="h-3 w-3 sm:h-4 sm:w-4 mx-0.5 sm:mx-1 text-gray-400 flex-shrink-0" />
               )}
 
               {/* During SSR and initial hydration, render placeholders */}
               {!mounted ? (
                 // Simple span to ensure consistent server/client rendering
-                <span className="inline-flex items-center">
-                  {index === 0 && <HomeIcon className="h-4 w-4 mr-1" />}
-                  {item.label}
+                <span className="inline-flex items-center truncate max-w-[100px] sm:max-w-none">
+                  {index === 0 && <HomeIcon className="h-3 w-3 sm:h-4 sm:w-4 mr-0.5 sm:mr-1 flex-shrink-0" />}
+                  <span className="truncate">{item.label}</span>
                 </span>
               ) : item.isCurrentPage ? (
                 // After hydration, render the real components
                 <span
-                  className="inline-flex items-center font-medium text-accent dark:text-accent"
+                  className="inline-flex items-center font-medium text-accent dark:text-accent truncate max-w-[200px] sm:max-w-none"
                   aria-current="page"
                 >
                   {index === 0 && (
-                    <HomeIcon className="h-4 w-4 mr-1" />
+                    <HomeIcon className="h-3 w-3 sm:h-3 sm:w-3 mr-0.5 sm:mr-2 flex-shrink-0" />
                   )}
-                  {item.label}
+                  <span className="truncate">{item.label}</span>
                 </span>
               ) : (
                 <Link
                   href={item.href ? asPathname(item.href) : asPathname('/')}
-                  className="inline-flex items-center text-gray-500 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors"
+                  className="inline-flex items-center text-gray-500 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors truncate max-w-[170px] sm:max-w-none"
                 >
                   {index === 0 && (
-                    <HomeIcon className="h-4 w-4 mr-1" />
+                    <HomeIcon className="h-3 w-3 sm:h-4 sm:w-4 mr-0.5 sm:mr-1 flex-shrink-0" />
                   )}
-                  {item.label}
+                  <span className="truncate">{item.label}</span>
                 </Link>
               )}
             </li>
