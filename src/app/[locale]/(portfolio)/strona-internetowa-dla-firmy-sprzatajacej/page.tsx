@@ -28,8 +28,8 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
     alternates: {
       canonical: canonicalUrl,
       languages: {
-        'pl-PL': createCanonicalUrl('/strona-internetowa-dla-firmy-sprzatajacej', 'pl'),
-        'en-US': createCanonicalUrl('/cleaning-company-website', 'en'),
+        'pl': createCanonicalUrl('/strona-internetowa-dla-firmy-sprzatajacej', 'pl'),
+        'en': createCanonicalUrl('/cleaning-company-website', 'en'),
       },
     },
     openGraph: {

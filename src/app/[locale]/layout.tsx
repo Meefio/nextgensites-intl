@@ -54,7 +54,9 @@ export async function generateMetadata({
 
 	const baseMetadataWithLocale = baseMetadata(locale);
 
+	// Update to ensure only one language version for each locale
 	const alternateLanguages = {
+		canonical: createCanonicalUrl('/', locale),
 		languages: {
 			'pl': createCanonicalUrl('/', 'pl'),
 			'en': createCanonicalUrl('/', 'en')

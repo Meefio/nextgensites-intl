@@ -37,8 +37,8 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
 		alternates: {
 			canonical: canonicalUrl,
 			languages: {
-				'pl-PL': createCanonicalUrl('/', 'pl'),
-				'en-US': createCanonicalUrl('/', 'en'),
+				'pl': createCanonicalUrl('/', 'pl'),
+				'en': createCanonicalUrl('/', 'en'),
 			},
 		},
 	}

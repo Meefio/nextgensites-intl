@@ -28,8 +28,8 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
     alternates: {
       canonical: canonicalUrl,
       languages: {
-        'pl-PL': createCanonicalUrl('/strona-internetowa-dla-firmy-budowlano-remontowej', 'pl'),
-        'en-US': createCanonicalUrl('/construction-and-renovation-company-website', 'en'),
+        'pl': createCanonicalUrl('/strona-internetowa-dla-firmy-budowlano-remontowej', 'pl'),
+        'en': createCanonicalUrl('/construction-and-renovation-company-website', 'en'),
       },
     },
     openGraph: {
