@@ -52,6 +52,11 @@ export const routing = defineRouting({
       pl: '/dlaczego-nextjs-to-przyszlosc-stron-internetowych-dla-biznesu',
       en: '/why-nextjs-is-the-future-of-business-websites'
     },
+    // Add route for new article about modern websites
+    '/nowoczesna-strona-internetowa-co-to-wlasciwie-znaczy': {
+      pl: '/nowoczesna-strona-internetowa-co-to-wlasciwie-znaczy',
+      en: '/modern-website-what-does-it-actually-mean'
+    },
     // Keep existing example post
     '/przyklad-wpisu-wykorzystujacego-wszystkie-komponenty': {
       pl: '/przyklad-wpisu-wykorzystujacego-wszystkie-komponenty',

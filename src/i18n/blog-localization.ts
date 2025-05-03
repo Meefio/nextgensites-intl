@@ -14,6 +14,9 @@ export const blogPostTranslations: Record<string, Record<string, string>> = {
   'dlaczego-nextjs-to-przyszlosc-stron-internetowych-dla-biznesu': {
     en: 'why-nextjs-is-the-future-of-business-websites'
   },
+  'nowoczesna-strona-internetowa-co-to-wlasciwie-znaczy': {
+    en: 'modern-website-what-does-it-actually-mean'
+  },
   // English to Polish
   'example-post-using-all-components': {
     pl: 'przyklad-wpisu-wykorzystujacego-wszystkie-komponenty'
@@ -23,6 +26,9 @@ export const blogPostTranslations: Record<string, Record<string, string>> = {
   },
   'why-nextjs-is-the-future-of-business-websites': {
     pl: 'dlaczego-nextjs-to-przyszlosc-stron-internetowych-dla-biznesu'
+  },
+  'modern-website-what-does-it-actually-mean': {
+    pl: 'nowoczesna-strona-internetowa-co-to-wlasciwie-znaczy'
   }
 }
 
