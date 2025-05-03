@@ -28,7 +28,7 @@ export const WorthKnowingBox = ({ children, className = '' }: WorthKnowingBoxPro
           <h3 className="mt-2 text-xl font-semibold mb-2 text-accent text-center">
             {t('worthKnowing.title')}
           </h3>
-          <div>
+          <div className='text-center'>
             {children}
           </div>
         </div>

@@ -106,18 +106,22 @@ export default async function KnowledgeBasePage({
                 className="group block"
               >
                 <div className="border border-border hover:border-primary/20 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]">
-                  <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-                    <div className="md:col-span-2 aspect-video md:aspect-auto relative overflow-hidden bg-muted">
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="h-full w-full flex items-center justify-center relative min-h-[250px]">
-                        <Image
-                          src={post.coverImage}
-                          alt={post.title}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 40vw"
-                          className="object-cover"
-                        />
-                      </div>
+                  <div className="grid grid-cols-1 md:grid-cols-5 gap-6 min-h-[250px]">
+                    <div className="md:col-span-2 relative overflow-hidden bg-muted">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                      <Image
+                        src={post.coverImage}
+                        alt={post.title}
+                        width={500}
+                        height={280}
+                        sizes="(max-width: 768px) 100vw, 40vw"
+                        className="w-full h-full object-cover"
+                        style={{
+                          aspectRatio: '16/9',
+                          objectFit: 'cover'
+                        }}
+                        priority
+                      />
                       <div className="absolute bottom-3 left-3">
                         <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-600 bg-primary text-primary-foreground transition-colors dark:text-white">
                           {post.category}

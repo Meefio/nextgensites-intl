@@ -218,7 +218,7 @@ export const TableOfContents = ({ items, className = '' }: TableOfContentsProps)
                 }`}
               onClick={(e) => handleClick(e, section)}
             >
-              <div className={`w-1.5 h-1.5 rounded-full mr-2.5 transition-colors ${activeId === section.id
+              <div className={`w-1.5 h-1.5 rounded-full mr-2.5 transition-colors flex-shrink-0 ${activeId === section.id
                 ? 'bg-primary'
                 : 'bg-primary/40 group-hover:bg-primary/60'
                 }`}></div>

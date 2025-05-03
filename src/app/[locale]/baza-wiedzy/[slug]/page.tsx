@@ -123,7 +123,7 @@ export default async function BlogPage({ params }: PageProps) {
 
         {/* Sidebar */}
         <div className="lg:col-span-4">
-          <div className="space-y-8 lg:sticky lg:top-24">
+          <div className="space-y-8 lg:sticky lg:top-6">
             {/* Table of Contents (desktop) */}
             <div className="hidden lg:block">
               <TableOfContents items={tocItems} locale={locale} />
