@@ -42,14 +42,20 @@ export const routing = defineRouting({
       en: '/knowledge-base/[slug]'
     },
 
-    'jak-wybrac-dobra-strone-internetowa-dla-swojej-firmy': {
-      pl: 'jak-wybrac-dobra-strone-internetowa-dla-swojej-firmy',
-      en: '/how-to-choose-the-right-website-for-your-business'
+    // Fix existing blog post route
+    '/jak-wybrac-strone-internetowa-dla-swojej-firmy': {
+      pl: '/jak-wybrac-strone-internetowa-dla-swojej-firmy',
+      en: '/how-to-choose-a-website-for-your-business'
     },
-    // Add new blog post
-    'przyklad-wpisu-wykorzystujacego-wszystkie-komponenty': {
-      pl: 'przyklad-wpisu-wykorzystujacego-wszystkie-komponenty',
-      en: 'example-post-using-all-components'
+    // Add new blog post route for Next.js article
+    '/dlaczego-nextjs-to-przyszlosc-stron-internetowych-dla-biznesu': {
+      pl: '/dlaczego-nextjs-to-przyszlosc-stron-internetowych-dla-biznesu',
+      en: '/why-nextjs-is-the-future-of-business-websites'
+    },
+    // Keep existing example post
+    '/przyklad-wpisu-wykorzystujacego-wszystkie-komponenty': {
+      pl: '/przyklad-wpisu-wykorzystujacego-wszystkie-komponenty',
+      en: '/example-post-using-all-components'
     }
   }
 });

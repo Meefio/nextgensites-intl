@@ -77,7 +77,7 @@ export default async function KnowledgeBasePage({
             <span>{locale === 'pl' ? 'Przydatna wiedza' : 'Useful knowledge'}</span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text">
             {t('title')}
           </h1>
 
@@ -118,7 +118,7 @@ export default async function KnowledgeBasePage({
                         />
                       </div>
                       <div className="absolute bottom-3 left-3">
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-600 bg-primary text-primary-foreground transition-colors dark:text-white">
                           {post.category}
                         </span>
                       </div>

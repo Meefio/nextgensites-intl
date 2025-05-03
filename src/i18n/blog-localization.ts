@@ -8,15 +8,21 @@ export const blogPostTranslations: Record<string, Record<string, string>> = {
   'przyklad-wpisu-wykorzystujacego-wszystkie-komponenty': {
     en: 'example-post-using-all-components'
   },
-  'jak-wybrac-dobra-strone-internetowa-dla-swojej-firmy': {
-    en: 'how-to-choose-the-right-website-for-your-business'
+  'jak-wybrac-strone-internetowa-dla-swojej-firmy': {
+    en: 'how-to-choose-a-website-for-your-business'
+  },
+  'dlaczego-nextjs-to-przyszlosc-stron-internetowych-dla-biznesu': {
+    en: 'why-nextjs-is-the-future-of-business-websites'
   },
   // English to Polish
   'example-post-using-all-components': {
     pl: 'przyklad-wpisu-wykorzystujacego-wszystkie-komponenty'
   },
-  'how-to-choose-the-right-website-for-your-business': {
-    pl: 'jak-wybrac-dobra-strone-internetowa-dla-swojej-firmy'
+  'how-to-choose-a-website-for-your-business': {
+    pl: 'jak-wybrac-strone-internetowa-dla-swojej-firmy'
+  },
+  'why-nextjs-is-the-future-of-business-websites': {
+    pl: 'dlaczego-nextjs-to-przyszlosc-stron-internetowych-dla-biznesu'
   }
 }
 
@@ -68,7 +74,7 @@ export function getLocalizedPath(
     const pathParts = cleanPath.split('/').filter(part => part.length > 0);
 
     // Extract the section and slug
-     const slug = pathParts[1];
+    const slug = pathParts[1];
 
     // No slug, just the section
     if (!slug) {
