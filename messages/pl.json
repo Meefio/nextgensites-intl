@@ -895,5 +895,12 @@
       "category": "Biznes",
       "readingTime": "5 min czytania"
     }
+  },
+  "BlogPosts": {
+    "sectionLabel": "BAZA WIEDZY",
+    "title": "Najnowsze poradniki z naszej bazy wiedzy",
+    "description": "Sprawdź, nie pożałujesz",
+    "readMore": "Czytaj artykuł",
+    "viewAllPosts": "Zobacz wszystkie artykuły"
   }
 }

@@ -17,6 +17,7 @@ import dynamic from 'next/dynamic'
 const WhyNotWordPressSection = dynamic(() => import('@/app/components/WhyNotWordPress-section').then(mod => mod.default), { ssr: true })
 const PortfolioSection = dynamic(() => import('@/app/components/portfolio-section').then(mod => mod.default), { ssr: true })
 const FeaturesSection = dynamic(() => import('@/app/components/features-section').then(mod => mod.default), { ssr: true })
+const LatestBlogPosts = dynamic(() => import('@/app/components/latest-blog-posts').then(mod => mod.default), { ssr: true })
 
 // Dodajemy ISR (Incremental Static Regeneration)
 export const revalidate = 3600 // Odświeżanie co godzinę
@@ -399,6 +400,7 @@ export default async function HomePage({ params }: GenerateMetadataProps) {
 				<WhyNotWordPressSection />
 				<TimelineSection />
 				<Pricing />
+				<LatestBlogPosts locale={locale} />
 				<Faq />
 				<CtaSection />
 				<ContactForm />

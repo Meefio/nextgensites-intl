@@ -903,5 +903,12 @@
       "category": "Business",
       "readingTime": "5 min read"
     }
+  },
+  "BlogPosts": {
+    "sectionLabel": "BLOG",
+    "title": "Latest from Our Knowledge Base",
+    "description": "Explore our latest articles with expert insights and practical tips for your online business",
+    "readMore": "Read article",
+    "viewAllPosts": "View all articles"
   }
 }
