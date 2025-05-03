@@ -63,8 +63,21 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // Add CORS headers for OPTIONS requests to fix the preflight issue
         source: '/(.*)',
         headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, PUT, DELETE, OPTIONS',
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'X-Requested-With, Content-Type, Authorization',
+          },
           {
             key: 'Cache-Control',
             value: process.env.NODE_ENV === 'development'

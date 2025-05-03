@@ -46,6 +46,20 @@ function handleRedirects(request: NextRequest) {
 // Export the combined middleware with performance optimizations
 export default function middleware(request: NextRequest) {
    const { pathname } = request.nextUrl;
+   const { method } = request;
+
+   // Handle OPTIONS requests for CORS preflight
+   if (method === 'OPTIONS') {
+      const response = new NextResponse(null, { status: 204 });
+
+      // Add CORS headers
+      response.headers.set('Access-Control-Allow-Origin', '*');
+      response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+      response.headers.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization');
+      response.headers.set('Access-Control-Max-Age', '86400'); // 24 hours
+
+      return response;
+   }
 
    // Bypass middleware for static assets and API routes
    if (shouldBypassMiddleware(pathname)) {
