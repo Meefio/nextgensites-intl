@@ -13,8 +13,7 @@ export const redirectPatterns = [
   '/buildwise',
   '/en/buildwise',
   // Add blog redirections for old URLs or typos
-  '/how-to-choose-a-website-for-yout-business', // Handle typo in English blog URL
-  '/en/how-to-choose-a-website-for-yout-business',
+  '/en/how-to-choose-a-website-for-your-business-typo',
   '/jak-wybrac-dobra-strone-internetowa-dla-swojej-firmy', // Handle old slug
   '/en/how-to-choose-the-right-website-for-your-business', // Handle old English slug
 ];
@@ -26,10 +25,9 @@ export const redirectMap: Record<string, string> = {
   '/buildwise': '/strona-internetowa-dla-firmy-budowlano-remontowej',
   '/en/buildwise': '/en/construction-and-renovation-company-website',
   // Blog post redirects
-  '/how-to-choose-a-website-for-yout-business': '/en/how-to-choose-a-website-for-your-business',
-  '/en/how-to-choose-a-website-for-yout-business': '/en/how-to-choose-a-website-for-your-business',
   '/jak-wybrac-dobra-strone-internetowa-dla-swojej-firmy': '/jak-wybrac-strone-internetowa-dla-swojej-firmy',
   '/en/how-to-choose-the-right-website-for-your-business': '/en/how-to-choose-a-website-for-your-business',
+  '/en/how-to-choose-a-website-for-your-business-typo': '/en/how-to-choose-a-website-for-your-business',
 };
 
 // Cache TTL for redirects in seconds (1 hour)

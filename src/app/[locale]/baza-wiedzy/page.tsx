@@ -114,6 +114,7 @@ export default async function KnowledgeBasePage({
                           src={post.coverImage}
                           alt={post.title}
                           fill
+                          sizes="(max-width: 768px) 100vw, 40vw"
                           className="object-cover"
                         />
                       </div>

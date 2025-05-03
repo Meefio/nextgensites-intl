@@ -199,7 +199,7 @@ export const TableOfContents = ({ items, className = '' }: TableOfContentsProps)
       transition={{ delay: 0.3 }}
     >
       <h3 className="text-lg font-semibold mb-4 flex items-center">
-        <span className="w-1 h-5 bg-primary rounded-full mr-2"></span>
+        <span className="w-1 h-5 bg-primary rounded-full mr-2 flex-shrink-0"></span>
         {t('tableOfContents.title')}
       </h3>
 

@@ -36,6 +36,7 @@ export function Hero({ projectKey }: HeroProps) {
         alt={config.altText}
         fill
         priority
+        sizes="100vw"
         className="object-cover object-top rounded-xl"
         quality={100}
         title={config.altText}
