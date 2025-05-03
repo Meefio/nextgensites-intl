@@ -18,24 +18,27 @@ import { ClientWrapper } from '@/app/components/ClientWrapper';
 const GoogleAnalytics = dynamic(() => import('@/app/components/analytics/google-analytics').then(mod => mod.GoogleAnalytics));
 const CacheProvider = dynamic(() => import('@/app/components/CacheProvider').then(mod => mod.CacheProvider));
 
-// Optimize font loading with display: swap
+// Optimize font loading with display: optional
 const fontSans = Inter({
 	variable: "--font-sans",
 	subsets: ["latin"],
-	display: "swap", // Add display swap for better performance
+	display: "optional", // Use optional to avoid unnecessary preloads
+	preload: true,
 });
 
 const fontHeading = Instrument_Sans({
 	variable: "--font-heading",
 	subsets: ["latin"],
-	display: "swap", // Add display swap for better performance
+	display: "optional", // Use optional to avoid unnecessary preloads
+	preload: false, // Only preload the main font
 });
 
 const fontQuote = Lily_Script_One({
 	variable: "--font-quote",
 	weight: "400",
 	subsets: ["latin"],
-	display: "swap", // Add display swap for better performance
+	display: "optional", // Use optional to avoid unnecessary preloads
+	preload: false, // Only preload the main font
 });
 
 // Poprawiona definicja typów parametrów
@@ -197,15 +200,7 @@ export default async function LocaleLayout({
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<head>
-				{/* Preload critical resources */}
-				<link
-					rel="preload"
-					href="/images/MacBookProHero.png"
-					as="image"
-					type="image/png"
-					fetchPriority="high"
-				/>
-
+				{/* Critical resources are preloaded only where needed */}
 				{consent.analytics && (
 					<GoogleAnalytics
 						measurementId="G-5YLJH8GHZ6"

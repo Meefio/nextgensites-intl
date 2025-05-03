@@ -109,7 +109,7 @@ export default async function KnowledgeBasePage({
                   <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
                     <div className="md:col-span-2 aspect-video md:aspect-auto relative overflow-hidden bg-muted">
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="h-full w-full flex items-center justify-center">
+                      <div className="h-full w-full flex items-center justify-center relative">
                         <Image
                           src={post.coverImage}
                           alt={post.title}
