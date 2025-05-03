@@ -46,42 +46,38 @@ export const MDXComponents = {
   NextArticleBox,
 
   // Wrapper components
-  Code: ({ children, className }: { children: React.ReactNode, className?: string }) => (
-    <code className={`bg-muted px-1.5 py-0.5 rounded-md text-sm font-mono ${className || ''}`}>
-      {children}
-    </code>
+  code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
+    <code className={`bg-muted px-1.5 py-0.5 rounded-md text-sm font-mono ${className || ''}`} {...props} />
   ),
-  Pre: ({ children, className }: { children: React.ReactNode, className?: string }) => (
-    <pre className={`bg-muted p-4 rounded-lg my-6 overflow-auto text-sm ${className || ''}`}>
-      {children}
-    </pre>
+  pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
+    <pre className={`bg-muted p-4 rounded-lg my-6 overflow-auto text-sm ${className || ''}`} {...props} />
   ),
-  Strong: ({ children }: { children: React.ReactNode }) => (
-    <strong className="font-bold text-foreground">{children}</strong>
+  strong: (props: React.HTMLAttributes<HTMLElement>) => (
+    <strong className="font-bold text-foreground" {...props} />
   ),
-  Em: ({ children }: { children: React.ReactNode }) => (
-    <em className="italic">{children}</em>
+  em: (props: React.HTMLAttributes<HTMLElement>) => (
+    <em className="italic" {...props} />
   ),
-  Table: ({ children }: { children: React.ReactNode }) => (
+
+  // Table components
+  table: (props: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-8 overflow-x-auto">
-      <table className="min-w-full divide-y divide-border">
-        {children}
-      </table>
+      <table className="min-w-full divide-y divide-border" {...props} />
     </div>
   ),
-  Thead: (props: any) => (
+  thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
     <thead className="bg-muted" {...props} />
   ),
-  Tbody: (props: any) => (
+  tbody: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
     <tbody className="divide-y divide-border" {...props} />
   ),
-  Tr: (props: any) => (
+  tr: (props: React.HTMLAttributes<HTMLTableRowElement>) => (
     <tr {...props} />
   ),
-  Th: (props: any) => (
+  th: (props: React.HTMLAttributes<HTMLTableCellElement>) => (
     <th className="px-4 py-3 text-left text-sm font-semibold text-foreground" {...props} />
   ),
-  Td: (props: any) => (
+  td: (props: React.HTMLAttributes<HTMLTableCellElement>) => (
     <td className="px-4 py-3 text-sm" {...props} />
   ),
 }

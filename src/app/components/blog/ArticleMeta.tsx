@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Calendar, Clock, Tag } from 'lucide-react'
+import { Calendar, Clock, Tag, User } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
@@ -91,28 +91,17 @@ export const ArticleMeta = ({
             {category}
           </span>
         </div>
-      </motion.div>
-
-      {/* Author information */}
-      <motion.div
-        className="mt-8 flex items-center justify-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
-      >
-        <div className="flex-shrink-0 mr-3">
-          <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
-            {author.split(' ').map(name => name[0]).join('')}
-          </div>
-        </div>
-        <div className="text-left">
-          <p className="font-semibold">
+        <div className="flex items-center px-4 py-2 bg-card border rounded-full shadow-sm">
+          <User className="h-4 w-4 mr-2 text-primary" />
+          <span className="text-sm font-medium">
             <span className="sr-only">{t('meta.author')}</span>
             {author}
-          </p>
-          {authorPosition && (
-            <p className="text-sm text-muted-foreground">{authorPosition}</p>
-          )}
+            {authorPosition && (
+              <span className="text-xs text-muted-foreground ml-1">
+                • {authorPosition}
+              </span>
+            )}
+          </span>
         </div>
       </motion.div>
     </div>
