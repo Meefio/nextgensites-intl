@@ -87,7 +87,7 @@ export const getTableOfContents = (content: string) => {
     // 3. Remove non-alphanumeric characters
     // 4. Replace spaces with hyphens and handle consecutive hyphens
 
-    let id = title
+    const id = title
       .toLowerCase()
       // Unicode normalization (NFD) separates diacritical marks from base characters
       .normalize('NFD')
