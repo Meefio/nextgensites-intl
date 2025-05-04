@@ -42,7 +42,6 @@ const ARTICLE_CACHE_TTL = 300;
 export default function middleware(request: NextRequest) {
    const { pathname } = request.nextUrl;
    const { method } = request;
-   const currentLocale = request.cookies.get('NEXT_LOCALE')?.value;
 
    // Handle OPTIONS requests for CORS preflight
    if (method === 'OPTIONS') {
