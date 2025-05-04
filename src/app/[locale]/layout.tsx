@@ -14,8 +14,8 @@ import dynamic from 'next/dynamic';
 import { ClientWrapper } from '@/app/components/ClientWrapper';
 
 // Dynamically import non-critical components with server-side rendering
-const GoogleAnalytics = dynamic(() => import('@/app/components/analytics/google-analytics').then(mod => mod.GoogleAnalytics));
 const CacheProvider = dynamic(() => import('@/app/components/CacheProvider').then(mod => mod.CacheProvider));
+const GoogleAnalyticsWrapper = dynamic(() => import('@/app/components/analytics/google-analytics-wrapper'));
 
 // Optimize font loading with display: swap
 const fontSans = Inter({
@@ -192,13 +192,7 @@ export default async function LocaleLayout({
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<head>
-				{/* Critical resources are preloaded only where needed */}
-				{consent.analytics && (
-					<GoogleAnalytics
-						measurementId="G-5YLJH8GHZ6"
-						consent={consent}
-					/>
-				)}
+				{/* Remove the conditional Google Analytics implementation */}
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
@@ -228,6 +222,11 @@ export default async function LocaleLayout({
 							<ClientWrapper defaultTitle={defaultTitle}>
 								{children}
 							</ClientWrapper>
+							{/* Google Analytics with consent management */}
+							<GoogleAnalyticsWrapper
+								measurementId="G-5YLJH8GHZ6"
+								initialConsent={consent.analytics}
+							/>
 						</NextIntlClientProvider>
 						<Toaster />
 					</ThemeProvider>
