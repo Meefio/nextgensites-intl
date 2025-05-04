@@ -21,7 +21,7 @@ export async function LatestBlogPosts({ locale }: LatestBlogPostsProps) {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-muted/30">
+    <section className="py-16 md:py-24">
       <div className="container px-4 md:px-6">
         <AnimatedElement
           className="flex flex-col gap-3"

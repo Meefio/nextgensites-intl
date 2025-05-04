@@ -42,7 +42,7 @@ const Portfolio = () => {
       tags: t.raw('projects.project2.tags') as string[],
       imageAlt: t('projects.project2.imageAlt'),
       linkPl: '/strona-internetowa-dla-firmy-budowlano-remontowej',
-      linkEn: '/en/construction-company-website',
+      linkEn: '/en/construction-and-renovation-company-website',
       viewLiveLink: 'https://buildwise-alpha.vercel.app/pl'
     }
   ]
