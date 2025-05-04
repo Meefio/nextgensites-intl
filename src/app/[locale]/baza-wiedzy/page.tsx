@@ -129,7 +129,7 @@ export default async function KnowledgeBasePage({
                         width={500}
                         height={280}
                         sizes="(max-width: 768px) 100vw, 40vw"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
                         style={{
                           aspectRatio: '16/9',
                           objectFit: 'cover'

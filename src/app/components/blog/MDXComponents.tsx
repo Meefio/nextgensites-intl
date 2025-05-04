@@ -10,6 +10,26 @@ const asPathname = (path: string) => {
   return path as ComponentProps<typeof NextIntlLink>['href'];
 };
 
+// Create a proper React component for anchor tags
+const CustomLink = (props: any) => {
+  const locale = useLocale();
+  let href = props.href || '';
+
+  // Check if this is an internal link to a knowledge base article
+  if (href.startsWith('/baza-wiedzy/') || href.startsWith('/knowledge-base/')) {
+    const slug = href.split('/').pop();
+    href = `/${locale === 'en' ? 'en/knowledge-base' : 'baza-wiedzy'}/${slug}`;
+  }
+
+  return (
+    <NextIntlLink
+      href={asPathname(href)}
+      className="text-primary hover:underline font-medium"
+      {...props}
+    />
+  );
+};
+
 export const MDXComponents = {
   // Override default elements
   h1: (props: any) => (
@@ -27,24 +47,7 @@ export const MDXComponents = {
   p: (props: any) => (
     <p className="my-4 text-lg leading-relaxed" {...props} />
   ),
-  a: (props: any) => {
-    const locale = useLocale();
-    let href = props.href || '';
-
-    // Check if this is an internal link to a knowledge base article
-    if (href.startsWith('/baza-wiedzy/') || href.startsWith('/knowledge-base/')) {
-      const slug = href.split('/').pop();
-      href = `/${locale === 'en' ? 'en/knowledge-base' : 'baza-wiedzy'}/${slug}`;
-    }
-
-    return (
-      <NextIntlLink
-        href={asPathname(href)}
-        className="text-primary hover:underline font-medium"
-        {...props}
-      />
-    );
-  },
+  a: CustomLink,
   ul: (props: any) => (
     <ul className="my-6 list-disc pl-10 space-y-3" {...props} />
   ),
