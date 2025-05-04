@@ -44,10 +44,29 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             return null;
           }
 
-          // Get the translated path for this language
-          const href = getLocalizedPath(pathname, lang.code)
+          // Get the localized path based on language
+          let href;
 
-          // For all languages, we use direct string URLs now
+          if (lang.code === 'pl') {
+            // First get the properly localized path using the existing utility
+            const localizedPath = getLocalizedPath(pathname, 'pl');
+
+            // Now prefix it with /pl to trigger our middleware language detection
+            // Make sure localizedPath is a string (it always is for Polish locale)
+            const pathString = typeof localizedPath === 'string' ? localizedPath : '/pl';
+
+            // Add the /pl prefix for middleware detection
+            if (pathString === '/') {
+              href = '/pl';
+            } else {
+              // Add /pl prefix to non-root paths
+              href = `/pl${pathString}`;
+            }
+          } else {
+            // For English, use the standard getLocalizedPath function
+            href = getLocalizedPath(pathname, lang.code);
+          }
+
           return (
             <DropdownMenuItem key={lang.code} asChild className="cursor-pointer">
               <a href={href.toString()} aria-label={`Zmień język na ${lang.label}`}>

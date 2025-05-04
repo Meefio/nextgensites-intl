@@ -42,6 +42,7 @@ const ARTICLE_CACHE_TTL = 300;
 export default function middleware(request: NextRequest) {
    const { pathname } = request.nextUrl;
    const { method } = request;
+   const currentLocale = request.cookies.get('NEXT_LOCALE')?.value;
 
    // Handle OPTIONS requests for CORS preflight
    if (method === 'OPTIONS') {
@@ -65,22 +66,31 @@ export default function middleware(request: NextRequest) {
    const redirectResponse = handleRedirects(request);
    if (redirectResponse) return redirectResponse;
 
-   // For explicit Polish language selection, clear the locale cookie to ensure it works
+   // Enhanced handling for explicit Polish language selection
    if (pathname === '/pl' || pathname.startsWith('/pl/')) {
-      // If user explicitly navigates to a Polish URL by clicking language switcher,
-      // we should respect that choice and clear any existing locale cookie
-      const response = NextResponse.redirect(new URL(pathname.replace(/^\/pl/, ''), request.url));
+      // User explicitly navigates to a Polish URL
+      const targetPath = pathname === '/pl' ? '/' : pathname.replace(/^\/pl/, '');
+      const response = NextResponse.redirect(new URL(targetPath, request.url));
 
-      // Clear the NEXT_LOCALE cookie to prevent language switching issues
+      // Force clear ALL locale-related cookies to ensure a clean state
       response.cookies.delete('NEXT_LOCALE');
+      response.cookies.delete('next-locale');
+      response.cookies.delete('i18next');
 
-      // Set Polish locale explicitly
+      // Set Polish locale explicitly with SameSite and Secure attributes
       response.cookies.set('NEXT_LOCALE', 'pl', {
          maxAge: LOCALE_COOKIE_MAX_AGE,
-         path: '/'
+         path: '/',
+         sameSite: 'lax',
+         secure: process.env.NODE_ENV === 'production',
+         httpOnly: false // Allow client-side access
       });
 
-      response.headers.set('Cache-Control', `public, max-age=${REDIRECT_CACHE_TTL}`);
+      // Use shorter cache or no-cache for language switch redirects
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+
       return response;
    }
 
@@ -93,7 +103,10 @@ export default function middleware(request: NextRequest) {
       if (locale) {
          response.cookies.set('NEXT_LOCALE', locale, {
             maxAge: LOCALE_COOKIE_MAX_AGE,
-            path: '/'
+            path: '/',
+            sameSite: 'lax',
+            secure: process.env.NODE_ENV === 'production',
+            httpOnly: false // Allow client-side access
          });
       }
    }
