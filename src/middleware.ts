@@ -43,6 +43,9 @@ export default function middleware(request: NextRequest) {
    const { pathname } = request.nextUrl;
    const { method } = request;
 
+   // Get current locale from cookie if exists
+   const currentLocale = request.cookies.get('NEXT_LOCALE')?.value;
+
    // Handle OPTIONS requests for CORS preflight
    if (method === 'OPTIONS') {
       const response = new NextResponse(null, { status: 204 });
@@ -86,6 +89,34 @@ export default function middleware(request: NextRequest) {
       });
 
       // Use shorter cache or no-cache for language switch redirects
+      response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      response.headers.set('Pragma', 'no-cache');
+      response.headers.set('Expires', '0');
+
+      return response;
+   }
+
+   // Force root path to use Polish for users with English cookie who are explicitly trying to access the root
+   if (pathname === '/' && currentLocale === 'en') {
+      // User is trying to access root path but has English cookie
+      // We need to handle this as an explicit preference for Polish
+      const response = NextResponse.next();
+
+      // Clear locale cookies
+      response.cookies.delete('NEXT_LOCALE');
+      response.cookies.delete('next-locale');
+      response.cookies.delete('i18next');
+
+      // Set Polish locale explicitly
+      response.cookies.set('NEXT_LOCALE', 'pl', {
+         maxAge: LOCALE_COOKIE_MAX_AGE,
+         path: '/',
+         sameSite: 'lax',
+         secure: process.env.NODE_ENV === 'production',
+         httpOnly: false
+      });
+
+      // Prevent caching
       response.headers.set('Cache-Control', 'no-cache, no-store, must-revalidate');
       response.headers.set('Pragma', 'no-cache');
       response.headers.set('Expires', '0');
