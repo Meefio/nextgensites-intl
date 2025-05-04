@@ -20,5 +20,12 @@ interface CustomEventMap {
 }
 
 declare global {
-  interface WindowEventMap extends CustomEventMap { }
+  // Add the cookieConsentChange event to the WindowEventMap
+  interface WindowEventMap {
+    'cookieConsentChange': CustomEvent<{
+      necessary: boolean;
+      analytics: boolean;
+      marketing: boolean;
+    }>;
+  }
 } 

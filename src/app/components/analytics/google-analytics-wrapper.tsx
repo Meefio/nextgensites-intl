@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
 type GoogleAnalyticsWrapperProps = {
@@ -11,8 +10,6 @@ type GoogleAnalyticsWrapperProps = {
 
 export default function GoogleAnalyticsWrapper({ measurementId, initialConsent }: GoogleAnalyticsWrapperProps) {
   const [consent, setConsent] = useState(initialConsent);
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   // Update consent when prop changes
   useEffect(() => {
