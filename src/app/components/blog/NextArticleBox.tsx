@@ -28,7 +28,7 @@ export const NextArticleBox = ({ title, slug, description, locale = 'pl', classN
 
   // Construct the href based on locale and slug, or default to homepage if no valid slug
   const hrefPath = isValidSlug
-    ? `/${locale === 'en' ? 'en/' : ''}baza-wiedzy/${slug}`
+    ? `/${locale === 'en' ? 'knowledge-base' : 'baza-wiedzy'}/${slug}`
     : '/' // Default to homepage when no valid slug is available
 
   // If no valid slug is provided, render without Link
