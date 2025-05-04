@@ -1,17 +1,33 @@
 import { getTranslations } from 'next-intl/server';
+import { Metadata } from 'next';
+import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl';
 
-// export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
-//   const t = await getTranslations('terms');
+interface PageProps {
+  params: Promise<{
+    locale: string;
+  }>;
+}
 
-//   return {
-//     title: t('title'),
-//     description: t('description'),
-//     openGraph: {
-//       title: `${t('title')} - NextGen Sites`,
-//       description: t('description'),
-//     },
-//   };
-// }
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'terms' });
+
+  // Create canonical URL for terms of service page
+  const path = locale === 'pl' ? '/regulamin' : '/terms-of-service';
+  const canonicalUrl = createCanonicalUrl(path, locale);
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        'pl': createCanonicalUrl('/regulamin', 'pl'),
+        'en': createCanonicalUrl('/terms-of-service', 'en'),
+      },
+    },
+  };
+}
 
 export default async function Terms() {
   const t = await getTranslations('terms');

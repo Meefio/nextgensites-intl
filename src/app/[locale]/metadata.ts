@@ -22,17 +22,9 @@ export const metadata = (locale: string): Metadata => ({
       'max-snippet': -1,
     },
   },
-  alternates: {
-    canonical: createCanonicalUrl('/', locale),
-    languages: {
-      'pl': createCanonicalUrl('/', 'pl'),
-      'en': createCanonicalUrl('/', 'en'),
-    },
-  },
   openGraph: {
     type: 'website',
     locale: locale === 'pl' ? 'pl' : 'en',
-    url: createCanonicalUrl('/', locale),
     siteName: 'NextGen Sites',
     images: [
       {

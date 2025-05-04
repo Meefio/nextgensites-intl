@@ -86,7 +86,7 @@ export async function LatestBlogPosts({ locale }: LatestBlogPostsProps) {
                   </h3>
 
                   <p className="text-muted-foreground mb-4 line-clamp-3">
-                    {post.summaryPoints && post.summaryPoints[0]}
+                    {post.description || (post.summaryPoints && post.summaryPoints[0])}
                   </p>
 
                   <div className="flex justify-end items-center text-primary font-medium mt-auto">

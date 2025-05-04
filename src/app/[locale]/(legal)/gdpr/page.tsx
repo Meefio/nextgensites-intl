@@ -1,4 +1,33 @@
 import { getTranslations } from 'next-intl/server';
+import { Metadata } from 'next';
+import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl';
+
+interface PageProps {
+  params: Promise<{
+    locale: string;
+  }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'gdpr' });
+
+  // Create canonical URL for GDPR page
+  const path = locale === 'pl' ? '/rodo' : '/gdpr';
+  const canonicalUrl = createCanonicalUrl(path, locale);
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        'pl': createCanonicalUrl('/rodo', 'pl'),
+        'en': createCanonicalUrl('/gdpr', 'en'),
+      },
+    },
+  };
+}
 
 export default async function RODO() {
   const t = await getTranslations('gdpr');

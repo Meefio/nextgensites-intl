@@ -10,6 +10,7 @@ export interface PostMeta {
   authorPosition?: string
   category: string
   coverImage: string
+  description?: string
   summaryPoints?: string[]
   worthKnowing?: string
   locale: string

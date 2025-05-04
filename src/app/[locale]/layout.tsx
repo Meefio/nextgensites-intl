@@ -54,14 +54,8 @@ export async function generateMetadata({
 
 	const baseMetadataWithLocale = baseMetadata(locale);
 
-	// Update to ensure only one language version for each locale
-	const alternateLanguages = {
-		canonical: createCanonicalUrl('/', locale),
-		languages: {
-			'pl': createCanonicalUrl('/', 'pl'),
-			'en': createCanonicalUrl('/', 'en')
-		}
-	};
+	// Remove alternates configuration from root layout since each page should define its own canonical URL
+	// This prevents overriding page-specific canonical URLs
 
 	const metadata: Metadata = {
 		title: {
@@ -86,7 +80,7 @@ export async function generateMetadata({
 		twitter: {
 			...baseMetadataWithLocale.twitter,
 		},
-		alternates: alternateLanguages,
+		// Remove alternates property from root layout
 	};
 
 	return {

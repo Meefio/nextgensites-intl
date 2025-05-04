@@ -4,10 +4,11 @@ import { TableOfContents, ArticleMeta, HelpBox } from '@/app/components/blog'
 import path from 'path'
 import matter from 'gray-matter'
 import { getPostBySlug, getPostSlugs, getTableOfContents } from '@/utils/mdx'
-import { getCachedMdxContent } from '@/utils/mdx-cache'
+import { getCachedMdxContent, clearMdxCaches } from '@/utils/mdx-cache'
 import { Metadata } from 'next'
 import ArticleContent from './article-content'
 import { KnowledgeBaseArticleProps } from '../types'
+import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl'
 
 interface PageProps {
   params: Promise<{
@@ -22,6 +23,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   unstable_setRequestLocale(locale)
 
+  // Clear MDX caches to ensure we're using the latest data
+  clearMdxCaches()
+
   const post = getPostBySlug(slug, locale)
 
   if (!post) {
@@ -30,12 +34,31 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
+  // Use description from MDX frontmatter if available, otherwise fallback to summaryPoints
+  const description = post.description || post.summaryPoints?.join(' ') || ''
+
+  // Create canonical URL for the current article's path based on slug
+  const path = locale === 'pl' ? `/baza-wiedzy/${slug}` : `/knowledge-base/${slug}`
+  const canonicalUrl = createCanonicalUrl(path, locale)
+
+  // Create paths for alternates in different languages
+  const plPath = `/baza-wiedzy/${slug}`
+  const enPath = `/knowledge-base/${slug}`
+
   return {
     title: post.title,
-    description: post.summaryPoints?.join(' ') || '',
+    description: description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        'pl': createCanonicalUrl(plPath, 'pl'),
+        'en': createCanonicalUrl(enPath, 'en'),
+      },
+    },
     openGraph: {
       title: post.title,
-      description: post.summaryPoints?.join(' ') || '',
+      description: description,
+      url: canonicalUrl,
       images: [
         {
           url: post.coverImage,
@@ -44,6 +67,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           alt: post.title,
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: description,
+      images: [{
+        url: post.coverImage,
+        alt: post.title,
+      }],
     },
   }
 }
@@ -65,6 +97,9 @@ export default async function BlogPage({ params }: PageProps) {
   const { locale, slug } = await params
 
   unstable_setRequestLocale(locale)
+
+  // Clear MDX caches to ensure we're using the latest data
+  clearMdxCaches()
 
   // Get post data from MDX file
   const post = getPostBySlug(slug, locale)

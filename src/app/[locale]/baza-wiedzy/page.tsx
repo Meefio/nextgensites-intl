@@ -4,6 +4,7 @@ import { BookOpen, Clock, ChevronRight, BookText, Sparkles } from 'lucide-react'
 import Image from 'next/image';
 import { getAllPosts } from '@/utils/mdx';
 import { Metadata } from 'next';
+import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl';
 
 interface PageProps {
   params: Promise<{
@@ -17,12 +18,24 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'KnowledgeBase' });
 
+  // Create canonical URL for knowledge base index page
+  const path = locale === 'pl' ? '/baza-wiedzy' : '/knowledge-base';
+  const canonicalUrl = createCanonicalUrl(path, locale);
+
   return {
     title: t('metadata.title'),
     description: t('metadata.description'),
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        'pl': createCanonicalUrl('/baza-wiedzy', 'pl'),
+        'en': createCanonicalUrl('/knowledge-base', 'en'),
+      },
+    },
     openGraph: {
       title: t('metadata.title'),
       description: t('metadata.description'),
+      url: canonicalUrl,
     },
   };
 }
@@ -145,7 +158,7 @@ export default async function KnowledgeBasePage({
                       </h3>
 
                       <p className="text-muted-foreground mb-4 line-clamp-3">
-                        {post.summaryPoints && post.summaryPoints[0]}
+                        {post.description || (post.summaryPoints && post.summaryPoints[0])}
                       </p>
 
                       <div className="flex items-center text-primary font-medium">

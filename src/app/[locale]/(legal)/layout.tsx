@@ -17,7 +17,6 @@ interface GenerateMetadataProps {
 export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Legal' });
-  const canonicalUrl = createCanonicalUrl('/', locale);
 
   return {
     metadataBase: new URL('https://nextgensites.pl'),
@@ -26,17 +25,9 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
       template: `%s | NextGen Sites`
     },
     description: t('description'),
-    alternates: {
-      canonical: canonicalUrl,
-      languages: {
-        'pl': createCanonicalUrl('/', 'pl'),
-        'en': createCanonicalUrl('/', 'en'),
-      },
-    },
     openGraph: {
       type: 'website',
       locale: locale === 'pl' ? 'pl_PL' : 'en_US',
-      url: locale === 'pl' ? 'https://nextgensites.pl' : `https://nextgensites.pl/${locale}`,
       siteName: 'NextGen Sites',
       title: t('ogTitle'),
       description: t('ogDescription'),
