@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { Clock, ChevronRight } from "lucide-react";
 import { AnimatedElement } from "@/app/components/motion/animated-element";
+import { Button } from "@/app/components/ui/button";
 
 interface LatestBlogPostsProps {
   locale: string;
@@ -100,12 +101,11 @@ export async function LatestBlogPosts({ locale }: LatestBlogPostsProps) {
         </div>
 
         <div className="flex justify-center mt-12">
-          <Link
-            href="/baza-wiedzy"
-            className="inline-flex items-center justify-center px-6 py-3 border border-primary bg-primary text-primary-foreground hover:bg-primary/90 rounded-md font-medium transition-colors duration-200"
-          >
-            {t("viewAllPosts")}
-          </Link>
+          <Button variant="default" asChild>
+            <Link href="/baza-wiedzy">
+              {t("viewAllPosts")}
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

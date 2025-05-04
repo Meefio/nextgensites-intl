@@ -9,7 +9,7 @@ export function PromoHeader() {
   if (!promoActive) return null
 
   return (
-    <p className='text-lg font-semibold text-[#0DA2E7] dark:text-primary animate-pulse text-center mt-4'>
+    <p className='text-lg font-semibold text-accent dark:text-primary animate-pulse text-center mt-4'>
       {t('promoHeader')}
     </p>
   )
