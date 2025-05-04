@@ -24,12 +24,12 @@ export function createCanonicalUrl(path: string, locale: string): string {
  * @returns Obiekty z URLs dla języków oraz x-default
  */
 export function createLanguageAlternates(
-  plPath: string, 
-  enPath: string, 
+  plPath: string,
+  enPath: string,
   defaultLocale: string = 'pl'
 ): { [key: string]: string } {
   const defaultPath = defaultLocale === 'pl' ? plPath : enPath;
-  
+
   return {
     'pl': createCanonicalUrl(plPath, 'pl'),
     'en': createCanonicalUrl(enPath, 'en'),
