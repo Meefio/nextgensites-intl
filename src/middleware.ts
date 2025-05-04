@@ -23,14 +23,6 @@ const intlMiddleware = createMiddleware({
 function handleRedirects(request: NextRequest) {
    const { pathname } = request.nextUrl;
 
-   // Redirect /pl/* to /* since Polish is the default locale and shouldn't have a prefix
-   if (pathname.startsWith('/pl/') || pathname === '/pl') {
-      const newPath = pathname.replace(/^\/pl\/?/, '/');
-      const response = NextResponse.redirect(new URL(newPath, request.url));
-      response.headers.set('Cache-Control', `public, max-age=${REDIRECT_CACHE_TTL}`);
-      return response;
-   }
-
    // Use direct map lookup instead of multiple conditionals
    if (redirectMap[pathname]) {
       const response = NextResponse.redirect(new URL(redirectMap[pathname], request.url));
@@ -72,6 +64,25 @@ export default function middleware(request: NextRequest) {
    // First check if we need to redirect
    const redirectResponse = handleRedirects(request);
    if (redirectResponse) return redirectResponse;
+
+   // For explicit Polish language selection, clear the locale cookie to ensure it works
+   if (pathname === '/pl' || pathname.startsWith('/pl/')) {
+      // If user explicitly navigates to a Polish URL by clicking language switcher,
+      // we should respect that choice and clear any existing locale cookie
+      const response = NextResponse.redirect(new URL(pathname.replace(/^\/pl/, ''), request.url));
+
+      // Clear the NEXT_LOCALE cookie to prevent language switching issues
+      response.cookies.delete('NEXT_LOCALE');
+
+      // Set Polish locale explicitly
+      response.cookies.set('NEXT_LOCALE', 'pl', {
+         maxAge: LOCALE_COOKIE_MAX_AGE,
+         path: '/'
+      });
+
+      response.headers.set('Cache-Control', `public, max-age=${REDIRECT_CACHE_TTL}`);
+      return response;
+   }
 
    // Get response from next-intl middleware
    const response = intlMiddleware(request);
