@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
-import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl';
+import { createCanonicalUrl, createLanguageAlternates } from '@/app/utils/createCanonicalUrl';
 
 interface PageProps {
   params: Promise<{
@@ -16,15 +16,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const path = locale === 'pl' ? '/polityka-prywatnosci' : '/privacy-policy';
   const canonicalUrl = createCanonicalUrl(path, locale);
 
+  // Create language alternates including x-default
+  const languages = createLanguageAlternates('/polityka-prywatnosci', '/privacy-policy', 'pl');
+
   return {
     title: t('title'),
     description: t('description'),
     alternates: {
       canonical: canonicalUrl,
-      languages: {
-        'pl': createCanonicalUrl('/polityka-prywatnosci', 'pl'),
-        'en': createCanonicalUrl('/privacy-policy', 'en'),
-      },
+      languages,
     },
   };
 }

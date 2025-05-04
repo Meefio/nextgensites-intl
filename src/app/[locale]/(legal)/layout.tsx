@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl';
 import { LanguageSwitcher } from "@/app/components/language-switcher";
 import { ThemeSwitcher } from "@/app/components/theme-switcher";
 import { getTranslations } from 'next-intl/server';
-import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl';
 
 interface GenerateMetadataProps {
   params: Promise<{

@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl';
 
 export const metadata = (locale: string): Metadata => ({
   metadataBase: new URL('https://nextgensites.pl'),

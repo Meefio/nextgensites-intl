@@ -10,7 +10,6 @@ import { cookies } from 'next/headers';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { metadata as baseMetadata } from './metadata';
-import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl';
 import dynamic from 'next/dynamic';
 import { ClientWrapper } from '@/app/components/ClientWrapper';
 

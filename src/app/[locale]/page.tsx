@@ -8,7 +8,7 @@ import { Footer } from '@/app/components/footer'
 import { Pricing } from '@/app/components/pricing'
 import { Faq } from '@/app/components/faq'
 import { ContactForm } from '@/app/components/contact-form'
-import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl'
+import { createCanonicalUrl, createLanguageAlternates } from '@/app/utils/createCanonicalUrl'
 import { Metadata } from 'next'
 import Script from 'next/script'
 import dynamic from 'next/dynamic'
@@ -33,13 +33,13 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
 	const { locale } = await params;
 	const canonicalUrl = createCanonicalUrl('/', locale);
 
+	// Tworzymy alternatywne URL-e dla każdego języka plus x-default
+	const languages = createLanguageAlternates('/', '/', 'pl');
+
 	return {
 		alternates: {
 			canonical: canonicalUrl,
-			languages: {
-				'pl': createCanonicalUrl('/', 'pl'),
-				'en': createCanonicalUrl('/', 'en'),
-			},
+			languages,
 		},
 	}
 }

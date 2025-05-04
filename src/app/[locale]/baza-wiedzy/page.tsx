@@ -1,10 +1,11 @@
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { BookOpen, Clock, ChevronRight, BookText, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import { getAllPosts } from '@/utils/mdx';
 import { Metadata } from 'next';
-import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl';
+import { createCanonicalUrl, createLanguageAlternates } from '@/app/utils/createCanonicalUrl';
+import { unstable_setRequestLocale } from 'next-intl/server';
 
 interface PageProps {
   params: Promise<{
@@ -22,15 +23,15 @@ export async function generateMetadata({
   const path = locale === 'pl' ? '/baza-wiedzy' : '/knowledge-base';
   const canonicalUrl = createCanonicalUrl(path, locale);
 
+  // Create language alternates including x-default
+  const languages = createLanguageAlternates('/baza-wiedzy', '/knowledge-base', 'pl');
+
   return {
     title: t('metadata.title'),
     description: t('metadata.description'),
     alternates: {
       canonical: canonicalUrl,
-      languages: {
-        'pl': createCanonicalUrl('/baza-wiedzy', 'pl'),
-        'en': createCanonicalUrl('/knowledge-base', 'en'),
-      },
+      languages,
     },
     openGraph: {
       title: t('metadata.title'),

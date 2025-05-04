@@ -4,7 +4,7 @@ import { PhotoSection } from '@/app/components/portfolio/PhotoSection'
 import { ContactForm } from '@/app/components/contact-form'
 import { getTranslations } from 'next-intl/server'
 import { Metadata } from 'next'
-import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl'
+import { createCanonicalUrl, createLanguageAlternates } from '@/app/utils/createCanonicalUrl'
 
 // Dodajemy ISR (Incremental Static Regeneration)
 export const revalidate = 3600 // Odświeżanie co godzinę
@@ -22,15 +22,19 @@ export async function generateMetadata({ params }: GenerateMetadataProps): Promi
   const path = locale === 'pl' ? '/strona-internetowa-dla-firmy-sprzatajacej' : '/cleaning-company-website';
   const canonicalUrl = createCanonicalUrl(path, locale);
 
+  // Create language alternates including x-default
+  const languages = createLanguageAlternates(
+    '/strona-internetowa-dla-firmy-sprzatajacej',
+    '/cleaning-company-website',
+    'pl'
+  );
+
   return {
     title: t('title'),
     description: t('description'),
     alternates: {
       canonical: canonicalUrl,
-      languages: {
-        'pl': createCanonicalUrl('/strona-internetowa-dla-firmy-sprzatajacej', 'pl'),
-        'en': createCanonicalUrl('/cleaning-company-website', 'en'),
-      },
+      languages,
     },
     openGraph: {
       title: t('ogTitle'),

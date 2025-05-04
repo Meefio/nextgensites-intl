@@ -14,4 +14,25 @@ export function createCanonicalUrl(path: string, locale: string): string {
 
   // Zbuduj pełny adres URL
   return `${baseUrl}${localePrefix}${cleanPath ? `/${cleanPath}` : ''}`;
+}
+
+/**
+ * Tworzy konfigurację alternatywnych URL-i dla metadanych (wraz z x-default)
+ * @param plPath - Ścieżka dla wersji polskiej (np. '/strona-internetowa', '/')
+ * @param enPath - Ścieżka dla wersji angielskiej (np. '/website', '/')
+ * @param defaultLocale - Domyślny język dla x-default (domyślnie 'pl')
+ * @returns Obiekty z URLs dla języków oraz x-default
+ */
+export function createLanguageAlternates(
+  plPath: string, 
+  enPath: string, 
+  defaultLocale: string = 'pl'
+): { [key: string]: string } {
+  const defaultPath = defaultLocale === 'pl' ? plPath : enPath;
+  
+  return {
+    'pl': createCanonicalUrl(plPath, 'pl'),
+    'en': createCanonicalUrl(enPath, 'en'),
+    'x-default': createCanonicalUrl(defaultPath, defaultLocale)
+  };
 } 

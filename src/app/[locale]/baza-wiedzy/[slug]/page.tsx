@@ -8,7 +8,7 @@ import { getCachedMdxContent, clearMdxCaches } from '@/utils/mdx-cache'
 import { Metadata } from 'next'
 import ArticleContent from './article-content'
 import { KnowledgeBaseArticleProps } from '../types'
-import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl'
+import { createCanonicalUrl, createLanguageAlternates } from '@/app/utils/createCanonicalUrl'
 
 interface PageProps {
   params: Promise<{
@@ -45,15 +45,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const plPath = `/baza-wiedzy/${slug}`
   const enPath = `/knowledge-base/${slug}`
 
+  // Create language alternates including x-default
+  const languages = createLanguageAlternates(plPath, enPath, 'pl');
+
   return {
     title: post.title,
     description: description,
     alternates: {
       canonical: canonicalUrl,
-      languages: {
-        'pl': createCanonicalUrl(plPath, 'pl'),
-        'en': createCanonicalUrl(enPath, 'en'),
-      },
+      languages,
     },
     openGraph: {
       title: post.title,

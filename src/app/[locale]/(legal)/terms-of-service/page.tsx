@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
-import { createCanonicalUrl } from '@/app/utils/createCanonicalUrl';
+import { createCanonicalUrl, createLanguageAlternates } from '@/app/utils/createCanonicalUrl';
 
 interface PageProps {
   params: Promise<{
@@ -16,15 +16,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const path = locale === 'pl' ? '/regulamin' : '/terms-of-service';
   const canonicalUrl = createCanonicalUrl(path, locale);
 
+  // Create language alternates including x-default
+  const languages = createLanguageAlternates('/regulamin', '/terms-of-service', 'pl');
+
   return {
     title: t('title'),
     description: t('description'),
     alternates: {
       canonical: canonicalUrl,
-      languages: {
-        'pl': createCanonicalUrl('/regulamin', 'pl'),
-        'en': createCanonicalUrl('/terms-of-service', 'en'),
-      },
+      languages,
     },
   };
 }
