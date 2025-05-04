@@ -1,8 +1,12 @@
 import { MetadataRoute } from 'next'
 import { routing } from '@/i18n/routing'
 import { getAllPosts } from '@/utils/mdx'
+import { clearMdxCaches } from '@/utils/mdx-cache'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // Clear the MDX caches to ensure we have the latest blog posts
+  clearMdxCaches()
+
   const baseUrl = 'https://nextgensites.pl'
 
   // More precise dates for different content types
