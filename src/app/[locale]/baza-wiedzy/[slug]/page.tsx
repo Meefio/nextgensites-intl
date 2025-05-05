@@ -49,10 +49,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // Create language alternates including x-default
   const languages = createLanguageAlternates(plPath, enPath, 'pl');
 
-  // Ensure we have a proper date format for metadata
-  const formattedDate = post.date instanceof Date
-    ? post.date.toISOString()
-    : new Date(post.date).toISOString();
+  // Format date for metadata
+  const formattedDate = new Date(post.date).toISOString();
 
   return {
     title: post.title,
@@ -140,10 +138,8 @@ export default async function BlogPage({ params }: PageProps) {
   // Generate table of contents
   const tocItems = getTableOfContents(content)
 
-  // Format date for JSON-LD
-  const publishDate = post.date instanceof Date
-    ? post.date.toISOString()
-    : new Date(post.date).toISOString();
+  // Format date for JSON-LD (post.date is string type from PostMeta interface)
+  const publishDate = new Date(post.date).toISOString();
 
   // Prepare JSON-LD data for article
   const jsonLd = {

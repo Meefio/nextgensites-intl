@@ -65,10 +65,6 @@ export const ArticleMeta = ({
 
   return (
     <div className={`mb-12 max-w-4xl mx-auto text-center ${className}`}>
-      <div className="mb-4 inline-flex items-center px-3 py-1 bg-muted text-primary rounded-full text-sm font-medium">
-        {locale === 'pl' ? 'ARTYKUŁ' : 'ARTICLE'}
-      </div>
-
       <motion.h1
         className="text-4xl md:text-5xl font-bold mb-6 leading-tight tracking-tight"
         initial={{ opacity: 0, y: 20 }}

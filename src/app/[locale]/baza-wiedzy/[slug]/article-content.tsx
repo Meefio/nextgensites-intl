@@ -53,13 +53,19 @@ export const ArticleContent = ({ locale, slug }: ArticleContentProps) => {
         }}
         components={{
           ...MDXComponents,
-          SummaryBox: (props) => (
-            <MDXComponents.SummaryBox
-              {...props}
-              locale={locale}
-              points={frontMatter.summaryPoints || []}
-            />
-          ),
+          SummaryBox: (props) => {
+            // Tylko użyj frontMatter.summaryPoints jako fallback, gdy brak children
+            // Sprawdzamy czy props.children istnieje i czy nie jest puste
+            const useChildrenContent = props.children !== undefined && props.children !== null;
+
+            return (
+              <MDXComponents.SummaryBox
+                {...props}
+                locale={locale}
+                points={useChildrenContent ? undefined : (frontMatter.summaryPoints || [])}
+              />
+            );
+          },
           WorthKnowingBox: MDXComponents.WorthKnowingBox,
           NextArticleBox: (props) => (
             <MDXComponents.NextArticleBox {...props} locale={locale} />
