@@ -57,6 +57,11 @@ export const routing = defineRouting({
       pl: '/nowoczesna-strona-internetowa-co-to-wlasciwie-znaczy',
       en: '/modern-website-what-does-it-actually-mean'
     },
+    // Add route for web application article
+    '/aplikacja-webowa-nowoczesne-rozwiazanie-dla-biznesu': {
+      pl: '/aplikacja-webowa-nowoczesne-rozwiazanie-dla-biznesu',
+      en: '/web-application-modern-solution-for-business'
+    },
     // Keep existing example post
     '/przyklad-wpisu-wykorzystujacego-wszystkie-komponenty': {
       pl: '/przyklad-wpisu-wykorzystujacego-wszystkie-komponenty',

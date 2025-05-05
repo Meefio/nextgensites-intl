@@ -17,6 +17,9 @@ export const blogPostTranslations: Record<string, Record<string, string>> = {
   'nowoczesna-strona-internetowa-co-to-wlasciwie-znaczy': {
     en: 'modern-website-what-does-it-actually-mean'
   },
+  'aplikacja-webowa-nowoczesne-rozwiazanie-dla-biznesu': {
+    en: 'web-application-modern-solution-for-business'
+  },
   // English to Polish
   'example-post-using-all-components': {
     pl: 'przyklad-wpisu-wykorzystujacego-wszystkie-komponenty'
@@ -29,6 +32,9 @@ export const blogPostTranslations: Record<string, Record<string, string>> = {
   },
   'modern-website-what-does-it-actually-mean': {
     pl: 'nowoczesna-strona-internetowa-co-to-wlasciwie-znaczy'
+  },
+  'web-application-modern-solution-for-business': {
+    pl: 'aplikacja-webowa-nowoczesne-rozwiazanie-dla-biznesu'
   }
 }
 
