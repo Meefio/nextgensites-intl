@@ -6,7 +6,7 @@ import { ClientSecondsDisplay } from './client-seconds-display'
 function TimeUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <div className="bg-primary text-primary-foreground rounded-lg p-3 sm:p-4 min-w-[60px] sm:min-w-[70px] text-center">
+      <div className="bg-gradient-to-r from-primary to-orange-500 text-white shadow-md transition-all duration-300 rounded-lg p-3 sm:p-4 min-w-[60px] sm:min-w-[70px] text-center">
         <span className="font-heading text-2xl sm:text-3xl font-bold">{value.toString().padStart(2, '0')}</span>
       </div>
       <span className="text-xs sm:text-sm font-medium text-white dark:text-muted-foreground mt-1 sm:mt-2">{label}</span>

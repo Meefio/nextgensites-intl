@@ -2,6 +2,7 @@
 
 import { AnimatedElement } from "@/app/components/motion/animated-element";
 import Link from "next/link";
+import { Button } from "@/app/components/ui/button";
 
 interface HelpBoxProps {
   locale: string;
@@ -25,12 +26,14 @@ const HelpBox = ({ locale }: HelpBoxProps) => {
           : "Contact us for a free consultation about your project."
         }
       </p>
-      <Link
-        href={isPolish ? "/#contact" : "/en/#contact"}
-        className="block w-full bg-primary text-white dark:text-primary-foreground text-center py-2 px-4 rounded-md hover:bg-primary/90 transition"
-      >
+      <Button asChild className="block w-full text-center">
+        <Link
+          href={isPolish ? "/#contact" : "/en/#contact"}
+          
+        >
         {isPolish ? "Skontaktuj się" : "Contact Us"}
-      </Link>
+        </Link>
+      </Button>
     </AnimatedElement>
   );
 };
