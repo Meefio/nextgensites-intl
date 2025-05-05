@@ -30,6 +30,39 @@ export const ArticleMeta = ({
 }: ArticleMetaProps) => {
   const t = useTranslations('BlogComponents')
 
+  // Format date to be more readable - like "20 sie 2018"
+  const formatDate = (dateString: string): string => {
+    try {
+      // Ensure we have a valid date string
+      if (!dateString) return '';
+
+      const date = new Date(dateString);
+
+      // Check if date is valid
+      if (isNaN(date.getTime())) return dateString;
+
+      // Format based on locale
+      if (locale === 'pl') {
+        // Polish format: day month year (abbreviated month)
+        const months = ['sty', 'lut', 'mar', 'kwi', 'maj', 'cze', 'lip', 'sie', 'wrz', 'paź', 'lis', 'gru'];
+        const day = date.getDate();
+        const month = months[date.getMonth()];
+        const year = date.getFullYear();
+        return `${day} ${month} ${year}`;
+      } else {
+        // English format: month day, year (abbreviated month)
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const day = date.getDate();
+        const month = months[date.getMonth()];
+        const year = date.getFullYear();
+        return `${month} ${day}, ${year}`;
+      }
+    } catch (error) {
+      console.error('Error formatting date:', error);
+      return dateString; // Return original string if formatting fails
+    }
+  };
+
   return (
     <div className={`mb-12 max-w-4xl mx-auto text-center ${className}`}>
       <div className="mb-4 inline-flex items-center px-3 py-1 bg-muted text-primary rounded-full text-sm font-medium">
@@ -75,7 +108,7 @@ export const ArticleMeta = ({
           <Calendar className="h-4 w-4 mr-2 text-primary" />
           <span className="text-sm font-medium">
             <span className="sr-only">{t('meta.postedOn')}</span>
-            {date}
+            {formatDate(date)}
           </span>
         </div>
         <div className="flex items-center px-4 py-2 bg-card border rounded-full shadow-sm">

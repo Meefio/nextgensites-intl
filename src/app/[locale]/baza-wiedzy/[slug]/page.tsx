@@ -9,6 +9,7 @@ import { Metadata } from 'next'
 import ArticleContent from './article-content'
 import { KnowledgeBaseArticleProps } from '../types'
 import { createCanonicalUrl, createLanguageAlternates } from '@/app/utils/createCanonicalUrl'
+import Script from 'next/script'
 
 interface PageProps {
   params: Promise<{
@@ -48,6 +49,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // Create language alternates including x-default
   const languages = createLanguageAlternates(plPath, enPath, 'pl');
 
+  // Ensure we have a proper date format for metadata
+  const formattedDate = post.date instanceof Date
+    ? post.date.toISOString()
+    : new Date(post.date).toISOString();
+
   return {
     title: post.title,
     description: description,
@@ -59,6 +65,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: post.title,
       description: description,
       url: canonicalUrl,
+      type: 'article',
+      publishedTime: formattedDate,
+      modifiedTime: formattedDate,
+      authors: [post.author],
       images: [
         {
           url: post.coverImage,
@@ -130,8 +140,43 @@ export default async function BlogPage({ params }: PageProps) {
   // Generate table of contents
   const tocItems = getTableOfContents(content)
 
+  // Format date for JSON-LD
+  const publishDate = post.date instanceof Date
+    ? post.date.toISOString()
+    : new Date(post.date).toISOString();
+
+  // Prepare JSON-LD data for article
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "image": post.coverImage,
+    "datePublished": publishDate,
+    "dateModified": publishDate,
+    "author": {
+      "@type": "Person",
+      "name": post.author
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "NextGen Sites",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://nextgensites.pl/images/logo.png"
+      }
+    },
+    "description": post.description || post.summaryPoints?.join(' ') || ''
+  };
+
   return (
     <main className="py-4 max-w-7xl mx-auto" data-article-title={post.title}>
+      {/* Add JSON-LD structured data */}
+      <Script
+        id="article-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* Main Content Area */}
         <div className="lg:col-span-8 lg:pr-10">
