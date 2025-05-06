@@ -4,6 +4,7 @@ import { AnimatedElement } from '@/app/components/motion/animated-element'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/app/components/ui/card'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { Button } from '@/app/components/ui/button'
 
 // Konfiguracja projektów
 const projectConfig = {
@@ -94,9 +95,8 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
                         href={config.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
                       >
-                        {t('viewLive')}
+                        <Button size="sm">{t('viewLive')}</Button>
                       </Link>
                     </CardFooter>
                   </Card>
@@ -105,7 +105,6 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
             </div>
             <div className="flex-1">
               <div className="sticky top-[40%]">
-
                 <AnimatedElement>
                   <Card className="sticky top-0">
                     <CardHeader>
@@ -121,9 +120,8 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
                         href={config.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
                       >
-                        {t('viewLive')}
+                        <Button size="sm">{t('viewLive')}</Button>
                       </Link>
                     </CardFooter>
                   </Card>
@@ -147,16 +145,14 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
                         href={config.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
                       >
-                        {t('viewLive')}
+                        <Button size="sm">{t('viewLive')}</Button>
                       </Link>
                     </CardFooter>
                   </Card>
                 </AnimatedElement>
               </div>
             </div>
-
           </div>
         </div>
         <div className="w-full md:w-2/3">
@@ -179,7 +175,6 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
             <div className="relative flex flex-col flex-1 h-full gap-4">
               <div className="flex-1">
                 <div className="sticky top-[40%]">
-
                   <AnimatedElement>
                     <Card className="sticky top-0">
                       <CardHeader>
@@ -195,16 +190,14 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
                           href={config.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
                         >
-                          {t('viewLive')}
+                          <Button size="sm">{t('viewLive')}</Button>
                         </Link>
                       </CardFooter>
                     </Card>
                   </AnimatedElement>
                 </div>
               </div>
-
             </div>
           </div>
           <div className="w-full md:w-2/3">
@@ -228,7 +221,6 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
             <div className="relative flex flex-col flex-1 h-full gap-4">
               <div className="flex-1">
                 <div className="sticky top-[40%]">
-
                   <AnimatedElement>
                     <Card className="sticky top-0">
                       <CardHeader>
@@ -244,16 +236,14 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
                           href={config.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
                         >
-                          {t('viewLive')}
+                          <Button size="sm">{t('viewLive')}</Button>
                         </Link>
                       </CardFooter>
                     </Card>
                   </AnimatedElement>
                 </div>
               </div>
-
             </div>
           </div>
           <div className="w-full md:w-2/3">
@@ -276,12 +266,11 @@ export function PhotoSection({ projectKey }: PhotoSectionProps) {
           <Link
             href={nextProjectLink}
             prefetch={true}
-            className="group inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
           >
-            <span className="text-lg font-medium">{t('nextProject')}</span>
-
-            <ArrowRight className="h-5 w-5" />
-
+            <Button variant="outline" className="gap-2 group">
+              <span>{t('nextProject')}</span>
+              <ArrowRight className="h-5 w-5" />
+            </Button>
           </Link>
         </AnimatedElement>
       </div>

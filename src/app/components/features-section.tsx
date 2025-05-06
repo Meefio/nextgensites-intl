@@ -4,10 +4,36 @@ import { useEffect, useState } from "react"
 import { Gauge, Palette, MonitorSmartphone, Code2, Search, Code } from "lucide-react"
 import { Card, CardContent } from "@/app/components/ui/card"
 import { AnimatedElement } from "@/app/components/motion/animated-element"
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
+import Link from "next/link"
 
 const Features = () => {
   const t = useTranslations('Features')
+  const locale = useLocale()
+
+  // Define the articles paths for each locale, following portfolio-section.tsx pattern
+  const nextJsArticlePathEn = '/en/knowledge-base/why-nextjs-is-the-future-of-business-websites'
+  const nextJsArticlePathPl = '/baza-wiedzy/dlaczego-nextjs-to-przyszlosc-stron-internetowych-dla-biznesu'
+
+  // Set the path based on current locale
+  const nextJsArticlePath = locale === 'en' ? nextJsArticlePathEn : nextJsArticlePathPl
+
+  // Custom rendering for technology title with native Next.js Link
+  const TechnologyTitle = () => {
+    const parts = t.raw('technology.title').split('Next.js')
+    return (
+      <>
+        {parts[0]}
+        <Link
+          href={nextJsArticlePath}
+          className="font-bold text-accent hover:underline cursor-pointer"
+        >
+          Next.js
+        </Link>
+        {parts[1]}
+      </>
+    )
+  }
 
   const features = [
     {
@@ -27,8 +53,9 @@ const Features = () => {
     },
     {
       icon: Code2,
-      title: t.raw('technology.title'),
-      description: t.raw('technology.description')
+      titleComponent: <TechnologyTitle />,
+      description: t.raw('technology.description'),
+      hasCustomTitle: true
     },
     {
       icon: Search,
@@ -100,7 +127,7 @@ const Features = () => {
 
           return (
             <AnimatedElement
-              key={feature.title}
+              key={feature.hasCustomTitle ? 'technology' : feature.title}
               delay={calculateDelay(index, screenSize)}
               viewport={{ once: true, margin: "-20% 0px" }}
             >
@@ -110,10 +137,16 @@ const Features = () => {
                     <Icon size={28} className="text-primary" />
                   </div>
                   <div>
-                    <h3
-                      className="mb-2 text-lg font-semibold text-foreground"
-                      dangerouslySetInnerHTML={{ __html: feature.title }}
-                    />
+                    {feature.hasCustomTitle ? (
+                      <h3 className="mb-2 text-lg font-semibold text-foreground">
+                        {feature.titleComponent}
+                      </h3>
+                    ) : (
+                      <h3
+                        className="mb-2 text-lg font-semibold text-foreground"
+                        dangerouslySetInnerHTML={{ __html: feature.title }}
+                      />
+                    )}
                     <p
                       className="text-muted-foreground"
                       dangerouslySetInnerHTML={{ __html: feature.description }}

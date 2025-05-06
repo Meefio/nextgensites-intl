@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AnimatedElement } from '@/app/components/motion/animated-element'
+import { Button } from '@/app/components/ui/button'
 
 // Mapa konfiguracji specyficznych dla projektów
 const projectConfig = {
@@ -66,20 +67,17 @@ export function Hero({ projectKey }: HeroProps) {
           </AnimatedElement>
 
           <AnimatedElement delay={0.5} className="flex gap-4">
-            <Link
-              href={`/${projectKey}/#contact`}
-              prefetch={true}
-              className="inline-flex h-11 items-center text-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              {t('cta')}
+            <Link href={`/${projectKey}/#contact`} prefetch={true}>
+              <Button size="lg">{t('cta')}</Button>
             </Link>
             <Link
               href={config.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 items-center text-center justify-center rounded-md border border-white/20 px-8 text-sm font-medium text-white transition-colors hover:bg-white/10"
             >
-              {t('viewLive')}
+              <Button variant="outline" size="lg" className="text-white border-white/20 hover:text-white hover:border-white/40">
+                {t('viewLive')}
+              </Button>
             </Link>
           </AnimatedElement>
         </div>
