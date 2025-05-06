@@ -47,6 +47,9 @@ export const bypassPatterns = [
   /^\/robots\.txt$/,  // Robots.txt
   /^\/sitemap\.xml$/,  // Sitemap
   /\.(jpe?g|png|gif|ico|css|js|svg)$/,  // Static assets
+  /\?_rsc=.*$/,  // React Server Component requests - exclude from middleware processing
+  /\/_not-found$/,  // 404 page
+  /\/images\/_next/,  // Image optimization
 ];
 
 // Check if a path matches any bypass patterns

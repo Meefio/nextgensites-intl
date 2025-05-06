@@ -3,19 +3,21 @@
 import { useEffect, useState } from 'react';
 
 /**
- * Hook do wykrywania widoczności strony (czy karta jest aktywna czy nie)
- * @returns {boolean} true gdy strona jest ukryta, false gdy jest widoczna
+ * Hook to detect page visibility (whether the tab is active or not)
+ * @returns {boolean} true when the page is hidden, false when visible
  */
 const usePageVisibility = (): boolean => {
+  // Initialize with false to prevent hydration mismatch 
+  // (server always assumes page is visible)
   const [isHidden, setIsHidden] = useState<boolean>(false);
 
   useEffect(() => {
-    // Sprawdzenie czy jesteśmy w przeglądarce
-    if (typeof document === 'undefined') {
+    // Check if we're in browser environment
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
       return;
     }
 
-    // Sprawdź dostępność API
+    // Check API availability
     let hidden: string;
     let visibilityChange: string;
 
@@ -32,22 +34,36 @@ const usePageVisibility = (): boolean => {
       hidden = 'webkitHidden';
       visibilityChange = 'webkitvisibilitychange';
     } else {
-      // API niedostępne
+      // API not available
       return;
     }
 
-    // Początkowy stan
-    setIsHidden(!!(document as any)[hidden]);
-
-    // Handler zmiany stanu widoczności
-    const handleVisibilityChange = () => {
-      setIsHidden(!!(document as any)[hidden]);
+    // Initial state - wrapped in requestAnimationFrame for better 
+    // compatibility with React 18's concurrent rendering
+    const setInitialState = () => {
+      if (document && typeof (document as any)[hidden] !== 'undefined') {
+        setIsHidden(!!(document as any)[hidden]);
+      }
     };
 
-    // Dodanie nasłuchiwania
+    // Use requestAnimationFrame for initial state to ensure DOM is ready
+    if (typeof window.requestAnimationFrame !== 'undefined') {
+      window.requestAnimationFrame(setInitialState);
+    } else {
+      setInitialState();
+    }
+
+    // Handler for visibility change
+    const handleVisibilityChange = () => {
+      if (document && typeof (document as any)[hidden] !== 'undefined') {
+        setIsHidden(!!(document as any)[hidden]);
+      }
+    };
+
+    // Add event listener
     document.addEventListener(visibilityChange, handleVisibilityChange, false);
 
-    // Czyszczenie przy odmontowaniu
+    // Cleanup on unmount
     return () => {
       document.removeEventListener(visibilityChange, handleVisibilityChange);
     };

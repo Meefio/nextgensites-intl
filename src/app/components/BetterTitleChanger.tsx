@@ -10,67 +10,76 @@ interface BetterTitleChangerProps {
 }
 
 /**
- * Komponent do zmiany tytułu strony, gdy użytkownik przejdzie na inną kartę
+ * Component to change the document title when user switches to another tab
  */
 export default function BetterTitleChanger({ defaultTitle = 'NextGenSites' }: BetterTitleChangerProps) {
   const isHidden = usePageVisibility();
-  const pathname = usePathname(); // Hook do śledzenia ścieżki URL
+  const pathname = usePathname();
   const t = useTranslations('PageTitle');
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const titleIndexRef = useRef<number>(0);
   const originalTitleRef = useRef<string>("");
 
-  // Lista alternatywnych tytułów z tłumaczeń opakowana w useMemo
+  // Memoize alternative titles to avoid recalculation
   const alternativeTitles = useMemo(() => [
     `${t('whereAreYou')} | NextGenSites`,
     `${t('comeBack')} | NextGenSites`,
     `${t('missYou')} | NextGenSites`
-  ], [t]); // zależność tylko od funkcji tłumaczącej
+  ], [t]);
 
-  // Efekt przechowujący oryginalny tytuł - uruchamiany przy zmianie ścieżki
+  // Store original title when path changes
   useEffect(() => {
-    if (typeof document !== 'undefined') {
-      // Zapamiętaj aktualny tytuł strony przy każdej zmianie URL
+    if (typeof window === 'undefined') return;
+
+    // Small delay to ensure metadata title is properly set before capturing
+    const timeoutId = setTimeout(() => {
       originalTitleRef.current = document.title || defaultTitle;
-    }
-  }, [pathname, defaultTitle]); // Dodajemy pathname jako zależność
+    }, 100);
 
-  // Efekt reagujący na zmiany stanu widoczności
+    return () => clearTimeout(timeoutId);
+  }, [pathname, defaultTitle]);
+
+  // Effect for handling visibility changes
   useEffect(() => {
-    if (typeof document === 'undefined') return;
+    if (typeof window === 'undefined') return;
 
-    // Funkcja do zmiany tytułu
     const changeTitle = () => {
+      if (typeof window === 'undefined') return;
+
       titleIndexRef.current = (titleIndexRef.current + 1) % alternativeTitles.length;
       const newTitle = alternativeTitles[titleIndexRef.current];
       document.title = newTitle;
     };
 
     if (isHidden) {
-      // Strona jest ukryta - natychmiast zmień tytuł
+      // Page is hidden - change title immediately
       titleIndexRef.current = 0;
       document.title = alternativeTitles[0];
 
-      // Ustaw interwał dla kolejnych zmian
+      // Set interval for subsequent changes
       intervalRef.current = setInterval(changeTitle, 3000);
     } else {
-      // Strona jest widoczna - przywróć oryginalny tytuł
+      // Page is visible - restore original title
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
       }
-      document.title = originalTitleRef.current;
+
+      // Only set title if we have a stored original title
+      if (originalTitleRef.current) {
+        document.title = originalTitleRef.current;
+      }
     }
 
-    // Czyszczenie przy odmontowaniu lub zmianie stanu
+    // Cleanup on unmount or state change
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
         intervalRef.current = null;
       }
     };
-  }, [isHidden, alternativeTitles, pathname]); // Dodajemy pathname jako zależność
+  }, [isHidden, alternativeTitles]);
 
-  // Komponent nie renderuje żadnego UI
+  // Component doesn't render any UI
   return null;
 } 

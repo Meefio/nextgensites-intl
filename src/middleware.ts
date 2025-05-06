@@ -40,8 +40,13 @@ const ARTICLE_CACHE_TTL = 300;
 
 // Export the combined middleware with performance optimizations
 export default function middleware(request: NextRequest) {
-   const { pathname } = request.nextUrl;
+   const { pathname, search } = request.nextUrl;
    const { method } = request;
+
+   // Explicitly bypass middleware for RSC requests
+   if (search && search.includes('_rsc=')) {
+      return NextResponse.next();
+   }
 
    // Get current locale from cookie if exists
    const currentLocale = request.cookies.get('NEXT_LOCALE')?.value;
@@ -60,7 +65,7 @@ export default function middleware(request: NextRequest) {
    }
 
    // Bypass middleware for static assets and API routes
-   if (shouldBypassMiddleware(pathname)) {
+   if (shouldBypassMiddleware(pathname) || shouldBypassMiddleware(pathname + search)) {
       return NextResponse.next();
    }
 
