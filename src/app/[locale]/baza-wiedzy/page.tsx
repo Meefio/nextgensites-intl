@@ -82,15 +82,13 @@ export default async function KnowledgeBasePage({
     <div className="max-w-6xl mx-auto py-6">
       {/* Page Header with improved visual styling */}
       <div className="relative mb-16 overflow-x-hidden">
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl opacity-70 z-0"></div>
-        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl opacity-70 z-0"></div>
+        
 
         <div className="relative z-10">
           <div className="inline-flex items-center px-3 py-1 mb-4 bg-primary/10 text-primary rounded-full text-sm font-medium">
             <Sparkles className="h-4 w-4 mr-2" />
             <span>{locale === 'pl' ? 'Przydatna wiedza' : 'Useful knowledge'}</span>
           </div>
-
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text">
             {t('title')}
           </h1>

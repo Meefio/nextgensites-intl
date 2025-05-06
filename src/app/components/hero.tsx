@@ -121,8 +121,6 @@ export function Hero({ locale: propLocale, priorityImage = false }: HeroProps) {
 						priority={priorityImage}
 						sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 608px'
 					/>
-					<div className='absolute inset-0 -z-10 bg-primary/20 [filter:blur(180px)]' />
-
 					{/* Floating code blocks */}
 					<FloatingCodeBlocks />
 				</div>
