@@ -85,6 +85,12 @@ const nextConfig: NextConfig = {
               ? 'no-store, no-cache, must-revalidate, proxy-revalidate'
               : 'public, max-age=31536000, immutable',
           },
+          {
+            key: 'Content-Security-Policy',
+            value: process.env.NODE_ENV === 'development'
+              ? ''
+              : "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:;"
+          },
         ],
       },
       {

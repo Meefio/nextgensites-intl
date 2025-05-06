@@ -290,7 +290,11 @@ export function ContactForm() {
 												{t('form.name.label')}
 											</FormLabel>
 											<FormControl>
-												<Input placeholder={t('form.name.placeholder')} {...field} />
+												<Input
+													placeholder={t('form.name.placeholder')}
+													{...field}
+													autoComplete="name"
+												/>
 											</FormControl>
 											<FormMessage />
 										</FormItem>
@@ -309,6 +313,7 @@ export function ContactForm() {
 													placeholder={t('form.email.placeholder')}
 													type='email'
 													{...field}
+													autoComplete="email"
 												/>
 											</FormControl>
 											<FormMessage />
@@ -327,6 +332,7 @@ export function ContactForm() {
 												<Input
 													placeholder={t('form.subject.placeholder')}
 													{...field}
+													autoComplete="off"
 												/>
 											</FormControl>
 											<FormMessage />
@@ -346,6 +352,7 @@ export function ContactForm() {
 													placeholder={t('form.message.placeholder')}
 													className='min-h-[120px] resize-none'
 													{...field}
+													autoComplete="off"
 												/>
 											</FormControl>
 											<FormMessage />
