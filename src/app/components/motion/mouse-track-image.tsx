@@ -25,28 +25,47 @@ export function MouseTrackImage({
   priority = false,
 }: MouseTrackImageProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [isMounted, setIsMounted] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
+  // Effect for checking if we're on mobile
   useEffect(() => {
-    setIsMounted(true)
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 2
-      const y = (e.clientY / window.innerHeight - 0.5) * 2
-      setMousePosition({ x, y })
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768)
     }
 
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
+    checkIfMobile()
+    window.addEventListener('resize', checkIfMobile)
+    return () => window.removeEventListener('resize', checkIfMobile)
   }, [])
 
+  // Effect for mouse tracking (only when not mobile)
+  useEffect(() => {
+    // Only add mouse tracking on non-mobile devices
+    if (!isMobile) {
+      const handleMouseMove = (e: MouseEvent) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 2
+        const y = (e.clientY / window.innerHeight - 0.5) * 2
+        setMousePosition({ x, y })
+      }
+
+      window.addEventListener('mousemove', handleMouseMove)
+      return () => window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [isMobile])
+
+  // Only use priority loading for desktop viewports
+  const shouldPrioritize = priority && !isMobile
+
+  // Determine container style based on device type
+  const containerStyle = isMobile
+    ? {}
+    : {
+      transform: `perspective(1000px) rotateY(${mousePosition.x * 5}deg) rotateX(${-mousePosition.y * 5}deg)`,
+      transition: 'transform 0.2s ease-out',
+    }
+
   return (
-    <div
-      style={{
-        transform: `perspective(1000px) rotateY(${mousePosition.x * 5}deg) rotateX(${-mousePosition.y * 5}deg)`,
-        transition: 'transform 0.2s ease-out',
-      }}
-    >
+    <div style={containerStyle}>
       <Image
         src={src}
         alt={alt}
@@ -55,13 +74,12 @@ export function MouseTrackImage({
         height={height}
         quality={quality}
         sizes={sizes}
-        priority={priority}
-        loading={priority ? "eager" : "lazy"}
+        priority={shouldPrioritize}
+        loading={shouldPrioritize ? "eager" : "lazy"}
         style={{
           maxWidth: "100%",
           height: "auto",
         }}
-        {...(isMounted && priority ? { fetchPriority: "high" } : {})}
       />
     </div>
   )
