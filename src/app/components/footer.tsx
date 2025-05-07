@@ -38,7 +38,7 @@ export function Footer() {
 
       <div className="mt-10 flex basis-1/2 flex-col gap-5 md:mt-0 md:basis-auto">
         <h3 className="font-semibold">{t('navigation')}</h3>
-        <Link href="/#features" className="text-sm text-muted-foreground hover:text-foreground">
+        <Link href="/#benefits" className="text-sm text-muted-foreground hover:text-foreground">
           {t('benefits')}
         </Link>
         <Link href="/#portfolio" className="text-sm text-muted-foreground hover:text-foreground">
