@@ -75,7 +75,7 @@ export function Hero({ projectKey }: HeroProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="outline" size="lg" className="text-white border-white/20 hover:text-white hover:border-white/40">
+              <Button variant="outline" size="lg" className="hidden md:block text-white border-white/20 hover:text-white hover:border-white/40">
                 {t('viewLive')}
               </Button>
             </Link>
