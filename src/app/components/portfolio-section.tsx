@@ -43,7 +43,7 @@ const Portfolio = () => {
       imageAlt: t('projects.project2.imageAlt'),
       linkPl: '/strona-internetowa-dla-firmy-budowlano-remontowej',
       linkEn: '/en/construction-and-renovation-company-website',
-      viewLiveLink: 'https://buildwise-alpha.vercel.app/pl'
+      viewLiveLink: 'https://buildwise.com.pl/pl'
     }
   ]
 
