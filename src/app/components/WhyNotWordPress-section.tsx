@@ -51,7 +51,7 @@ const WhyNotWordPress = () => {
     <section
       id='why-not-wordpress'
       ref={sectionRef}
-      className="container flex flex-col gap-10 relative bg-background py-20"
+      className="container flex flex-col gap-10 relative bg-background pb-20"
     >
 
       <AnimatedElement
