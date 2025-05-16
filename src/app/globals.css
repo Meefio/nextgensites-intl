@@ -48,6 +48,12 @@
 		--sidebar-ring: 33 100% 50%;
 
 		--radius: 1.1rem;
+
+		/* Scroll offset for sections (header height + extra space) */
+		--scroll-offset: 6rem;
+		--scroll-offset-pricing: 1rem;
+		--scroll-offset-portfolio: 3rem;
+		--scroll-offset-contact: 3rem;
 	}
 
 	.dark {
@@ -107,6 +113,36 @@
 	.font-quote {
 		font-family: var(--font-quote);
 	}
+}
+
+/* Apply scroll margins directly with higher specificity */
+section[id="benefits"] {
+	scroll-margin-top: var(--scroll-offset) !important;
+}
+
+section[id="portfolio"] {
+	scroll-margin-top: var(--scroll-offset-portfolio) !important;
+}
+
+section[id="pricing"] {
+	scroll-margin-top: var(--scroll-offset-pricing) !important;
+}
+
+section[id="contact"] {
+	scroll-margin-top: var(--scroll-offset-contact) !important;
+}
+
+section[id="o-nas"] {
+	scroll-margin-top: var(--scroll-offset) !important;
+}
+
+section[id="proces"] {
+	scroll-margin-top: var(--scroll-offset) !important;
+}
+
+/* General class still available but with lower specificity */
+.scroll-mt-header {
+	scroll-margin-top: var(--scroll-offset);
 }
 
 input:autofill,
