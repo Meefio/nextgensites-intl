@@ -55,7 +55,7 @@ const WhyNotWordPress = () => {
     >
 
       <AnimatedElement
-        className="sticky top-0 pt-4 md:pt-20 pb-10 bg-background flex flex-col gap-3 text-center z-10"
+        className="sticky top-0 md:top-5 pt-24 md:pt-20 pb-10 bg-background flex flex-col gap-3 text-center z-10"
         delay={0.2}
         viewport={{ once: true, margin: "-15% 0px" }}
       >
@@ -79,7 +79,7 @@ const WhyNotWordPress = () => {
               const Icon = card.icon;
 
               // Zwiększony odstęp od góry dla każdej kolejnej karty
-              const topOffset = isMobile ? 250 + (index * 70) : 300 + (index * 80);
+              const topOffset = isMobile ? 275 + (index * 70) : 300 + (index * 80);
 
               return (
                 <div
