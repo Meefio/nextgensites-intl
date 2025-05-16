@@ -31,7 +31,6 @@ export function CtaSection() {
 
 				<AnimatedElement
 					delay={0.4}
-					className="scale-100 hover:scale-105 transition-transform duration-300"
 				>
 					<Button
 						size='lg'
