@@ -18,24 +18,30 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 const CacheProvider = dynamic(() => import('@/app/components/CacheProvider').then(mod => mod.CacheProvider));
 const GoogleAnalyticsWrapper = dynamic(() => import('@/app/components/analytics/google-analytics-wrapper'));
 
-// Optimize font loading with display: swap
+// Optimize font loading with display: swap and preload strategy
 const fontSans = Inter({
 	variable: "--font-sans",
 	subsets: ["latin"],
-	display: "swap", // Add display swap for better performance
+	display: "swap",
+	preload: true,
+	fallback: ['system-ui', 'Arial', 'sans-serif'],
 });
 
 const fontHeading = Instrument_Sans({
 	variable: "--font-heading",
 	subsets: ["latin"],
-	display: "swap", // Add display swap for better performance
+	display: "swap",
+	preload: true,
+	fallback: ['system-ui', 'Arial', 'sans-serif'],
 });
 
 const fontQuote = Lily_Script_One({
 	variable: "--font-quote",
 	weight: "400",
 	subsets: ["latin"],
-	display: "swap", // Add display swap for better performance
+	display: "swap",
+	preload: true,
+	fallback: ['cursive', 'serif'],
 });
 
 // Poprawiona definicja typów parametrów
@@ -193,7 +199,13 @@ export default async function LocaleLayout({
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<head>
-				{/* Remove the conditional Google Analytics implementation */}
+				{/* Static font loading using link tags to fix connection issues */}
+				<link rel="preconnect" href="https://fonts.googleapis.com" />
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+				<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+				<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet" />
+				<link href="https://fonts.googleapis.com/css2?family=Lily+Script+One:wght@400&display=swap" rel="stylesheet" />
+
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
