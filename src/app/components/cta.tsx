@@ -23,7 +23,7 @@ export function CtaSection() {
 
 				<AnimatedElement
 					as="p"
-					className='relative text-lg text-foreground text-balance max-w-lg text-center'
+					className='relative text-lg text-[#2b2e33] dark:text-[#cacaca] text-balance max-w-lg text-center'
 					delay={0.3}
 				>
 					{t('description')}
