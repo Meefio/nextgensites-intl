@@ -33,7 +33,7 @@ const projectConfig = {
     translationNamespace: 'UnderPressure'
   },
   buildwise: {
-    liveUrl: 'https://buildwise-alpha.vercel.app/pl',
+    liveUrl: 'https://buildwise.com.pl/pl',
     mainImage: {
       src: '/images/buildwise-fullsize.webp',
       alt: 'BuildWise Website',

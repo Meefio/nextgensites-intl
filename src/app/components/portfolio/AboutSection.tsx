@@ -16,7 +16,7 @@ const projectConfig = {
     companyName: 'BuildWise Sp. z o.o.',
     location: 'Warszawa, Polska',
     website: 'buildwise.com.pl',
-    websiteUrl: 'https://buildwise-alpha.vercel.app/pl',
+    websiteUrl: 'https://buildwise.com.pl/pl',
     translationNamespace: 'BuildWise'
   }
 }
