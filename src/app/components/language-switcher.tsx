@@ -3,14 +3,9 @@
 import { Button } from "@/app/components/ui/button"
 import { usePathname } from "next/navigation"
 import ReactCountryFlag from "react-country-flag"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/app/components/ui/dropdown-menu"
 import { getLocalizedPath } from "@/i18n/blog-localization"
 import { useEffect, useRef, useState } from "react"
+import Link from "next/link"
 
 const languages = [
   { code: 'pl', label: 'Polski', countryCode: 'PL', path: '/' },
@@ -122,7 +117,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             }
 
             return (
-              <a
+              <Link
                 key={lang.code}
                 href={href.toString()}
                 aria-label={`Zmień język na ${lang.label}`}
@@ -143,7 +138,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                   />
                   <span>{lang.label}</span>
                 </div>
-              </a>
+              </Link>
             )
           })}
         </div>
