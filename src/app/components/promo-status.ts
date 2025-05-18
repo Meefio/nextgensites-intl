@@ -1,5 +1,5 @@
 // Target date for the promotion
-const TARGET_DATE = new Date('2025-05-18T23:59:59')
+const TARGET_DATE = new Date('2025-05-25T23:59:59')
 
 export function isPromoActive() {
   const now = new Date()
