@@ -52,7 +52,7 @@ export function Header() {
   ];
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-50 w-full border-b backdrop-blur-sm bg-background/80 transition-all duration-200">
+    <header ref={headerRef} className="sticky top-0 z-[51] w-full backdrop-blur-sm bg-background/80 transition-all duration-200">
       <div className="container flex items-center justify-between gap-4 py-4">
         <AnimatedElement
           initial={{ opacity: 0, x: -20 }}
@@ -91,7 +91,7 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className="flex cursor-pointer items-center text-lg font-medium text-muted-foreground transition-colors hover:text-foreground sm:text-sm"
+                  className="flex cursor-pointer items-center text-lg font-medium text-muted-foreground transition-colors hover:text-accent sm:text-sm"
                 >
                   {item.label}
                 </Link>
