@@ -106,14 +106,32 @@ export default async function LocaleLayout({
 	const { locale } = params;
 	const messages = await import(`@/../messages/${locale}.json`).then(module => module.default)
 
-	// Pobierz zgodę na pliki cookie z cookies
+	// Properly retrieve consent from cookies with better fallback handling
 	const cookieStore = await cookies();
 	const cookieConsentStr = cookieStore.get("cookieConsent")?.value;
-	const consent = cookieConsentStr
-		? JSON.parse(cookieConsentStr)
-		: { necessary: true, analytics: false, marketing: false };
 
-	// Pobierz tytuł strony dla komponentu DocumentTitleChanger
+	// Parse consent with safe fallbacks
+	let consent = {
+		necessary: true,
+		analytics: false,
+		marketing: false
+	};
+
+	if (cookieConsentStr) {
+		try {
+			const parsedConsent = JSON.parse(cookieConsentStr);
+			consent = {
+				necessary: parsedConsent.necessary ?? true,
+				analytics: parsedConsent.analytics ?? false,
+				marketing: parsedConsent.marketing ?? false
+			};
+		} catch (e) {
+			// If parsing fails, use safe default values
+			console.error("Error parsing consent cookie:", e);
+		}
+	}
+
+	// Get page title for DocumentTitleChanger component
 	const t = await getTranslations({ locale, namespace: 'Metadata' });
 	const defaultTitle = t('title.default');
 
@@ -199,6 +217,34 @@ export default async function LocaleLayout({
 	return (
 		<html lang={locale} suppressHydrationWarning>
 			<head>
+				{/* 
+				 * Add google consent mode script before any other scripts
+				 * This is required for proper GDPR compliance with Google Analytics 4
+				 * Only include in production mode
+				 */}
+				{process.env.NODE_ENV === 'production' && (
+					<script
+						type="text/javascript"
+						async={false}
+						dangerouslySetInnerHTML={{
+							__html: `
+								window.dataLayer = window.dataLayer || [];
+								function gtag(){dataLayer.push(arguments);}
+								gtag('consent', 'default', {
+									'analytics_storage': 'denied',
+									'ad_storage': 'denied',
+									'functionality_storage': 'denied',
+									'personalization_storage': 'denied',
+									'security_storage': 'granted',
+									'ad_user_data': 'denied',
+									'ad_personalization': 'denied',
+									'wait_for_update': 500
+								});
+							`
+						}}
+					/>
+				)}
+
 				{/* Static font loading using link tags to fix connection issues */}
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -235,11 +281,13 @@ export default async function LocaleLayout({
 							<ClientWrapper defaultTitle={defaultTitle}>
 								{children}
 							</ClientWrapper>
-							{/* Google Analytics with consent management */}
-							<GoogleAnalyticsWrapper
-								measurementId="G-5YLJH8GHZ6"
-								initialConsent={consent.analytics}
-							/>
+							{/* Improved Google Analytics with consent management - only in production */}
+							{process.env.NODE_ENV === 'production' && (
+								<GoogleAnalyticsWrapper
+									measurementId="G-5YLJH8GHZ6"
+									initialConsent={consent.analytics}
+								/>
+							)}
 						</NextIntlClientProvider>
 						<Toaster />
 					</ThemeProvider>

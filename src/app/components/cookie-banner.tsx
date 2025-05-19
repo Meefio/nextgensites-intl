@@ -26,31 +26,65 @@ export function CookieBanner() {
   });
   const [isReady, setIsReady] = useState(false);
 
+  // Initialize Google Consent Mode as early as possible
   useEffect(() => {
-    // Najpierw sprawdź zapisane zgody
-    const savedConsent = localStorage.getItem("cookieConsent");
+    // Define dataLayer for Google Tag Manager/Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(arguments);
+    }
+    window.gtag = window.gtag || gtag;
 
-    // Ustaw domyślne wartości na denied
-    if (typeof window.gtag !== 'undefined') {
+    // Set default consent to denied for all purposes (GDPR requirement)
+    // Only actually initialize consent mode in production
+    if (typeof window.gtag !== 'undefined' && process.env.NODE_ENV === 'production') {
       window.gtag("consent", "default", {
         analytics_storage: "denied",
         ad_storage: "denied",
         functionality_storage: "denied",
         personalization_storage: "denied",
-        security_storage: "granted",
+        security_storage: "granted", // Security is always granted
         ad_user_data: "denied",
         ad_personalization: "denied",
-        wait_for_update: 500
+        wait_for_update: 500 // Wait for consent before firing tags
       });
     }
 
-    if (savedConsent) {
-      const parsedConsent = JSON.parse(savedConsent);
-      setConsent(parsedConsent);
-      setTimeout(() => {
+    // Check for stored consent (try cookies first, then localStorage as fallback)
+    const getCookieValue = (name: string) => {
+      const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+      return match ? decodeURIComponent(match[2]) : null;
+    };
+
+    const savedConsentCookie = getCookieValue('cookieConsent');
+    const savedConsentLocal = localStorage.getItem('cookieConsent');
+
+    if (savedConsentCookie) {
+      try {
+        const parsedConsent = JSON.parse(savedConsentCookie);
+        setConsent(parsedConsent);
         updateGtagConsent(parsedConsent);
-      }, 100);
+        dispatchConsentEvent(parsedConsent);
+      } catch (e) {
+        console.error('Error parsing cookie consent:', e);
+        setShowBanner(true);
+        setIsReady(true);
+      }
+    } else if (savedConsentLocal) {
+      try {
+        const parsedConsent = JSON.parse(savedConsentLocal);
+        setConsent(parsedConsent);
+        updateGtagConsent(parsedConsent);
+        dispatchConsentEvent(parsedConsent);
+        // Sync to cookies for server-side access
+        setCookieConsent(parsedConsent);
+      } catch (e) {
+        console.error('Error parsing local consent:', e);
+        setShowBanner(true);
+        setIsReady(true);
+      }
     } else {
+      // If no consent is found, show the banner after a delay
       const timer = setTimeout(() => {
         setShowBanner(true);
         setIsReady(true);
@@ -60,20 +94,47 @@ export function CookieBanner() {
     }
   }, []);
 
+  // Helper function to set cookie with proper attributes
+  const setCookieConsent = (consentData: CookieConsent) => {
+    // Calculate expiry - 6 months (GDPR recommendation)
+    const expiryDate = new Date();
+    expiryDate.setMonth(expiryDate.getMonth() + 6);
+
+    // Serialize consent data
+    const consentString = JSON.stringify(consentData);
+
+    // Set with secure attributes - SameSite=Lax is recommended for cookies that affect authentication
+    document.cookie = `cookieConsent=${encodeURIComponent(consentString)}; expires=${expiryDate.toUTCString()}; path=/; SameSite=Lax${window.location.protocol === 'https:' ? '; Secure' : ''}`;
+
+    // Also store in localStorage as a fallback
+    localStorage.setItem('cookieConsent', consentString);
+  };
+
+  // Dispatch a custom event to notify other components about consent changes
+  const dispatchConsentEvent = (consentData: CookieConsent) => {
+    const event = new CustomEvent('cookieConsentChange', {
+      detail: consentData
+    });
+    window.dispatchEvent(event);
+  };
+
+  // Update Google Consent Mode with current consent choices
   const updateGtagConsent = (consentData: CookieConsent) => {
-    if (typeof window.gtag !== 'undefined') {
+    // Only update gtag consent in production
+    if (typeof window.gtag !== 'undefined' && process.env.NODE_ENV === 'production') {
       window.gtag("consent", "update", {
         analytics_storage: consentData.analytics ? "granted" : "denied",
         ad_storage: consentData.marketing ? "granted" : "denied",
         functionality_storage: consentData.necessary ? "granted" : "denied",
         personalization_storage: consentData.marketing ? "granted" : "denied",
-        security_storage: "granted",
+        security_storage: "granted", // Always granted for security
         ad_user_data: consentData.marketing ? "granted" : "denied",
         ad_personalization: consentData.marketing ? "granted" : "denied"
       });
     }
   };
 
+  // Handle accepting all cookies
   const handleAcceptAll = () => {
     const newConsent = {
       necessary: true,
@@ -81,67 +142,58 @@ export function CookieBanner() {
       marketing: true,
     };
 
-    // Najpierw aktualizujemy gtag
-    if (typeof window.gtag !== 'undefined') {
-      window.gtag("consent", "update", {
-        analytics_storage: 'granted',
-        ad_storage: 'granted',
-        functionality_storage: 'granted',
-        personalization_storage: 'granted',
-        security_storage: 'granted',
-        ad_user_data: 'granted',
-        ad_personalization: 'granted'
-      });
-    }
-
-    // Następnie zapisujemy w localStorage i aktualizujemy stan
-    localStorage.setItem("cookieConsent", JSON.stringify(newConsent));
+    // Update consent state
     setConsent(newConsent);
+
+    // Update Google Consent Mode
+    updateGtagConsent(newConsent);
+
+    // Save consent to both cookies and localStorage
+    setCookieConsent(newConsent);
+
+    // Dispatch event for other components
+    dispatchConsentEvent(newConsent);
+
+    // Hide the banner
     setShowBanner(false);
   };
 
+  // Handle rejecting all optional cookies
   const handleRejectAll = () => {
     const newConsent = {
-      necessary: true,
+      necessary: true, // Necessary cookies are always accepted
       analytics: false,
       marketing: false,
     };
 
-    // Najpierw aktualizujemy gtag
-    if (typeof window.gtag !== 'undefined') {
-      window.gtag("consent", "update", {
-        analytics_storage: 'denied',
-        ad_storage: 'denied',
-        functionality_storage: 'denied',
-        personalization_storage: 'denied',
-        security_storage: 'granted',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied'
-      });
-    }
-
-    // Następnie zapisujemy w localStorage i aktualizujemy stan
-    localStorage.setItem("cookieConsent", JSON.stringify(newConsent));
+    // Update consent state
     setConsent(newConsent);
+
+    // Update Google Consent Mode
+    updateGtagConsent(newConsent);
+
+    // Save consent to both cookies and localStorage
+    setCookieConsent(newConsent);
+
+    // Dispatch event for other components
+    dispatchConsentEvent(newConsent);
+
+    // Hide the banner
     setShowBanner(false);
   };
 
+  // Handle accepting selected cookies
   const handleAcceptSelected = () => {
-    // Najpierw aktualizujemy gtag
-    if (typeof window.gtag !== 'undefined') {
-      window.gtag("consent", "update", {
-        analytics_storage: consent.analytics ? 'granted' : 'denied',
-        ad_storage: consent.marketing ? 'granted' : 'denied',
-        functionality_storage: consent.necessary ? 'granted' : 'denied',
-        personalization_storage: consent.marketing ? 'granted' : 'denied',
-        security_storage: 'granted',
-        ad_user_data: consent.marketing ? 'granted' : 'denied',
-        ad_personalization: consent.marketing ? 'granted' : 'denied'
-      });
-    }
+    // Update Google Consent Mode
+    updateGtagConsent(consent);
 
-    // Następnie zapisujemy w localStorage i aktualizujemy stan
-    localStorage.setItem("cookieConsent", JSON.stringify(consent));
+    // Save consent to both cookies and localStorage
+    setCookieConsent(consent);
+
+    // Dispatch event for other components
+    dispatchConsentEvent(consent);
+
+    // Hide the banner
     setShowBanner(false);
   };
 
@@ -280,6 +332,9 @@ export function CookieBanner() {
                     />
                     <label htmlFor="analytics" className="text-sm font-medium leading-none">
                       {t('cookies.analytics.title')}
+                      {process.env.NODE_ENV !== 'production' && (
+                        <span className="ml-1 text-xs text-muted-foreground">(only active in production)</span>
+                      )}
                     </label>
                   </div>
 
@@ -294,6 +349,9 @@ export function CookieBanner() {
                     />
                     <label htmlFor="marketing" className="text-sm font-medium leading-none">
                       {t('cookies.marketing.title')}
+                      {process.env.NODE_ENV !== 'production' && (
+                        <span className="ml-1 text-xs text-muted-foreground">(only active in production)</span>
+                      )}
                     </label>
                   </div>
                 </div>

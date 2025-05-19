@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import Script from 'next/script';
 
 type GoogleAnalyticsWrapperProps = {
   measurementId: string;
@@ -9,7 +9,13 @@ type GoogleAnalyticsWrapperProps = {
 };
 
 export default function GoogleAnalyticsWrapper({ measurementId, initialConsent }: GoogleAnalyticsWrapperProps) {
+  // If not in production, don't load analytics
+  if (process.env.NODE_ENV !== 'production') {
+    return null;
+  }
+
   const [consent, setConsent] = useState(initialConsent);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
 
   // Update consent when prop changes
   useEffect(() => {
@@ -38,16 +44,61 @@ export default function GoogleAnalyticsWrapper({ measurementId, initialConsent }
 
   // Update analytics_storage consent when consent changes
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.gtag) {
+    if (typeof window !== 'undefined' && window.gtag && scriptLoaded) {
       window.gtag('consent', 'update', {
         analytics_storage: consent ? 'granted' : 'denied'
       });
     }
-  }, [consent]);
+  }, [consent, scriptLoaded]);
 
-  if (!consent) {
-    return null;
-  }
+  // Initialize GA4 with Consent Mode v2
+  const initializeGA = () => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(arguments);
+    }
+    window.gtag = gtag;
 
-  return <GoogleAnalytics gaId={measurementId} />;
+    // Initialize with default consent state (denied for all)
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      wait_for_update: 500
+    });
+
+    // Set current consent state if already determined
+    if (consent) {
+      gtag('consent', 'update', {
+        analytics_storage: 'granted'
+      });
+    }
+
+    // Configure GA4
+    gtag('config', measurementId, {
+      anonymize_ip: true, // IP anonymization for GDPR compliance
+      send_page_view: consent, // Only send page view if consent is granted
+      cookie_flags: 'SameSite=Lax;Secure' // Modern cookie settings
+    });
+
+    setScriptLoaded(true);
+  };
+
+  return (
+    <>
+      {/* 
+       * Using next/script with strategy="afterInteractive" ensures the analytics
+       * script loads after the page is interactive for better performance
+       */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+        strategy="afterInteractive"
+        onLoad={initializeGA}
+      />
+    </>
+  );
 } 

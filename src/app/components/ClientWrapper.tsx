@@ -23,8 +23,8 @@ const ClientDocumentTitleWrapper = dynamic(
   }
 )
 
-// Optimized WebVitals component that only loads in development with minimal overhead
-const WebVitals = process.env.NODE_ENV === 'development'
+// Optimized WebVitals component that only loads in production with minimal overhead
+const WebVitals = process.env.NODE_ENV === 'production'
   ? dynamic(() => import('@/app/components/analytics/web-vitals').then(mod => mod.WebVitals), {
     ssr: false,
     loading: () => null,

@@ -6,14 +6,45 @@ import { onCLS, onFCP, onFID, onINP, onLCP, onTTFB, Metric } from 'web-vitals'
 // Global cache for metrics (to avoid duplicates)
 const metricsCache: Record<string, Metric> = {}
 
-// Function to send metrics to Google Analytics (if available)
+// Function to send metrics to Google Analytics (if available and consent granted)
 const sendToAnalytics = (metric: Metric) => {
-  // Skip sending to analytics in development mode
-  if (process.env.NODE_ENV === 'development') return
+  // Skip sending to analytics if not in production mode
+  if (process.env.NODE_ENV !== 'production') return
 
   // Check if gtag is available
   const gtag = (window as any).gtag
   if (typeof gtag !== 'function') return
+
+  // Check for analytics consent before sending
+  const checkConsent = () => {
+    // Try to get consent from cookie
+    try {
+      const cookieMatch = document.cookie.match(/cookieConsent=([^;]+)/);
+      if (cookieMatch) {
+        const consent = JSON.parse(decodeURIComponent(cookieMatch[1]));
+        return consent?.analytics === true;
+      }
+    } catch (e) {
+      console.error('Error checking consent:', e);
+    }
+
+    // Fallback to localStorage
+    try {
+      const localConsent = localStorage.getItem('cookieConsent');
+      if (localConsent) {
+        const consent = JSON.parse(localConsent);
+        return consent?.analytics === true;
+      }
+    } catch (e) {
+      console.error('Error checking local consent:', e);
+    }
+
+    // Default to no consent
+    return false;
+  };
+
+  // Only send metrics if user has given consent
+  if (!checkConsent()) return;
 
   // Send to Google Analytics
   gtag('event', metric.name, {
@@ -23,6 +54,19 @@ const sendToAnalytics = (metric: Metric) => {
     metric_delta: metric.delta,
     metric_rating: metric.rating
   })
+}
+
+// Helper to report web vitals
+const reportWebVitals = () => {
+  // Skip reporting if not in production
+  if (process.env.NODE_ENV !== 'production') return
+
+  onCLS(sendToAnalytics)
+  onFID(sendToAnalytics)
+  onLCP(sendToAnalytics)
+  onFCP(sendToAnalytics)
+  onINP(sendToAnalytics)
+  onTTFB(sendToAnalytics)
 }
 
 // Debugging panel component (only for development)
@@ -150,34 +194,41 @@ const WebVitalsDebugPanel = () => {
 
 // Main Web Vitals component
 export function WebVitals() {
-  // Set up web vitals measurement
-  useEffect(() => {
-    // Handler for metrics
-    const handleMetric = (metric: Metric) => {
-      // Store in cache
-      metricsCache[metric.name] = metric
-
-      // Send to analytics in production
-      if (process.env.NODE_ENV !== 'development') {
-        sendToAnalytics(metric)
-      }
+  // Early return if not in production - don't even set up listeners
+  if (process.env.NODE_ENV !== 'production') {
+    // Show debug panel only in development
+    if (process.env.NODE_ENV === 'development') {
+      return <WebVitalsDebugPanel />
     }
-
-    // Measure all metrics
-    onCLS(handleMetric)
-    onFCP(handleMetric)
-    onFID(handleMetric)
-    onINP(handleMetric)
-    onLCP(handleMetric)
-    onTTFB(handleMetric)
-
-    // No cleanup needed for web-vitals measurement
-  }, [])
-
-  // Only show debug panel in development
-  if (process.env.NODE_ENV === 'development') {
-    return <WebVitalsDebugPanel />
+    return null;
   }
 
-  return null
+  const [consentListener, setConsentListener] = useState(false);
+  const reported = useRef(false)
+
+  // Initialize web vitals measurement
+  useEffect(() => {
+    if (reported.current) return
+    reported.current = true
+    reportWebVitals()
+  }, [])
+
+  // Add listener for consent changes to re-initialize reporting
+  useEffect(() => {
+    if (consentListener) return;
+
+    const handleConsentChange = () => {
+      // Re-initialize reporting when consent changes
+      reportWebVitals();
+    };
+
+    window.addEventListener('cookieConsentChange', handleConsentChange);
+    setConsentListener(true);
+
+    return () => {
+      window.removeEventListener('cookieConsentChange', handleConsentChange);
+    };
+  }, [consentListener]);
+
+  return null;
 } 
