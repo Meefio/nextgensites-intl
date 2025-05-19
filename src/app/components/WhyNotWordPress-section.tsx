@@ -92,7 +92,7 @@ const WhyNotWordPress = () => {
                     marginBottom: "100px", // Znacznie większy odstęp między kartami
                   }}
                 >
-                  <Card className=" shadow-inner md:hover:shadow-xl transition-shadow duration-300 border-border overflow-hidden bg-card">
+                  <Card className=" shadow-inner transition-shadow duration-300 border-border overflow-hidden bg-card">
                     <CardContent className="p-4 md:p-8">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="inline-flex items-center justify-center rounded-md border border-border bg-secondary p-2 flex-shrink-0">
