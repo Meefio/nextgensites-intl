@@ -66,7 +66,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 				</AnimatedElement>
 			</div>
 
-			<div ref={ref} className='relative mx-auto'>
+			<div ref={ref} className='relative mx-auto max-w-4xl'>
 				{data.map((item, index) => (
 					<motion.div
 						key={index}
@@ -105,16 +105,6 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 							transition={{ duration: 0.5 }}
 							className='col-span-6 md:col-span-3 relative pl-20 pr-4 md:pl-4'
 						>
-							<motion.h3
-								initial={{ opacity: 0 }}
-								whileInView={{ opacity: 1 }}
-								viewport={{ once: true, margin: "-20%" }}
-								transition={{ duration: 0.5 }}
-								className='-mt-[14px] text-lg mb-4 text-left font-bold text-muted-foreground'
-								id={`timeline-step-${index}`}
-							>
-								{item.title}
-							</motion.h3>
 							<motion.div
 								initial={{ opacity: 0 }}
 								whileInView={{ opacity: 1 }}
