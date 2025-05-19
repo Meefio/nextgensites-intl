@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { onCLS, onFCP, onFID, onINP, onLCP, onTTFB, Metric } from 'web-vitals'
+import { useReportWebVitals } from 'next/web-vitals'
+import type { Metric } from 'web-vitals'
 
 // Global cache for metrics (to avoid duplicates)
 const metricsCache: Record<string, Metric> = {}
@@ -12,7 +13,8 @@ const sendToAnalytics = (metric: Metric) => {
   if (process.env.NODE_ENV !== 'production') return
 
   // Check if gtag is available
-  const gtag = (window as any).gtag
+  // @ts-ignore - gtag is added by GA script
+  const gtag = window.gtag
   if (typeof gtag !== 'function') return
 
   // Check for analytics consent before sending
@@ -46,33 +48,43 @@ const sendToAnalytics = (metric: Metric) => {
   // Only send metrics if user has given consent
   if (!checkConsent()) return;
 
-  // Send to Google Analytics
+  // Prepare data for analytics
+  const body = JSON.stringify(metric)
+  const url = '/api/analytics' // You can create this endpoint or use direct GA
+
+  // Send analytics data using sendBeacon if available, otherwise use fetch
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon(url, body)
+  } else {
+    fetch(url, { body, method: 'POST', keepalive: true })
+  }
+
+  // Also send to Google Analytics if available
   gtag('event', metric.name, {
-    value: metric.delta,
+    value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value), // values must be integers
     metric_id: metric.id,
     metric_value: metric.value,
     metric_delta: metric.delta,
-    metric_rating: metric.rating
+    metric_rating: metric.rating,
+    non_interaction: true // avoids affecting bounce rate
   })
-}
-
-// Helper to report web vitals
-const reportWebVitals = () => {
-  // Skip reporting if not in production
-  if (process.env.NODE_ENV !== 'production') return
-
-  onCLS(sendToAnalytics)
-  onFID(sendToAnalytics)
-  onLCP(sendToAnalytics)
-  onFCP(sendToAnalytics)
-  onINP(sendToAnalytics)
-  onTTFB(sendToAnalytics)
 }
 
 // Debugging panel component (only for development)
 const WebVitalsDebugPanel = () => {
   const [metrics, setMetrics] = useState<Metric[]>([])
   const debugPanelRef = useRef<HTMLDivElement | null>(null)
+
+  // Capture metrics using Next.js built-in hook
+  useReportWebVitals((metric) => {
+    // Store metric in cache
+    metricsCache[metric.id] = metric
+
+    // Log metric in development
+    if (process.env.NODE_ENV === 'development') {
+      console.log(metric)
+    }
+  })
 
   // Update metrics periodically
   useEffect(() => {
@@ -194,32 +206,74 @@ const WebVitalsDebugPanel = () => {
 
 // Main Web Vitals component
 export function WebVitals() {
-  // Early return if not in production - don't even set up listeners
+  const [consentListener, setConsentListener] = useState(false);
+
+  // Show debug panel only in development
+  if (process.env.NODE_ENV === 'development') {
+    return <WebVitalsDebugPanel />
+  }
+
+  // Skip rest of functionality if not in production
   if (process.env.NODE_ENV !== 'production') {
-    // Show debug panel only in development
-    if (process.env.NODE_ENV === 'development') {
-      return <WebVitalsDebugPanel />
-    }
     return null;
   }
 
-  const [consentListener, setConsentListener] = useState(false);
-  const reported = useRef(false)
+  // Use Next.js built-in hook for production
+  useReportWebVitals((metric) => {
+    // Store in cache for potential use
+    metricsCache[metric.id] = metric
 
-  // Initialize web vitals measurement
-  useEffect(() => {
-    if (reported.current) return
-    reported.current = true
-    reportWebVitals()
-  }, [])
+    // Process different metrics if needed
+    switch (metric.name) {
+      case 'FCP':
+        // handle First Contentful Paint
+        sendToAnalytics(metric);
+        break;
+      case 'LCP':
+        // handle Largest Contentful Paint
+        sendToAnalytics(metric);
+        break;
+      case 'CLS':
+        // handle Cumulative Layout Shift
+        sendToAnalytics(metric);
+        break;
+      case 'FID':
+        // handle First Input Delay
+        sendToAnalytics(metric);
+        break;
+      case 'TTFB':
+        // handle Time to First Byte
+        sendToAnalytics(metric);
+        break;
+      case 'INP':
+        // handle Interaction to Next Paint
+        sendToAnalytics(metric);
+        break;
+      case 'Next.js-hydration':
+        // handle hydration results
+        sendToAnalytics(metric);
+        break;
+      case 'Next.js-route-change-to-render':
+        // handle route-change to render results
+        sendToAnalytics(metric);
+        break;
+      case 'Next.js-render':
+        // handle render results
+        sendToAnalytics(metric);
+        break;
+      default:
+        sendToAnalytics(metric);
+        break;
+    }
+  });
 
   // Add listener for consent changes to re-initialize reporting
   useEffect(() => {
     if (consentListener) return;
 
     const handleConsentChange = () => {
-      // Re-initialize reporting when consent changes
-      reportWebVitals();
+      // Metrics will continue to be collected by useReportWebVitals
+      // We'll check consent when sending to analytics
     };
 
     window.addEventListener('cookieConsentChange', handleConsentChange);
