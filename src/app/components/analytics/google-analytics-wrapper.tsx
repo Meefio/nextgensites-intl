@@ -9,13 +9,10 @@ type GoogleAnalyticsWrapperProps = {
 };
 
 export default function GoogleAnalyticsWrapper({ measurementId, initialConsent }: GoogleAnalyticsWrapperProps) {
-  // If not in production, don't load analytics
-  if (process.env.NODE_ENV !== 'production') {
-    return null;
-  }
-
+  // Always call hooks at the top level, regardless of conditions
   const [consent, setConsent] = useState(initialConsent);
   const [scriptLoaded, setScriptLoaded] = useState(false);
+  const isProduction = process.env.NODE_ENV === 'production';
 
   // Update consent when prop changes
   useEffect(() => {
@@ -24,6 +21,9 @@ export default function GoogleAnalyticsWrapper({ measurementId, initialConsent }
 
   // Update consent when cookie consent changes
   useEffect(() => {
+    // Skip effect functionality in non-production but still call the hook
+    if (!isProduction) return;
+
     const handleCookieConsentChange = (event: CustomEvent<{
       necessary: boolean;
       analytics: boolean;
@@ -40,22 +40,25 @@ export default function GoogleAnalyticsWrapper({ measurementId, initialConsent }
     return () => {
       window.removeEventListener('cookieConsentChange', handleCookieConsentChange as EventListener);
     };
-  }, []);
+  }, [isProduction]);
 
   // Update analytics_storage consent when consent changes
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.gtag && scriptLoaded) {
+    // Skip effect functionality in non-production but still call the hook
+    if (!isProduction || !scriptLoaded) return;
+
+    if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('consent', 'update', {
         analytics_storage: consent ? 'granted' : 'denied'
       });
     }
-  }, [consent, scriptLoaded]);
+  }, [consent, scriptLoaded, isProduction]);
 
   // Initialize GA4 with Consent Mode v2
   const initializeGA = () => {
     window.dataLayer = window.dataLayer || [];
-    function gtag(...args: any[]) {
-      window.dataLayer.push(arguments);
+    function gtag(...parameters: any[]) {
+      window.dataLayer.push(parameters);
     }
     window.gtag = gtag;
 
@@ -87,6 +90,11 @@ export default function GoogleAnalyticsWrapper({ measurementId, initialConsent }
 
     setScriptLoaded(true);
   };
+
+  // If not in production, don't render the script
+  if (!isProduction) {
+    return null;
+  }
 
   return (
     <>

@@ -13,8 +13,7 @@ const sendToAnalytics = (metric: Metric) => {
   if (process.env.NODE_ENV !== 'production') return
 
   // Check if gtag is available
-  // @ts-ignore - gtag is added by GA script
-  const gtag = window.gtag
+  const gtag = typeof window !== 'undefined' ? (window as any).gtag : undefined
   if (typeof gtag !== 'function') return
 
   // Check for analytics consent before sending
@@ -207,69 +206,68 @@ const WebVitalsDebugPanel = () => {
 // Main Web Vitals component
 export function WebVitals() {
   const [consentListener, setConsentListener] = useState(false);
+  const isProduction = process.env.NODE_ENV === 'production';
+  const showDebug = process.env.NODE_ENV === 'development';
 
-  // Show debug panel only in development
-  if (process.env.NODE_ENV === 'development') {
-    return <WebVitalsDebugPanel />
-  }
-
-  // Skip rest of functionality if not in production
-  if (process.env.NODE_ENV !== 'production') {
-    return null;
-  }
-
-  // Use Next.js built-in hook for production
+  // Use Next.js built-in hook - always called unconditionally at top level
   useReportWebVitals((metric) => {
     // Store in cache for potential use
     metricsCache[metric.id] = metric
 
-    // Process different metrics if needed
-    switch (metric.name) {
-      case 'FCP':
-        // handle First Contentful Paint
-        sendToAnalytics(metric);
-        break;
-      case 'LCP':
-        // handle Largest Contentful Paint
-        sendToAnalytics(metric);
-        break;
-      case 'CLS':
-        // handle Cumulative Layout Shift
-        sendToAnalytics(metric);
-        break;
-      case 'FID':
-        // handle First Input Delay
-        sendToAnalytics(metric);
-        break;
-      case 'TTFB':
-        // handle Time to First Byte
-        sendToAnalytics(metric);
-        break;
-      case 'INP':
-        // handle Interaction to Next Paint
-        sendToAnalytics(metric);
-        break;
-      case 'Next.js-hydration':
-        // handle hydration results
-        sendToAnalytics(metric);
-        break;
-      case 'Next.js-route-change-to-render':
-        // handle route-change to render results
-        sendToAnalytics(metric);
-        break;
-      case 'Next.js-render':
-        // handle render results
-        sendToAnalytics(metric);
-        break;
-      default:
-        sendToAnalytics(metric);
-        break;
+    // Only process metrics in production
+    if (isProduction) {
+      // Process different metrics if needed
+      switch (metric.name) {
+        case 'FCP':
+          // handle First Contentful Paint
+          sendToAnalytics(metric);
+          break;
+        case 'LCP':
+          // handle Largest Contentful Paint
+          sendToAnalytics(metric);
+          break;
+        case 'CLS':
+          // handle Cumulative Layout Shift
+          sendToAnalytics(metric);
+          break;
+        case 'FID':
+          // handle First Input Delay
+          sendToAnalytics(metric);
+          break;
+        case 'TTFB':
+          // handle Time to First Byte
+          sendToAnalytics(metric);
+          break;
+        case 'INP':
+          // handle Interaction to Next Paint
+          sendToAnalytics(metric);
+          break;
+        case 'Next.js-hydration':
+          // handle hydration results
+          sendToAnalytics(metric);
+          break;
+        case 'Next.js-route-change-to-render':
+          // handle route-change to render results
+          sendToAnalytics(metric);
+          break;
+        case 'Next.js-render':
+          // handle render results
+          sendToAnalytics(metric);
+          break;
+        default:
+          sendToAnalytics(metric);
+          break;
+      }
+    } else if (process.env.NODE_ENV === 'development') {
+      // Log metric in development
+      console.log(metric);
     }
   });
 
-  // Add listener for consent changes to re-initialize reporting
+  // Add listener for consent changes to re-initialize reporting - always called unconditionally
   useEffect(() => {
-    if (consentListener) return;
+    // Skip functionality in non-production environments but still call the hook
+    if (!isProduction || consentListener) return;
 
     const handleConsentChange = () => {
       // Metrics will continue to be collected by useReportWebVitals
@@ -282,7 +280,12 @@ export function WebVitals() {
     return () => {
       window.removeEventListener('cookieConsentChange', handleConsentChange);
     };
-  }, [consentListener]);
+  }, [consentListener, isProduction]);
+
+  // Render debug panel only in development
+  if (showDebug) {
+    return <WebVitalsDebugPanel />;
+  }
 
   return null;
 } 

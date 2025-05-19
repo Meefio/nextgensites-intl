@@ -30,8 +30,8 @@ export function CookieBanner() {
   useEffect(() => {
     // Define dataLayer for Google Tag Manager/Analytics
     window.dataLayer = window.dataLayer || [];
-    function gtag(...args: any[]) {
-      window.dataLayer.push(arguments);
+    function gtag(...parameters: any[]) {
+      window.dataLayer.push(parameters);
     }
     window.gtag = window.gtag || gtag;
 
