@@ -105,7 +105,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
               const pathString = typeof localizedPath === 'string' ? localizedPath : '/pl';
 
               // Add the /pl prefix for middleware detection
-              if (pathString === '/') {
+              if (pathString.toString() === '/') {
                 href = '/pl';
               } else {
                 // Add /pl prefix to non-root paths
@@ -117,7 +117,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             }
 
             return (
-              <Link
+              <a
                 key={lang.code}
                 href={href.toString()}
                 aria-label={`Zmień język na ${lang.label}`}
@@ -138,7 +138,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                   />
                   <span>{lang.label}</span>
                 </div>
-              </Link>
+              </a>
             )
           })}
         </div>

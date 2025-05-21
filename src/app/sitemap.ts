@@ -1,145 +1,128 @@
 import { MetadataRoute } from 'next'
-import { routing } from '@/i18n/routing'
-import { getAllPosts } from '@/utils/mdx'
-import { clearMdxCaches } from '@/utils/mdx-cache'
+import { getAllSlugs } from '@/lib/sanity/queries'
+import { DOMAIN, KNOWLEDGE_BASE_PATHS } from '@/lib/constants'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Clear the MDX caches to ensure we have the latest blog posts
-  clearMdxCaches()
-
-  const baseUrl = 'https://nextgensites.pl'
-
-  // More precise dates for different content types
-  const homeLastMod = new Date()
-  const legalLastMod = new Date('2023-12-15')
-  const portfolioLastMod = new Date('2024-04-10')
-
-  // Generate static pages for Polish language (default, without language prefix)
-  const plStaticPages = [
+  // Static pages configuration
+  const staticPages = [
     {
-      url: `${baseUrl}/`,
-      lastModified: homeLastMod,
-      changeFrequency: 'weekly' as const,
-      priority: 1
+      url: `${DOMAIN}`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 1,
     },
-    // Legal pages
     {
-      url: `${baseUrl}/polityka-prywatnosci`,
-      lastModified: legalLastMod,
+      url: `${DOMAIN}/en`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 1,
+    },
+    {
+      url: `${DOMAIN}/polityka-prywatnosci`,
+      lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.2
+      priority: 0.5,
     },
     {
-      url: `${baseUrl}/regulamin`,
-      lastModified: legalLastMod,
+      url: `${DOMAIN}/en/privacy-policy`,
+      lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.2
+      priority: 0.5,
     },
     {
-      url: `${baseUrl}/rodo`,
-      lastModified: legalLastMod,
+      url: `${DOMAIN}/regulamin`,
+      lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.2
+      priority: 0.5,
     },
-    // Portfolio pages - higher priority for marketing impact
     {
-      url: `${baseUrl}/strona-internetowa-dla-firmy-sprzatajacej`,
-      lastModified: portfolioLastMod,
+      url: `${DOMAIN}/en/terms-of-service`,
+      lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.8
+      priority: 0.5,
     },
     {
-      url: `${baseUrl}/strona-internetowa-dla-firmy-budowlano-remontowej`,
-      lastModified: portfolioLastMod,
+      url: `${DOMAIN}/rodo`,
+      lastModified: new Date(),
       changeFrequency: 'monthly' as const,
-      priority: 0.8
+      priority: 0.5,
     },
-    // Knowledge base main page
     {
-      url: `${baseUrl}/baza-wiedzy`,
+      url: `${DOMAIN}/en/gdpr`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    },
+    {
+      url: `${DOMAIN}/strona-internetowa-dla-firmy-sprzatajacej`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${DOMAIN}/en/cleaning-company-website`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${DOMAIN}/strona-internetowa-dla-firmy-budowlano-remontowej`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${DOMAIN}/en/construction-and-renovation-company-website`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    // Knowledge base index pages
+    {
+      url: `${DOMAIN}${KNOWLEDGE_BASE_PATHS.PL}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
-      priority: 0.7
-    }
-  ]
+      priority: 0.9,
+    },
+    {
+      url: `${DOMAIN}/en${KNOWLEDGE_BASE_PATHS.EN}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+  ];
 
-  // Blog posts for Polish language - Always place under /baza-wiedzy/
-  const plBlogPosts = getAllPosts('pl').map(post => ({
-    url: `${baseUrl}/baza-wiedzy/${post.slug}`,
-    lastModified: new Date(post.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.6
-  }))
+  // Get all blog post slugs from Sanity
+  const slugs = await getAllSlugs();
 
-  // Generate static pages for other languages (with language prefix)
-  const otherLocalesStaticPages = routing.locales
-    .filter(locale => locale !== 'pl')
-    .flatMap(locale => [
-      // Main page for each language
-      {
-        url: `${baseUrl}/${locale}`,
-        lastModified: homeLastMod,
-        changeFrequency: 'weekly' as const,
-        priority: 1
-      },
-      // Legal pages for each language
-      {
-        url: `${baseUrl}/${locale}/privacy-policy`,
-        lastModified: legalLastMod,
-        changeFrequency: 'monthly' as const,
-        priority: 0.2
-      },
-      {
-        url: `${baseUrl}/${locale}/terms-of-service`,
-        lastModified: legalLastMod,
-        changeFrequency: 'monthly' as const,
-        priority: 0.2
-      },
-      {
-        url: `${baseUrl}/${locale}/gdpr`,
-        lastModified: legalLastMod,
-        changeFrequency: 'monthly' as const,
-        priority: 0.2
-      },
-      // Portfolio pages for each language
-      {
-        url: `${baseUrl}/${locale}/cleaning-company-website`,
-        lastModified: portfolioLastMod,
-        changeFrequency: 'monthly' as const,
-        priority: 0.8
-      },
-      {
-        url: `${baseUrl}/${locale}/construction-and-renovation-company-website`,
-        lastModified: portfolioLastMod,
-        changeFrequency: 'monthly' as const,
-        priority: 0.8
-      },
-      // Knowledge base main page for each language
-      {
-        url: `${baseUrl}/${locale}/knowledge-base`,
+  // Create blog post entries
+  const blogEntries: MetadataRoute.Sitemap = [];
+
+  // Process each slug
+  for (const post of slugs) {
+    // Add Polish entry if available
+    if (post.pl) {
+      blogEntries.push({
+        url: `${DOMAIN}${KNOWLEDGE_BASE_PATHS.PL}/${post.pl}`,
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
-        priority: 0.7
-      }
-    ])
+        priority: 0.7,
+      });
+    }
 
-  // Blog posts for other languages - Always place under /knowledge-base/
-  const otherLocalesBlogPosts = routing.locales
-    .filter(locale => locale !== 'pl')
-    .flatMap(locale =>
-      getAllPosts(locale).map(post => ({
-        url: `${baseUrl}/${locale}/knowledge-base/${post.slug}`,
-        lastModified: new Date(post.date),
-        changeFrequency: 'monthly' as const,
-        priority: 0.6
-      }))
-    )
+    // Add English entry if available
+    if (post.en) {
+      blogEntries.push({
+        url: `${DOMAIN}/en${KNOWLEDGE_BASE_PATHS.EN}/${post.en}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+      });
+    }
+  }
 
-  // Combine all sitemap entries
   return [
-    ...plStaticPages,
-    ...plBlogPosts,
-    ...otherLocalesStaticPages,
-    ...otherLocalesBlogPosts
+    ...staticPages,
+    ...blogEntries
   ]
 } 

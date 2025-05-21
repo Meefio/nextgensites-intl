@@ -35,6 +35,11 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'cdn.jsdelivr.net',
       },
+      // Add Sanity.io CDN
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
     ],
   },
   experimental: {
@@ -195,6 +200,16 @@ const nextConfig: NextConfig = {
               : 'public, max-age=300, s-maxage=600, stale-while-revalidate=1200',
           },
         ],
+      },
+      {
+        // Add special config for the studio route
+        source: '/studio/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://cdn.sanity.io; font-src 'self' data:; connect-src 'self' https://*.sanity.io; media-src 'self' https://cdn.sanity.io; frame-src 'self';"
+          }
+        ]
       },
     ];
   },

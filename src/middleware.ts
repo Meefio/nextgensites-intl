@@ -169,6 +169,6 @@ export default function middleware(request: NextRequest) {
 export const config = {
    matcher: [
       // Match all paths except those that don't require internationalization
-      '/((?!api|_next|_vercel|.*\\..*).*)',
+      '/((?!api|_next|_vercel|studio|.*\\..*).*)',
    ]
 };

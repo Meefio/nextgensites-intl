@@ -1,42 +1,8 @@
 /**
  * Utility for handling blog post localization between different languages
  */
-
-// Translation map for blog posts slugs between languages
-export const blogPostTranslations: Record<string, Record<string, string>> = {
-  // Polish to English
-  'przyklad-wpisu-wykorzystujacego-wszystkie-komponenty': {
-    en: 'example-post-using-all-components'
-  },
-  'jak-wybrac-strone-internetowa-dla-swojej-firmy': {
-    en: 'how-to-choose-a-website-for-your-business'
-  },
-  'dlaczego-nextjs-to-przyszlosc-stron-internetowych-dla-biznesu': {
-    en: 'why-nextjs-is-the-future-of-business-websites'
-  },
-  'nowoczesna-strona-internetowa-co-to-wlasciwie-znaczy': {
-    en: 'modern-website-what-does-it-actually-mean'
-  },
-  'aplikacja-webowa-nowoczesne-rozwiazanie-dla-biznesu': {
-    en: 'web-application-modern-solution-for-business'
-  },
-  // English to Polish
-  'example-post-using-all-components': {
-    pl: 'przyklad-wpisu-wykorzystujacego-wszystkie-komponenty'
-  },
-  'how-to-choose-a-website-for-your-business': {
-    pl: 'jak-wybrac-strone-internetowa-dla-swojej-firmy'
-  },
-  'why-nextjs-is-the-future-of-business-websites': {
-    pl: 'dlaczego-nextjs-to-przyszlosc-stron-internetowych-dla-biznesu'
-  },
-  'modern-website-what-does-it-actually-mean': {
-    pl: 'nowoczesna-strona-internetowa-co-to-wlasciwie-znaczy'
-  },
-  'web-application-modern-solution-for-business': {
-    pl: 'aplikacja-webowa-nowoczesne-rozwiazanie-dla-biznesu'
-  }
-}
+import { client } from '@/lib/sanity/client';
+import { KNOWLEDGE_BASE_PATHS } from '@/lib/constants';
 
 // Section translations for paths like baza-wiedzy -> knowledge-base
 export const sectionTranslations: Record<string, Record<string, string>> = {
@@ -49,13 +15,44 @@ export const sectionTranslations: Record<string, Record<string, string>> = {
 }
 
 /**
+ * Gets the slugs of a post in both languages from Sanity
+ * @param slug Current slug
+ * @param currentLocale Current locale
+ * @returns Object with slugs for each locale
+ */
+export async function getPostSlugsForAllLocales(slug: string, currentLocale: string): Promise<Record<string, string>> {
+  try {
+    // Find the post by its slug in the current locale
+    const query = `*[_type == "post" && slug[$currentLocale].current == $slug][0] {
+      "slugs": {
+        "en": slug.en.current,
+        "pl": slug.pl.current
+      }
+    }`;
+
+    const result = await client.fetch(query, { slug, currentLocale });
+
+    if (result && result.slugs) {
+      return result.slugs;
+    } else {
+      // If no result found, return object with current slug for the current locale
+      return { [currentLocale]: slug };
+    }
+  } catch (error) {
+    console.error('Error fetching post slugs:', error);
+    // Return object with current slug for the current locale as fallback
+    return { [currentLocale]: slug };
+  }
+}
+
+/**
  * Gets the equivalent path in the target locale
  * Handles special cases like blog posts with different slugs
  */
 export function getLocalizedPath(
   pathname: string,
   targetLocale: string
-): string | { pathname: string; params?: Record<string, string> } {
+): string | Promise<string> {
   // Handle root path
   if (pathname === '/' || pathname === '/en') {
     return targetLocale === 'en' ? '/en' : '/';
@@ -86,6 +83,7 @@ export function getLocalizedPath(
     const pathParts = cleanPath.split('/').filter(part => part.length > 0);
 
     // Extract the section and slug
+    const section = pathParts[0];
     const slug = pathParts[1];
 
     // No slug, just the section
@@ -93,16 +91,14 @@ export function getLocalizedPath(
       return targetLocale === 'en' ? '/en/knowledge-base' : '/baza-wiedzy';
     }
 
-    // Get the translated slug if available
-    const translatedSlug = blogPostTranslations[slug]?.[targetLocale] || slug;
-
-    // Format the path based on the target locale
+    // For client-side language switching, we can't use async functions directly
+    // We'll return a simple path based on the current information
     if (targetLocale === 'en') {
-      // For English, we need a special format for next-intl Link
-      return `/en/knowledge-base/${translatedSlug}`;
+      // For English, we use the knowledge base path with the given slug
+      return `/en/knowledge-base/${slug}`;
     } else {
-      // For Polish (default locale), we use a regular string URL
-      return `/baza-wiedzy/${translatedSlug}`;
+      // For Polish, we use the baza-wiedzy path with the given slug
+      return `/baza-wiedzy/${slug}`;
     }
   }
 

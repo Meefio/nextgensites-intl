@@ -43,6 +43,7 @@ export const bypassPatterns = [
   /^\/_next\//,  // Next.js assets
   /^\/images\//,  // Static images
   /^\/api\//,  // API routes
+  /^\/studio\//,  // Sanity Studio
   /^\/favicon\.ico$/,  // Favicon
   /^\/robots\.txt$/,  // Robots.txt
   /^\/sitemap\.xml$/,  // Sitemap

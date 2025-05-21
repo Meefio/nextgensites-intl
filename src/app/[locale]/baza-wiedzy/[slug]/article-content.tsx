@@ -1,82 +1,24 @@
-import { notFound } from 'next/navigation'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { getPostBySlug } from '@/utils/mdx'
-import { getCachedMdxContent } from '@/utils/mdx-cache'
-import path from 'path'
-import matter from 'gray-matter'
-import { MDXComponents } from '@/app/components/blog/MDXComponents'
-import rehypeSlug from 'rehype-slug'
-import remarkGfm from 'remark-gfm'
+'use client'
 
-interface ArticleContentProps {
+import { useEffect, useState } from 'react'
+import PortableText from '@/app/components/portable-text'
+import { getPostBySlug } from '@/lib/sanity/queries'
+import { getLocalizedValue } from '@/lib/sanity/client'
+import { Post } from '@/lib/sanity/types'
+import { Skeleton } from '@/app/components/ui/skeleton'
+
+type ArticleContentProps = {
   locale: string
-  slug: string
+  post: Post
 }
 
-export const ArticleContent = ({ locale, slug }: ArticleContentProps) => {
-  try {
-    // Get post data from MDX file
-    const post = getPostBySlug(slug, locale)
+export default function ArticleContent({ locale, post }: ArticleContentProps) {
+  // Get the localized content for the current locale
+  const content = post ? getLocalizedValue(post.body, locale) : null
 
-    if (!post) {
-      console.error(`Post not found for slug: ${slug} and locale: ${locale}`)
-      notFound()
-    }
-
-    // Get MDX content with caching
-    const contentPath = path.join(process.cwd(), 'src', 'content', 'blog', locale, `${slug}.mdx`)
-    const fileContent = getCachedMdxContent(contentPath)
-
-    if (!fileContent) {
-      console.error(`MDX file not found at path: ${contentPath}`)
-      notFound()
-    }
-
-    const { content, data: frontMatter } = matter(fileContent)
-
-    if (!content || content.trim() === '') {
-      console.error(`Empty content for post: ${slug}`)
-      return <div>Content not available</div>
-    }
-
-    return (
-      <MDXRemote
-        source={content}
-        options={{
-          mdxOptions: {
-            rehypePlugins: [
-              rehypeSlug,
-            ],
-            remarkPlugins: [remarkGfm],
-          },
-          parseFrontmatter: true,
-        }}
-        components={{
-          ...MDXComponents,
-          SummaryBox: (props) => {
-            // Tylko użyj frontMatter.summaryPoints jako fallback, gdy brak children
-            // Sprawdzamy czy props.children istnieje i czy nie jest puste
-            const useChildrenContent = props.children !== undefined && props.children !== null;
-
-            return (
-              <MDXComponents.SummaryBox
-                {...props}
-                locale={locale}
-                points={useChildrenContent ? undefined : (frontMatter.summaryPoints || [])}
-              />
-            );
-          },
-          WorthKnowingBox: MDXComponents.WorthKnowingBox,
-          NextArticleBox: (props) => (
-            <MDXComponents.NextArticleBox {...props} locale={locale} />
-          )
-        }}
-      />
-    )
-  } catch (error) {
-    console.error(`Error rendering MDX content: ${error}`)
-    return <div>Error loading content</div>
+  if (!post || !content) {
+    return <div>Article content not available</div>
   }
-}
 
-export default ArticleContent 
+  return <PortableText value={content} />
+} 
