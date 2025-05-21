@@ -43,12 +43,15 @@ export function CookieBanner() {
     const savedConsentCookie = getCookieValue('cookieConsent');
     const savedConsentLocal = typeof localStorage !== 'undefined' ? localStorage.getItem('cookieConsent') : null;
 
-    // If no consent is found, show the banner after a delay
+    // If no consent is found, set isReady immediately but delay showing the banner
     if (!savedConsentCookie && !savedConsentLocal) {
+      // Set isReady immediately to load component
+      setIsReady(true);
+
+      // Delay showing the banner
       const timer = setTimeout(() => {
         setShowBanner(true);
-        setIsReady(true);
-      }, 2000);
+      }, 1000);
 
       return () => clearTimeout(timer);
     } else {

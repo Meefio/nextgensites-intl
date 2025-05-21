@@ -14,7 +14,7 @@ interface HeroProps {
 	priorityImage?: boolean;
 }
 
-export function Hero({ locale: propLocale, priorityImage = false }: HeroProps) {
+export function Hero({ locale: propLocale, priorityImage = true }: HeroProps) {
 	const t = useTranslations('Hero')
 	const contextLocale = useLocale()
 	const locale = propLocale || contextLocale
