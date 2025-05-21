@@ -43,19 +43,38 @@ export function CookieBanner() {
     const savedConsentCookie = getCookieValue('cookieConsent');
     const savedConsentLocal = typeof localStorage !== 'undefined' ? localStorage.getItem('cookieConsent') : null;
 
-    // If no consent is found, set isReady immediately but delay showing the banner
-    if (!savedConsentCookie && !savedConsentLocal) {
-      // Set isReady immediately to load component
-      setIsReady(true);
+    // Set isReady immediately to load component
+    setIsReady(true);
 
-      // Delay showing the banner
+    // Show banner if no consent is found or analytics consent is not given
+    if (!savedConsentCookie && !savedConsentLocal) {
+      // No consent at all - show banner after delay
       const timer = setTimeout(() => {
         setShowBanner(true);
       }, 1000);
 
       return () => clearTimeout(timer);
     } else {
-      setIsReady(true);
+      // Parse saved consent to check analytics specifically
+      let parsedConsent: CookieConsent | null = null;
+
+      try {
+        if (savedConsentCookie) {
+          parsedConsent = JSON.parse(decodeURIComponent(savedConsentCookie));
+        } else if (savedConsentLocal) {
+          parsedConsent = JSON.parse(savedConsentLocal);
+        }
+      } catch (e) {
+        // Invalid JSON - treat as no consent
+        setShowBanner(true);
+        return;
+      }
+
+      // Show banner if analytics consent is not explicitly true
+      if (!parsedConsent || parsedConsent.analytics !== true) {
+        // Analytics not consented - show banner immediately
+        setShowBanner(true);
+      }
     }
   }, []);
 
