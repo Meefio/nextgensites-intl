@@ -105,7 +105,6 @@ export default function GoogleAnalyticsWrapper({ measurementId, initialConsent }
             anonymize_ip: true,
             send_page_view: ${consent},
             cookie_flags: 'SameSite=Lax;Secure',
-            transport_url: 'https://www.googletagmanager.com',
             transport_type: 'beacon'
           });
         `}
