@@ -3,48 +3,21 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReportWebVitals } from 'next/web-vitals'
 import type { Metric } from 'web-vitals'
+import { useAnalytics } from './analytics-provider'
 
 // Global cache for metrics (to avoid duplicates)
 const metricsCache: Record<string, Metric> = {}
 
 // Function to send metrics to Google Analytics (if available and consent granted)
-const sendToAnalytics = (metric: Metric) => {
+const sendToAnalytics = (metric: Metric, hasAnalyticsConsent: boolean) => {
   // Skip sending to analytics if not in production mode
   if (process.env.NODE_ENV !== 'production') return
 
   // Check if gtag is available
   const gtag = typeof window !== 'undefined' ? (window as any).gtag : undefined
 
-  // Check for analytics consent before sending
-  const checkConsent = () => {
-    // Try to get consent from cookie
-    try {
-      const cookieMatch = document.cookie.match(/cookieConsent=([^;]+)/);
-      if (cookieMatch) {
-        const consent = JSON.parse(decodeURIComponent(cookieMatch[1]));
-        return consent?.analytics === true;
-      }
-    } catch (e) {
-      console.error('Error checking consent:', e);
-    }
-
-    // Fallback to localStorage
-    try {
-      const localConsent = localStorage.getItem('cookieConsent');
-      if (localConsent) {
-        const consent = JSON.parse(localConsent);
-        return consent?.analytics === true;
-      }
-    } catch (e) {
-      console.error('Error checking local consent:', e);
-    }
-
-    // Default to no consent
-    return false;
-  };
-
   // Only send metrics if user has given consent
-  if (!checkConsent()) return;
+  if (!hasAnalyticsConsent) return;
 
   // Prepare data for analytics
   const body = JSON.stringify({
@@ -224,9 +197,15 @@ const WebVitalsDebugPanel = () => {
 
 // Main Web Vitals component
 export function WebVitals() {
-  const [consentListener, setConsentListener] = useState(false);
+  const { consentStatus } = useAnalytics();
+  const [metricsEnabled, setMetricsEnabled] = useState(false);
   const isProduction = process.env.NODE_ENV === 'production';
   const showDebug = process.env.NODE_ENV === 'development';
+
+  // Track consent status
+  useEffect(() => {
+    setMetricsEnabled(consentStatus.analytics);
+  }, [consentStatus.analytics]);
 
   // Use Next.js built-in hook - always called unconditionally at top level
   useReportWebVitals((metric) => {
@@ -239,42 +218,42 @@ export function WebVitals() {
       switch (metric.name) {
         case 'FCP':
           // handle First Contentful Paint
-          sendToAnalytics(metric);
+          sendToAnalytics(metric, metricsEnabled);
           break;
         case 'LCP':
           // handle Largest Contentful Paint
-          sendToAnalytics(metric);
+          sendToAnalytics(metric, metricsEnabled);
           break;
         case 'CLS':
           // handle Cumulative Layout Shift
-          sendToAnalytics(metric);
+          sendToAnalytics(metric, metricsEnabled);
           break;
         case 'FID':
           // handle First Input Delay
-          sendToAnalytics(metric);
+          sendToAnalytics(metric, metricsEnabled);
           break;
         case 'TTFB':
           // handle Time to First Byte
-          sendToAnalytics(metric);
+          sendToAnalytics(metric, metricsEnabled);
           break;
         case 'INP':
           // handle Interaction to Next Paint
-          sendToAnalytics(metric);
+          sendToAnalytics(metric, metricsEnabled);
           break;
         case 'Next.js-hydration':
           // handle hydration results
-          sendToAnalytics(metric);
+          sendToAnalytics(metric, metricsEnabled);
           break;
         case 'Next.js-route-change-to-render':
           // handle route-change to render results
-          sendToAnalytics(metric);
+          sendToAnalytics(metric, metricsEnabled);
           break;
         case 'Next.js-render':
           // handle render results
-          sendToAnalytics(metric);
+          sendToAnalytics(metric, metricsEnabled);
           break;
         default:
-          sendToAnalytics(metric);
+          sendToAnalytics(metric, metricsEnabled);
           break;
       }
     } else if (process.env.NODE_ENV === 'development') {
@@ -283,28 +262,11 @@ export function WebVitals() {
     }
   });
 
-  // Add listener for consent changes to re-initialize reporting - always called unconditionally
-  useEffect(() => {
-    // Skip functionality in non-production environments but still call the hook
-    if (!isProduction || consentListener) return;
-
-    const handleConsentChange = () => {
-      // Metrics will continue to be collected by useReportWebVitals
-      // We'll check consent when sending to analytics
-    };
-
-    window.addEventListener('cookieConsentChange', handleConsentChange);
-    setConsentListener(true);
-
-    return () => {
-      window.removeEventListener('cookieConsentChange', handleConsentChange);
-    };
-  }, [consentListener, isProduction]);
-
-  // Render debug panel only in development
+  // In development, render debug panel
   if (showDebug) {
     return <WebVitalsDebugPanel />;
   }
 
+  // In production, render nothing (component handles analytics in the background)
   return null;
 } 

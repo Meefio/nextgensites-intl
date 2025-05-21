@@ -8,6 +8,7 @@ import { Card } from "@/app/components/ui/card";
 import { Checkbox } from "@/app/components/ui/checkbox";
 import { X, ArrowLeft } from "lucide-react";
 import { AnimatedElement } from "@/app/components/motion/animated-element";
+import { useAnalytics } from "./analytics/analytics-provider";
 
 type CookieConsent = {
   necessary: boolean;
@@ -19,80 +20,50 @@ export function CookieBanner() {
   const t = useTranslations('CookieBanner');
   const [showBanner, setShowBanner] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
-  const [consent, setConsent] = useState<CookieConsent>({
-    necessary: true,
-    analytics: false,
-    marketing: false,
-  });
   const [isReady, setIsReady] = useState(false);
 
-  // Initialize Google Consent Mode as early as possible
+  // Use the analytics provider for consent management
+  const { consentStatus, updateConsent } = useAnalytics();
+
+  const [localConsent, setLocalConsent] = useState<CookieConsent>({
+    necessary: consentStatus.necessary,
+    analytics: consentStatus.analytics,
+    marketing: consentStatus.marketing,
+  });
+
+  // Initialize banner visibility
   useEffect(() => {
-    // Define dataLayer for Google Tag Manager/Analytics
-    window.dataLayer = window.dataLayer || [];
-    function gtag(...parameters: any[]) {
-      window.dataLayer.push(parameters);
-    }
-    window.gtag = window.gtag || gtag;
-
-    // Set default consent to denied for all purposes (GDPR requirement)
-    // Only actually initialize consent mode in production
-    if (typeof window.gtag !== 'undefined' && process.env.NODE_ENV === 'production') {
-      window.gtag("consent", "default", {
-        analytics_storage: "denied",
-        ad_storage: "denied",
-        functionality_storage: "denied",
-        personalization_storage: "denied",
-        security_storage: "granted", // Security is always granted
-        ad_user_data: "denied",
-        ad_personalization: "denied",
-        wait_for_update: 500 // Wait for consent before firing tags
-      });
-    }
-
-    // Check for stored consent (try cookies first, then localStorage as fallback)
+    // Check for stored consent
     const getCookieValue = (name: string) => {
+      if (typeof document === 'undefined') return null;
       const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
       return match ? decodeURIComponent(match[2]) : null;
     };
 
     const savedConsentCookie = getCookieValue('cookieConsent');
-    const savedConsentLocal = localStorage.getItem('cookieConsent');
+    const savedConsentLocal = typeof localStorage !== 'undefined' ? localStorage.getItem('cookieConsent') : null;
 
-    if (savedConsentCookie) {
-      try {
-        const parsedConsent = JSON.parse(savedConsentCookie);
-        setConsent(parsedConsent);
-        updateGtagConsent(parsedConsent);
-        dispatchConsentEvent(parsedConsent);
-      } catch (e) {
-        console.error('Error parsing cookie consent:', e);
-        setShowBanner(true);
-        setIsReady(true);
-      }
-    } else if (savedConsentLocal) {
-      try {
-        const parsedConsent = JSON.parse(savedConsentLocal);
-        setConsent(parsedConsent);
-        updateGtagConsent(parsedConsent);
-        dispatchConsentEvent(parsedConsent);
-        // Sync to cookies for server-side access
-        setCookieConsent(parsedConsent);
-      } catch (e) {
-        console.error('Error parsing local consent:', e);
-        setShowBanner(true);
-        setIsReady(true);
-      }
-    } else {
-      // If no consent is found, show the banner after a delay
+    // If no consent is found, show the banner after a delay
+    if (!savedConsentCookie && !savedConsentLocal) {
       const timer = setTimeout(() => {
         setShowBanner(true);
         setIsReady(true);
       }, 2000);
 
       return () => clearTimeout(timer);
+    } else {
+      setIsReady(true);
     }
   }, []);
+
+  // Update local consent when provider consent changes
+  useEffect(() => {
+    setLocalConsent({
+      necessary: consentStatus.necessary,
+      analytics: consentStatus.analytics,
+      marketing: consentStatus.marketing,
+    });
+  }, [consentStatus]);
 
   // Helper function to set cookie with proper attributes
   const setCookieConsent = (consentData: CookieConsent) => {
@@ -105,33 +76,6 @@ export function CookieBanner() {
 
     // Set with secure attributes - SameSite=Lax is recommended for cookies that affect authentication
     document.cookie = `cookieConsent=${encodeURIComponent(consentString)}; expires=${expiryDate.toUTCString()}; path=/; SameSite=Lax${window.location.protocol === 'https:' ? '; Secure' : ''}`;
-
-    // Also store in localStorage as a fallback
-    localStorage.setItem('cookieConsent', consentString);
-  };
-
-  // Dispatch a custom event to notify other components about consent changes
-  const dispatchConsentEvent = (consentData: CookieConsent) => {
-    const event = new CustomEvent('cookieConsentChange', {
-      detail: consentData
-    });
-    window.dispatchEvent(event);
-  };
-
-  // Update Google Consent Mode with current consent choices
-  const updateGtagConsent = (consentData: CookieConsent) => {
-    // Only update gtag consent in production
-    if (typeof window.gtag !== 'undefined' && process.env.NODE_ENV === 'production') {
-      window.gtag("consent", "update", {
-        analytics_storage: consentData.analytics ? "granted" : "denied",
-        ad_storage: consentData.marketing ? "granted" : "denied",
-        functionality_storage: consentData.necessary ? "granted" : "denied",
-        personalization_storage: consentData.marketing ? "granted" : "denied",
-        security_storage: "granted", // Always granted for security
-        ad_user_data: consentData.marketing ? "granted" : "denied",
-        ad_personalization: consentData.marketing ? "granted" : "denied"
-      });
-    }
   };
 
   // Handle accepting all cookies
@@ -142,17 +86,13 @@ export function CookieBanner() {
       marketing: true,
     };
 
-    // Update consent state
-    setConsent(newConsent);
+    // Update consent using the provider
+    updateConsent('necessary', true);
+    updateConsent('analytics', true);
+    updateConsent('marketing', true);
 
-    // Update Google Consent Mode
-    updateGtagConsent(newConsent);
-
-    // Save consent to both cookies and localStorage
+    // Save consent to cookies for server-side access
     setCookieConsent(newConsent);
-
-    // Dispatch event for other components
-    dispatchConsentEvent(newConsent);
 
     // Hide the banner
     setShowBanner(false);
@@ -166,17 +106,13 @@ export function CookieBanner() {
       marketing: false,
     };
 
-    // Update consent state
-    setConsent(newConsent);
+    // Update consent using the provider
+    updateConsent('necessary', true);
+    updateConsent('analytics', false);
+    updateConsent('marketing', false);
 
-    // Update Google Consent Mode
-    updateGtagConsent(newConsent);
-
-    // Save consent to both cookies and localStorage
+    // Save consent to cookies for server-side access
     setCookieConsent(newConsent);
-
-    // Dispatch event for other components
-    dispatchConsentEvent(newConsent);
 
     // Hide the banner
     setShowBanner(false);
@@ -184,14 +120,13 @@ export function CookieBanner() {
 
   // Handle accepting selected cookies
   const handleAcceptSelected = () => {
-    // Update Google Consent Mode
-    updateGtagConsent(consent);
+    // Update consent using the provider
+    updateConsent('necessary', localConsent.necessary);
+    updateConsent('analytics', localConsent.analytics);
+    updateConsent('marketing', localConsent.marketing);
 
-    // Save consent to both cookies and localStorage
-    setCookieConsent(consent);
-
-    // Dispatch event for other components
-    dispatchConsentEvent(consent);
+    // Save consent to cookies for server-side access
+    setCookieConsent(localConsent);
 
     // Hide the banner
     setShowBanner(false);
@@ -309,7 +244,7 @@ export function CookieBanner() {
                   <div className="flex items-center space-x-2">
                     <Checkbox
                       id="necessary"
-                      checked={consent.necessary}
+                      checked={localConsent.necessary}
                       disabled
                       aria-label={t('cookies.necessary.title')}
                     />
@@ -324,9 +259,9 @@ export function CookieBanner() {
                   <div className="flex items-center space-x-2">
                     <Checkbox
                       id="analytics"
-                      checked={consent.analytics}
+                      checked={localConsent.analytics}
                       onCheckedChange={(checked) =>
-                        setConsent(prev => ({ ...prev, analytics: checked as boolean }))
+                        setLocalConsent(prev => ({ ...prev, analytics: checked as boolean }))
                       }
                       aria-label={t('cookies.analytics.title')}
                     />
@@ -341,9 +276,9 @@ export function CookieBanner() {
                   <div className="flex items-center space-x-2">
                     <Checkbox
                       id="marketing"
-                      checked={consent.marketing}
+                      checked={localConsent.marketing}
                       onCheckedChange={(checked) =>
-                        setConsent(prev => ({ ...prev, marketing: checked as boolean }))
+                        setLocalConsent(prev => ({ ...prev, marketing: checked as boolean }))
                       }
                       aria-label={t('cookies.marketing.title')}
                     />
@@ -364,7 +299,7 @@ export function CookieBanner() {
                   .
                 </p>
 
-                <div className="flex flex-col gap-2 lg:flex-row lg:gap-1">
+                <div className="flex flex-col gap-2 lg:flex-row lg:gap-2">
                   <Button
                     variant="outline"
                     onClick={handleRejectAll}

@@ -62,11 +62,74 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   // Configure caching headers
   async headers() {
+    const securityHeaders = [
+      {
+        key: 'X-DNS-Prefetch-Control',
+        value: 'on',
+      },
+      {
+        key: 'Strict-Transport-Security',
+        value: 'max-age=63072000; includeSubDomains; preload',
+      },
+      {
+        key: 'X-XSS-Protection',
+        value: '1; mode=block',
+      },
+      {
+        key: 'X-Frame-Options',
+        value: 'SAMEORIGIN',
+      },
+      {
+        key: 'X-Content-Type-Options',
+        value: 'nosniff',
+      },
+      {
+        key: 'Referrer-Policy',
+        value: 'strict-origin-when-cross-origin',
+      },
+
+      // Different CSP for development and production
+      process.env.NODE_ENV === 'production'
+        ? {
+          key: 'Content-Security-Policy',
+          value: [
+            "default-src 'self'",
+            // Allow scripts from Google Analytics/Tag Manager with nonces/hashes allowed inline scripts
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://*.vercel-scripts.com https://va.vercel-scripts.com",
+            // Allow styles from self and inline for dynamic styling
+            "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+            // Allow images from self, data URIs, Google services, and CDNs
+            "img-src 'self' blob: data: https://*.googletagmanager.com https://*.google-analytics.com https://*.g.doubleclick.net https://cdn.jsdelivr.net",
+            // Allow fonts from self, Google Fonts, and data URIs
+            "font-src 'self' https://fonts.gstatic.com data:",
+            // Allow connections to self and analytics endpoints
+            "connect-src 'self' https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://region1.google-analytics.com https://*.analytics.google.com https://*.vercel-scripts.com https://va.vercel-scripts.com",
+            // Allow frames from self and Google services (critical for some GA features)
+            "frame-src 'self' https://*.googletagmanager.com https://*.google-analytics.com https://*.g.doubleclick.net",
+            // Disallow objects which can be security risks
+            "object-src 'none'",
+            // Define base URIs for relative URLs
+            "base-uri 'self'",
+            // Form submissions only to self URLs
+            "form-action 'self'",
+            // Media sources from self only
+            "media-src 'self'",
+            // Upgrade insecure requests
+            "upgrade-insecure-requests"
+          ].join('; '),
+        }
+        : {
+          key: 'Content-Security-Policy',
+          value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.vercel-scripts.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://cdn.jsdelivr.net; font-src 'self' data:; connect-src 'self' https://*.vercel-scripts.com https://va.vercel-scripts.com; media-src 'self'; frame-src 'self';",
+        },
+    ];
+
     return [
       {
         // Add CORS headers for OPTIONS requests to fix the preflight issue
         source: '/(.*)',
         headers: [
+          ...securityHeaders,
           {
             key: 'Access-Control-Allow-Origin',
             value: '*',
@@ -85,17 +148,12 @@ const nextConfig: NextConfig = {
               ? 'no-store, no-cache, must-revalidate, proxy-revalidate'
               : 'public, max-age=31536000, immutable',
           },
-          {
-            key: 'Content-Security-Policy',
-            value: process.env.NODE_ENV === 'development'
-              ? ''
-              : "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net https:;"
-          },
         ],
       },
       {
         source: '/_next/static/(.*)',
         headers: [
+          ...securityHeaders,
           {
             key: 'Cache-Control',
             value: process.env.NODE_ENV === 'development'
@@ -107,6 +165,7 @@ const nextConfig: NextConfig = {
       {
         source: '/(.*)\\.(jpg|jpeg|gif|png|svg|ico|webp|avif)',
         headers: [
+          ...securityHeaders,
           {
             key: 'Cache-Control',
             value: process.env.NODE_ENV === 'development'
@@ -118,6 +177,7 @@ const nextConfig: NextConfig = {
       {
         source: '/(.*)\\.(js|css)',
         headers: [
+          ...securityHeaders,
           {
             key: 'Cache-Control',
             value: process.env.NODE_ENV === 'development'
@@ -130,6 +190,7 @@ const nextConfig: NextConfig = {
       {
         source: '/(baza-wiedzy|knowledge-base)/:slug*',
         headers: [
+          ...securityHeaders,
           {
             key: 'Cache-Control',
             value: process.env.NODE_ENV === 'development'

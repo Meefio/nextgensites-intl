@@ -16,7 +16,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Dynamically import non-critical components with server-side rendering
 const CacheProvider = dynamic(() => import('@/app/components/CacheProvider').then(mod => mod.CacheProvider));
-const GoogleAnalyticsWrapper = dynamic(() => import('@/app/components/analytics/google-analytics-wrapper'));
+const AnalyticsProvider = dynamic(() => import('@/app/components/analytics/analytics-provider'));
 
 // Optimize font loading with display: swap and preload strategy
 const fontSans = Inter({
@@ -245,18 +245,16 @@ export default async function LocaleLayout({
 						enableSystem
 						disableTransitionOnChange
 					>
-						<NextIntlClientProvider locale={locale} messages={messages}>
-							<ClientWrapper defaultTitle={defaultTitle}>
-								{children}
-							</ClientWrapper>
-							{/* Improved Google Analytics with consent management - only in production */}
-							{process.env.NODE_ENV === 'production' && (
-								<GoogleAnalyticsWrapper
-									measurementId="G-5YLJH8GHZ6"
-									initialConsent={consent.analytics}
-								/>
-							)}
-						</NextIntlClientProvider>
+						<AnalyticsProvider
+							initialConsent={consent}
+							googleAnalyticsId="G-5YLJH8GHZ6"
+						>
+							<NextIntlClientProvider locale={locale} messages={messages}>
+								<ClientWrapper defaultTitle={defaultTitle}>
+									{children}
+								</ClientWrapper>
+							</NextIntlClientProvider>
+						</AnalyticsProvider>
 						<Toaster />
 					</ThemeProvider>
 				</CacheProvider>
