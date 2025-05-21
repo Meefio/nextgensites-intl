@@ -98,15 +98,47 @@ export default function GoogleAnalyticsWrapper({ measurementId, initialConsent }
 
   return (
     <>
-      {/* 
-       * Using next/script with strategy="afterInteractive" ensures the analytics
-       * script loads after the page is interactive for better performance
-       */}
+      {/* Load the main GTM script */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
         strategy="afterInteractive"
         onLoad={initializeGA}
       />
+
+      {/* Initialize dataLayer and gtag function */}
+      <Script id="google-analytics-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          // Initialize with default consent state (denied for all)
+          gtag('consent', 'default', {
+            analytics_storage: 'denied',
+            ad_storage: 'denied',
+            functionality_storage: 'denied',
+            personalization_storage: 'denied',
+            security_storage: 'granted',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            wait_for_update: 500
+          });
+          
+          ${consent ? `
+          // Consent already granted
+          gtag('consent', 'update', {
+            analytics_storage: 'granted'
+          });
+          ` : ''}
+          
+          // Configure GA4
+          gtag('config', '${measurementId}', {
+            anonymize_ip: true,
+            send_page_view: ${consent},
+            cookie_flags: 'SameSite=Lax;Secure'
+          });
+        `}
+      </Script>
     </>
   );
 } 

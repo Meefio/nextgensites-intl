@@ -14,7 +14,6 @@ const sendToAnalytics = (metric: Metric) => {
 
   // Check if gtag is available
   const gtag = typeof window !== 'undefined' ? (window as any).gtag : undefined
-  if (typeof gtag !== 'function') return
 
   // Check for analytics consent before sending
   const checkConsent = () => {
@@ -48,25 +47,45 @@ const sendToAnalytics = (metric: Metric) => {
   if (!checkConsent()) return;
 
   // Prepare data for analytics
-  const body = JSON.stringify(metric)
-  const url = '/api/analytics' // You can create this endpoint or use direct GA
+  const body = JSON.stringify({
+    name: metric.name,
+    id: metric.id,
+    value: metric.value,
+    delta: metric.delta,
+    rating: metric.rating,
+    navigationType: metric.navigationType,
+    timestamp: Date.now()
+  });
+
+  const url = '/api/analytics';
 
   // Send analytics data using sendBeacon if available, otherwise use fetch
   if (navigator.sendBeacon) {
-    navigator.sendBeacon(url, body)
+    navigator.sendBeacon(url, body);
   } else {
-    fetch(url, { body, method: 'POST', keepalive: true })
+    fetch(url, {
+      body,
+      method: 'POST',
+      keepalive: true,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).catch(err => console.error('Failed to send metrics:', err));
   }
 
   // Also send to Google Analytics if available
-  gtag('event', metric.name, {
-    value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value), // values must be integers
-    metric_id: metric.id,
-    metric_value: metric.value,
-    metric_delta: metric.delta,
-    metric_rating: metric.rating,
-    non_interaction: true // avoids affecting bounce rate
-  })
+  if (typeof gtag === 'function') {
+    gtag('event', metric.name, {
+      event_category: 'Web Vitals',
+      event_label: metric.id,
+      value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value), // values must be integers
+      metric_id: metric.id,
+      metric_value: metric.value,
+      metric_delta: metric.delta,
+      metric_rating: metric.rating,
+      non_interaction: true // avoids affecting bounce rate
+    });
+  }
 }
 
 // Debugging panel component (only for development)
