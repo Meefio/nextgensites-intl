@@ -95,17 +95,17 @@ const nextConfig: NextConfig = {
           value: [
             "default-src 'self'",
             // Allow scripts from Google Analytics/Tag Manager with nonces/hashes allowed inline scripts
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://*.vercel-scripts.com https://va.vercel-scripts.com",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com",
             // Allow styles from self and inline for dynamic styling
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
             // Allow images from self, data URIs, Google services, and CDNs
-            "img-src 'self' blob: data: https://*.googletagmanager.com https://*.google-analytics.com https://*.g.doubleclick.net https://cdn.jsdelivr.net",
+            "img-src 'self' blob: data: https://*.googletagmanager.com https://*.google-analytics.com https://*.g.doubleclick.net https://cdn.jsdelivr.net https://*.googlesyndication.com",
             // Allow fonts from self, Google Fonts, and data URIs
             "font-src 'self' https://fonts.gstatic.com data:",
             // Allow connections to self and analytics endpoints
-            "connect-src 'self' https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://region1.google-analytics.com https://*.analytics.google.com https://*.vercel-scripts.com https://va.vercel-scripts.com",
+            "connect-src 'self' https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://region1.google-analytics.com https://*.analytics.google.com https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com",
             // Allow frames from self and Google services (critical for some GA features)
-            "frame-src 'self' https://*.googletagmanager.com https://*.google-analytics.com https://*.g.doubleclick.net",
+            "frame-src 'self' https://*.googletagmanager.com https://*.google-analytics.com https://*.g.doubleclick.net https://*.googlesyndication.com",
             // Disallow objects which can be security risks
             "object-src 'none'",
             // Define base URIs for relative URLs
@@ -118,10 +118,7 @@ const nextConfig: NextConfig = {
             "upgrade-insecure-requests"
           ].join('; '),
         }
-        : {
-          key: 'Content-Security-Policy',
-          value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.vercel-scripts.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://cdn.jsdelivr.net; font-src 'self' data:; connect-src 'self' https://*.vercel-scripts.com https://va.vercel-scripts.com; media-src 'self'; frame-src 'self';",
-        },
+        : { key: 'Content-Security-Policy', value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://cdn.jsdelivr.net https://*.googlesyndication.com; font-src 'self' data:; connect-src 'self' https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com; media-src 'self'; frame-src 'self' https://*.googlesyndication.com;", },
     ];
 
     return [
