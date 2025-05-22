@@ -27,7 +27,7 @@ const ClientDocumentTitleWrapper = dynamic(
 const WebVitals = process.env.NODE_ENV === 'production'
   ? dynamic(
     () =>
-      new Promise<ComponentType<{}>>((resolve) => {
+      new Promise<ComponentType<object>>((resolve) => {
         // Use requestIdleCallback if available, otherwise setTimeout with a longer delay
         if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
           (window as any).requestIdleCallback(() => {

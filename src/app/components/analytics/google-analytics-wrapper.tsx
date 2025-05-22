@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, lazy, Suspense } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Script from 'next/script';
 
 type GoogleAnalyticsWrapperProps = {
