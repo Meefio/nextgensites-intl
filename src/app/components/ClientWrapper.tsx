@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode, Suspense } from 'react'
+import { ReactNode, Suspense, ComponentType } from 'react'
 import dynamic from 'next/dynamic'
 
 // Use optimized dynamic imports with explicit ssr:false to avoid RSC issues
@@ -25,10 +25,29 @@ const ClientDocumentTitleWrapper = dynamic(
 
 // Optimized WebVitals component that only loads in production with minimal overhead
 const WebVitals = process.env.NODE_ENV === 'production'
-  ? dynamic(() => import('@/app/components/analytics/web-vitals').then(mod => mod.WebVitals), {
-    ssr: false,
-    loading: () => null,
-  })
+  ? dynamic(
+    () =>
+      new Promise<ComponentType<{}>>((resolve) => {
+        // Use requestIdleCallback if available, otherwise setTimeout with a longer delay
+        if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+          (window as any).requestIdleCallback(() => {
+            import('@/app/components/analytics/web-vitals').then((mod) => {
+              resolve(mod.WebVitals);
+            });
+          });
+        } else {
+          setTimeout(() => {
+            import('@/app/components/analytics/web-vitals').then((mod) => {
+              resolve(mod.WebVitals);
+            });
+          }, 2000);
+        }
+      }),
+    {
+      ssr: false,
+      loading: () => null,
+    }
+  )
   : () => null
 
 type ClientWrapperProps = {
@@ -46,11 +65,12 @@ export function ClientWrapper({ children, defaultTitle }: ClientWrapperProps) {
 
       {children}
 
-      {/* Add suspense boundaries for non-critical UI components */}
+      {/* Add WebVitals with lowest priority */}
       <Suspense fallback={null}>
         <WebVitals />
       </Suspense>
 
+      {/* Add suspense boundaries for other non-critical UI components */}
       <Suspense fallback={null}>
         <CookieBanner />
       </Suspense>

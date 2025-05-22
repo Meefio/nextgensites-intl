@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import Script from 'next/script';
 
 type GoogleAnalyticsWrapperProps = {
@@ -64,17 +64,17 @@ export default function GoogleAnalyticsWrapper({ measurementId, initialConsent }
   }
 
   return (
-    <>
+    <Suspense fallback={null}>
       {/* Load GTM script with proper attributes for security */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         onLoad={() => setScriptLoaded(true)}
         crossOrigin="anonymous"
       />
 
       {/* Initialize dataLayer and gtag function */}
-      <Script id="google-analytics-init" strategy="afterInteractive">
+      <Script id="google-analytics-init" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
@@ -109,6 +109,6 @@ export default function GoogleAnalyticsWrapper({ measurementId, initialConsent }
           });
         `}
       </Script>
-    </>
+    </Suspense>
   );
 } 
