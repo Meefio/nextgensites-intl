@@ -9,44 +9,149 @@ import { Pricing } from '@/app/components/pricing'
 import { Faq } from '@/app/components/faq'
 import { ContactForm } from '@/app/components/contact-form'
 import { createCanonicalUrl, createLanguageAlternates } from '@/app/utils/createCanonicalUrl'
+import { getAllPosts } from '@/utils/mdx'
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 
-// Dynamically import non-critical components
-const WhyNotWordPressSection = dynamic(() => import('@/app/components/WhyNotWordPress-section').then(mod => mod.default), { ssr: true })
-const PortfolioSection = dynamic(() => import('@/app/components/portfolio-section').then(mod => mod.default), { ssr: true })
-const FeaturesSection = dynamic(() => import('@/app/components/features-section').then(mod => mod.default), { ssr: true })
-const LatestBlogPosts = dynamic(() => import('@/app/components/latest-blog-posts').then(mod => mod.default), { ssr: true })
+// Dynamically import non-critical components with optimized loading
+const WhyNotWordPressSection = dynamic(() => import('@/app/components/WhyNotWordPress-section'), {
+	ssr: true,
+	loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
+})
 
-// Dodajemy ISR (Incremental Static Regeneration)
-export const revalidate = 3600 // Odświeżanie co godzinę
+const PortfolioSection = dynamic(() => import('@/app/components/portfolio-section'), {
+	ssr: true,
+	loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
+})
 
-// Poprawiona definicja typów
+const FeaturesSection = dynamic(() => import('@/app/components/features-section'), {
+	ssr: true,
+	loading: () => <div className="h-96 bg-gray-50 animate-pulse rounded-lg" />
+})
+
+const LatestBlogPosts = dynamic(() => import('@/app/components/latest-blog-posts'), {
+	ssr: true,
+	loading: () => <div className="h-64 bg-gray-50 animate-pulse rounded-lg" />
+})
+
+// Static generation with 1-hour revalidation
+export const revalidate = 3600 // 1 hour
+export const dynamicParams = false // Generate only static params defined in generateStaticParams
+
+// Generate static paths for all supported locales
+export async function generateStaticParams() {
+	return [
+		{ locale: 'pl' },
+		{ locale: 'en' }
+	]
+}
+
+// Improved metadata generation with better caching
+export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
+	const { locale } = await params;
+	const canonicalUrl = createCanonicalUrl('/', locale);
+	const languages = createLanguageAlternates('/', '/', 'pl');
+
+	const title = locale === 'pl'
+		? 'Nowoczesne strony internetowe w Next.js | NextGen Sites'
+		: 'Modern websites in Next.js | NextGen Sites';
+
+	const description = locale === 'pl'
+		? 'Tworzenie nowoczesnych stron internetowych w Next.js. Szybkie, zoptymalizowane pod SEO i responsywne strony internetowe dla firm.'
+		: 'Creating modern websites in Next.js. Fast, SEO-optimized and responsive websites for businesses.';
+
+	return {
+		title,
+		description,
+		alternates: {
+			canonical: canonicalUrl,
+			languages,
+		},
+		openGraph: {
+			title,
+			description,
+			url: canonicalUrl,
+			siteName: 'NextGen Sites',
+			locale: locale,
+			type: 'website',
+			images: [{
+				url: '/images/og-image.png',
+				width: 1200,
+				height: 630,
+				alt: title,
+			}],
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title,
+			description,
+			images: ['/images/og-image.png'],
+		},
+		robots: {
+			index: true,
+			follow: true,
+			googleBot: {
+				index: true,
+				follow: true,
+				'max-video-preview': -1,
+				'max-image-preview': 'large',
+				'max-snippet': -1,
+			},
+		},
+	}
+}
+
+// Improved interface with proper types
 interface GenerateMetadataProps {
 	params: Promise<{
 		locale: string;
 	}>;
 }
 
-export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
-	const { locale } = await params;
-	const canonicalUrl = createCanonicalUrl('/', locale);
-
-	// Tworzymy alternatywne URL-e dla każdego języka plus x-default
-	const languages = createLanguageAlternates('/', '/', 'pl');
-
-	return {
-		alternates: {
-			canonical: canonicalUrl,
-			languages,
-		},
-	}
-}
-
 export default async function HomePage({ params }: GenerateMetadataProps) {
 	const { locale } = await params;
 
-	// FAQ Schema.org JSON-LD
+	// Fetch blog posts for LatestBlogPosts component
+	const latestPosts = getAllPosts(locale);
+
+	// Optimized JSON-LD schemas
+	const localBusinessSchema = {
+		"@context": "https://schema.org",
+		"@type": "ProfessionalService",
+		"name": "NextGen Sites",
+		"image": "https://nextgensites.pl/images/og-image.png",
+		"@id": "https://nextgensites.pl",
+		"url": "https://nextgensites.pl",
+		"telephone": "+48-694-671-786",
+		"priceRange": locale === 'pl' ? "PLN" : "USD",
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Warszawa",
+			"addressRegion": "mazowieckie",
+			"addressCountry": "PL"
+		},
+		"geo": {
+			"@type": "GeoCoordinates",
+			"latitude": 52.2297,
+			"longitude": 21.0122
+		},
+		"openingHoursSpecification": {
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": [
+				"Monday",
+				"Tuesday",
+				"Wednesday",
+				"Thursday",
+				"Friday"
+			],
+			"opens": "09:00",
+			"closes": "19:00"
+		},
+		"areaServed": ["Warszawa", "Polska"],
+		"serviceType": ["Tworzenie stron internetowych", "Next.js", "SEO"]
+	};
+
+	// FAQ Schema optimized for current locale
 	const faqSchema = {
 		"@context": "https://schema.org",
 		"@type": "FAQPage",
@@ -57,8 +162,8 @@ export default async function HomePage({ params }: GenerateMetadataProps) {
 				"acceptedAnswer": {
 					"@type": "Answer",
 					"text": locale === 'pl'
-						? "Next.js to nowoczesna technologia, która zapewnia doskonałą optymalizację SEO oraz wysoką wydajność. Strony stworzone w Next.js ładują się błyskawicznie i są lepiej indeksowane przez Google. Dodatkowo, koszty utrzymania są minimalne, ponieważ strony mogą działać na darmowym hostingu Vercel – platformie stworzonej przez twórców Next.js."
-						: "Next.js is a modern technology that ensures excellent SEO optimization and high performance. Websites built with Next.js load instantly and are better indexed by Google. Additionally, maintenance costs are minimal because sites can run on free Vercel hosting – a platform created by Next.js developers."
+						? "Next.js to nowoczesna technologia, która zapewnia doskonałą optymalizację SEO oraz wysoką wydajność. Strony stworzone w Next.js ładują się błyskawicznie i są lepiej indeksowane przez Google."
+						: "Next.js is a modern technology that ensures excellent SEO optimization and high performance. Websites built with Next.js load instantly and are better indexed by Google."
 				}
 			},
 			{
@@ -67,18 +172,8 @@ export default async function HomePage({ params }: GenerateMetadataProps) {
 				"acceptedAnswer": {
 					"@type": "Answer",
 					"text": locale === 'pl'
-						? "Domena (nazwa strony): ok. 16,99 zł/rok. Hosting jest dostępny na platformie Vercel za darmo. Firmowa poczta e-mail (opcjonalnie): ok. 23,88 zł/rok w rekomendowanym przez nas Hostingerze."
-						: "Domain (website name): approx. $4.99/year. Hosting is available on Vercel for free. Business email (optional): approx. $5.99/year with our recommended provider Hostinger."
-				}
-			},
-			{
-				"@type": "Question",
-				"name": locale === 'pl' ? "Czy mogę samodzielnie edytować treści na stronie?" : "Can I edit the website content myself?",
-				"acceptedAnswer": {
-					"@type": "Answer",
-					"text": locale === 'pl'
-						? "Oczywiście! Należy jednak pamiętać, aby zgłosić taką potrzebę na etapie wyceny projektu. System zarządzania treścią (CMS) jest dostępny w pakiecie \"Rozwiązanie premium\" i pozwala na łatwą edycję tekstów, zdjęć oraz innych elementów strony bez znajomości programowania."
-						: "Absolutely! However, remember to request this feature during the project estimation phase. The Content Management System (CMS) is available in the \"Premium Solution\" package and allows for easy editing of texts, images, and other website elements without any programming knowledge."
+						? "Domena (nazwa strony): ok. 16,99 zł/rok. Hosting jest dostępny na platformie Vercel za darmo. Firmowa poczta e-mail (opcjonalnie): ok. 23,88 zł/rok."
+						: "Domain (website name): approx. $4.99/year. Hosting is available on Vercel for free. Business email (optional): approx. $5.99/year."
 				}
 			},
 			{
@@ -124,88 +219,215 @@ export default async function HomePage({ params }: GenerateMetadataProps) {
 		]
 	};
 
-	// Service Schema.org JSON-LD
+	// Service/Offer catalog schema for homepage
 	const serviceSchema = {
 		"@context": "https://schema.org",
 		"@type": "Service",
-		"serviceType": "Website Development",
+		"name": locale === 'pl' ? "Tworzenie stron internetowych w Next.js" : "Next.js Website Development",
+		"description": locale === 'pl'
+			? "Profesjonalne tworzenie nowoczesnych stron internetowych w technologii Next.js z najwyższą jakością i doskonałą optymalizacją SEO."
+			: "Professional development of modern websites using Next.js technology with highest quality and excellent SEO optimization.",
 		"provider": {
 			"@type": "Organization",
-			"name": "NextGen Sites",
-			"url": "https://nextgensites.pl"
+			"name": "NextGen Sites"
 		},
-		"offers": [
+		"areaServed": {
+			"@type": "Country",
+			"name": locale === 'pl' ? "Polska" : "Poland"
+		},
+		"hasOfferCatalog": {
+			"@type": "OfferCatalog",
+			"name": locale === 'pl' ? "Pakiety stron internetowych" : "Website Packages",
+			"itemListElement": [
+				{
+					"@type": "Offer",
+					"name": locale === 'pl' ? "Pakiet Podstawowy" : "Basic Package",
+					"description": locale === 'pl' ? "Strona typu landing page z responsywnym designem i optymalizacją SEO" : "Landing page with responsive design and SEO optimization",
+					"price": locale === 'pl' ? "5499" : "1499",
+					"priceCurrency": locale === 'pl' ? "PLN" : "USD",
+					"priceValidUntil": "2025-12-31",
+					"availability": "https://schema.org/InStock",
+					"deliveryLeadTime": {
+						"@type": "QuantitativeValue",
+						"value": 7,
+						"unitCode": "DAY"
+					}
+				},
+				{
+					"@type": "Offer",
+					"name": locale === 'pl' ? "Pakiet Profesjonalny" : "Professional Package",
+					"description": locale === 'pl' ? "Rozbudowana strona firmowa z wieloma podstronami i systemem CMS" : "Comprehensive business website with multiple pages and CMS",
+					"price": locale === 'pl' ? "7999" : "2149",
+					"priceCurrency": locale === 'pl' ? "PLN" : "USD",
+					"priceValidUntil": "2025-12-31",
+					"availability": "https://schema.org/InStock",
+					"deliveryLeadTime": {
+						"@type": "QuantitativeValue",
+						"value": 21,
+						"unitCode": "DAY"
+					}
+				},
+				{
+					"@type": "Offer",
+					"name": locale === 'pl' ? "Rozwiązanie Premium" : "Premium Solution",
+					"description": locale === 'pl' ? "Kompleksowy projekt z zaawansowanymi funkcjami i integracjami" : "Comprehensive project with advanced features and integrations",
+					"price": locale === 'pl' ? "25000" : "6000",
+					"priceCurrency": locale === 'pl' ? "PLN" : "USD",
+					"priceValidUntil": "2025-12-31",
+					"availability": "https://schema.org/InStock",
+					"deliveryLeadTime": {
+						"@type": "QuantitativeValue",
+						"value": 30,
+						"unitCode": "DAY"
+					}
+				}
+			]
+		}
+	};
+
+	// BreadcrumbList schema for homepage
+	const breadcrumbSchema = {
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		"itemListElement": [
 			{
-				"@type": "Offer",
-				"name": locale === 'pl' ? "Rozwiązanie podstawowe" : "Basic Solution",
-				"description": locale === 'pl' ? "Strona typu Single Page (bez podstron)" : "Single Page Website (no subpages)",
-				"price": locale === 'pl' ? "5499" : "1499",
-				"priceCurrency": locale === 'pl' ? "PLN" : "USD"
-			},
-			{
-				"@type": "Offer",
-				"name": locale === 'pl' ? "Rozwiązanie zaawansowane" : "Professional Solution",
-				"description": locale === 'pl' ? "Strona wielopodstronowa z formularzem kontaktowym" : "Multi-page website with contact form",
-				"price": locale === 'pl' ? "7999" : "2149",
-				"priceCurrency": locale === 'pl' ? "PLN" : "USD"
-			},
-			{
-				"@type": "Offer",
-				"name": locale === 'pl' ? "Rozwiązanie premium" : "Premium Solution",
-				"description": locale === 'pl' ? "Strona z CMS i wielojęzycznością" : "Website with CMS and multilingual support",
-				"price": locale === 'pl' ? "Wycena indywidualna" : "Custom quote",
-				"priceCurrency": locale === 'pl' ? "PLN" : "USD"
+				"@type": "ListItem",
+				"position": 1,
+				"name": locale === 'pl' ? "Strona główna" : "Home",
+				"item": locale === 'pl' ? "https://nextgensites.pl/" : "https://nextgensites.pl/en/"
 			}
 		]
 	};
 
-	// WordPress Comparison JSON-LD
-	const wpComparisonSchema = {
+	// HowTo schema for website creation process
+	const howToSchema = {
 		"@context": "https://schema.org",
-		"@type": "ComparisonTable",
-		"about": {
-			"@type": "Thing",
-			"name": "Next.js vs WordPress"
+		"@type": "HowTo",
+		"name": locale === 'pl' ? "Jak stworzyć nowoczesną stronę internetową dla firmy" : "How to Create a Modern Website for Your Business",
+		"description": locale === 'pl'
+			? "Kompleksowy przewodnik krok po kroku dotyczący procesu tworzenia profesjonalnej strony internetowej w technologii Next.js"
+			: "A comprehensive step-by-step guide to creating a professional website using Next.js technology",
+		"image": "https://nextgensites.pl/images/og-image.png",
+		"totalTime": "P30D",
+		"estimatedCost": {
+			"@type": "MonetaryAmount",
+			"currency": locale === 'pl' ? "PLN" : "USD",
+			"value": locale === 'pl' ? "7999" : "2149"
 		},
-		"subjectOf": {
-			"@type": "WebPage",
-			"url": locale === 'pl' ? "https://nextgensites.pl/#why-not-wordpress" : `https://nextgensites.pl/${locale}/#why-not-wordpress`
-		},
-		"comparisonItems": [
+		"tool": [
 			{
-				"@type": "ComparisonItem",
-				"name": locale === 'pl' ? "Aktualizacje i konserwacja" : "Updates and maintenance",
-				"description": locale === 'pl'
-					? "WordPress wymaga regularnych aktualizacji i konserwacji, podczas gdy strony Next.js są prawie bezobsługowe."
-					: "WordPress requires regular updates and maintenance, while Next.js sites are almost maintenance-free."
+				"@type": "HowToTool",
+				"name": "Next.js 15"
 			},
 			{
-				"@type": "ComparisonItem",
-				"name": locale === 'pl' ? "Czas ładowania" : "Loading time",
-				"description": locale === 'pl'
-					? "Strony WordPress często ładują się wolno, co negatywnie wpływa na doświadczenie użytkownika i SEO, podczas gdy Next.js zapewnia błyskawiczne ładowanie strony."
-					: "WordPress sites often load slowly, negatively affecting user experience and SEO, while Next.js provides lightning-fast page loading."
+				"@type": "HowToTool",
+				"name": "Sanity CMS"
 			},
 			{
-				"@type": "ComparisonItem",
-				"name": locale === 'pl' ? "Wydajność" : "Performance",
-				"description": locale === 'pl'
-					? "WordPress jest często nieefektywny, podczas gdy Next.js oferuje doskonałą wydajność dzięki renderowaniu po stronie serwera i optymalizacji."
-					: "WordPress is often inefficient, while Next.js offers excellent performance through server-side rendering and optimization."
+				"@type": "HowToTool",
+				"name": "Radix UI"
 			},
 			{
-				"@type": "ComparisonItem",
-				"name": locale === 'pl' ? "Bezpieczeństwo" : "Security",
-				"description": locale === 'pl'
-					? "WordPress jest podatny na liczne zagrożenia bezpieczeństwa, podczas gdy Next.js zapewnia znacznie lepszą ochronę."
-					: "WordPress is vulnerable to numerous security threats, while Next.js provides much better protection."
+				"@type": "HowToTool",
+				"name": "Tailwind CSS"
 			},
 			{
-				"@type": "ComparisonItem",
-				"name": locale === 'pl' ? "Koszty" : "Costs",
-				"description": locale === 'pl'
-					? "WordPress generuje regularne koszty utrzymania i hostingu, podczas gdy Next.js może być hostowany za darmo na Vercel."
-					: "WordPress generates regular maintenance and hosting costs, while Next.js can be hosted for free on Vercel."
+				"@type": "HowToTool",
+				"name": "TypeScript"
+			}
+		],
+		"supply": [
+			{
+				"@type": "HowToSupply",
+				"name": locale === 'pl' ? "Materiały firmowe" : "Company materials"
+			},
+			{
+				"@type": "HowToSupply",
+				"name": locale === 'pl' ? "Logo i zdjęcia" : "Logo and photos"
+			},
+			{
+				"@type": "HowToSupply",
+				"name": locale === 'pl' ? "Treści do strony" : "Website content"
+			}
+		],
+		"step": [
+			{
+				"@type": "HowToStep",
+				"name": locale === 'pl' ? "Rozmowa i analiza potrzeb" : "Intro Call & Needs Analysis",
+				"text": locale === 'pl'
+					? "Kontaktujesz się z nami – my poznajemy Twoje potrzeby i cele. Przekazujesz materiały, a my doradzamy najlepsze rozwiązania."
+					: "Reach out via form, phone, or email. We'll discuss your goals, collect materials, and suggest the best solutions.",
+				"url": "https://nextgensites.pl/#proces",
+				"image": "https://nextgensites.pl/images/step1.jpg",
+				"itemListElement": {
+					"@type": "HowToDirection",
+					"text": locale === 'pl' ? "Analiza biznesu i określenie celów strony." : "Business analysis and website goal definition."
+				}
+			},
+			{
+				"@type": "HowToStep",
+				"name": locale === 'pl' ? "Wycena i planowanie" : "Quote & Planning",
+				"text": locale === 'pl'
+					? "Tworzymy ofertę, harmonogram i strukturę strony dopasowaną do Twojego biznesu."
+					: "Based on your input, we prepare a quote, timeline, and site structure tailored to your business.",
+				"url": "https://nextgensites.pl/#proces",
+				"image": "https://nextgensites.pl/images/step2.jpg",
+				"itemListElement": {
+					"@type": "HowToDirection",
+					"text": locale === 'pl' ? "Przygotowanie szczegółowej oferty i harmonogramu." : "Preparing detailed quote and timeline."
+				}
+			},
+			{
+				"@type": "HowToStep",
+				"name": locale === 'pl' ? "Treści i układ strony" : "Content & Layout",
+				"text": locale === 'pl'
+					? "Proponujemy teksty i wygląd strony. Wprowadzamy Twoje sugestie i dopracowujemy szczegóły."
+					: "We propose content and layout aligned with your brand. Your feedback helps refine the final version.",
+				"url": "https://nextgensites.pl/#proces",
+				"image": "https://nextgensites.pl/images/step3.jpg",
+				"itemListElement": {
+					"@type": "HowToDirection",
+					"text": locale === 'pl' ? "Projektowanie UX/UI i przygotowanie treści." : "UX/UI design and content preparation."
+				}
+			},
+			{
+				"@type": "HowToStep",
+				"name": locale === 'pl' ? "Tworzenie i SEO" : "Development & SEO",
+				"text": locale === 'pl'
+					? "Budujemy szybką, responsywną i zoptymalizowaną stronę zgodną z najlepszymi praktykami SEO."
+					: "We build a fast, responsive website optimized for performance, SEO, and mobile devices.",
+				"url": "https://nextgensites.pl/#proces",
+				"image": "https://nextgensites.pl/images/step4.jpg",
+				"itemListElement": {
+					"@type": "HowToDirection",
+					"text": locale === 'pl' ? "Programujemy stronę w najnowszych technologiach." : "Programming the website using the latest technologies."
+				}
+			},
+			{
+				"@type": "HowToStep",
+				"name": locale === 'pl' ? "Testy i publikacja" : "Testing & Launch",
+				"text": locale === 'pl'
+					? "Sprawdzamy wszystko, a po Twojej akceptacji uruchamiamy stronę i konfigurujemy niezbędne narzędzia."
+					: "We test every feature thoroughly. After your approval, we launch the site and set up email and analytics tools.",
+				"url": "https://nextgensites.pl/#proces",
+				"image": "https://nextgensites.pl/images/step5.jpg",
+				"itemListElement": {
+					"@type": "HowToDirection",
+					"text": locale === 'pl' ? "Zatwierdzasz gotową stronę przed publikacją." : "You approve the finished website before publication."
+				}
+			},
+			{
+				"@type": "HowToStep",
+				"name": locale === 'pl' ? "Stałe wsparcie" : "Ongoing Support",
+				"text": locale === 'pl'
+					? "Po wdrożeniu jesteśmy do dyspozycji – zapewniamy pomoc i rozwój strony w miarę potrzeb."
+					: "After launch, we offer technical support and help grow your site as your business evolves.",
+				"url": "https://nextgensites.pl/#proces",
+				"image": "https://nextgensites.pl/images/step6.jpg",
+				"itemListElement": {
+					"@type": "HowToDirection",
+					"text": locale === 'pl' ? "Zapewniamy długoterminowe wsparcie techniczne." : "We provide long-term technical support."
+				}
 			}
 		]
 	};
@@ -214,54 +436,14 @@ export default async function HomePage({ params }: GenerateMetadataProps) {
 		<>
 			<Header />
 			<main>
-				{/* Schema.org LocalBusiness - poprawa widoczności w wyszukiwaniach lokalnych */}
+				{/* Optimized Schema.org JSON-LD with conditional rendering */}
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{
-						__html: JSON.stringify({
-							"@context": "https://schema.org",
-							"@type": "ProfessionalService",
-							"name": "NextGen Sites",
-							"image": "https://nextgensites.pl/images/og-image.png",
-							"@id": "https://nextgensites.pl",
-							"url": "https://nextgensites.pl",
-							"telephone": "+48-694-671-786",
-							"priceRange": "PLN",
-							"address": {
-								"@type": "PostalAddress",
-								"addressLocality": "Warszawa",
-								"addressRegion": "mazowieckie",
-								"addressCountry": "PL"
-							},
-							"geo": {
-								"@type": "GeoCoordinates",
-								"latitude": 52.2297,
-								"longitude": 21.0122
-							},
-							"openingHoursSpecification": {
-								"@type": "OpeningHoursSpecification",
-								"dayOfWeek": [
-									"Monday",
-									"Tuesday",
-									"Wednesday",
-									"Thursday",
-									"Friday"
-								],
-								"opens": "09:00",
-								"closes": "19:00"
-							},
-							// "sameAs": [
-							// 	"https://www.facebook.com/nextgensites",
-							// 	"https://www.instagram.com/nextgensites/",
-							// 	"https://www.linkedin.com/company/nextgensites/"
-							// ],
-							"areaServed": ["Warszawa", "Polska"],
-							"serviceType": ["Tworzenie stron internetowych", "Next.js", "SEO"]
-						})
+						__html: JSON.stringify(localBusinessSchema)
 					}}
 				/>
 
-				{/* Schema.org FAQ - pytania i odpowiedzi */}
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{
@@ -269,7 +451,6 @@ export default async function HomePage({ params }: GenerateMetadataProps) {
 					}}
 				/>
 
-				{/* Service Schema - oferta usług */}
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{
@@ -277,123 +458,32 @@ export default async function HomePage({ params }: GenerateMetadataProps) {
 					}}
 				/>
 
-				{/* WordPress Comparison Schema - porównanie Next.js i WordPress */}
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{
-						__html: JSON.stringify(wpComparisonSchema)
+						__html: JSON.stringify(breadcrumbSchema)
 					}}
 				/>
 
-				{/* Schema.org HowTo dla etapów tworzenia strony */}
 				<script
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{
-						__html: JSON.stringify({
-							"@context": "https://schema.org",
-							"@type": "HowTo",
-							"name": "Jak tworzymy nowoczesne strony internetowe",
-							"description": "Proces tworzenia nowoczesnej strony internetowej w Next.js od pierwszego kontaktu po gotową stronę",
-							"totalTime": "P30D",
-							"tool": [
-								{
-									"@type": "HowToTool",
-									"name": "Next.js 15"
-								},
-								{
-									"@type": "HowToTool",
-									"name": "Sanity CMS"
-								},
-								{
-									"@type": "HowToTool",
-									"name": "Radix UI"
-								},
-								{
-									"@type": "HowToTool",
-									"name": "Shadcn"
-								}
-							],
-							"step": [
-								{
-									"@type": "HowToStep",
-									"name": "Rozmowa i analiza",
-									"text": "Kontaktujesz się z nami – my poznajemy Twoje potrzeby i cele. Przekazujesz materiały, a my doradzamy najlepsze rozwiązania.",
-									"url": "https://nextgensites.pl/#proces",
-									"image": "https://nextgensites.pl/images/step1.jpg",
-									"itemListElement": {
-										"@type": "HowToDirection",
-										"text": "Skontaktuj się z nami przez formularz lub telefon."
-									}
-								},
-								{
-									"@type": "HowToStep",
-									"name": "Wycena i plan",
-									"text": "Tworzymy ofertę, harmonogram i strukturę strony dopasowaną do Twojego biznesu.",
-									"url": "https://nextgensites.pl/#proces",
-									"image": "https://nextgensites.pl/images/step2.jpg",
-									"itemListElement": {
-										"@type": "HowToDirection",
-										"text": "Otrzymasz szczegółową wycenę i plan projektu."
-									}
-								},
-								{
-									"@type": "HowToStep",
-									"name": "Treści i układ",
-									"text": "Proponujemy teksty i wygląd strony. Wprowadzamy Twoje sugestie i dopracowujemy szczegóły.",
-									"url": "https://nextgensites.pl/#proces",
-									"image": "https://nextgensites.pl/images/step3.jpg",
-									"itemListElement": {
-										"@type": "HowToDirection",
-										"text": "Zatwierdzasz projekt graficzny i treści."
-									}
-								},
-								{
-									"@type": "HowToStep",
-									"name": "Tworzenie i SEO",
-									"text": "Budujemy szybką, responsywną i zoptymalizowaną stronę zgodną z najlepszymi praktykami SEO.",
-									"url": "https://nextgensites.pl/#proces",
-									"image": "https://nextgensites.pl/images/step4.jpg",
-									"itemListElement": {
-										"@type": "HowToDirection",
-										"text": "Programujemy stronę w najnowszych technologiach."
-									}
-								},
-								{
-									"@type": "HowToStep",
-									"name": "Testy i publikacja",
-									"text": "Sprawdzamy wszystko, a po Twojej akceptacji uruchamiamy stronę i konfigurujemy niezbędne narzędzia.",
-									"url": "https://nextgensites.pl/#proces",
-									"image": "https://nextgensites.pl/images/step5.jpg",
-									"itemListElement": {
-										"@type": "HowToDirection",
-										"text": "Zatwierdzasz gotową stronę przed publikacją."
-									}
-								},
-								{
-									"@type": "HowToStep",
-									"name": "Stałe wsparcie",
-									"text": "Po wdrożeniu jesteśmy do dyspozycji – zapewniamy pomoc i rozwój strony w miarę potrzeb.",
-									"url": "https://nextgensites.pl/#proces",
-									"image": "https://nextgensites.pl/images/step6.jpg",
-									"itemListElement": {
-										"@type": "HowToDirection",
-										"text": "Kontaktuj się z nami w przypadku potrzeby zmian lub rozbudowy."
-									}
-								}
-							]
-						})
+						__html: JSON.stringify(howToSchema)
 					}}
 				/>
 
+				{/* Critical content loaded immediately */}
 				<Hero locale={locale} priorityImage={true} />
 				<SocialProof />
+
+				{/* Non-critical content loaded dynamically */}
 				<FeaturesSection />
 				<About />
 				<PortfolioSection />
 				<WhyNotWordPressSection />
 				<TimelineSection />
 				<Pricing />
-				<LatestBlogPosts locale={locale} />
+				<LatestBlogPosts locale={locale} posts={latestPosts} />
 				<Faq />
 				<CtaSection />
 				<ContactForm />

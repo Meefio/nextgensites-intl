@@ -1,43 +1,24 @@
-import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { getPostBySlug } from '@/utils/mdx'
-import { getCachedMdxContent } from '@/utils/mdx-cache'
-import path from 'path'
-import matter from 'gray-matter'
-import { MDXComponents } from '@/app/components/blog/MDXComponents'
+import { createMDXComponents } from '@/app/components/blog/MDXComponents'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
 interface ArticleContentProps {
   locale: string
   slug: string
+  content: string
+  frontMatter: any
 }
 
-export const ArticleContent = ({ locale, slug }: ArticleContentProps) => {
+export const ArticleContent = ({ locale, slug, content, frontMatter }: ArticleContentProps) => {
   try {
-    // Get post data from MDX file
-    const post = getPostBySlug(slug, locale)
-
-    if (!post) {
-      console.error(`Post not found for slug: ${slug} and locale: ${locale}`)
-      notFound()
-    }
-
-    // Get MDX content with caching
-    const contentPath = path.join(process.cwd(), 'src', 'content', 'blog', locale, `${slug}.mdx`)
-    const fileContent = getCachedMdxContent(contentPath)
-
-    if (!fileContent) {
-      console.error(`MDX file not found at path: ${contentPath}`)
-      notFound()
-    }
-
-    const { content, data: frontMatter } = matter(fileContent)
-
     if (!content || content.trim() === '') {
       console.error(`Empty content for post: ${slug}`)
       return <div>Content not available</div>
     }
+
+    // Create MDX components with locale context
+    const MDXComponents = createMDXComponents(locale);
 
     return (
       <MDXRemote

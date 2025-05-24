@@ -5,6 +5,7 @@
  * article loading performance by reducing filesystem operations.
  */
 
+import 'server-only';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';

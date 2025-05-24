@@ -1,3 +1,4 @@
+import 'server-only';
 import { getCachedMdxData, getCachedSlugs } from './mdx-cache'
 
 // Define types for blog post metadata

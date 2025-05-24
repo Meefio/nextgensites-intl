@@ -1,20 +1,36 @@
 import { getTranslations } from "next-intl/server";
-import { getAllPosts } from "@/utils/mdx";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { Clock, ChevronRight } from "lucide-react";
 import { AnimatedElement } from "@/app/components/motion/animated-element";
 import { Button } from "@/app/components/ui/button";
 
-interface LatestBlogPostsProps {
-  locale: string;
+// Import the PostMeta type directly instead of the whole mdx module
+export interface PostMeta {
+  title: string
+  slug: string
+  date: string
+  readingTime: string
+  author: string
+  authorPosition?: string
+  category: string
+  coverImage: string
+  description?: string
+  summaryPoints?: string[]
+  worthKnowing?: string
+  locale: string
 }
 
-export async function LatestBlogPosts({ locale }: LatestBlogPostsProps) {
+interface LatestBlogPostsProps {
+  locale: string;
+  posts: PostMeta[]; // Receive posts as props
+}
+
+export async function LatestBlogPosts({ locale, posts }: LatestBlogPostsProps) {
   const t = await getTranslations({ locale, namespace: "BlogPosts" });
 
-  // Get the latest 3 posts for the current locale
-  const latestPosts = getAllPosts(locale).slice(0, 3);
+  // Use the first 3 posts that were passed as props
+  const latestPosts = posts.slice(0, 3);
 
   // If no posts are available, don't render the section
   if (latestPosts.length === 0) {

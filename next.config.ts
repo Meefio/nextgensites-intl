@@ -8,6 +8,45 @@ const withBundleAnalyzer = process.env.ANALYZE === 'true'
   ? require('@next/bundle-analyzer')({ enabled: true })
   : (config: NextConfig) => config;
 
+// Base experimental configuration
+const baseExperimental = {
+  optimizeCss: true,
+  scrollRestoration: true,
+  optimizePackageImports: [
+    'next-intl',
+    'lucide-react',
+    'framer-motion',
+    '@radix-ui/react-accordion',
+    '@radix-ui/react-checkbox',
+    '@radix-ui/react-dropdown-menu',
+    '@radix-ui/react-label',
+    '@radix-ui/react-slot',
+    '@radix-ui/react-switch',
+    '@radix-ui/react-toast'
+  ],
+  webVitalsAttribution: ['LCP', 'CLS'] as ('LCP' | 'CLS' | 'FCP' | 'FID' | 'INP' | 'TTFB')[],
+  staticGenerationRetryCount: 1,
+  staticGenerationMaxConcurrency: 8,
+  staticGenerationMinPagesPerWorker: 25,
+  staleTimes: {
+    dynamic: 30, // 30 seconds for dynamic content
+    static: 180, // 3 minutes for static content
+  },
+};
+
+// Development-specific experimental configuration
+const developmentExperimental = {
+  ...baseExperimental,
+  turbo: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
+  },
+};
+
 const nextConfig: NextConfig = {
   // Set environment variables
   env: {
@@ -22,44 +61,43 @@ const nextConfig: NextConfig = {
     pagesBufferLength: 2,
   },
   images: {
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-    imageSizes: [16, 32, 64, 96, 128, 256, 384],
-    formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: process.env.NODE_ENV === 'development' ? 0 : 86400, // 0 for dev, 24 hours for prod
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ['image/webp'],
+    minimumCacheTTL: 2678400, // 31 days
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'nextgensites.pl',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'cdn.jsdelivr.net',
+        hostname: '**.githubusercontent.com',
+        port: '',
+        pathname: '/**',
       },
     ],
-  },
-  experimental: {
-    optimizeCss: true,
-    scrollRestoration: true,
-    optimizePackageImports: [
-      'lucide-react',
-      'framer-motion',
-      '@radix-ui/react-accordion',
-      '@radix-ui/react-dropdown-menu',
-      '@radix-ui/react-checkbox',
-      '@radix-ui/react-label',
-      '@radix-ui/react-switch',
-      '@radix-ui/react-toast',
+    localPatterns: [
+      {
+        pathname: '/images/**',
+        search: '',
+      },
     ],
-    // Track only the most important metrics to reduce overhead
-    // LCP is the most important metric for user experience
-    // CLS is important for layout stability
-    webVitalsAttribution: ['LCP', 'CLS'],
+    qualities: [50, 75, 80, 90, 95],
   },
+  experimental: process.env.NODE_ENV === 'development'
+    ? developmentExperimental
+    : baseExperimental,
   // Increase timeout for static page generation
   staticPageGenerationTimeout: 300,
-  output: 'standalone',
+  output: process.env.NODE_ENV === 'production' ? 'standalone' : undefined,
   compress: true,
   poweredByHeader: false,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   // Configure caching headers
   async headers() {
     const securityHeaders = [
@@ -196,7 +234,68 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/favicon.ico',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ];
+  },
+  webpack: (config, { dev, isServer }) => {
+    // Handle Node.js built-in modules for client-side builds
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        path: false,
+        crypto: false,
+        stream: false,
+        util: false,
+        buffer: false,
+        events: false,
+      };
+    }
+
+    if (!dev && !isServer) {
+      config.optimization.splitChunks = {
+        ...config.optimization.splitChunks,
+        cacheGroups: {
+          ...config.optimization.splitChunks.cacheGroups,
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+            priority: 10,
+          },
+          ui: {
+            test: /[\\/]components[\\/]ui[\\/]/,
+            name: 'ui',
+            chunks: 'all',
+            priority: 8,
+          },
+          common: {
+            name: 'common',
+            minChunks: 2,
+            chunks: 'all',
+            priority: 5,
+          },
+        },
+      }
+    }
+    return config
   },
 };
 

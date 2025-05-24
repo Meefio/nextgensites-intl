@@ -193,7 +193,12 @@ export default async function BlogPage({ params }: PageProps) {
             </div>
 
             {/* Render MDX Content using our component */}
-            <ArticleContent locale={locale} slug={slug} />
+            <ArticleContent
+              locale={locale}
+              slug={slug}
+              content={content}
+              frontMatter={matter(fileContent).data}
+            />
           </article>
         </div>
 
