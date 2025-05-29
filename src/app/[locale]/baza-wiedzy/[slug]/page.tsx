@@ -13,6 +13,8 @@ import { DOMAIN } from '@/lib/constants'
 import { serialize } from 'next-mdx-remote/serialize'
 import { PortableTextBlock } from '@portabletext/react'
 import remarkGfm from 'remark-gfm'
+import rehypeSlug from 'rehype-slug'
+import { getTableOfContents } from '@/utils/mdx'
 
 // Helper function to extract plain text from PortableText blocks
 function extractTextFromPortableText(blocks: PortableTextBlock[]): string {
@@ -175,14 +177,19 @@ export default async function BlogPage({ params }: PageProps) {
     // Check if we have MDX content
     const mdxContent = post.mdxContent ? getLocalizedValue(post.mdxContent, locale) : null
     let mdxSource = undefined
+    let tocItems: { id: string; title: string }[] = []
 
     if (mdxContent) {
+      // Extract table of contents from MDX content
+      tocItems = getTableOfContents(mdxContent)
+
       // Serialize MDX content from the mdxContent field
       mdxSource = await serialize(mdxContent, {
         parseFrontmatter: false,
         mdxOptions: {
           development: process.env.NODE_ENV === 'development',
           remarkPlugins: [remarkGfm],
+          rehypePlugins: [rehypeSlug],
         }
       })
     } else {
@@ -196,11 +203,15 @@ export default async function BlogPage({ params }: PageProps) {
           (extractedText.includes('<SummaryBox') || extractedText.includes('<WorthKnowing') ||
             extractedText.includes('<NextArticle'))) {
           try {
+            // Extract table of contents from extracted text
+            tocItems = getTableOfContents(extractedText)
+
             mdxSource = await serialize(extractedText, {
               parseFrontmatter: false,
               mdxOptions: {
                 development: process.env.NODE_ENV === 'development',
                 remarkPlugins: [remarkGfm],
+                rehypePlugins: [rehypeSlug],
               }
             })
           } catch (error) {
@@ -210,13 +221,15 @@ export default async function BlogPage({ params }: PageProps) {
       }
     }
 
-    // For now, we'll use a simplified table of contents
-    const tocItems = [
-      {
-        id: 'introduction',
-        title: locale === 'pl' ? 'Wprowadzenie' : 'Introduction'
-      }
-    ]
+    // If no MDX content was found, create fallback TOC items
+    if (tocItems.length === 0) {
+      tocItems = [
+        {
+          id: 'introduction',
+          title: locale === 'pl' ? 'Wprowadzenie' : 'Introduction'
+        }
+      ]
+    }
 
     // Format date for the view
     const publishDate = formatDateForLocale(post.publishedAt, locale)
@@ -292,7 +305,7 @@ export default async function BlogPage({ params }: PageProps) {
 
           {/* Sidebar */}
           <div className="lg:col-span-4">
-            <div className="space-y-8 lg:sticky lg:top-6">
+            <div className="space-y-8 lg:sticky lg:top-20">
               {/* Table of Contents (desktop) */}
               <div className="hidden lg:block">
                 <TableOfContents items={tocItems} locale={locale} />
