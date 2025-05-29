@@ -178,20 +178,21 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         aria-haspopup="true"
         disabled={isNavigating}
       >
-        <ReactCountryFlag
-          countryCode={currentLanguage?.countryCode || 'PL'}
-          svg
-          style={{
-            width: '1.5em',
-            height: '1.5em',
-          }}
-          title={currentLanguage?.label}
-          alt={`Flaga ${currentLanguage?.label}`}
-        />
-        {isNavigating && (
-          <div className="ml-2">
-            <div className="w-3 h-3 border border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
+        {isNavigating ? (
+          <div className="w-6 h-6 flex items-center justify-center">
+            <div className="w-4 h-4 border border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
           </div>
+        ) : (
+          <ReactCountryFlag
+            countryCode={currentLanguage?.countryCode || 'PL'}
+            svg
+            style={{
+              width: '1.5em',
+              height: '1.5em',
+            }}
+            title={currentLanguage?.label}
+            alt={`Flaga ${currentLanguage?.label}`}
+          />
         )}
       </Button>
 
