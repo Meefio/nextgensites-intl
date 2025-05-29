@@ -119,6 +119,25 @@ export const postType = defineType({
         }
       ],
     }),
+    defineField({
+      name: 'mdxContent',
+      title: 'MDX Content',
+      type: 'object',
+      fields: [
+        {
+          name: 'en',
+          type: 'text',
+          title: 'English MDX Content',
+          description: 'Content in MDX format (Markdown with React components)'
+        },
+        {
+          name: 'pl',
+          type: 'text',
+          title: 'Polish MDX Content',
+          description: 'Content in MDX format (Markdown with React components)'
+        }
+      ],
+    }),
   ],
   preview: {
     select: {

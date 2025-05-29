@@ -50,6 +50,7 @@ export type Post = {
   publishedAt: string;
   excerpt: LocalizedField<string>;
   body: LocalizedField<PortableTextBlock[]>;
+  mdxContent?: LocalizedField<string>;
 };
 
 // Type for a simplified post preview

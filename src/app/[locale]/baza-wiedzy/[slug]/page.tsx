@@ -10,6 +10,25 @@ import { getPostBySlug, getAllSlugs, getAllSlugsDebug } from '@/lib/sanity/queri
 import { urlFor, getLocalizedValue } from '@/lib/sanity/client'
 import { formatDateForLocale } from '@/utils/date-utils'
 import { DOMAIN } from '@/lib/constants'
+import { serialize } from 'next-mdx-remote/serialize'
+import { PortableTextBlock } from '@portabletext/react'
+import remarkGfm from 'remark-gfm'
+
+// Helper function to extract plain text from PortableText blocks
+function extractTextFromPortableText(blocks: PortableTextBlock[]): string {
+  if (!blocks || !Array.isArray(blocks)) return ''
+
+  return blocks
+    .map(block => {
+      if (block._type === 'block' && block.children) {
+        return block.children
+          .map((child: any) => child.text || '')
+          .join('')
+      }
+      return ''
+    })
+    .join('\n\n')
+}
 
 interface PageProps {
   params: Promise<{
@@ -136,6 +155,14 @@ export default async function BlogPage({ params }: PageProps) {
     // Get localized title
     const title = getLocalizedValue(post.title, locale) || ''
 
+    // Debug: Log the post data to see what we're getting
+    console.log('Post data:', {
+      hasBody: !!post.body,
+      hasMdxContent: !!post.mdxContent,
+      bodyType: post.body ? typeof getLocalizedValue(post.body, locale) : 'undefined',
+      mdxContentType: post.mdxContent ? typeof getLocalizedValue(post.mdxContent, locale) : 'undefined'
+    })
+
     // Store article data for breadcrumb component
     const articleData: KnowledgeBaseArticleProps = {
       articleTitle: title,
@@ -144,6 +171,44 @@ export default async function BlogPage({ params }: PageProps) {
 
     // @ts-expect-error - we know this property is used by the layout
     params.articleData = articleData;
+
+    // Check if we have MDX content
+    const mdxContent = post.mdxContent ? getLocalizedValue(post.mdxContent, locale) : null
+    let mdxSource = undefined
+
+    if (mdxContent) {
+      // Serialize MDX content from the mdxContent field
+      mdxSource = await serialize(mdxContent, {
+        parseFrontmatter: false,
+        mdxOptions: {
+          development: process.env.NODE_ENV === 'development',
+          remarkPlugins: [remarkGfm],
+        }
+      })
+    } else {
+      // Try to extract MDX from body field if it looks like MDX
+      const bodyContent = post.body ? getLocalizedValue(post.body, locale) : null
+      if (bodyContent && Array.isArray(bodyContent)) {
+        const extractedText = extractTextFromPortableText(bodyContent)
+
+        // Check if the extracted text looks like MDX
+        if (extractedText.includes('<') && extractedText.includes('>') &&
+          (extractedText.includes('<SummaryBox') || extractedText.includes('<WorthKnowing') ||
+            extractedText.includes('<NextArticle'))) {
+          try {
+            mdxSource = await serialize(extractedText, {
+              parseFrontmatter: false,
+              mdxOptions: {
+                development: process.env.NODE_ENV === 'development',
+                remarkPlugins: [remarkGfm],
+              }
+            })
+          } catch (error) {
+            console.error('Failed to serialize MDX from body field:', error)
+          }
+        }
+      }
+    }
 
     // For now, we'll use a simplified table of contents
     const tocItems = [
@@ -221,7 +286,7 @@ export default async function BlogPage({ params }: PageProps) {
               </div>
 
               {/* Render content */}
-              <ArticleContent post={post} locale={locale} />
+              <ArticleContent post={post} locale={locale} mdxSource={mdxSource} />
             </article>
           </div>
 
