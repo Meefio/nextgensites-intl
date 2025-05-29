@@ -18,7 +18,7 @@ export const KNOWLEDGE_BASE_PATHS = {
 
 // Sanity config
 export const SANITY = {
-  PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'i31ucywm',
-  DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
   API_VERSION: '2025-05-21',
 }; 

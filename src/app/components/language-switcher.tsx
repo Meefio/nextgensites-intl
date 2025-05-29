@@ -1,24 +1,53 @@
 'use client'
 
 import { Button } from "@/app/components/ui/button"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import ReactCountryFlag from "react-country-flag"
-import { getLocalizedPath } from "@/i18n/blog-localization"
+import { getLocalizedPath, getPostSlugsClient } from "@/i18n/blog-localization"
 import { useEffect, useRef, useState } from "react"
-import Link from "next/link"
 
 const languages = [
   { code: 'pl', label: 'Polski', countryCode: 'PL', path: '/' },
   { code: 'en', label: 'English', countryCode: 'US', path: '/en' }
 ]
 
+// Helper function to check if a path is a knowledge base article
+const isKnowledgeBaseArticle = (pathname: string): boolean => {
+  return pathname.includes('/baza-wiedzy/') || pathname.includes('/knowledge-base/');
+}
+
+// Helper function to extract slug and current locale from pathname
+const extractSlugAndLocale = (pathname: string): { slug: string; currentLocale: string } | null => {
+  let cleanPath = pathname;
+  let currentLocale = 'pl';
+
+  // Remove /en prefix if present
+  if (pathname.startsWith('/en/')) {
+    cleanPath = pathname.substring(3);
+    currentLocale = 'en';
+  }
+
+  // Check if it's a knowledge base article
+  if (cleanPath.startsWith('/knowledge-base/')) {
+    const slug = cleanPath.substring('/knowledge-base/'.length);
+    return { slug, currentLocale: 'en' };
+  } else if (cleanPath.startsWith('/baza-wiedzy/')) {
+    const slug = cleanPath.substring('/baza-wiedzy/'.length);
+    return { slug, currentLocale: 'pl' };
+  }
+
+  return null;
+}
+
 export function LanguageSwitcher({ className }: { className?: string }) {
   const pathname = usePathname()
+  const router = useRouter()
   const currentLang = pathname.startsWith('/en') ? 'en' : 'pl'
   const currentLanguage = languages.find(lang => lang.code === currentLang)
   const triggerRef = useRef<HTMLButtonElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const [open, setOpen] = useState(false)
+  const [isNavigating, setIsNavigating] = useState(false)
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -56,6 +85,87 @@ export function LanguageSwitcher({ className }: { className?: string }) {
     return () => document.removeEventListener('keydown', handleEscape)
   }, [open])
 
+  // Enhanced language switching with dynamic slug mapping
+  const handleLanguageSwitch = async (targetLang: { code: string; label: string; countryCode: string; path: string }) => {
+    setIsNavigating(true);
+    setOpen(false);
+
+    try {
+      // Check if current page is a knowledge base article
+      if (isKnowledgeBaseArticle(pathname)) {
+        const slugInfo = extractSlugAndLocale(pathname);
+
+        if (slugInfo) {
+          // Get slug mappings from the API
+          const slugMappings = await getPostSlugsClient(slugInfo.slug, slugInfo.currentLocale);
+
+          // Get the target slug for the desired language
+          const targetSlug = slugMappings[targetLang.code] || slugInfo.slug;
+
+          // Build the target path
+          let targetPath: string;
+          if (targetLang.code === 'en') {
+            targetPath = `/en/knowledge-base/${targetSlug}`;
+          } else {
+            targetPath = `/baza-wiedzy/${targetSlug}`;
+          }
+
+          // Navigate to the localized article
+          router.push(targetPath);
+          return;
+        }
+      }
+
+      // For non-article pages, use the standard localization
+      let href: string;
+
+      if (targetLang.code === 'pl') {
+        // First get the properly localized path using the existing utility
+        const localizedPath = getLocalizedPath(pathname, 'pl');
+
+        // Now prefix it with /pl to trigger our middleware language detection
+        // Make sure localizedPath is a string (it always is for Polish locale)
+        const pathString = typeof localizedPath === 'string' ? localizedPath : '/pl';
+
+        // Add the /pl prefix for middleware detection
+        if (pathString === '/') {
+          href = '/pl';
+        } else {
+          // Add /pl prefix to non-root paths
+          href = `/pl${pathString}`;
+        }
+      } else {
+        // For English, use the standard getLocalizedPath function
+        href = getLocalizedPath(pathname, targetLang.code);
+      }
+
+      // Navigate to the new path
+      router.push(href);
+    } catch (error) {
+      console.error('Error during language switch:', error);
+
+      // Fallback to basic language switching
+      let fallbackHref: string;
+
+      if (targetLang.code === 'pl') {
+        const localizedPath = getLocalizedPath(pathname, 'pl');
+        const pathString = typeof localizedPath === 'string' ? localizedPath : '/pl';
+
+        if (pathString === '/') {
+          fallbackHref = '/pl';
+        } else {
+          fallbackHref = `/pl${pathString}`;
+        }
+      } else {
+        fallbackHref = getLocalizedPath(pathname, targetLang.code);
+      }
+
+      router.push(fallbackHref);
+    } finally {
+      setIsNavigating(false);
+    }
+  };
+
   return (
     <div className="relative">
       <Button
@@ -66,6 +176,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-haspopup="true"
+        disabled={isNavigating}
       >
         <ReactCountryFlag
           countryCode={currentLanguage?.countryCode || 'PL'}
@@ -77,6 +188,11 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           title={currentLanguage?.label}
           alt={`Flaga ${currentLanguage?.label}`}
         />
+        {isNavigating && (
+          <div className="ml-2">
+            <div className="w-3 h-3 border border-gray-300 border-t-gray-600 rounded-full animate-spin"></div>
+          </div>
+        )}
       </Button>
 
       {open && (
@@ -93,37 +209,14 @@ export function LanguageSwitcher({ className }: { className?: string }) {
               return null;
             }
 
-            // Get the localized path based on language
-            let href;
-
-            if (lang.code === 'pl') {
-              // First get the properly localized path using the existing utility
-              const localizedPath = getLocalizedPath(pathname, 'pl');
-
-              // Now prefix it with /pl to trigger our middleware language detection
-              // Make sure localizedPath is a string (it always is for Polish locale)
-              const pathString = typeof localizedPath === 'string' ? localizedPath : '/pl';
-
-              // Add the /pl prefix for middleware detection
-              if (pathString.toString() === '/') {
-                href = '/pl';
-              } else {
-                // Add /pl prefix to non-root paths
-                href = `/pl${pathString}`;
-              }
-            } else {
-              // For English, use the standard getLocalizedPath function
-              href = getLocalizedPath(pathname, lang.code);
-            }
-
             return (
-              <a
+              <button
                 key={lang.code}
-                href={href.toString()}
+                onClick={() => handleLanguageSwitch(lang)}
                 aria-label={`Zmień język na ${lang.label}`}
-                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground"
-                onClick={() => setOpen(false)}
+                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground w-full"
                 role="menuitem"
+                disabled={isNavigating}
               >
                 <div className="flex items-center gap-2">
                   <ReactCountryFlag
@@ -138,7 +231,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                   />
                   <span>{lang.label}</span>
                 </div>
-              </a>
+              </button>
             )
           })}
         </div>

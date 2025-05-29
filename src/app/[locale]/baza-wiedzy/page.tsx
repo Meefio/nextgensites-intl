@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { createCanonicalUrl, createLanguageAlternates } from '@/app/utils/createCanonicalUrl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import { getAllPosts } from '@/lib/sanity/queries';
-import { urlFor, getLocalizedValue } from '@/lib/sanity/client';
+import { urlFor, getLocalizedValue, getLocalizedExcerpt } from '@/lib/sanity/client';
 import { formatDateForLocale } from '@/utils/date-utils';
 
 interface PageProps {
@@ -52,33 +52,13 @@ export default async function KnowledgeBasePage({
   const t = await getTranslations({ locale, namespace: 'KnowledgeBase' });
 
   // Get all posts for the current locale from Sanity
-  const posts = await getAllPosts(locale);
+  let posts: any[] = [];
 
-  // Define upcoming articles (placeholders)
-  const upcomingArticles = [
-    {
-      id: 'website-cost',
-      title: locale === 'pl'
-        ? 'Ile kosztuje strona internetowa? Co wpływa na cenę?'
-        : 'How much does a website cost? What affects the price?',
-      description: locale === 'pl'
-        ? 'Poznaj rzeczywiste czynniki wpływające na koszt strony internetowej i jak wybrać najlepszą opcję dla swojego biznesu.'
-        : 'Learn the real factors that affect website cost and how to choose the best option for your business.',
-      category: locale === 'pl' ? 'Biznes' : 'Business',
-      comingSoon: true
-    },
-    {
-      id: 'seo-basics',
-      title: locale === 'pl'
-        ? 'Podstawy SEO dla właścicieli biznesu'
-        : 'SEO Basics for Business Owners',
-      description: locale === 'pl'
-        ? 'Proste kroki, które możesz wykonać, aby poprawić pozycję Twojej strony w wynikach wyszukiwania Google.'
-        : 'Simple steps you can take to improve your website\'s position in Google search results.',
-      category: locale === 'pl' ? 'SEO' : 'SEO',
-      comingSoon: true
-    }
-  ];
+  try {
+    posts = await getAllPosts(locale);
+  } catch (error) {
+    console.error('Error fetching posts from Sanity:', error);
+  }
 
   return (
     <div className="max-w-6xl mx-auto py-6">
@@ -99,19 +79,20 @@ export default async function KnowledgeBasePage({
         </div>
       </div>
 
-      {/* Featured Articles */}
-      {posts.length > 0 && (
+      {/* Articles */}
+      {posts.length > 0 ? (
         <div className="mb-16">
           <h2 className="text-2xl font-bold mb-6 flex items-center">
             <BookText className="mr-2 h-6 w-6 text-primary" />
-            {locale === 'pl' ? 'Opublikowane artykuły' : 'Published Articles'}
+            {locale === 'pl' ? 'Dostępne artykuły' : 'Available Articles'}
           </h2>
 
           <div className="space-y-8">
             {posts.map((post) => {
               // Get localized title and excerpt
-              const title = getLocalizedValue(post.title, locale);
-              const excerpt = getLocalizedValue(post.excerpt, locale);
+              const title = getLocalizedValue(post.title, locale) as string || '';
+              const excerpt = getLocalizedExcerpt(post, locale);
+
               // Get the slug for the current locale
               const slug =
                 // Handle when post.slug is a LocalizedField (with language keys)
@@ -136,7 +117,7 @@ export default async function KnowledgeBasePage({
                         {post.mainImage ? (
                           <Image
                             src={urlFor(post.mainImage).width(500).height(280).url()}
-                            alt={title || ''}
+                            alt={title || 'Article image'}
                             width={500}
                             height={280}
                             sizes="(max-width: 768px) 100vw, 40vw"
@@ -154,7 +135,7 @@ export default async function KnowledgeBasePage({
                         )}
                         <div className="absolute bottom-3 left-3">
                           {post.categories && post.categories.length > 0 && (
-                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-600 bg-primary text-primary-foreground transition-colors dark:text-white">
+                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary text-primary-foreground transition-colors">
                               {getLocalizedValue(post.categories[0].title, locale)}
                             </span>
                           )}
@@ -192,49 +173,7 @@ export default async function KnowledgeBasePage({
             })}
           </div>
         </div>
-      )}
-
-      {/* Upcoming Articles */}
-      <div className="mb-10">
-        <h2 className="text-2xl font-bold mb-6 flex items-center">
-          <BookText className="mr-2 h-6 w-6 text-primary" />
-          {locale === 'pl' ? 'Nadchodzące artykuły' : 'Upcoming Articles'}
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {upcomingArticles.map((article) => (
-            <div
-              key={article.id}
-              className="p-6 border border-border rounded-xl hover:border-primary/20 bg-card transition-colors"
-            >
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary mb-4">
-                {locale === 'pl' ? 'Wkrótce' : 'Coming soon'}
-              </span>
-
-              <h3 className="text-xl font-semibold mb-2">
-                {article.title}
-              </h3>
-
-              <p className="text-muted-foreground text-sm line-clamp-3 mb-4">
-                {article.description}
-              </p>
-
-              <div className="flex items-center text-sm text-muted-foreground">
-                <span className="inline-flex items-center mr-4">
-                  <Clock className="h-4 w-4 mr-1" />
-                  <span>{locale === 'pl' ? 'Ok. 5 min czytania' : 'Approx. 5 min read'}</span>
-                </span>
-                <span className="px-2.5 py-0.5 bg-muted rounded-full">
-                  {article.category}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Empty State - Used when no articles are available */}
-      {posts.length === 0 && upcomingArticles.length === 0 && (
+      ) : (
         <div className="text-center py-16 border border-dashed rounded-lg">
           <BookOpen className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
           <h3 className="text-xl font-semibold mb-2">{t('emptyState')}</h3>

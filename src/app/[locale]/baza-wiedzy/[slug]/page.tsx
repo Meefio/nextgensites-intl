@@ -6,7 +6,7 @@ import ArticleContent from './article-content'
 import { KnowledgeBaseArticleProps } from '../types'
 import { createCanonicalUrl, createLanguageAlternates } from '@/app/utils/createCanonicalUrl'
 import Script from 'next/script'
-import { getPostBySlug, getAllSlugs } from '@/lib/sanity/queries'
+import { getPostBySlug, getAllSlugs, getAllSlugsDebug } from '@/lib/sanity/queries'
 import { urlFor, getLocalizedValue } from '@/lib/sanity/client'
 import { formatDateForLocale } from '@/utils/date-utils'
 import { DOMAIN } from '@/lib/constants'
@@ -124,6 +124,11 @@ export default async function BlogPage({ params }: PageProps) {
 
     if (!post) {
       console.log(`Post not found for slug "${slug}" and locale "${locale}"`)
+
+      // Debug: Show available slugs
+      const availableSlugs = await getAllSlugsDebug()
+      console.log('Available slugs in Sanity:', availableSlugs)
+
       notFound()
       return null // This ensures TypeScript knows we're not continuing
     }

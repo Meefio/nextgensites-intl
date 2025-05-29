@@ -5,9 +5,42 @@ import { cache } from 'react';
 // GROQ queries
 
 /**
- * Get all posts for a specific locale
+ * Debug query to see all posts structure
+ */
+export const getAllPostsDebugQuery = `
+  *[_type == "post"] {
+    _id,
+    title,
+    slug,
+    language,
+    publishedAt,
+    "hasPublishedAt": defined(publishedAt),
+    "publishedAtValue": publishedAt,
+    "currentTime": now()
+  }
+`;
+
+/**
+ * Get all posts for a specific locale - flexible version
  */
 export const getAllPostsQuery = `
+  *[_type == "post" && defined(publishedAt) && publishedAt < now()] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    excerpt,
+    language,
+    author->{name, image},
+    categories[]->{_id, title}
+  }
+`;
+
+/**
+ * Original query with language filter
+ */
+export const getAllPostsQueryWithLanguage = `
   *[_type == "post" && language == $locale && defined(slug[$locale].current) && publishedAt < now()] | order(publishedAt desc) {
     _id,
     title,
@@ -21,9 +54,27 @@ export const getAllPostsQuery = `
 `;
 
 /**
- * Get a single post by slug for a specific locale
+ * Get a single post by slug for a specific locale - flexible version
  */
 export const getPostBySlugQuery = `
+  *[_type == "post" && slug[$locale].current == $slug][0] {
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    body,
+    excerpt,
+    author->{name, image, bio},
+    categories[]->{_id, title, description},
+    language
+  }
+`;
+
+/**
+ * Alternative query that also searches by language if the first one fails
+ */
+export const getPostBySlugWithLanguageQuery = `
   *[_type == "post" && slug[$locale].current == $slug && language == $locale][0] {
     _id,
     title,
@@ -33,7 +84,8 @@ export const getPostBySlugQuery = `
     body,
     excerpt,
     author->{name, image, bio},
-    categories[]->{_id, title, description}
+    categories[]->{_id, title, description},
+    language
   }
 `;
 
@@ -57,20 +109,88 @@ export const getSlugsByLocaleQuery = `
   }
 `;
 
+/**
+ * Debug query to see slug structure for all posts
+ */
+export const getAllSlugsDebugQuery = `
+  *[_type == "post"] {
+    _id,
+    title,
+    language,
+    "slug_en_current": slug.en.current,
+    "slug_pl_current": slug.pl.current,
+    "full_slug": slug
+  }
+`;
+
 // Cached fetching functions
 
 /**
- * Get all posts for a specific locale
+ * Debug function to see all posts
  */
-export const getAllPosts = cache(async (locale: string): Promise<PostPreview[]> => {
-  return client.fetch(getAllPostsQuery, { locale });
+export const getAllPostsDebug = cache(async () => {
+  return client.fetch(getAllPostsDebugQuery);
 });
 
 /**
- * Get a post by slug for a specific locale
+ * Get all posts for a specific locale - now more flexible
+ */
+export const getAllPosts = cache(async (locale: string): Promise<PostPreview[]> => {
+  // First try to get all posts and filter on the frontend if needed
+  const allPosts = await client.fetch(getAllPostsQuery);
+  console.log('All posts from Sanity:', allPosts);
+
+  // If no posts with the flexible query, return empty
+  if (!allPosts || allPosts.length === 0) {
+    return [];
+  }
+
+  // Filter posts that have content for the requested locale
+  const filteredPosts = allPosts.filter((post: any) => {
+    // Check if post has title in the requested locale
+    const hasTitle = post.title && post.title[locale];
+    // Check if post has slug in the requested locale
+    const hasSlug = post.slug && post.slug[locale] && post.slug[locale].current;
+
+    // We only require title and slug - excerpt can fallback to another language
+    return hasTitle && hasSlug;
+  });
+
+  console.log(`Filtered posts for locale ${locale}:`, filteredPosts);
+  return filteredPosts;
+});
+
+/**
+ * Debug function to see all slugs
+ */
+export const getAllSlugsDebug = cache(async () => {
+  return client.fetch(getAllSlugsDebugQuery);
+});
+
+/**
+ * Get a post by slug for a specific locale - improved with fallback
  */
 export const getPostBySlug = cache(async (slug: string, locale: string): Promise<Post | null> => {
-  return client.fetch(getPostBySlugQuery, { slug, locale });
+  console.log(`Looking for post with slug "${slug}" and locale "${locale}"`);
+
+  // First try the flexible query (without language constraint)
+  let post = await client.fetch(getPostBySlugQuery, { slug, locale });
+
+  if (post) {
+    console.log(`Found post with flexible query:`, post._id);
+    return post;
+  }
+
+  // If not found, try with language constraint
+  post = await client.fetch(getPostBySlugWithLanguageQuery, { slug, locale });
+
+  if (post) {
+    console.log(`Found post with language constraint:`, post._id);
+    return post;
+  }
+
+  console.log(`No post found for slug "${slug}" and locale "${locale}"`);
+  return null;
 });
 
 /**

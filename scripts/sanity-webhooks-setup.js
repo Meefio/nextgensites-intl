@@ -19,8 +19,8 @@ const readline = require('readline');
 
 // Configuration
 const config = {
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'i31ucywm',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiToken: process.env.SANITY_STUDIO_API_TOKEN, // Token with tokens:manage scope
 };
 
