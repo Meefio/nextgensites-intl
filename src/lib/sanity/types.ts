@@ -1,4 +1,4 @@
-import { PortableTextBlock } from '@portabletext/types';
+import type { PortableTextBlock } from '@portabletext/react';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
 // Type for a localized field with values for different languages
