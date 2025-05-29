@@ -2,7 +2,6 @@
  * Utility for handling blog post localization between different languages
  */
 import { client } from '@/lib/sanity/client';
-import { KNOWLEDGE_BASE_PATHS } from '@/lib/constants';
 
 // Section translations for paths like baza-wiedzy -> knowledge-base
 export const sectionTranslations: Record<string, Record<string, string>> = {
@@ -17,7 +16,7 @@ export const sectionTranslations: Record<string, Record<string, string>> = {
 /**
  * Cache for slug mappings to avoid repeated API calls
  */
-const slugMappingCache = new Map<string, Record<string, string>>();
+const slugMappingCache = new Map<string, CacheEntry>();
 const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 
 interface CacheEntry {
@@ -136,8 +135,7 @@ export async function getLocalizedPathAsync(
   if (cleanPath.startsWith('/baza-wiedzy/') || cleanPath.startsWith('/knowledge-base/')) {
     const pathParts = cleanPath.split('/').filter(part => part.length > 0);
 
-    // Extract the section and slug
-    const section = pathParts[0];
+    // Extract the slug (section is pathParts[0])
     const slug = pathParts[1];
 
     // No slug, just the section
@@ -146,7 +144,7 @@ export async function getLocalizedPathAsync(
     }
 
     // Determine current locale from the section
-    const currentLocale = section === 'baza-wiedzy' ? 'pl' : 'en';
+    const currentLocale = pathParts[0] === 'baza-wiedzy' ? 'pl' : 'en';
 
     try {
       // Get slug mappings from Sanity
@@ -220,8 +218,7 @@ export function getLocalizedPath(
   if (cleanPath.startsWith('/baza-wiedzy/') || cleanPath.startsWith('/knowledge-base/')) {
     const pathParts = cleanPath.split('/').filter(part => part.length > 0);
 
-    // Extract the section and slug
-    const section = pathParts[0];
+    // Extract the slug (section is pathParts[0])
     const slug = pathParts[1];
 
     // No slug, just the section

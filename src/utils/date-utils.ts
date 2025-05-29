@@ -13,7 +13,7 @@ export function formatDateForLocale(dateString: string, locale: string): string 
     };
 
     return date.toLocaleDateString(locale === 'pl' ? 'pl-PL' : 'en-US', options);
-  } catch (error) {
+  } catch (_error) {
     // Fallback if date is invalid
     return dateString;
   }
@@ -26,7 +26,7 @@ export function formatDateAsIso(dateString: string): string {
   try {
     const date = new Date(dateString);
     return date.toISOString().split('T')[0];
-  } catch (error) {
+  } catch (_error) {
     return dateString;
   }
 }

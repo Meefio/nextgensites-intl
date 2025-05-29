@@ -19,21 +19,24 @@ const isKnowledgeBaseArticle = (pathname: string): boolean => {
 // Helper function to extract slug and current locale from pathname
 const extractSlugAndLocale = (pathname: string): { slug: string; currentLocale: string } | null => {
   let cleanPath = pathname;
-  let currentLocale = 'pl';
 
   // Remove /en prefix if present
   if (pathname.startsWith('/en/')) {
     cleanPath = pathname.substring(3);
-    currentLocale = 'en';
-  }
+    const currentLocale = 'en';
 
-  // Check if it's a knowledge base article
-  if (cleanPath.startsWith('/knowledge-base/')) {
-    const slug = cleanPath.substring('/knowledge-base/'.length);
-    return { slug, currentLocale: 'en' };
-  } else if (cleanPath.startsWith('/baza-wiedzy/')) {
-    const slug = cleanPath.substring('/baza-wiedzy/'.length);
-    return { slug, currentLocale: 'pl' };
+    // Check if it's a knowledge base article
+    if (cleanPath.startsWith('/knowledge-base/')) {
+      const slug = cleanPath.substring('/knowledge-base/'.length);
+      return { slug, currentLocale };
+    }
+  } else {
+    const currentLocale = 'pl';
+
+    if (cleanPath.startsWith('/baza-wiedzy/')) {
+      const slug = cleanPath.substring('/baza-wiedzy/'.length);
+      return { slug, currentLocale };
+    }
   }
 
   return null;
