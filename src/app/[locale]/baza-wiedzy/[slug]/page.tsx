@@ -272,7 +272,7 @@ export default async function BlogPage({ params }: PageProps) {
     };
 
     return (
-      <div className="py-4 max-w-7xl mx-auto" data-article-title={title}>
+      <div className="py-4 container mx-auto" data-article-title={title}>
         <Script
           id="article-jsonld"
           type="application/ld+json"
