@@ -39,7 +39,7 @@ type ArticleContentProps = {
 
 export default function ArticleContent({ locale, post, mdxSource }: ArticleContentProps) {
   // Check if we have MDX content
-  const mdxContent = post.mdxContent ? getLocalizedValue(post.mdxContent, locale) : null
+  const mdxContent = post.content ? getLocalizedValue(post.content, locale) : null
 
   // If we have pre-compiled MDX source, use it
   if (mdxSource) {
@@ -56,12 +56,12 @@ export default function ArticleContent({ locale, post, mdxSource }: ArticleConte
       return (
         <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6 my-6">
           <h3 className="text-lg font-semibold mb-2">Content Migration Needed</h3>
-          <p className="mb-4">This article contains MDX content that needs to be migrated to the new MDX Content field in Sanity Studio.</p>
+          <p className="mb-4">This article contains MDX content that needs to be migrated to the new Content field in Sanity Studio.</p>
           <p className="text-sm text-muted-foreground">To fix this:</p>
           <ol className="list-decimal list-inside text-sm text-muted-foreground mt-2">
             <li>Go to Sanity Studio</li>
             <li>Copy the content from the body field</li>
-            <li>Paste it into the new MDX Content field</li>
+            <li>Paste it into the Content field (Polish Content for Polish, English Content for English)</li>
             <li>Publish the changes</li>
           </ol>
           <details className="mt-4">

@@ -160,9 +160,9 @@ export default async function BlogPage({ params }: PageProps) {
     // Debug: Log the post data to see what we're getting
     console.log('Post data:', {
       hasBody: !!post.body,
-      hasMdxContent: !!post.mdxContent,
+      hasContent: !!post.content,
       bodyType: post.body ? typeof getLocalizedValue(post.body, locale) : 'undefined',
-      mdxContentType: post.mdxContent ? typeof getLocalizedValue(post.mdxContent, locale) : 'undefined'
+      contentType: post.content ? typeof getLocalizedValue(post.content, locale) : 'undefined'
     })
 
     // Store article data for breadcrumb component
@@ -175,7 +175,7 @@ export default async function BlogPage({ params }: PageProps) {
     params.articleData = articleData;
 
     // Check if we have MDX content
-    const mdxContent = post.mdxContent ? getLocalizedValue(post.mdxContent, locale) : null
+    const mdxContent = post.content ? getLocalizedValue(post.content, locale) : null
     let mdxSource = undefined
     let tocItems: { id: string; title: string }[] = []
 
@@ -183,7 +183,7 @@ export default async function BlogPage({ params }: PageProps) {
       // Extract table of contents from MDX content
       tocItems = getTableOfContents(mdxContent)
 
-      // Serialize MDX content from the mdxContent field
+      // Serialize MDX content from the content field
       mdxSource = await serialize(mdxContent, {
         parseFrontmatter: false,
         mdxOptions: {
