@@ -71,7 +71,7 @@ export function Portfolio({ locale }: PortfolioProps) {
         {
           title: "BookEase",
           description: "Szablon BookEase dla Rezerwacji Podróży | Responsywny i wszechstronny szablon zaprojektowany dla firm turystycznych z intuicyjnym systemem rezerwacji",
-          image: "/images/framer/bookease.webp",
+          image: "/images/framer/Bookease.webp",
           category: "Landing Page",
           demoUrl: "https://bookease.framer.website/"
         },
@@ -165,7 +165,7 @@ export function Portfolio({ locale }: PortfolioProps) {
         {
           title: "BookEase",
           description: "Travel Booking Website Template | Responsive and versatile template designed for travel companies with intuitive booking system",
-          image: "/images/framer/bookease.webp",
+          image: "/images/framer/Bookease.webp",
           category: "Landing Page",
           demoUrl: "https://bookease.framer.website/"
         },
