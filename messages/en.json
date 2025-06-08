@@ -813,7 +813,7 @@
     "title": "Ready templates",
     "titleAccent": "Framer",
     "description": "Discover our collection of professional Framer templates. Perfect solution for companies that want to quickly launch a beautiful website.",
-    "exploreButton": "Browse templates",
+    "exploreButton": "Discover more",
     "examplesButton": "See examples",
     "features": {
       "readyToUse": {
@@ -830,26 +830,26 @@
       }
     },
     "templates": {
-      "businessPro": {
-        "title": "Business Pro",
-        "description": "Professional template for service companies"
+      "altair": {
+        "title": "Altair",
+        "description": "Template for design subscription agencies"
       },
-      "creativeStudio": {
-        "title": "Creative Studio",
-        "description": "Creative design for agencies and freelancers"
+      "pawfect": {
+        "title": "Pawfect",
+        "description": "Template for pet care companies"
       },
-      "portfolio": {
-        "title": "Portfolio",
-        "description": "Elegant portfolio for creators"
+      "flowline": {
+        "title": "Flowline",
+        "description": "Template for startups and SaaS companies"
       },
-      "ecommerce": {
-        "title": "E-commerce",
-        "description": "Modern online store"
+      "nubien": {
+        "title": "Nubien",
+        "description": "Template for AI agencies and portfolios"
       }
     },
     "stats": {
       "templates": {
-        "value": "20+",
+        "value": "12+",
         "label": "Available templates"
       },
       "time": {

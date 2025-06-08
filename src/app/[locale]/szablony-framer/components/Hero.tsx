@@ -185,21 +185,21 @@ export function Hero({ locale }: HeroProps) {
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden max-w-6xl mx-auto">
         {/* Background decorative elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-background"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-1/4 w-48 h-48 md:w-96 md:h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-primary/10 rounded-full blur-3xl"></div>
 
-        <div className="container mx-auto text-center relative z-10 pt-[40px] pb-[40px]">
+        <div className="container mx-auto text-center relative z-10 pt-8 pb-8 md:pt-10 md:pb-10">
           <AnimatedElement
-            className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 text-primary px-6 py-3 rounded-full mb-8"
+            className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 text-primary px-4 py-2 md:px-6 md:py-3 rounded-full mb-6 md:mb-8"
             delay={0.1}
           >
-            <Sparkles className="h-4 w-4" />
-            <span className="text-sm font-medium">{content.badge}</span>
+            <Sparkles className="h-3 w-3 md:h-4 md:w-4" />
+            <span className="text-xs md:text-sm font-medium">{content.badge}</span>
           </AnimatedElement>
 
           <AnimatedElement
             as="h1"
-            className="text-6xl md:text-8xl font-bold mb-8 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 leading-tight"
             delay={0.2}
           >
             <span className="text-foreground">{content.title} </span>
@@ -208,7 +208,7 @@ export function Hero({ locale }: HeroProps) {
 
           <AnimatedElement
             as="p"
-            className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 md:mb-12 max-w-4xl mx-auto leading-relaxed px-4"
             delay={0.3}
           >
             {content.description}
@@ -216,22 +216,22 @@ export function Hero({ locale }: HeroProps) {
 
           {/* Stats Section */}
           <AnimatedElement
-            className="flex flex-col md:flex-row gap-8 justify-center items-center mb-12"
+            className="hidden md:flex md:flex-col sm:flex-row gap-4 md:gap-8 justify-center items-center mb-8 md:mb-12"
             delay={0.4}
           >
             {content.stats.map((stat, index) => (
               <div
                 key={index}
-                className="flex items-center gap-4 bg-black/50 backdrop-blur-xl border border-primary/10 rounded-full px-6 py-4 hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                className="flex items-center gap-3 md:gap-4 bg-black/50 backdrop-blur-xl border border-primary/10 rounded-full px-4 py-3 md:px-6 md:py-4 hover:border-primary/30 hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
               >
-                <div className="text font-bold text-primary">
+                <div className="text-sm md:text-base font-bold text-primary">
                   <AnimatedCounter
                     endValue={stat.value}
                     suffix={stat.suffix}
                     duration={2000}
                   />
                 </div>
-                <div className="text-muted-foreground">
+                <div className="text-sm md:text-base text-muted-foreground">
                   {stat.label}
                 </div>
               </div>
@@ -239,30 +239,30 @@ export function Hero({ locale }: HeroProps) {
           </AnimatedElement>
 
           <AnimatedElement
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-10 mt-20"
+            className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-8 md:mb-10 mt-12 md:mt-20"
             delay={0.5}
           >
             <Button
               size="lg"
               onClick={scrollToPortfolio}
-              className=""
+              className="w-full sm:w-auto"
             >
               {content.primaryButton}
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
               variant="outline"
               size="lg"
               onClick={scrollToContact}
-              className=""
+              className="w-full sm:w-auto"
             >
-              <Rocket className="mr-2 h-5 w-5" />
+              <Rocket className="mr-2 h-4 w-4 md:h-5 md:w-5" />
               {content.secondaryButton}
             </Button>
           </AnimatedElement>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 pt-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-20 pt-8 md:pt-12">
             {content.features.map((feature, index) => {
               const IconComponent = feature.icon;
               return (
@@ -271,14 +271,14 @@ export function Hero({ locale }: HeroProps) {
                   className="relative group"
                   delay={0.6 + index * 0.1}
                 >
-                  <div className="text-center p-8 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:scale-105 group-hover:bg-card/50">
-                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                      <IconComponent className="h-8 w-8 text-primary" />
+                  <div className="text-center p-6 md:p-8 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:scale-105 group-hover:bg-card/50">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                      <IconComponent className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                    <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2 md:mb-3">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-sm md:text-base text-muted-foreground">
                       {feature.description}
                     </p>
                   </div>
@@ -290,79 +290,44 @@ export function Hero({ locale }: HeroProps) {
       </section>
 
       {/* Results Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <AnimatedElement
-              className="flex flex-col gap-3"
+              className="flex flex-col gap-2 md:gap-3"
               delay={0.1}
               viewport={{ once: true, margin: "-20% 0px" }}
             >
-              <span className='font-bold uppercase text-primary'>
+              <span className='font-bold uppercase text-primary text-sm md:text-base'>
                 {headerContent.why}
               </span>
-              <h2 className='font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance max-w-[800px] mx-auto'>
+              <h2 className='font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-balance max-w-[800px] mx-auto px-4'>
                 {headerContent.heading}
               </h2>
-              <p className='text-lg text-muted-foreground text-balance max-w-[800px] mx-auto'>
+              <p className='text-base md:text-lg text-muted-foreground text-balance max-w-[800px] mx-auto px-4'>
                 {headerContent.subheading}
               </p>
             </AnimatedElement>
           </div>
 
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-            {content.statsCards.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <AnimatedElement
-                  key={index}
-                  className="relative group"
-                  delay={0.2 + index * 0.1}
-                >
-                  <div className="relative text-center h-full p-8 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 hover:border-primary/30 hover:shadow-xl transition-all duration-300 ">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                      <IconComponent className="h-6 w-6 text-primary" />
-                    </div>
-                    <div className="text-4xl font-bold text-primary mb-3">
-                      {stat.value}
-                    </div>
-                    <div className="text-lg font-semibold text-foreground mb-2">
-                      {stat.title}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {stat.description}
-                    </div>
-                  </div>
-                </AnimatedElement>
-              );
-            })}
-          </div> */}
-
           {/* Success Stories Section */}
           <AnimatedElement delay={0.6}>
-            <div className="bg-card/20 backdrop-blur-sm border border-border/30 rounded-3xl p-10 text-center max-w-6xl mx-auto">
-              {/* <h3 className="text-3xl font-bold text-foreground mb-4">
-                {content.successTitle}
-              </h3>
-              <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
-                {content.successDescription}
-              </p> */}
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-card/20 backdrop-blur-sm border border-border/30 rounded-3xl p-6 md:p-10 text-center max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
                 {content.successStats.map((stat, index) => (
                   <AnimatedElement
                     key={index}
                     className="text-center group"
                     delay={0.8 + index * 0.1}
                   >
-                    <div className="text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300">
                       <AnimatedCounter
                         endValue={stat.value}
                         suffix={stat.suffix}
                         duration={2500}
                       />
                     </div>
-                    <div className="text-lg text-foreground font-medium">
+                    <div className="text-sm md:text-lg text-foreground font-medium">
                       {stat.label}
                     </div>
                   </AnimatedElement>

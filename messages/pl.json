@@ -874,7 +874,7 @@
     "title": "Gotowe szablony",
     "titleAccent": "Framer",
     "description": "Odkryj naszą kolekcję profesjonalnych szablonów Framer. Idealne rozwiązanie dla firm, które chcą szybko uruchomić piękną stronę internetową.",
-    "exploreButton": "Przeglądaj szablony",
+    "exploreButton": "Dowiedz się więcej",
     "examplesButton": "Zobacz przykłady",
     "features": {
       "readyToUse": {
@@ -891,26 +891,26 @@
       }
     },
     "templates": {
-      "businessPro": {
-        "title": "Business Pro",
-        "description": "Profesjonalny szablon dla firm usługowych"
+      "altair": {
+        "title": "Altair",
+        "description": "Szablon dla agencji designu subscription"
       },
-      "creativeStudio": {
-        "title": "Creative Studio",
-        "description": "Kreatywny design dla agencji i freelancerów"
+      "pawfect": {
+        "title": "Pawfect",
+        "description": "Szablon dla firm opieki nad zwierzętami"
       },
-      "portfolio": {
-        "title": "Portfolio",
-        "description": "Eleganckie portfolio dla twórców"
+      "flowline": {
+        "title": "Flowline",
+        "description": "Szablon dla startupów i firm SaaS"
       },
-      "ecommerce": {
-        "title": "E-commerce",
-        "description": "Nowoczesny sklep internetowy"
+      "nubien": {
+        "title": "Nubien",
+        "description": "Szablon dla agencji AI i portfolio"
       }
     },
     "stats": {
       "templates": {
-        "value": "20+",
+        "value": "12+",
         "label": "Dostępnych szablonów"
       },
       "time": {

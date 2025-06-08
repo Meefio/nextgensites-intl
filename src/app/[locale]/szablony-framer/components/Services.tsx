@@ -123,29 +123,29 @@ export function Services({ locale }: ServicesProps) {
   ];
 
   return (
-    <section id="services" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-background">
+    <section id="services" className="relative py-12 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background"></div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <AnimatedElement
-            className="flex flex-col gap-3"
+            className="flex flex-col gap-2 md:gap-3"
             delay={0.1}
             viewport={{ once: true, margin: "-20% 0px" }}
           >
-            <span className='font-bold uppercase text-primary'>
+            <span className='font-bold uppercase text-primary text-sm md:text-base'>
               {headerContent.why}
             </span>
-            <h2 className='font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance max-w-[800px] mx-auto'>
+            <h2 className='font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-balance max-w-[800px] mx-auto px-4'>
               {headerContent.heading}
             </h2>
-            <p className='text-lg text-muted-foreground text-balance max-w-[800px] mx-auto'>
+            <p className='text-base md:text-lg text-muted-foreground text-balance max-w-[800px] mx-auto px-4'>
               {headerContent.subheading}
             </p>
           </AnimatedElement>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <AnimatedElement
               key={index}
@@ -153,19 +153,19 @@ export function Services({ locale }: ServicesProps) {
             >
               <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-border/30 bg-card/30 backdrop-blur-sm overflow-hidden h-full">
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                <CardHeader className="relative z-10">
+                <CardHeader className="relative z-10 p-4 md:p-6">
                   <div className="relative">
-                    <div className="h-14 w-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-primary/20">
-                      <service.icon className="h-7 w-7 text-primary" />
+                    <div className="h-12 w-12 md:h-14 md:w-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 border border-primary/20">
+                      <service.icon className="h-6 w-6 md:h-7 md:w-7 text-primary" />
                     </div>
-                    <div className="absolute inset-0 h-14 w-14 bg-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 h-12 w-12 md:h-14 md:w-14 bg-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
-                  <CardTitle className="text-2xl mb-3 group-hover:text-primary transition-colors duration-300 text-foreground">
+                  <CardTitle className="text-lg md:text-2xl mb-2 md:mb-3 group-hover:text-primary transition-colors duration-300 text-foreground">
                     {service.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="relative z-10">
-                  <CardDescription className="text-muted-foreground leading-relaxed text-base">
+                <CardContent className="relative z-10 p-4 md:p-6 pt-0">
+                  <CardDescription className="text-muted-foreground leading-relaxed text-sm md:text-base">
                     {service.description}
                   </CardDescription>
                 </CardContent>

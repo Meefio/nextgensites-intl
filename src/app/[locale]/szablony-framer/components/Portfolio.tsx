@@ -239,32 +239,32 @@ export function Portfolio({ locale }: PortfolioProps) {
   };
 
   return (
-    <section id="portfolio" className="relative py-24 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
+    <section id="portfolio" className="relative py-12 md:py-24 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-primary/20 rounded-full blur-xl"></div>
+      <div className="absolute top-0 left-0 w-48 h-48 md:w-72 md:h-72 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-primary/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-1/4 w-16 h-16 md:w-32 md:h-32 bg-primary/20 rounded-full blur-xl"></div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <AnimatedElement
-            className="flex flex-col gap-3"
+            className="flex flex-col gap-2 md:gap-3"
             delay={0.1}
             viewport={{ once: true, margin: "-20% 0px" }}
           >
-            <span className='font-bold uppercase text-primary'>
+            <span className='font-bold uppercase text-primary text-sm md:text-base'>
               {headerContent.why}
             </span>
-            <h2 className='font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance max-w-[800px] mx-auto'>
+            <h2 className='font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-balance max-w-[800px] mx-auto px-4'>
               {headerContent.heading}
             </h2>
-            <p className='text-lg text-muted-foreground text-balance max-w-[800px] mx-auto'>
+            <p className='text-base md:text-lg text-muted-foreground text-balance max-w-[800px] mx-auto px-4'>
               {headerContent.subheading}
             </p>
           </AnimatedElement>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {currentProjects.map((project, index) => (
             <AnimatedElement
               key={index}
@@ -277,40 +277,40 @@ export function Portfolio({ locale }: PortfolioProps) {
                     alt={project.title}
                     width={500}
                     height={400}
-                    className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-48 md:h-60 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="bg-primary/90 text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                  <div className="absolute top-3 right-3 md:top-4 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="bg-primary/90 text-primary-foreground px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-medium">
                       {project.category}
                     </span>
                   </div>
                 </div>
 
-                <CardHeader className="relative z-10">
-                  <CardTitle className="text-2xl mb-3 group-hover:text-primary transition-colors duration-300 text-foreground">
+                <CardHeader className="relative z-10 p-4 md:p-6">
+                  <CardTitle className="text-lg md:text-2xl mb-2 md:mb-3 group-hover:text-primary transition-colors duration-300 text-foreground">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-muted-foreground leading-relaxed text-base">
+                  <CardDescription className="text-muted-foreground leading-relaxed text-sm md:text-base">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
 
-                <CardContent className="relative z-10 mt-auto">
-                  <div className="flex space-x-4 ">
-                    <Button variant="outline" size="sm" className="flex-1 group/btn" asChild>
+                <CardContent className="relative z-10 mt-auto p-4 md:p-6 pt-0">
+                  <div className="flex flex-col space-y-2">
+                    <Button variant="outline" size="sm" className="w-full group/btn text-xs md:text-sm" asChild>
                       <a
                         href={project.demoUrl}
                         target={project.demoUrl !== "#" ? "_blank" : "_self"}
                         rel={project.demoUrl !== "#" ? "noopener noreferrer" : undefined}
                       >
-                        <ExternalLink className="h-4 w-4 mr-2 group-hover/btn:scale-110 transition-transform" />
+                        <ExternalLink className="h-3 w-3 md:h-4 md:w-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                         {content.liveDemo}
                       </a>
                     </Button>
-                    <Button variant="default" size="sm" className="flex-1 group/btn" asChild>
+                    <Button variant="default" size="sm" className="w-full group/btn text-xs md:text-sm" asChild>
                       <a href="#contact">
-                        <Globe className="h-4 w-4 mr-2 group-hover/btn:scale-110 transition-transform" />
+                        <Globe className="h-3 w-3 md:h-4 md:w-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                         {content.selectTemplate}
                       </a>
                     </Button>
@@ -323,18 +323,7 @@ export function Portfolio({ locale }: PortfolioProps) {
 
         {/* Pagination Controls */}
         {totalPages > 1 && (
-          <AnimatedElement className="flex justify-center items-center gap-4 mt-12" delay={0.5}>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handlePrevPage}
-              disabled={currentPage === 0}
-              className="gap-2"
-            >
-              <ChevronLeft className="h-4 w-4" />
-              {content.previousPage}
-            </Button>
-
+          <AnimatedElement className="flex flex-col items-center gap-4 mt-8 md:mt-12" delay={0.5}>
             <div className="flex gap-2">
               {Array.from({ length: totalPages }, (_, index) => (
                 <Button
@@ -342,23 +331,36 @@ export function Portfolio({ locale }: PortfolioProps) {
                   variant={currentPage === index ? "default" : "outline"}
                   size="sm"
                   onClick={() => setCurrentPage(index)}
-                  className="w-10 h-10"
+                  className="w-8 h-8 md:w-10 md:h-10 text-xs md:text-sm"
                 >
                   {index + 1}
                 </Button>
               ))}
             </div>
 
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleNextPage}
-              disabled={currentPage === totalPages - 1}
-              className="gap-2"
-            >
-              {content.nextPage}
-              <ChevronRight className="h-4 w-4" />
-            </Button>
+            <div className="flex gap-3 w-full sm:w-auto">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handlePrevPage}
+                disabled={currentPage === 0}
+                className="gap-2 text-xs md:text-sm flex-1 sm:flex-none"
+              >
+                <ChevronLeft className="h-3 w-3 md:h-4 md:w-4" />
+                {content.previousPage}
+              </Button>
+
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleNextPage}
+                disabled={currentPage === totalPages - 1}
+                className="gap-2 text-xs md:text-sm flex-1 sm:flex-none"
+              >
+                {content.nextPage}
+                <ChevronRight className="h-3 w-3 md:h-4 md:w-4" />
+              </Button>
+            </div>
           </AnimatedElement>
         )}
       </div>

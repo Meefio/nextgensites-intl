@@ -1,6 +1,7 @@
 'use client';
 
 import { ArrowRight, Palette, Zap, Star, ExternalLink } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { useTranslations, useLocale } from "next-intl";
@@ -33,24 +34,28 @@ export function FramerTemplatesPromo() {
 
   const templates = [
     {
-      title: t('templates.businessPro.title'),
-      description: t('templates.businessPro.description'),
-      icon: Palette
+      title: t('templates.altair.title'),
+      description: t('templates.altair.description'),
+      image: "/images/framer/altair.webp",
+      demoUrl: "https://altair.framer.website/"
     },
     {
-      title: t('templates.creativeStudio.title'),
-      description: t('templates.creativeStudio.description'),
-      icon: Zap
+      title: t('templates.pawfect.title'),
+      description: t('templates.pawfect.description'),
+      image: "/images/framer/pawfect.webp",
+      demoUrl: "https://pawfect.framer.media/"
     },
     {
-      title: t('templates.portfolio.title'),
-      description: t('templates.portfolio.description'),
-      icon: Star
+      title: t('templates.flowline.title'),
+      description: t('templates.flowline.description'),
+      image: "/images/framer/flowline.webp",
+      demoUrl: "https://flowline.framer.website/"
     },
     {
-      title: t('templates.ecommerce.title'),
-      description: t('templates.ecommerce.description'),
-      icon: ExternalLink
+      title: t('templates.nubien.title'),
+      description: t('templates.nubien.description'),
+      image: "/images/framer/nubien.webp",
+      demoUrl: "https://nubien.framer.website/"
     }
   ];
 
@@ -138,7 +143,7 @@ export function FramerTemplatesPromo() {
                 asChild
                 className="px-8 py-3 border-2 border-primary/30 bg-background/50 backdrop-blur-sm hover:bg-primary/10 transition-all duration-300 rounded-full group"
               >
-                <Link href={framerTemplatesPath}>
+                <Link href={`${framerTemplatesPath}#portfolio`}>
                   <ExternalLink className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                   {t('examplesButton')}
                 </Link>
@@ -163,21 +168,28 @@ export function FramerTemplatesPromo() {
                   transition={{ duration: 0.4, delay: 0.6 + index * 0.1, ease: "easeOut" }}
                   className={index % 2 === 1 ? "mt-8" : ""}
                 >
-                  <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-border/30 bg-card/50 backdrop-blur-sm">
-                    <CardHeader className="pb-3">
-                      <div className="h-32 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg mb-3 flex items-center justify-center">
-                        <template.icon className="h-8 w-8 text-primary" />
-                      </div>
-                      <CardTitle className="text-lg group-hover:text-primary transition-colors">
-                        {template.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">
-                        {template.description}
-                      </p>
-                    </CardContent>
-                  </Card>
+                  <Link href={template.demoUrl} target="_blank" rel="noopener noreferrer">
+                    <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-border/30 bg-card/50 backdrop-blur-sm cursor-pointer">
+                      <CardHeader className="pb-3">
+                        <div className="h-32 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg mb-3 overflow-hidden relative">
+                          <Image
+                            src={template.image}
+                            alt={template.title}
+                            fill
+                            className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                        <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                          {template.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-muted-foreground">
+                          {template.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 </AnimatedElement>
               ))}
             </div>

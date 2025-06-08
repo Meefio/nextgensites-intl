@@ -71,40 +71,40 @@ export function Features({ locale }: FeaturesProps) {
   const content = t[locale as keyof typeof t] || t.pl;
 
   return (
-    <section id="features" className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-muted/20">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+    <section id="features" className="relative py-12 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-muted/20">
+      <div className="absolute top-0 right-0 w-32 h-32 md:w-96 md:h-96 bg-primary/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-32 h-32 md:w-96 md:h-96 bg-primary/5 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
           <AnimatedElement direction="left" delay={0.1}>
-            <h2 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance max-w-[800px] mx-auto mb-8 text-foreground">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-balance max-w-[800px] mx-auto mb-6 md:mb-8 text-foreground px-4 lg:px-0">
               {content.title}
             </h2>
-            <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground mb-8 md:mb-10 leading-relaxed px-4 lg:px-0">
               {content.description}
             </p>
 
-            <div className="grid grid-cols-1 gap-8 mb-10">
+            <div className="grid grid-cols-1 gap-6 md:gap-8 mb-8 md:mb-10 px-4 lg:px-0">
               {content.features.map((feature, index) => (
                 <AnimatedElement
                   key={index}
                   direction="left"
                   delay={0.2 + index * 0.1}
-                  className="group flex items-start space-x-6"
+                  className="group flex items-start space-x-4 md:space-x-6"
                 >
                   <div className="relative">
-                    <div className="h-12 w-12 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 border border-primary/20">
-                      <CheckCircle className="h-6 w-6 text-primary" />
+                    <div className="h-8 w-8 md:h-12 md:w-12 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 border border-primary/20">
+                      <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-primary" />
                     </div>
-                    <div className="absolute inset-0 h-12 w-12 bg-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 h-8 w-8 md:h-12 md:w-12 bg-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-xl mb-2 group-hover:text-primary transition-colors duration-300 text-foreground">
+                    <h3 className="font-semibold text-base md:text-xl mb-1 md:mb-2 group-hover:text-primary transition-colors duration-300 text-foreground">
                       {feature.title}
                     </h3>
-                    <p className="text-muted-foreground text-base">{feature.description}</p>
+                    <p className="text-muted-foreground text-sm md:text-base">{feature.description}</p>
                   </div>
                 </AnimatedElement>
               ))}
@@ -117,20 +117,20 @@ export function Features({ locale }: FeaturesProps) {
             className="relative"
           >
             <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-xl"></div>
-            <div className="relative bg-card/40 backdrop-blur-sm border border-border/30 rounded-3xl p-10 shadow-2xl">
-              <h3 className="text-2xl font-bold mb-8 text-foreground">
+            <div className="relative bg-card/40 backdrop-blur-sm border border-border/30 rounded-3xl p-6 md:p-10 shadow-2xl">
+              <h3 className="text-lg md:text-2xl font-bold mb-6 md:mb-8 text-foreground">
                 {content.whatYouGet}
               </h3>
-              <div className="space-y-5">
+              <div className="space-y-3 md:space-y-5">
                 {content.benefits.map((benefit, index) => (
                   <AnimatedElement
                     key={index}
                     direction="right"
                     delay={0.5 + index * 0.05}
-                    className="flex items-start space-x-4 group"
+                    className="flex items-start space-x-3 md:space-x-4 group"
                   >
-                    <CheckCircle className="h-6 w-6 text-primary flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
-                    <span className="text-muted-foreground group-hover:text-foreground transition-colors duration-300 text-base">
+                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-primary flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                    <span className="text-muted-foreground group-hover:text-foreground transition-colors duration-300 text-sm md:text-base">
                       {benefit}
                     </span>
                   </AnimatedElement>
