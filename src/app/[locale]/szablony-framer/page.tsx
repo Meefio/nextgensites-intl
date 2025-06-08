@@ -1,4 +1,4 @@
-import { Hero, Services, Features, Portfolio, About, Process, Testimonials } from './components'
+import { Hero, Services, Features, Portfolio, Process, Testimonials } from './components'
 import { CtaSection } from '@/app/components/cta'
 import { ContactForm } from '@/app/components/contact-form'
 import { Header } from '@/app/components/header'
@@ -102,62 +102,14 @@ export default async function FramerTemplatesPage({ params }: GenerateMetadataPr
 
         <Hero locale={locale} />
         <Services locale={locale} />
-
-        {/* Section divider */}
-        <div className="py-8">
-          <div className="container mx-auto">
-            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-          </div>
-        </div>
-
         <Features locale={locale} />
-
-        <div className="py-8">
-          <div className="container mx-auto">
-            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-          </div>
-        </div>
-
         <Process locale={locale} />
-
-        <div className="py-8">
-          <div className="container mx-auto">
-            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-          </div>
-        </div>
-
         <Portfolio locale={locale} />
-
-        <div className="py-8">
-          <div className="container mx-auto">
-            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-          </div>
-        </div>
-
-        <About locale={locale} />
-
-        <div className="py-8">
-          <div className="container mx-auto">
-            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-          </div>
-        </div>
+        {/* <About locale={locale} />
+*/}
 
         <Testimonials locale={locale} />
-
-        <div className="py-8">
-          <div className="container mx-auto">
-            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-          </div>
-        </div>
-
         <CtaSection />
-
-        <div className="py-8">
-          <div className="container mx-auto">
-            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-          </div>
-        </div>
-
         <ContactForm />
       </main>
       <Footer />

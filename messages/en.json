@@ -20,6 +20,7 @@
     "pricing": "Pricing",
     "contact": "Contact",
     "portfolio": "Portfolio",
+    "framerTemplates": "Framer Templates",
     "getFreeQuote": "Get Free Quote",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
@@ -805,6 +806,60 @@
         "ogImageAlt": "BuildWise – Web platform showcase"
       },
       "nextProject": "View next project"
+    }
+  },
+  "FramerTemplatesPromo": {
+    "badge": "New offer",
+    "title": "Ready templates",
+    "titleAccent": "Framer",
+    "description": "Discover our collection of professional Framer templates. Perfect solution for companies that want to quickly launch a beautiful website.",
+    "exploreButton": "Browse templates",
+    "examplesButton": "See examples",
+    "features": {
+      "readyToUse": {
+        "title": "Ready to use",
+        "description": "Templates prepared for immediate deployment"
+      },
+      "professionalDesign": {
+        "title": "Professional design",
+        "description": "Modern projects adapted to current trends"
+      },
+      "highQuality": {
+        "title": "High quality",
+        "description": "Carefully designed with attention to detail"
+      }
+    },
+    "templates": {
+      "businessPro": {
+        "title": "Business Pro",
+        "description": "Professional template for service companies"
+      },
+      "creativeStudio": {
+        "title": "Creative Studio",
+        "description": "Creative design for agencies and freelancers"
+      },
+      "portfolio": {
+        "title": "Portfolio",
+        "description": "Elegant portfolio for creators"
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "description": "Modern online store"
+      }
+    },
+    "stats": {
+      "templates": {
+        "value": "20+",
+        "label": "Available templates"
+      },
+      "time": {
+        "value": "48h",
+        "label": "Implementation time"
+      },
+      "responsive": {
+        "value": "100%",
+        "label": "Responsive projects"
+      }
     }
   },
   "Metadata": {

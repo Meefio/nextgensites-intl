@@ -1,20 +1,37 @@
 import { Users, Award, Target } from "lucide-react";
 import { AnimatedElement } from "@/app/components/motion/animated-element";
+import { AnimatedCounter } from "@/app/components/ui/animated-counter";
 
 interface AboutProps {
   locale: string;
 }
 
 export function About({ locale }: AboutProps) {
+  // Lokalne tłumaczenia nagłówków
+  const headerTranslations = {
+    pl: {
+      why: "DLACZEGO MY",
+      heading: "Dlaczego wybrać nas?",
+      subheading: "Jesteśmy zespołem ekspertów z wieloletnim doświadczeniem w projektowaniu i tworzeniu zaawansowanych szablonów Framer"
+    },
+    en: {
+      why: "WHY US",
+      heading: "Why choose us?",
+      subheading: "We are a team of experts with years of experience in designing and creating advanced Framer templates"
+    }
+  };
+
+  const headerContent = headerTranslations[locale as keyof typeof headerTranslations] || headerTranslations.pl;
+
   const t = {
     pl: {
       title: "Dlaczego wybrać nas?",
       description: "Jesteśmy zespołem ekspertów z wieloletnim doświadczeniem w projektowaniu i tworzeniu zaawansowanych szablonów Framer.",
       stats: [
-        { number: "3+", label: "Lat doświadczenia" },
-        { number: "50+", label: "Ukończonych projektów" },
-        { number: "30+", label: "Zadowolonych klientów" },
-        { number: "99%", label: "Satysfakcji klientów" }
+        { number: 3, suffix: "+", label: "Lat doświadczenia" },
+        { number: 50, suffix: "+", label: "Ukończonych projektów" },
+        { number: 30, suffix: "+", label: "Zadowolonych klientów" },
+        { number: 99, suffix: "%", label: "Satysfakcji klientów" }
       ],
       values: [
         {
@@ -35,10 +52,10 @@ export function About({ locale }: AboutProps) {
       title: "Why choose us?",
       description: "We are a team of experts with years of experience in designing and creating advanced Framer templates.",
       stats: [
-        { number: "3+", label: "Years of experience" },
-        { number: "50+", label: "Completed projects" },
-        { number: "30+", label: "Happy clients" },
-        { number: "99%", label: "Client satisfaction" }
+        { number: 3, suffix: "+", label: "Years of experience" },
+        { number: 50, suffix: "+", label: "Completed projects" },
+        { number: 30, suffix: "+", label: "Happy clients" },
+        { number: 99, suffix: "%", label: "Client satisfaction" }
       ],
       values: [
         {
@@ -85,16 +102,23 @@ export function About({ locale }: AboutProps) {
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5"></div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
-        <AnimatedElement className="text-center mb-16" delay={0.1}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-              {content.title}
+        <div className="text-center mb-16">
+          <AnimatedElement
+            className="flex flex-col gap-3"
+            delay={0.1}
+            viewport={{ once: true, margin: "-20% 0px" }}
+          >
+            <span className='font-bold uppercase text-primary'>
+              {headerContent.why}
             </span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            {content.description}
-          </p>
-        </AnimatedElement>
+            <h2 className='font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance max-w-[800px] mx-auto'>
+              {headerContent.heading}
+            </h2>
+            <p className='text-lg text-muted-foreground text-balance max-w-[800px] mx-auto'>
+              {headerContent.subheading}
+            </p>
+          </AnimatedElement>
+        </div>
 
         <AnimatedElement
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16"
@@ -105,7 +129,11 @@ export function About({ locale }: AboutProps) {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
-                  {stat.number}
+                  <AnimatedCounter
+                    endValue={stat.number}
+                    suffix={stat.suffix}
+                    duration={2000}
+                  />
                 </div>
               </div>
               <div className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">

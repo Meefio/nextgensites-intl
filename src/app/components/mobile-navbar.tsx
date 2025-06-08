@@ -14,6 +14,8 @@ export function MobileNavbar() {
 
 	// Determine the correct knowledge base path with absolute URL
 	const kbAbsolutePath = locale === 'en' ? '/en/knowledge-base' : '/baza-wiedzy'
+	// Framer templates path
+	const framerTemplatesPath = locale === 'en' ? '/en/szablony-framer' : '/szablony-framer'
 	// Root path based on locale
 	const rootPath = locale === 'en' ? '/en' : '/'
 
@@ -81,6 +83,13 @@ export function MobileNavbar() {
 								onClick={() => setIsOpen(false)}
 							>
 								{t('pricing')}
+							</NextLink>
+							<NextLink
+								href={framerTemplatesPath}
+								className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
+								onClick={() => setIsOpen(false)}
+							>
+								{t('framerTemplates')}
 							</NextLink>
 							<NextLink
 								href={`${rootPath}#contact`}

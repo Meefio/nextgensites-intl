@@ -7,6 +7,21 @@ interface ServicesProps {
 }
 
 export function Services({ locale }: ServicesProps) {
+  // Lokalne tłumaczenia nagłówków
+  const headerTranslations = {
+    pl: {
+      why: "NASZE USŁUGI",
+      heading: "Czym zajmujemy się w obszarze Framer",
+      subheading: "Pełen zakres usług związanych z projektowaniem i implementacją szablonów"
+    },
+    en: {
+      why: "OUR SERVICES",
+      heading: "What we do in the Framer area",
+      subheading: "Full range of services related to template design and implementation"
+    }
+  };
+
+  const headerContent = headerTranslations[locale as keyof typeof headerTranslations] || headerTranslations.pl;
   const t = {
     pl: {
       title: "Nasze usługi",
@@ -28,8 +43,8 @@ export function Services({ locale }: ServicesProps) {
         description: "Dbamy o to, aby nasze szablony ładowały się błyskawicznie i działały płynnie."
       },
       components: {
-        title: "Biblioteka komponentów",
-        description: "Dostarczamy gotowe komponenty wielokrotnego użytku z konfigurowalnymi właściwościami."
+        title: "Edycja treści",
+        description: "Zmieniaj treści dzięki intuicyjnemu systemowi CMS"
       },
       support: {
         title: "Wsparcie techniczne",
@@ -112,14 +127,23 @@ export function Services({ locale }: ServicesProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background"></div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <AnimatedElement className="text-center mb-20" delay={0.1}>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-            {content.title}
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {content.description}
-          </p>
-        </AnimatedElement>
+        <div className="text-center mb-20">
+          <AnimatedElement
+            className="flex flex-col gap-3"
+            delay={0.1}
+            viewport={{ once: true, margin: "-20% 0px" }}
+          >
+            <span className='font-bold uppercase text-primary'>
+              {headerContent.why}
+            </span>
+            <h2 className='font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance max-w-[800px] mx-auto'>
+              {headerContent.heading}
+            </h2>
+            <p className='text-lg text-muted-foreground text-balance max-w-[800px] mx-auto'>
+              {headerContent.subheading}
+            </p>
+          </AnimatedElement>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (

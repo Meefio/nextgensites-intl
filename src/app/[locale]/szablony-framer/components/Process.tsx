@@ -10,6 +10,22 @@ interface ProcessProps {
 export default function Process({ locale }: ProcessProps) {
   const [activeStep, setActiveStep] = useState(0);
 
+  // Lokalne tłumaczenia nagłówków
+  // const headerTranslations = {
+  //   pl: {
+  //     why: "JAK DZIAŁAMY",
+  //     heading: "Proces tworzenia szablonów",
+  //     subheading: "Od wyboru szablonu do gotowej strony w 5 prostych krokach - sprawdzony proces realizacji dostosowany do Twoich potrzeb"
+  //   },
+  //   en: {
+  //     why: "HOW WE WORK",
+  //     heading: "Template creation process",
+  //     subheading: "From template selection to ready website in 5 simple steps - proven realization process tailored to your needs"
+  //   }
+  // };
+
+  // const headerContent = headerTranslations[locale as keyof typeof headerTranslations] || headerTranslations.pl;
+
   const t = {
     pl: {
       badge: "JAK DZIAŁAMY",
@@ -109,17 +125,23 @@ export default function Process({ locale }: ProcessProps) {
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <AnimatedElement className="text-center mb-20" delay={0.1}>
-          <div className="inline-flex items-center space-x-2 bg-primary/10 border border-primary/20 text-primary px-6 py-3 rounded-full mb-8">
-            <span className="text-sm font-medium uppercase tracking-wider">{content.badge}</span>
-          </div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-            {content.title}
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {content.description}
-          </p>
-        </AnimatedElement>
+        {/* <div className="text-center mb-20"> */}
+          {/* <AnimatedElement
+            className="flex flex-col gap-3"
+            delay={0.1}
+            viewport={{ once: true, margin: "-20% 0px" }}
+          >
+            <span className='font-bold uppercase text-primary'>
+              {headerContent.why}
+            </span>
+            <h2 className='font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance max-w-[800px] mx-auto'>
+              {headerContent.heading}
+            </h2>
+            <p className='text-lg text-muted-foreground text-balance max-w-[800px] mx-auto'>
+              {headerContent.subheading}
+            </p>
+          </AnimatedElement> */}
+        {/* </div> */}
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Progress Timeline */}
@@ -138,8 +160,8 @@ export default function Process({ locale }: ProcessProps) {
                   <div key={index} className="relative flex items-center">
                     <div
                       className={`w-8 h-8 rounded-full border-2 transition-all duration-300 ${index <= activeStep
-                          ? 'bg-primary border-primary shadow-lg shadow-primary/30'
-                          : 'bg-background border-muted-foreground/30'
+                        ? 'bg-primary border-primary shadow-lg shadow-primary/30'
+                        : 'bg-background border-muted-foreground/30'
                         }`}
                     >
                       {index <= activeStep && (

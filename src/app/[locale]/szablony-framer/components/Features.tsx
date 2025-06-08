@@ -1,4 +1,4 @@
-import { CheckCircle, Globe, Shield, Clock } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { AnimatedElement } from "@/app/components/motion/animated-element";
 
 interface FeaturesProps {
@@ -6,6 +6,22 @@ interface FeaturesProps {
 }
 
 export function Features({ locale }: FeaturesProps) {
+  // Lokalne tłumaczenia nagłówków
+  const headerTranslations = {
+    pl: {
+      why: "DLACZEGO FRAMER",
+      heading: "Wszystko czego potrzebujesz w jednym miejscu",
+      subheading: "Nowoczesne rozwiązania dla Twojego biznesu"
+    },
+    en: {
+      why: "WHY FRAMER",
+      heading: "Everything you need in one place",
+      subheading: "Modern solutions for your business"
+    }
+  };
+
+  const headerContent = headerTranslations[locale as keyof typeof headerTranslations] || headerTranslations.pl;
+
   const t = {
     pl: {
       title: "Dlaczego nasze szablony Framer?",
@@ -75,6 +91,24 @@ export function Features({ locale }: FeaturesProps) {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="text-center mb-20">
+          <AnimatedElement
+            className="flex flex-col gap-3"
+            delay={0.1}
+            viewport={{ once: true, margin: "-20% 0px" }}
+          >
+            <span className='font-bold uppercase text-primary'>
+              {headerContent.why}
+            </span>
+            <h2 className='font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance max-w-[800px] mx-auto'>
+              {headerContent.heading}
+            </h2>
+            <p className='text-lg text-muted-foreground text-balance max-w-[800px] mx-auto'>
+              {headerContent.subheading}
+            </p>
+          </AnimatedElement>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <AnimatedElement direction="left" delay={0.1}>
             <h2 className="text-5xl md:text-6xl font-bold mb-8 text-foreground">

@@ -25,6 +25,7 @@
     "pricing": "Cennik",
     "contact": "Kontakt",
     "portfolio": "Portfolio",
+    "framerTemplates": "Szablony Framer",
     "getFreeQuote": "Uzyskaj darmową wycenę",
     "openMenu": "Otwórz menu",
     "closeMenu": "Zamknij menu",
@@ -865,6 +866,60 @@
         "name": "Kontakt",
         "shortName": "Kontakt",
         "description": "Skontaktuj się z nami"
+      }
+    }
+  },
+  "FramerTemplatesPromo": {
+    "badge": "Nowa oferta",
+    "title": "Gotowe szablony",
+    "titleAccent": "Framer",
+    "description": "Odkryj naszą kolekcję profesjonalnych szablonów Framer. Idealne rozwiązanie dla firm, które chcą szybko uruchomić piękną stronę internetową.",
+    "exploreButton": "Przeglądaj szablony",
+    "examplesButton": "Zobacz przykłady",
+    "features": {
+      "readyToUse": {
+        "title": "Gotowe do użycia",
+        "description": "Szablony przygotowane do natychmiastowego wdrożenia"
+      },
+      "professionalDesign": {
+        "title": "Profesjonalny design",
+        "description": "Nowoczesne projekty dostosowane do trendów"
+      },
+      "highQuality": {
+        "title": "Wysokiej jakości",
+        "description": "Starannie zaprojektowane z dbałością o szczegóły"
+      }
+    },
+    "templates": {
+      "businessPro": {
+        "title": "Business Pro",
+        "description": "Profesjonalny szablon dla firm usługowych"
+      },
+      "creativeStudio": {
+        "title": "Creative Studio",
+        "description": "Kreatywny design dla agencji i freelancerów"
+      },
+      "portfolio": {
+        "title": "Portfolio",
+        "description": "Eleganckie portfolio dla twórców"
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "description": "Nowoczesny sklep internetowy"
+      }
+    },
+    "stats": {
+      "templates": {
+        "value": "20+",
+        "label": "Dostępnych szablonów"
+      },
+      "time": {
+        "value": "48h",
+        "label": "Czas realizacji"
+      },
+      "responsive": {
+        "value": "100%",
+        "label": "Responsywne projekty"
       }
     }
   },
