@@ -66,6 +66,11 @@ export const routing = defineRouting({
     '/przyklad-wpisu-wykorzystujacego-wszystkie-komponenty': {
       pl: '/przyklad-wpisu-wykorzystujacego-wszystkie-komponenty',
       en: '/example-post-using-all-components'
+    },
+    // Add Framer templates page
+    '/szablony-framer': {
+      pl: '/szablony-framer',
+      en: '/framer-templates'
     }
   }
 });
