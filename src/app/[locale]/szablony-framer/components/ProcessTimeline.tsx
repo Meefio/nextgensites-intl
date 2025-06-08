@@ -1,29 +1,12 @@
 'use client';
 
 import { Timeline } from "@/app/components/ui/timeline";
-import { AnimatedElement } from "@/app/components/motion/animated-element";
 
 interface ProcessTimelineProps {
   locale: string;
 }
 
 export default function ProcessTimeline({ locale }: ProcessTimelineProps) {
-  // Lokalne tłumaczenia nagłówków
-  const headerTranslations = {
-    pl: {
-      why: "JAK DZIAŁAMY",
-      heading: "Proces tworzenia szablonów",
-      subheading: "Od wyboru szablonu do gotowej strony w 5 prostych krokach - sprawdzony proces realizacji dostosowany do Twoich potrzeb"
-    },
-    en: {
-      why: "HOW WE WORK",
-      heading: "Template creation process",
-      subheading: "From template selection to ready website in 5 simple steps - proven realization process tailored to your needs"
-    }
-  };
-
-  const headerContent = headerTranslations[locale as keyof typeof headerTranslations] || headerTranslations.pl;
-
   const t = {
     pl: {
       badge: "JAK DZIAŁAMY",

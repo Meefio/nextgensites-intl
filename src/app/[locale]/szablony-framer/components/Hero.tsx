@@ -4,7 +4,6 @@ import { ArrowRight, Smartphone, Zap, TrendingUp, Users, Clock, Star, Award, Spa
 import { Button } from "@/app/components/ui/button";
 import { AnimatedElement } from "@/app/components/motion/animated-element";
 import { AnimatedCounter } from "@/app/components/ui/animated-counter";
-import { useTranslations } from 'next-intl';
 
 interface HeroProps {
   locale: string;

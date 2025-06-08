@@ -7,21 +7,6 @@ interface FeaturesProps {
 
 export function Features({ locale }: FeaturesProps) {
   // Lokalne tłumaczenia nagłówków
-  const headerTranslations = {
-    pl: {
-      why: "DLACZEGO FRAMER",
-      heading: "Wszystko czego potrzebujesz w jednym miejscu",
-      subheading: "Nowoczesne rozwiązania dla Twojego biznesu"
-    },
-    en: {
-      why: "WHY FRAMER",
-      heading: "Everything you need in one place",
-      subheading: "Modern solutions for your business"
-    }
-  };
-
-  const headerContent = headerTranslations[locale as keyof typeof headerTranslations] || headerTranslations.pl;
-
   const t = {
     pl: {
       title: "Dlaczego nasze szablony Framer?",
