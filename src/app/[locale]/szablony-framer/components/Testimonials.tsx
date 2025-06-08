@@ -1,7 +1,6 @@
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/app/components/ui/card";
 import { AnimatedElement } from "@/app/components/motion/animated-element";
-import Image from "next/image";
 
 interface TestimonialsProps {
   locale: string;

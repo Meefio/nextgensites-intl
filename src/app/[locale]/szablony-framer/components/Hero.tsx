@@ -216,7 +216,7 @@ export function Hero({ locale }: HeroProps) {
 
           {/* Stats Section */}
           <AnimatedElement
-            className="hidden md:flex md:flex-col sm:flex-row gap-4 md:gap-8 justify-center items-center mb-8 md:mb-12"
+            className="hidden md:flex gap-4 md:gap-8 justify-center items-center mb-8 md:mb-12"
             delay={0.4}
           >
             {content.stats.map((stat, index) => (
