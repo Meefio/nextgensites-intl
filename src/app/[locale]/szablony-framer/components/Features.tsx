@@ -91,27 +91,10 @@ export function Features({ locale }: FeaturesProps) {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="text-center mb-20">
-          <AnimatedElement
-            className="flex flex-col gap-3"
-            delay={0.1}
-            viewport={{ once: true, margin: "-20% 0px" }}
-          >
-            <span className='font-bold uppercase text-primary'>
-              {headerContent.why}
-            </span>
-            <h2 className='font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance max-w-[800px] mx-auto'>
-              {headerContent.heading}
-            </h2>
-            <p className='text-lg text-muted-foreground text-balance max-w-[800px] mx-auto'>
-              {headerContent.subheading}
-            </p>
-          </AnimatedElement>
-        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <AnimatedElement direction="left" delay={0.1}>
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-foreground">
+            <h2 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance max-w-[800px] mx-auto mb-8 text-foreground">
               {content.title}
             </h2>
             <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
@@ -150,7 +133,7 @@ export function Features({ locale }: FeaturesProps) {
           >
             <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-xl"></div>
             <div className="relative bg-card/40 backdrop-blur-sm border border-border/30 rounded-3xl p-10 shadow-2xl">
-              <h3 className="text-3xl font-bold mb-8 text-foreground">
+              <h3 className="text-2xl font-bold mb-8 text-foreground">
                 {content.whatYouGet}
               </h3>
               <div className="space-y-5">
