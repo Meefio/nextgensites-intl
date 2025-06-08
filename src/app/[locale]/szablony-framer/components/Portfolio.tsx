@@ -13,7 +13,7 @@ interface PortfolioProps {
 
 export function Portfolio({ locale }: PortfolioProps) {
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 4;
+  const itemsPerPage = 6;
 
   // Lokalne tłumaczenia nagłówków
   const headerTranslations = {
@@ -36,65 +36,93 @@ export function Portfolio({ locale }: PortfolioProps) {
       title: "Nasze szablony Framer",
       description: "Odkryj nasze najnowsze szablony i zobacz, jak mogą one pomóc w Twoim projekcie",
       liveDemo: "Zobacz demo",
-      getTemplate: "Pobierz szablon",
+      selectTemplate: "Wybierz szablon",
       previousPage: "Poprzednie",
       nextPage: "Następne",
       projects: [
         {
-          title: "SaaS Landing Page",
-          description: "Nowoczesna strona docelowa dla aplikacji SaaS z zaawansowanymi animacjami i sekcjami konwersji.",
-          image: "/images/portfolio/saas-landing-page.jpg",
-          technologies: ["Framer", "Animations", "Responsive", "CMS"],
-          category: "Landing Page"
+          title: "Landio",
+          description: "Szablon Landing Page SaaS | Profesjonalny, łatwy do personalizacji szablon zaprojektowany dla zwiększenia konwersji i zaangażowania użytkowników",
+          image: "/images/framer/landio.webp",
+          category: "Landing Page",
+          demoUrl: "https://landio.framer.website/"
         },
         {
-          title: "E-commerce Template",
-          description: "Szablon sklepu internetowego z interaktywną galerią produktów i płynnym checkout.",
-          image: "/images/portfolio/e-commerce-template.jpg",
-          technologies: ["Framer", "E-commerce", "Cart", "Payments"],
-          category: "E-commerce"
+          title: "Nubien",
+          description: "Szablon Landing Page AI Agency & Portfolio | Profesjonalny szablon idealny dla agencji kreatywnych, portfolios osobistych i prezentacji usług AI",
+          image: "/images/framer/nubien.webp",
+          category: "Landing Page",
+          demoUrl: "https://nubien.framer.website/"
         },
         {
-          title: "Portfolio Creative",
-          description: "Kreatywny szablon portfolio z unikalnymi animacjami i interakcjami.",
-          image: "/images/portfolio/portfolio-creative.jpg",
-          technologies: ["Framer", "Portfolio", "Creative", "Gallery"],
-          category: "Portfolio"
+          title: "Dentoi",
+          description: "Szablon Framer dla Klinik Dentystycznych | Nowoczesny, łatwy w personalizacji szablon zaprojektowany specjalnie dla dentystów i klinik stomatologicznych",
+          image: "/images/framer/dentoi.webp",
+          category: "Landing Page",
+          demoUrl: "https://dentoi.framer.website/"
         },
         {
-          title: "Business Corporate",
-          description: "Profesjonalny szablon korporacyjny z sekcjami usług i zespołu.",
-          image: "/images/portfolio/business-corporate.jpg",
-          technologies: ["Framer", "Corporate", "Services", "Team"],
-          category: "Business"
+          title: "Altair",
+          description: "Szablon Framer dla Agencji Design Subscription | Wysokokonwertujący szablon z przejrzystymi cenami i integracją rezerwacji spotkań dla usług designu.",
+          image: "/images/framer/altair.webp",
+          category: "Landing Page",
+          demoUrl: "https://altair.framer.website/"
         },
         {
-          title: "Restaurant Template",
-          description: "Elegancki szablon dla restauracji z galerią dań i systemem rezerwacji.",
-          image: "/images/portfolio/restaurant-template.jpg",
-          technologies: ["Framer", "Restaurant", "Booking", "Gallery"],
-          category: "Restaurant"
+          title: "BookEase",
+          description: "Szablon BookEase dla Rezerwacji Podróży | Responsywny i wszechstronny szablon zaprojektowany dla firm turystycznych z intuicyjnym systemem rezerwacji",
+          image: "/images/framer/bookease.webp",
+          category: "Landing Page",
+          demoUrl: "https://bookease.framer.website/"
         },
         {
-          title: "Fashion Brand",
-          description: "Stylowy szablon dla marki modowej z dynamiczną prezentacją produktów.",
-          image: "/images/portfolio/fashion-brand.jpg",
-          technologies: ["Framer", "Fashion", "Lookbook", "Shopping"],
-          category: "Fashion"
+          title: "Pawfect",
+          description: "Szablon Pawfect dla Firm Pet Care | Profesjonalny i przyjazny szablon zaprojektowany dla salonów groomerskich, przedszkoli dla zwierząt i klinik weterynaryjnych",
+          image: "/images/framer/pawfect.webp",
+          category: "Landing Page",
+          demoUrl: "https://pawfect.framer.media/"
         },
         {
-          title: "Tech Startup",
-          description: "Nowoczesny szablon dla startupów technologicznych z sekcjami inwestorów.",
-          image: "/images/portfolio/tech-startup.jpg",
-          technologies: ["Framer", "Startup", "Investors", "Analytics"],
-          category: "Startup"
+          title: "Flowline",
+          description: "Szablon Flowline dla SaaS i Startupów | Nowoczesny, wysokokonwertujący szablon z przejrzystym designem zaprojektowany do zwiększania rejestracji i sprzedaży.",
+          image: "/images/framer/flowline.webp",
+          category: "Landing Page",
+          demoUrl: "https://flowline.framer.website/"
         },
         {
-          title: "Health & Wellness",
-          description: "Szablon dla branży zdrowotnej z systemem umówień wizyt.",
-          image: "/images/portfolio/health-wellness.jpg",
-          technologies: ["Framer", "Health", "Appointments", "Services"],
-          category: "Health"
+          title: "Ascension",
+          description: "Szablon Ascension w Stylu Szwajcarskim | Minimalistyczny szablon Framer dla marek SaaS z ustrukturyzowanym designem prezentującym funkcje platformy",
+          image: "/images/framer/ascension.webp",
+          category: "Landing Page",
+          demoUrl: "https://ascensiontemplate.framer.website/"
+        },
+        {
+          title: "Hyperactive",
+          description: "Szablon Hyperactive dla Agencji Kreatywnej | Profesjonalny i łatwy w personalizacji szablon zaprojektowany dla kreatywnych profesjonalistów z responsywnym designem",
+          image: "/images/framer/hyperactive.webp",
+          category: "Landing Page",
+          demoUrl: "https://hyperactive.framer.website/"
+        },
+        {
+          title: "Synthorixs",
+          description: "Szablon Synthorix dla Dostawców Chemikaliów | Dedykowany szablon landing page z przejrzystym layoutem i zoptymalizowanymi CTA dla firm chemicznych",
+          image: "/images/framer/synthorixs.webp",
+          category: "Landing Page",
+          demoUrl: "https://synthorix.framer.website/"
+        },
+        {
+          title: "Civitas",
+          description: "Szablon Landing Page dla Kancelarii Prawnych | Nowoczesny i godny zaufania szablon zaprojektowany dla kancelarii prawnych, adwokatów i doradców prawnych – idealny do prezentacji usług, przyciągania klientów i budowania wiarygodności",
+          image: "/images/framer/civitas.webp",
+          category: "Landing Page",
+          demoUrl: "https://civitas.framer.website/"
+        },
+        {
+          title: "Agencee",
+          description: "Szablon Framer dla Agencji i Biznesów Cyfrowych | Nowoczesny, minimalistyczny i ciemny szablon idealny dla agencji kreatywnych, marketingowych, SEO, portfolio oraz stron osobistych. Łatwy do personalizacji i gotowy do prezentacji usług",
+          image: "/images/framer/agencee.webp",
+          category: "Landing Page",
+          "demoUrl": "https://agencee.framer.website/"
         }
       ]
     },
@@ -102,65 +130,93 @@ export function Portfolio({ locale }: PortfolioProps) {
       title: "Our Framer Templates",
       description: "Discover our latest templates and see how they can help with your project",
       liveDemo: "View Demo",
-      getTemplate: "Get Template",
+      selectTemplate: "Select Template",
       previousPage: "Previous",
       nextPage: "Next",
       projects: [
         {
-          title: "SaaS Landing Page",
-          description: "Modern landing page for SaaS applications with advanced animations and conversion sections.",
-          image: "/images/portfolio/saas-landing-page.jpg",
-          technologies: ["Framer", "Animations", "Responsive", "CMS"],
-          category: "Landing Page"
+          title: "Landio",
+          description: "SaaS Landing Page Template | Professional, easy-to-customize template designed to boost conversions and user engagement",
+          image: "/images/framer/landio.webp",
+          category: "Landing Page",
+          demoUrl: "https://landio.framer.website/"
         },
         {
-          title: "E-commerce Template",
-          description: "Online store template with interactive product gallery and smooth checkout.",
-          image: "/images/portfolio/e-commerce-template.jpg",
-          technologies: ["Framer", "E-commerce", "Cart", "Payments"],
-          category: "E-commerce"
+          title: "Nubien",
+          description: "Landing Page Template AI Agency & Portfolio | Professional template designed for AI agencies, personal portfolios and AI service presentations",
+          image: "/images/framer/nubien.webp",
+          category: "Landing Page",
+          demoUrl: "https://nubien.framer.website/"
         },
         {
-          title: "Portfolio Creative",
-          description: "Creative portfolio template with unique animations and interactions.",
-          image: "/images/portfolio/portfolio-creative.jpg",
-          technologies: ["Framer", "Portfolio", "Creative", "Gallery"],
-          category: "Portfolio"
+          title: "Dentoi",
+          description: "Dental Clinic Framer Template | Modern, easy-to-customize template designed specifically for dentists and dental clinics",
+          image: "/images/framer/dentoi.webp",
+          category: "Landing Page",
+          demoUrl: "https://dentoi.framer.website/"
         },
         {
-          title: "Business Corporate",
-          description: "Professional corporate template with services and team sections.",
-          image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=300&fit=crop",
-          technologies: ["Framer", "Corporate", "Services", "Team"],
-          category: "Business"
+          title: "Altair",
+          description: "Design Subscription Agency Framer Template | High-converting template with clear pricing tiers and seamless booking integration for design services.",
+          image: "/images/framer/altair.webp",
+          category: "Landing Page",
+          demoUrl: "https://altair.framer.website/"
         },
         {
-          title: "Restaurant Template",
-          description: "Elegant restaurant template with dish gallery and reservation system.",
-          image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=500&h=300&fit=crop",
-          technologies: ["Framer", "Restaurant", "Booking", "Gallery"],
-          category: "Restaurant"
+          title: "BookEase",
+          description: "Travel Booking Website Template | Responsive and versatile template designed for travel companies with intuitive booking system",
+          image: "/images/framer/bookease.webp",
+          category: "Landing Page",
+          demoUrl: "https://bookease.framer.website/"
         },
         {
-          title: "Fashion Brand",
-          description: "Stylish template for fashion brands with dynamic product presentation.",
-          image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&h=300&fit=crop",
-          technologies: ["Framer", "Fashion", "Lookbook", "Shopping"],
-          category: "Fashion"
+          title: "Pawfect",
+          description: "Pet Care Company Framer Template | Professional and user-friendly template designed for pet grooming salons, pet daycare centers and veterinary clinics",
+          image: "/images/framer/pawfect.webp",
+          category: "Landing Page",
+          demoUrl: "https://pawfect.framer.media//"
         },
         {
-          title: "Tech Startup",
-          description: "Modern template for tech startups with investor sections.",
-          image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=300&fit=crop",
-          technologies: ["Framer", "Startup", "Investors", "Analytics"],
-          category: "Startup"
+          title: "Flowline",
+          description: "Flowline SaaS & Startup Template | Modern, high-converting template with clean design designed to boost signups and sales",
+          image: "/images/framer/flowline.webp",
+          category: "Landing Page",
+          demoUrl: "https://flowline.framer.website/"
         },
         {
-          title: "Health & Wellness",
-          description: "Template for healthcare industry with appointment booking system.",
-          image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&h=300&fit=crop",
-          technologies: ["Framer", "Health", "Appointments", "Services"],
-          category: "Health"
+          title: "Ascension",
+          description: "Swiss-style minimalist Framer template for SaaS brands with structured feature presentation",
+          image: "/images/framer/ascension.webp",
+          category: "Landing Page",
+          demoUrl: "https://ascensiontemplate.framer.website/"
+        },
+        {
+          title: "Hyperactive",
+          description: "Hyper Active Design Membership Agency Template | Framer template designed for creative professionals with easy customization and responsive design",
+          image: "/images/framer/hyperactive.webp",
+          category: "Landing Page",
+          demoUrl: "https://hyperactive.framer.website/"
+        },
+        {
+          title: "Synthorixs",
+          description: "Chemical Supplier Landing Page Template | Dedicated landing page template with clear layout and optimized CTA for chemical companies",
+          image: "/images/framer/synthorixs.webp",
+          category: "Landing Page",
+          demoUrl: "https://synthorix.framer.website/"
+        },
+        {
+          title: "Civitas",
+          description: "Law Firm Landing Page Template | Modern and trustworthy template designed for law firms, lawyers and legal advisors – perfect for showcasing services, attracting clients and building trust",
+          image: "/images/framer/civitas.webp",
+          category: "Landing Page",
+          demoUrl: "https://civitas.framer.website/"
+        },
+        {
+          title: "Agencee",
+          description: "Digital Agency & Business Framer Template | Modern, minimalist and dark template designed for creative agencies, marketing, SEO, portfolio and personal websites. Easy to customize and ready to showcase services",
+          image: "/images/framer/agencee.webp",
+          category: "Landing Page",
+          demoUrl: "https://agencee.framer.website/"
         }
       ]
     }
@@ -208,20 +264,20 @@ export function Portfolio({ locale }: PortfolioProps) {
           </AnimatedElement>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentProjects.map((project, index) => (
             <AnimatedElement
               key={index}
               delay={0.2 + index * 0.1}
             >
-              <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-border/30 bg-card/30 backdrop-blur-sm overflow-hidden h-full">
+              <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-border/30 bg-card/30 backdrop-blur-sm overflow-hidden h-full flex flex-col">
                 <div className="relative overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
                     width={500}
-                    height={300}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                    height={400}
+                    className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -240,26 +296,23 @@ export function Portfolio({ locale }: PortfolioProps) {
                   </CardDescription>
                 </CardHeader>
 
-                <CardContent className="relative z-10">
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm border border-primary/20"
+                <CardContent className="relative z-10 mt-auto">
+                  <div className="flex space-x-4 ">
+                    <Button variant="outline" size="sm" className="flex-1 group/btn" asChild>
+                      <a
+                        href={project.demoUrl}
+                        target={project.demoUrl !== "#" ? "_blank" : "_self"}
+                        rel={project.demoUrl !== "#" ? "noopener noreferrer" : undefined}
                       >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex space-x-4">
-                    <Button variant="outline" size="sm" className="flex-1 group/btn">
-                      <ExternalLink className="h-4 w-4 mr-2 group-hover/btn:scale-110 transition-transform" />
-                      {content.liveDemo}
+                        <ExternalLink className="h-4 w-4 mr-2 group-hover/btn:scale-110 transition-transform" />
+                        {content.liveDemo}
+                      </a>
                     </Button>
-                    <Button variant="default" size="sm" className="flex-1 group/btn">
-                      <Globe className="h-4 w-4 mr-2 group-hover/btn:scale-110 transition-transform" />
-                      {content.getTemplate}
+                    <Button variant="default" size="sm" className="flex-1 group/btn" asChild>
+                      <a href="#contact">
+                        <Globe className="h-4 w-4 mr-2 group-hover/btn:scale-110 transition-transform" />
+                        {content.selectTemplate}
+                      </a>
                     </Button>
                   </div>
                 </CardContent>
