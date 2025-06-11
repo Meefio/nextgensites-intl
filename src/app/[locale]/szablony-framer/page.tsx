@@ -1,4 +1,5 @@
-import { Hero, Services, Features, Portfolio, Process, Testimonials } from './components'
+import { Hero, Services, Features, Portfolio, Process } from './components'
+// import { Testimonials } from './components'
 import { CtaSection } from '@/app/components/cta'
 import { ContactForm } from '@/app/components/contact-form'
 import { Header } from '@/app/components/header'
@@ -108,7 +109,7 @@ export default async function FramerTemplatesPage({ params }: GenerateMetadataPr
         {/* <About locale={locale} />
 */}
 
-        <Testimonials locale={locale} />
+        {/* <Testimonials locale={locale} /> */}
         <CtaSection />
         <ContactForm />
       </main>

@@ -77,13 +77,13 @@ export function MobileNavbar() {
 							>
 								{t('portfolio')}
 							</NextLink>
-							<NextLink
+							{/* <NextLink
 								href={`${rootPath}#pricing`}
 								className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
 								onClick={() => setIsOpen(false)}
 							>
 								{t('pricing')}
-							</NextLink>
+							</NextLink> */}
 							<NextLink
 								href={framerTemplatesPath}
 								className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"

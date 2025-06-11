@@ -1,17 +1,22 @@
-import { Check, Clock } from 'lucide-react'
+// import { Check, Clock } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { Card, CardContent } from '@/app/components/ui/card'
+// import { Card, CardContent } from '@/app/components/ui/card'
 import { Button } from '@/app/components/ui/button'
 import Link from 'next/link'
 // import { Switch } from '@/app/components/ui/switch'
-import { PriceDisplay } from './price-display'
-import { PromoHeader } from './promo-header'
-import { CountdownTimer } from './countdown-timer'
-import { ClientAnimatedWrapper, ClientAnimatedCard, ClientAnimatedCosts } from './pricing/client-animated-pricing'
+// import { PriceDisplay } from './price-display'
+// import { PromoHeader } from './promo-header'
+// import { CountdownTimer } from './countdown-timer'
+// import { ClientAnimatedWrapper, ClientAnimatedCard } from './pricing/client-animated-pricing'
+import { ClientAnimatedCosts } from './pricing/client-animated-pricing'
 
 export function Pricing() {
 	const t = useTranslations('Pricing')
+	const tContact = useTranslations('Contact')
 
+	// SEKCJE CENOWE ZAKOMENTOWANE - WYŁĄCZONE WYŚWIETLANIE CEN PRODUKTÓW
+	// Zachowujemy tylko sekcję "Niskie koszty utrzymania"
+	/*
 	const plans = [
 		{
 			key: 'basic',
@@ -44,13 +49,16 @@ export function Pricing() {
 			features: t.raw('plans.premium.features') as string[],
 		},
 	]
+	*/
 
 	return (
 		<section
 			id='pricing'
-			className='w-full bg-[#0c0c0c] dark:bg-background py-16 md:py-28 scroll-mt-header mt-14 md:mt-20 rounded-lg'
+			className='w-full bg-[#0c0c0c] dark:bg-background pb-16 md:pb-28 scroll-mt-header mt-14 md:mt-20 rounded-lg'
 		>
 			<div className='container flex flex-col items-center gap-6 sm:gap-7'>
+				{/* ZAKOMENTOWANO SEKCJĘ NAGŁÓWKOWĄ Z CENAMI I PROMOCJAMI */}
+				{/*
 				<ClientAnimatedWrapper className='flex flex-col gap-3'>
 					<span className='font-bold uppercase text-primary text-center'>
 						{t('why')}
@@ -64,34 +72,10 @@ export function Pricing() {
 					<PromoHeader />
 					<CountdownTimer />
 				</ClientAnimatedWrapper>
+				*/}
 
-				{/* <AnimatedElement className='flex items-center gap-2 mt-4'>
-					<span
-						className={
-							isMonthly ? 'text-foreground' : 'text-muted-foreground'
-						}
-						>
-							Subskrypcyjnie
-					</span>
-					<Switch
-						checked={!isMonthly}
-						onCheckedChange={() => setIsMonthly(!isMonthly)}
-						className='data-[state=checked]:bg-primary'
-						aria-label={
-							isMonthly
-								? 'Zmień na opcję jednorazową'
-								: 'Zmień na opcję subskrypcyjną'
-						}
-					/>
-					<span
-						className={
-							!isMonthly ? 'text-foreground' : 'text-muted-foreground'
-						}
-					>
-						Jednorazowo
-					</span>
-				</AnimatedElement> */}
-
+				{/* ZAKOMENTOWANO SEKCJĘ Z KARTAMI PAKIETÓW CENOWYCH */}
+				{/*
 				<div className='mt-7 grid w-full grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3'>
 					{plans.map((plan) => (
 						<ClientAnimatedCard
@@ -180,32 +164,50 @@ export function Pricing() {
 						</ClientAnimatedCard>
 					))}
 				</div>
+				*/}
 
+				{/* ZACHOWANO TYLKO SEKCJĘ "NISKIE KOSZTY UTRZYMANIA" */}
+				{/* Dodano lepsze wyśrodkowanie i stylizację dla standalone sekcji */}
 				<ClientAnimatedCosts>
-					<div className='bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 md:p-8'>
-						<h3 className='text-xl md:text-2xl font-semibold text-white text-center mb-4'>{t('maintenanceCosts.heading')}</h3>
-						<p className='text-gray-200 text-center text-lg mb-6'>{t('maintenanceCosts.description')}</p>
+					<div className='bg-zinc-900/60 border border-zinc-800 rounded-2xl p-8 md:p-12 max-w-4xl mx-auto'>
+						<div className='text-center mb-8'>
+							<span className='inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4'>
+								{t('badgeLabel')}
+							</span>
+							<h2 className='text-2xl md:text-3xl font-semibold text-white mb-4'>
+								{t('maintenanceCosts.heading')}
+							</h2>
+							<p className='text-gray-200 text-lg md:text-xl max-w-2xl mx-auto'>
+								{t('maintenanceCosts.description')}
+							</p>
+						</div>
 
-						<div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-							<div className='flex flex-col items-center p-4 bg-zinc-800/40 rounded-lg'>
-								<h4 className='text-primary font-medium mb-2'>{t('maintenanceCosts.domain.title')}</h4>
+						<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8'>
+							<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
+								<h4 className='text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.domain.title')}</h4>
 								<p className='text-gray-300 text-center'>{t('maintenanceCosts.domain.description')}</p>
 							</div>
-							<div className='flex flex-col items-center p-4 bg-zinc-800/40 rounded-lg'>
-								<h4 className='text-primary font-medium mb-2'>{t('maintenanceCosts.hosting.title')}</h4>
+							<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
+								<h4 className='text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.hosting.title')}</h4>
 								<p className='text-gray-300 text-center'>{t('maintenanceCosts.hosting.description')}</p>
 							</div>
-							<div className='flex flex-col items-center p-4 bg-zinc-800/40 rounded-lg'>
-								<h4 className='text-primary font-medium mb-2'>{t('maintenanceCosts.email.title')}</h4>
+							<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
+								<h4 className='text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.email.title')}</h4>
 								<p className='text-gray-300 text-center'>{t('maintenanceCosts.email.description')}</p>
+							</div>
+							<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
+								<h4 className='text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.form.title')}</h4>
+								<p className='text-gray-300 text-center'>{t('maintenanceCosts.form.description')}</p>
 							</div>
 						</div>
 
-						<div className='mt-6'>
-							<div className='p-4 bg-zinc-800/40 rounded-lg md:max-w-md mx-auto'>
-								<h4 className='text-primary font-medium mb-2 text-center'>{t('maintenanceCosts.form.title')}</h4>
-								<p className='text-gray-300 text-center'>{t('maintenanceCosts.form.description')}</p>
-							</div>
+						{/* Dodano CTA button dla kontaktu */}
+						<div className='text-center'>
+							<Button size='lg' asChild className='bg-primary hover:bg-primary/90 px-8'>
+								<Link href='/#contact'>
+									{tContact('title')}
+								</Link>
+							</Button>
 						</div>
 					</div>
 				</ClientAnimatedCosts>
