@@ -8,6 +8,7 @@ import { Footer } from '@/app/components/footer'
 import { Pricing } from '@/app/components/pricing'
 import { Faq } from '@/app/components/faq'
 import { ContactForm } from '@/app/components/contact-form'
+import { FramerTemplatesPromo } from '@/app/components/framer-templates-promo'
 import { createCanonicalUrl, createLanguageAlternates } from '@/app/utils/createCanonicalUrl'
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
@@ -393,6 +394,7 @@ export default async function HomePage({ params }: GenerateMetadataProps) {
 				<WhyNotWordPressSection />
 				<TimelineSection />
 				<Pricing />
+				<FramerTemplatesPromo />
 				<LatestBlogPosts locale={locale} />
 				<Faq />
 				<CtaSection />

@@ -18,6 +18,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     {
+      url: `${DOMAIN}/szablony-framer`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${DOMAIN}/en/framer-templates`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    {
       url: `${DOMAIN}/polityka-prywatnosci`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,

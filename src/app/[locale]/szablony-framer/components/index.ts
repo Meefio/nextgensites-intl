@@ -1,0 +1,7 @@
+export { Hero } from './Hero'
+export { Services } from './Services'
+export { Features } from './Features'
+export { Portfolio } from './Portfolio'
+export { About } from './About'
+export { default as Process } from './ProcessTimeline'
+export { default as Testimonials } from './Testimonials' 

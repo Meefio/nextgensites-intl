@@ -43,10 +43,13 @@ export function Header() {
     };
   }, []);
 
+  const framerTemplatesPath = locale === 'en' ? '/en/szablony-framer' : '/szablony-framer';
+
   const navigationItems = [
     { href: `${rootPath}#benefits`, label: t('benefits') },
     { href: `${rootPath}#portfolio`, label: t('portfolio') },
-    { href: `${rootPath}#pricing`, label: t('pricing') },
+    // { href: `${rootPath}#pricing`, label: t('pricing') },
+    { href: framerTemplatesPath, label: t('framerTemplates') },
     { href: `${rootPath}#contact`, label: t('contact') },
     { href: kbAbsolutePath, label: kbT('title') }
   ];

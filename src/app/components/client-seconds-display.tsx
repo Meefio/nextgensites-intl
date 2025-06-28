@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 
 // Target date for the promotion
-const TARGET_DATE = new Date('2025-05-25T23:59:59')
+const TARGET_DATE = new Date('2025-06-15T23:59:59')
 
 export function ClientSecondsDisplay({ label }: { label: string }) {
   const [seconds, setSeconds] = useState(0)

@@ -25,6 +25,7 @@
     "pricing": "Cennik",
     "contact": "Kontakt",
     "portfolio": "Portfolio",
+    "framerTemplates": "Szablony Framer",
     "getFreeQuote": "Uzyskaj darmową wycenę",
     "openMenu": "Otwórz menu",
     "closeMenu": "Zamknij menu",
@@ -187,10 +188,11 @@
     "why": "Cennik",
     "heading": "Najniższe ceny na rynku",
     "subheading": "Jakość premium bez przepłacania!",
-    "promoHeader": "🎉 Promocja! -30% na wszystkie pakiety! 🎉",
+    "promoHeader": "Strony Następnej Generacji",
     "promoInfo": "Promocja -30%",
     "promoEnds": "Do końca promocji pozostało:",
-    "shimmer": "Profesjonalne strony już od 5 499zł",
+    "shimmer": "Strony Następnej Generacji",
+    "badgeLabel": "KOSZTY",
     "timer": {
       "days": "dni",
       "hours": "godz",
@@ -416,7 +418,8 @@
     "privacy": "Polityka prywatności",
     "terms": "Regulamin",
     "gdpr": "RODO",
-    "copyright": "NextGen Sites © {year}. Wszystkie prawa zastrzeżone."
+    "copyright": "NextGen Sites © {year}. Wszystkie prawa zastrzeżone.",
+    "framerTemplates": "Szablony Framer"
   },
   "CookieBanner": {
     "title": "Szanujemy Twoją prywatność",
@@ -865,6 +868,60 @@
         "name": "Kontakt",
         "shortName": "Kontakt",
         "description": "Skontaktuj się z nami"
+      }
+    }
+  },
+  "FramerTemplatesPromo": {
+    "badge": "Nowa oferta",
+    "title": "Gotowe szablony",
+    "titleAccent": "Framer",
+    "description": "Odkryj naszą kolekcję profesjonalnych szablonów Framer. Idealne rozwiązanie dla firm, które chcą szybko uruchomić piękną stronę internetową.",
+    "exploreButton": "Dowiedz się więcej",
+    "examplesButton": "Zobacz przykłady",
+    "features": {
+      "readyToUse": {
+        "title": "Gotowe do użycia",
+        "description": "Szablony przygotowane do natychmiastowego wdrożenia"
+      },
+      "professionalDesign": {
+        "title": "Profesjonalny design",
+        "description": "Nowoczesne projekty dostosowane do trendów"
+      },
+      "highQuality": {
+        "title": "Wysokiej jakości",
+        "description": "Starannie zaprojektowane z dbałością o szczegóły"
+      }
+    },
+    "templates": {
+      "altair": {
+        "title": "Altair",
+        "description": "Szablon dla agencji designu subscription"
+      },
+      "pawfect": {
+        "title": "Pawfect",
+        "description": "Szablon dla firm opieki nad zwierzętami"
+      },
+      "flowline": {
+        "title": "Flowline",
+        "description": "Szablon dla startupów i firm SaaS"
+      },
+      "nubien": {
+        "title": "Nubien",
+        "description": "Szablon dla agencji AI i portfolio"
+      }
+    },
+    "stats": {
+      "templates": {
+        "value": "12+",
+        "label": "Dostępnych szablonów"
+      },
+      "time": {
+        "value": "48h",
+        "label": "Czas realizacji"
+      },
+      "responsive": {
+        "value": "100%",
+        "label": "Responsywne projekty"
       }
     }
   },

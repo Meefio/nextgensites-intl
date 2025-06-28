@@ -19,45 +19,28 @@ const sendToAnalytics = (metric: Metric, hasAnalyticsConsent: boolean) => {
   // Only send metrics if user has given consent
   if (!hasAnalyticsConsent) return;
 
-  // Prepare data for analytics
-  const body = JSON.stringify({
-    name: metric.name,
-    id: metric.id,
-    value: metric.value,
-    delta: metric.delta,
-    rating: metric.rating,
-    navigationType: metric.navigationType,
-    timestamp: Date.now()
-  });
-
-  const url = '/api/analytics';
-
-  // Send analytics data using sendBeacon if available, otherwise use fetch
-  if (navigator.sendBeacon) {
-    navigator.sendBeacon(url, body);
-  } else {
-    fetch(url, {
-      body,
-      method: 'POST',
-      keepalive: true,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).catch(err => console.error('Failed to send metrics:', err));
-  }
-
-  // Also send to Google Analytics if available
+  // Send event to Google Analytics
   if (typeof gtag === 'function') {
-    gtag('event', metric.name, {
-      event_category: 'Web Vitals',
-      event_label: metric.id,
-      value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value), // values must be integers
-      metric_id: metric.id,
-      metric_value: metric.value,
-      metric_delta: metric.delta,
-      metric_rating: metric.rating,
-      non_interaction: true // avoids affecting bounce rate
-    });
+    // Use requestIdleCallback or setTimeout to defer analytics
+    const sendEvent = () => {
+      gtag('event', metric.name, {
+        event_category: 'Web Vitals',
+        event_label: metric.id,
+        value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value), // values must be integers
+        metric_id: metric.id,
+        metric_value: metric.value,
+        metric_delta: metric.delta,
+        metric_rating: metric.rating,
+        non_interaction: true // avoids affecting bounce rate
+      });
+    };
+
+    // Use requestIdleCallback when available, otherwise setTimeout
+    if (typeof window.requestIdleCallback === 'function') {
+      window.requestIdleCallback(() => sendEvent());
+    } else {
+      setTimeout(sendEvent, 0);
+    }
   }
 }
 
@@ -201,6 +184,7 @@ export function WebVitals() {
   const [metricsEnabled, setMetricsEnabled] = useState(false);
   const isProduction = process.env.NODE_ENV === 'production';
   const showDebug = process.env.NODE_ENV === 'development';
+  const hasReportedRef = useRef<Set<string>>(new Set());
 
   // Track consent status
   useEffect(() => {
@@ -209,52 +193,42 @@ export function WebVitals() {
 
   // Use Next.js built-in hook - always called unconditionally at top level
   useReportWebVitals((metric) => {
+    // Skip if we've already reported this metric
+    if (hasReportedRef.current.has(metric.id)) return;
+
     // Store in cache for potential use
-    metricsCache[metric.id] = metric
+    metricsCache[metric.id] = metric;
+
+    // Mark as reported
+    hasReportedRef.current.add(metric.id);
 
     // Only process metrics in production
     if (isProduction) {
-      // Process different metrics if needed
-      switch (metric.name) {
-        case 'FCP':
-          // handle First Contentful Paint
-          sendToAnalytics(metric, metricsEnabled);
-          break;
-        case 'LCP':
-          // handle Largest Contentful Paint
-          sendToAnalytics(metric, metricsEnabled);
-          break;
-        case 'CLS':
-          // handle Cumulative Layout Shift
-          sendToAnalytics(metric, metricsEnabled);
-          break;
-        case 'FID':
-          // handle First Input Delay
-          sendToAnalytics(metric, metricsEnabled);
-          break;
-        case 'TTFB':
-          // handle Time to First Byte
-          sendToAnalytics(metric, metricsEnabled);
-          break;
-        case 'INP':
-          // handle Interaction to Next Paint
-          sendToAnalytics(metric, metricsEnabled);
-          break;
-        case 'Next.js-hydration':
-          // handle hydration results
-          sendToAnalytics(metric, metricsEnabled);
-          break;
-        case 'Next.js-route-change-to-render':
-          // handle route-change to render results
-          sendToAnalytics(metric, metricsEnabled);
-          break;
-        case 'Next.js-render':
-          // handle render results
-          sendToAnalytics(metric, metricsEnabled);
-          break;
-        default:
-          sendToAnalytics(metric, metricsEnabled);
-          break;
+      // Use requestIdleCallback or setTimeout to defer processing
+      const processMetric = () => {
+        switch (metric.name) {
+          case 'FCP':
+          case 'LCP':
+          case 'CLS':
+          case 'FID':
+          case 'TTFB':
+          case 'INP':
+          case 'Next.js-hydration':
+          case 'Next.js-route-change-to-render':
+          case 'Next.js-render':
+            sendToAnalytics(metric, metricsEnabled);
+            break;
+          default:
+            sendToAnalytics(metric, metricsEnabled);
+            break;
+        }
+      };
+
+      // Use requestIdleCallback when available to avoid impacting performance
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(() => processMetric());
+      } else {
+        setTimeout(processMetric, 0);
       }
     } else if (process.env.NODE_ENV === 'development') {
       // Log metric in development

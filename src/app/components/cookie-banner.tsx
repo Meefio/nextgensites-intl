@@ -64,7 +64,8 @@ export function CookieBanner() {
         } else if (savedConsentLocal) {
           parsedConsent = JSON.parse(savedConsentLocal);
         }
-      } catch (_error) {
+      } catch (e) {
+        console.log('Error parsing cookie consent:', e);
         // Invalid JSON - treat as no consent
         setShowBanner(true);
         return;

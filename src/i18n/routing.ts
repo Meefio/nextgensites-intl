@@ -42,6 +42,36 @@ export const routing = defineRouting({
     '/baza-wiedzy/[slug]': {
       pl: '/baza-wiedzy/[slug]',
       en: '/knowledge-base/[slug]'
+    },
+    // Fix existing blog post route
+    '/jak-wybrac-strone-internetowa-dla-swojej-firmy': {
+      pl: '/jak-wybrac-strone-internetowa-dla-swojej-firmy',
+      en: '/how-to-choose-a-website-for-your-business'
+    },
+    // Add new blog post route for Next.js article
+    '/dlaczego-nextjs-to-przyszlosc-stron-internetowych-dla-biznesu': {
+      pl: '/dlaczego-nextjs-to-przyszlosc-stron-internetowych-dla-biznesu',
+      en: '/why-nextjs-is-the-future-of-business-websites'
+    },
+    // Add route for new article about modern websites
+    '/nowoczesna-strona-internetowa-co-to-wlasciwie-znaczy': {
+      pl: '/nowoczesna-strona-internetowa-co-to-wlasciwie-znaczy',
+      en: '/modern-website-what-does-it-actually-mean'
+    },
+    // Add route for web application article
+    '/aplikacja-webowa-nowoczesne-rozwiazanie-dla-biznesu': {
+      pl: '/aplikacja-webowa-nowoczesne-rozwiazanie-dla-biznesu',
+      en: '/web-application-modern-solution-for-business'
+    },
+    // Keep existing example post
+    '/przyklad-wpisu-wykorzystujacego-wszystkie-komponenty': {
+      pl: '/przyklad-wpisu-wykorzystujacego-wszystkie-komponenty',
+      en: '/example-post-using-all-components'
+    },
+    // Add Framer templates page
+    '/szablony-framer': {
+      pl: '/szablony-framer',
+      en: '/framer-templates'
     }
   }
 });
