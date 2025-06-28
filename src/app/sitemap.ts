@@ -22,6 +22,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly' as const,
       priority: 1
     },
+    // Framer templates page
+    {
+      url: `${baseUrl}/szablony-framer`,
+      lastModified: portfolioLastMod,
+      changeFrequency: 'weekly' as const,
+      priority: 0.9
+    },
     // Legal pages
     {
       url: `${baseUrl}/polityka-prywatnosci`,
@@ -81,6 +88,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: homeLastMod,
         changeFrequency: 'weekly' as const,
         priority: 1
+      },
+      // Framer templates page
+      {
+        url: `${baseUrl}/${locale}/framer-templates`,
+        lastModified: portfolioLastMod,
+        changeFrequency: 'weekly' as const,
+        priority: 0.9
       },
       // Legal pages for each language
       {
