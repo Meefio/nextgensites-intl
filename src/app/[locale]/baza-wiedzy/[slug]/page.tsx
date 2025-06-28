@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { unstable_setRequestLocale } from 'next-intl/server'
-import { TableOfContents, ArticleMeta, HelpBox } from '@/app/components/blog'
+import { TableOfContents, ArticleMeta, HelpBox, SummaryBox } from '@/app/components/blog'
 import { Metadata } from 'next'
 import ArticleContent from './article-content'
 import { KnowledgeBaseArticleProps } from '../types'
@@ -8,7 +8,6 @@ import { createCanonicalUrl, createLanguageAlternates } from '@/app/utils/create
 import Script from 'next/script'
 import { getPostBySlug, getAllSlugs, getAllSlugsDebug } from '@/lib/sanity/queries'
 import { urlFor, getLocalizedValue } from '@/lib/sanity/client'
-import { formatDateForLocale } from '@/utils/date-utils'
 import { DOMAIN } from '@/lib/constants'
 import { serialize } from 'next-mdx-remote/serialize'
 import { PortableTextBlock } from '@portabletext/react'
@@ -75,8 +74,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const formattedDate = new Date(post.publishedAt).toISOString();
 
   // Prepare image URL for OG
-  const imageUrl = post.mainImage
-    ? urlFor(post.mainImage).width(1200).height(630).url()
+  const imageUrl = post.coverImage
+    ? urlFor(post.coverImage).width(1200).height(630).url()
     : `${DOMAIN}/images/og-image.png`
 
   return {
@@ -231,9 +230,6 @@ export default async function BlogPage({ params }: PageProps) {
       ]
     }
 
-    // Format date for the view
-    const publishDate = formatDateForLocale(post.publishedAt, locale)
-
     // Get author information if available
     const authorName = post.author && typeof post.author === 'object' && 'name' in post.author
       ? post.author.name as string
@@ -248,12 +244,20 @@ export default async function BlogPage({ params }: PageProps) {
         : '')
       : ''
 
+    // Get summary points
+    const summaryPoints = getLocalizedValue(post.summaryPoints, locale) || []
+
+    // Format reading time
+    const readingTimeText = post.readingTime
+      ? (locale === 'pl' ? `Ok. ${post.readingTime} min czytania` : `Approx. ${post.readingTime} min read`)
+      : (locale === 'pl' ? 'Ok. 5 min czytania' : 'Approx. 5 min read')
+
     // Prepare JSON-LD data for article
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": title,
-      "image": post.mainImage ? urlFor(post.mainImage).width(1200).url() : `${DOMAIN}/images/og-image.png`,
+      "image": post.coverImage ? urlFor(post.coverImage).width(1200).url() : `${DOMAIN}/images/og-image.png`,
       "datePublished": post.publishedAt,
       "dateModified": post.publishedAt,
       "author": {
@@ -285,18 +289,22 @@ export default async function BlogPage({ params }: PageProps) {
             <article className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-p:text-base prose-headings:text-foreground">
               <ArticleMeta
                 title={title}
-                date={publishDate}
-                readingTime={locale === 'pl' ? 'Ok. 5 min czytania' : 'Approx. 5 min read'}
+                date={post.publishedAt}
+                readingTime={readingTimeText}
                 category={category}
                 author={authorName}
                 authorPosition={authorPosition}
-                coverImage={post.mainImage ? urlFor(post.mainImage).width(800).url() : ''}
+                coverImage={post.coverImage ? urlFor(post.coverImage).width(800).url() : ''}
                 locale={locale}
               />
 
               <div className="lg:hidden mb-10">
                 <TableOfContents items={tocItems} locale={locale} />
               </div>
+
+              {summaryPoints.length > 0 && (
+                <SummaryBox points={summaryPoints} locale={locale} />
+              )}
 
               {/* Render content */}
               <ArticleContent post={post} locale={locale} mdxSource={mdxSource} />

@@ -75,23 +75,25 @@ export const ArticleMeta = ({
       </motion.h1>
 
       {/* Featured image with animation */}
-      <motion.div
-        className="my-8 rounded-xl overflow-hidden shadow-md"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-      >
-        <div className="relative aspect-[16/9] w-full">
-          <Image
-            src={coverImage}
-            alt={title}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover"
-            priority
-          />
-        </div>
-      </motion.div>
+      {coverImage && (
+        <motion.div
+          className="my-8 rounded-xl overflow-hidden shadow-md"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <div className="relative aspect-[16/9] w-full">
+            <Image
+              src={coverImage}
+              alt={title}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover"
+              priority
+            />
+          </div>
+        </motion.div>
+      )}
 
       {/* Article metadata with improved visual design */}
       <motion.div
@@ -114,13 +116,15 @@ export const ArticleMeta = ({
             {readingTime}
           </span>
         </div>
-        <div className="flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full shadow-sm">
-          <Tag className="h-4 w-4 mr-2" />
-          <span className="text-sm font-medium">
-            <span className="sr-only">{t('meta.category')}</span>
-            {category}
-          </span>
-        </div>
+        {category && (
+          <div className="flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full shadow-sm">
+            <Tag className="h-4 w-4 mr-2" />
+            <span className="text-sm font-medium">
+              <span className="sr-only">{t('meta.category')}</span>
+              {category}
+            </span>
+          </div>
+        )}
         <div className="flex items-center px-4 py-2 bg-card border rounded-full shadow-sm">
           <User className="h-4 w-4 mr-2 text-primary" />
           <span className="text-sm font-medium">
