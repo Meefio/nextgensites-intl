@@ -275,11 +275,15 @@ export default async function BlogPage({ params }: PageProps) {
     const authorPosition = locale === 'pl' ? 'Redaktor' : 'Editor'
 
     // Get category if available
-    const category = post.categories && post.categories.length > 0
-      ? (typeof post.categories[0] === 'object' && 'title' in post.categories[0]
-        ? getLocalizedValue((post.categories[0].title as Record<string, string>), locale) || ''
-        : '')
-      : ''
+    const category =
+      post.category &&
+        typeof post.category === 'object' &&
+        'title' in post.category
+        ? getLocalizedValue(
+          post.category.title as Record<string, string>,
+          locale
+        ) || ''
+        : ''
 
     // Get summary points
     const summaryPoints = getLocalizedValue(post.summaryPoints, locale) || []

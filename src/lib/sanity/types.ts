@@ -45,8 +45,8 @@ export type Post = {
   title: LocalizedField<string>;
   slug: LocalizedField<SanitySlug>;
   coverImage?: SanityImageSource & { alt?: LocalizedField<string> };
-  categories?: SanityReference[];
-  author?: SanityReference;
+  category?: Category;
+  author?: Author;
   publishedAt: string;
   readingTime?: number;
   excerpt: LocalizedField<string>;
@@ -66,7 +66,7 @@ export type PostPreview = {
   publishedAt: string;
   excerpt: LocalizedField<string>;
   author?: Author;
-  categories?: Category[];
+  category?: Category;
 };
 
 export type ContentImage = {

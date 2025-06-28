@@ -33,7 +33,7 @@ export const getAllPostsQuery = `
     excerpt,
     language,
     author->{name, image},
-    categories[]->{_id, title}
+    category->{_id, title}
   }
 `;
 
@@ -49,7 +49,7 @@ export const getAllPostsQueryWithLanguage = `
     publishedAt,
     excerpt,
     author->{name, image},
-    categories[]->{_id, title}
+    category->{_id, title}
   }
 `;
 
@@ -70,7 +70,7 @@ export const getPostBySlugQuery = `
     content,
     excerpt,
     author->{name, image, bio},
-    categories[]->{_id, title, description},
+    category->{_id, title, description},
     language,
     'contentImages': contentImages[]{
       "filename": asset->originalFilename,
@@ -97,7 +97,7 @@ export const getPostBySlugWithLanguageQuery = `
     content,
     excerpt,
     author->{name, image, bio},
-    categories[]->{_id, title, description},
+    category->{_id, title, description},
     language,
     'contentImages': contentImages[]{
       "filename": asset->originalFilename,
