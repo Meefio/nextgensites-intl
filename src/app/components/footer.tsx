@@ -24,7 +24,7 @@ export function Footer() {
           </svg>
           <span className="font-heading text-xl font-bold">NextGen Sites</span>
         </Link>
-        <div className="flex flex-col gap-4 lg:flex-row">
+        <div className="flex flex-col gap-4">
           <a href="tel:+48694671786" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
             <Phone className="size-5 text-primary" />
             <span className="text-sm">+48 694 671 786</span>
@@ -33,6 +33,18 @@ export function Footer() {
             <Mail className="size-5 text-primary" />
             <span className="text-sm">kontakt@nextgensites.pl</span>
           </a>
+          <Link
+            href="https://maps.app.goo.gl/CVRyxk8aFXC7oTTs9"
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Google Maps - NextGen Sites location"
+          >
+            <svg className="size-5 text-primary" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z" fill="currentColor" />
+            </svg>
+            <span className="text-sm">Google Maps</span>
+          </Link>
         </div>
       </div>
 
@@ -50,8 +62,8 @@ export function Footer() {
         <Link href="/#proces" className="text-sm text-muted-foreground hover:text-foreground">
           {t('process')}
         </Link>
-        <Link href="/#pricing " className="text-sm text-muted-foreground hover:text-foreground">
-          {t('pricing')}
+        <Link href="/framer-templates" className="text-sm text-muted-foreground hover:text-foreground">
+          {t('framerTemplates')}
         </Link>
         <Link href="/#contact" className="text-sm text-muted-foreground hover:text-foreground">
           {t('contact')}

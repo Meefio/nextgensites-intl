@@ -418,7 +418,8 @@
     "privacy": "Polityka prywatności",
     "terms": "Regulamin",
     "gdpr": "RODO",
-    "copyright": "NextGen Sites © {year}. Wszystkie prawa zastrzeżone."
+    "copyright": "NextGen Sites © {year}. Wszystkie prawa zastrzeżone.",
+    "framerTemplates": "Szablony Framer"
   },
   "CookieBanner": {
     "title": "Szanujemy Twoją prywatność",
