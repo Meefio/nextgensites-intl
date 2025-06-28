@@ -53,6 +53,7 @@ export type Post = {
   summaryPoints?: LocalizedField<string[]>;
   body?: LocalizedField<PortableTextBlock[]>;
   content?: LocalizedField<string>;
+  contentImages?: ContentImage[];
 };
 
 // Type for a simplified post preview
@@ -60,9 +61,18 @@ export type PostPreview = {
   _id: string;
   title: LocalizedField<string>;
   slug: LocalizedField<SanitySlug> | { current: string };
-  mainImage?: SanityImageSource;
+  coverImage?: SanityImageSource;
   publishedAt: string;
   excerpt: LocalizedField<string>;
   author?: Author;
   categories?: Category[];
+};
+
+export type ContentImage = {
+  _type: 'contentImage';
+  filename?: string;
+  image?: SanityImageSource & {
+    alt?: string;
+    caption?: string;
+  };
 }; 

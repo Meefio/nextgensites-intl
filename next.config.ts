@@ -123,7 +123,7 @@ const nextConfig: NextConfig = {
             "upgrade-insecure-requests"
           ].join('; '),
         }
-        : { key: 'Content-Security-Policy', value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://cdn.jsdelivr.net https://*.googlesyndication.com; font-src 'self' data:; connect-src 'self' https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com; media-src 'self'; frame-src 'self' https://*.googlesyndication.com;", },
+        : { key: 'Content-Security-Policy', value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://cdn.sanity.io https://cdn.jsdelivr.net https://*.googlesyndication.com; font-src 'self' data:; connect-src 'self' https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com https://*.sanity.io; media-src 'self'; frame-src 'self' https://*.googlesyndication.com;", },
     ];
 
     return [

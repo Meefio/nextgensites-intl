@@ -31,6 +31,32 @@ function extractTextFromPortableText(blocks: PortableTextBlock[]): string {
     .join('\n\n')
 }
 
+// Helper to replace local image paths with Sanity URLs in MDX
+const replaceImagePaths = (mdx: string, images: any[]): string => {
+  if (!mdx || !images || images.length === 0) {
+    return mdx
+  }
+
+  const imageMap = new Map(
+    images.map(img => (img && img.filename && img.image ? [img.filename, urlFor(img.image).url()] : null)).filter(Boolean) as [string, string][]
+  )
+
+  if (imageMap.size === 0) {
+    return mdx
+  }
+
+  // Regex to find ![alt](/local-path.png)
+  const markdownImageRegex = /!\[(.*?)\]\(\/(.*?)\)/g
+
+  return mdx.replace(markdownImageRegex, (match, altText, filename) => {
+    if (imageMap.has(filename)) {
+      const newUrl = imageMap.get(filename)
+      return `![${altText}](${newUrl})`
+    }
+    return match // Return original if no mapping found
+  })
+}
+
 interface PageProps {
   params: Promise<{
     locale: string
@@ -174,11 +200,14 @@ export default async function BlogPage({ params }: PageProps) {
     params.articleData = articleData;
 
     // Check if we have MDX content
-    const mdxContent = post.content ? getLocalizedValue(post.content, locale) : null
+    let mdxContent = post.content ? getLocalizedValue(post.content, locale) : null
     let mdxSource = undefined
     let tocItems: { id: string; title: string }[] = []
 
     if (mdxContent) {
+      // Replace image paths before further processing
+      mdxContent = replaceImagePaths(mdxContent, post.contentImages || [])
+
       // Extract table of contents from MDX content
       tocItems = getTableOfContents(mdxContent)
 
@@ -197,15 +226,18 @@ export default async function BlogPage({ params }: PageProps) {
       if (bodyContent && Array.isArray(bodyContent)) {
         const extractedText = extractTextFromPortableText(bodyContent)
 
+        // Replace image paths in extracted text
+        const processedText = replaceImagePaths(extractedText, post.contentImages || [])
+
         // Check if the extracted text looks like MDX
-        if (extractedText.includes('<') && extractedText.includes('>') &&
-          (extractedText.includes('<SummaryBox') || extractedText.includes('<WorthKnowing') ||
-            extractedText.includes('<NextArticle'))) {
+        if (processedText.includes('<') && processedText.includes('>') &&
+          (processedText.includes('<SummaryBox') || processedText.includes('<WorthKnowing') ||
+            processedText.includes('<NextArticle'))) {
           try {
             // Extract table of contents from extracted text
-            tocItems = getTableOfContents(extractedText)
+            tocItems = getTableOfContents(processedText)
 
-            mdxSource = await serialize(extractedText, {
+            mdxSource = await serialize(processedText, {
               parseFrontmatter: false,
               mdxOptions: {
                 development: process.env.NODE_ENV === 'development',
