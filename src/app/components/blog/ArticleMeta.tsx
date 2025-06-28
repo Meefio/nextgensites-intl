@@ -13,6 +13,7 @@ interface ArticleMetaProps {
   author: string
   authorPosition?: string
   coverImage: string
+  coverImageAlt: string
   locale?: string
   className?: string
 }
@@ -25,6 +26,7 @@ export const ArticleMeta = ({
   author,
   authorPosition,
   coverImage,
+  coverImageAlt,
   locale,
   className = ''
 }: ArticleMetaProps) => {
@@ -85,7 +87,7 @@ export const ArticleMeta = ({
           <div className="relative aspect-[16/9] w-full">
             <Image
               src={coverImage}
-              alt={title}
+              alt={coverImageAlt}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover"
@@ -116,15 +118,13 @@ export const ArticleMeta = ({
             {readingTime}
           </span>
         </div>
-        {category && (
-          <div className="flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full shadow-sm">
-            <Tag className="h-4 w-4 mr-2" />
-            <span className="text-sm font-medium">
-              <span className="sr-only">{t('meta.category')}</span>
-              {category}
-            </span>
-          </div>
-        )}
+        <div className="flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full shadow-sm">
+          <Tag className="h-4 w-4 mr-2" />
+          <span className="text-sm font-medium">
+            <span className="sr-only">{t('meta.category')}</span>
+            {category}
+          </span>
+        </div>
         <div className="flex items-center px-4 py-2 bg-card border rounded-full shadow-sm">
           <User className="h-4 w-4 mr-2 text-primary" />
           <span className="text-sm font-medium">

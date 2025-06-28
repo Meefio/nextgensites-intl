@@ -44,13 +44,14 @@ export type Post = {
   language: string;
   title: LocalizedField<string>;
   slug: LocalizedField<SanitySlug>;
-  coverImage?: SanityImageSource;
+  coverImage?: SanityImageSource & { alt?: LocalizedField<string> };
   categories?: SanityReference[];
   author?: SanityReference;
   publishedAt: string;
   readingTime?: number;
   excerpt: LocalizedField<string>;
   summaryPoints?: LocalizedField<string[]>;
+  keywords?: LocalizedField<string[]>;
   body?: LocalizedField<PortableTextBlock[]>;
   content?: LocalizedField<string>;
   contentImages?: ContentImage[];

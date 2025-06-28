@@ -81,6 +81,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // Get localized title and excerpt
   const title = getLocalizedValue(post.title, locale) || ''
   const excerpt = getLocalizedValue(post.excerpt, locale) || ''
+  const keywords = getLocalizedValue(post.keywords, locale) || []
+  const coverImageAlt = post.coverImage?.alt
+    ? getLocalizedValue(post.coverImage.alt, locale)
+    : title
 
   // Create canonical URL for the current article's path based on slug
   const path = locale === 'pl' ? `/baza-wiedzy/${slug}` : `/knowledge-base/${slug}`
@@ -107,6 +111,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description: excerpt,
+    keywords: keywords,
     alternates: {
       canonical: canonicalUrl,
       languages,
@@ -123,7 +128,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: title,
+          alt: coverImageAlt,
         },
       ],
     },
@@ -133,7 +138,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: excerpt,
       images: [{
         url: imageUrl,
-        alt: title,
+        alt: coverImageAlt,
       }],
     },
   }
@@ -327,6 +332,7 @@ export default async function BlogPage({ params }: PageProps) {
                 author={authorName}
                 authorPosition={authorPosition}
                 coverImage={post.coverImage ? urlFor(post.coverImage).width(800).url() : ''}
+                coverImageAlt={post.coverImage?.alt ? getLocalizedValue(post.coverImage.alt, locale) || title : title}
                 locale={locale}
               />
 

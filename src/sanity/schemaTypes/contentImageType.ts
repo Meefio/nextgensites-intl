@@ -63,16 +63,6 @@ export const contentImageType = defineType({
         ]
       },
       description: 'Category for better organization'
-    }),
-    defineField({
-      name: 'tags',
-      title: 'Tags',
-      type: 'array',
-      of: [{ type: 'string' }],
-      options: {
-        layout: 'tags'
-      },
-      description: 'Tags for easier searching and organization'
     })
   ],
   preview: {

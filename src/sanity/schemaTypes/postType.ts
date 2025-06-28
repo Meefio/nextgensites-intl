@@ -132,20 +132,50 @@ export const postType = defineType({
       fields: [
         defineField({
           name: 'alt',
-          type: 'string',
+          type: 'object',
           title: 'Alternative Text',
+          fields: [
+            {
+              name: 'en',
+              type: 'string',
+              title: 'English Alt Text',
+              validation: Rule => Rule.required(),
+            },
+            {
+              name: 'pl',
+              type: 'string',
+              title: 'Polish Alt Text',
+              validation: Rule => Rule.required(),
+            }
+          ],
           validation: Rule => Rule.required(),
           description: 'Important for accessibility and SEO'
         }),
-        defineField({
-          name: 'caption',
-          type: 'string',
-          title: 'Caption',
-          description: 'Optional caption for the image'
-        })
       ],
       validation: Rule => Rule.required(),
       description: 'Main image for the post'
+    }),
+    defineField({
+      name: 'keywords',
+      title: 'SEO Keywords',
+      type: 'object',
+      fields: [
+        {
+          name: 'en',
+          title: 'English Keywords',
+          type: 'array',
+          of: [{ type: 'string' }],
+          options: { layout: 'tags' }
+        },
+        {
+          name: 'pl',
+          title: 'Polish Keywords',
+          type: 'array',
+          of: [{ type: 'string' }],
+          options: { layout: 'tags' }
+        },
+      ],
+      description: 'Keywords for SEO, specific to this post'
     }),
     defineField({
       name: 'excerpt',
@@ -190,26 +220,6 @@ export const postType = defineType({
         }
       ],
       description: 'Key points covered in the article (max 6)'
-    }),
-    defineField({
-      name: 'worthKnowing',
-      type: 'object',
-      title: 'Worth Knowing',
-      fields: [
-        {
-          name: 'en',
-          type: 'text',
-          title: 'English Worth Knowing',
-          rows: 3
-        },
-        {
-          name: 'pl',
-          type: 'text',
-          title: 'Polish Worth Knowing',
-          rows: 3
-        }
-      ],
-      description: 'Important insight or fact highlighted in the article'
     }),
     defineField({
       name: 'content',
@@ -264,43 +274,10 @@ export const postType = defineType({
       description: 'Images used within the article content - reference by filename in MDX'
     }),
     defineField({
-      name: 'tags',
-      title: 'Tags',
-      type: 'array',
-      of: [{ type: 'string' }],
-      options: {
-        layout: 'tags'
-      },
-      validation: Rule => Rule.max(10),
-      description: 'Keywords and tags for better categorization (max 10)'
-    }),
-    defineField({
       name: 'featured',
       title: 'Featured Post',
       type: 'boolean',
       description: 'Mark as featured to highlight on homepage'
-    }),
-    defineField({
-      name: 'seoKeywords',
-      type: 'object',
-      title: 'SEO Keywords',
-      fields: [
-        {
-          name: 'en',
-          type: 'array',
-          title: 'English Keywords',
-          of: [{ type: 'string' }],
-          validation: Rule => Rule.max(10)
-        },
-        {
-          name: 'pl',
-          type: 'array',
-          title: 'Polish Keywords',
-          of: [{ type: 'string' }],
-          validation: Rule => Rule.max(10)
-        }
-      ],
-      description: 'SEO keywords for search optimization (max 10 each)'
     }),
     defineField({
       name: 'status',
