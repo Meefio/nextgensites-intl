@@ -30,6 +30,7 @@ export const getAllPostsQuery = `
     slug,
     coverImage,
     publishedAt,
+    readingTime,
     excerpt,
     language,
     author->{name, image},
@@ -47,6 +48,7 @@ export const getAllPostsQueryWithLanguage = `
     slug,
     coverImage,
     publishedAt,
+    readingTime,
     excerpt,
     author->{name, image},
     category->{_id, title}
@@ -141,6 +143,24 @@ export const getAllSlugsDebugQuery = `
   }
 `;
 
+/**
+ * Get featured posts for homepage
+ */
+export const getFeaturedPostsQuery = `
+  *[_type == "post" && featured == true && status == "published" && defined(publishedAt) && publishedAt < now()] | order(publishedAt desc) [0...3] {
+    _id,
+    title,
+    slug,
+    coverImage,
+    publishedAt,
+    readingTime,
+    excerpt,
+    language,
+    author->{name, image},
+    category->{_id, title}
+  }
+`;
+
 // Cached fetching functions
 
 /**
@@ -229,4 +249,28 @@ export const getAllSlugs = cache(async () => {
 export const getSlugsByLocale = cache(async (locale: string) => {
   const slugs = await client.fetch(getSlugsByLocaleQuery, { locale });
   return slugs.map((item: any) => item.slug);
+});
+
+/**
+ * Get featured posts for homepage
+ */
+export const getFeaturedPosts = cache(async (locale: string): Promise<PostPreview[]> => {
+  const featuredPosts = await client.fetch(getFeaturedPostsQuery);
+  console.log('Featured posts from Sanity:', featuredPosts);
+
+  if (!featuredPosts || featuredPosts.length === 0) {
+    // Fallback: get latest 3 posts if no featured posts
+    const latestPosts = await getAllPosts(locale);
+    return latestPosts.slice(0, 3);
+  }
+
+  // Filter posts that have content for the requested locale
+  const filteredPosts = featuredPosts.filter((post: any) => {
+    const hasTitle = post.title && post.title[locale];
+    const hasSlug = post.slug && post.slug[locale] && post.slug[locale].current;
+    return hasTitle && hasSlug;
+  });
+
+  console.log(`Filtered featured posts for locale ${locale}:`, filteredPosts);
+  return filteredPosts;
 }); 

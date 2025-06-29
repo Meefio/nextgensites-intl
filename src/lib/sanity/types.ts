@@ -64,6 +64,7 @@ export type PostPreview = {
   slug: LocalizedField<SanitySlug> | { current: string };
   coverImage?: SanityImageSource;
   publishedAt: string;
+  readingTime?: number;
   excerpt: LocalizedField<string>;
   author?: Author;
   category?: Category;
