@@ -112,7 +112,7 @@ const nextConfig: NextConfig = {
             // Allow connections to self and analytics endpoints
             "connect-src 'self' https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://region1.google-analytics.com https://*.analytics.google.com https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com https://vercel.live wss://vercel.live",
             // Allow frames from self and Google services (critical for some GA features)
-            "frame-src 'self' https://*.googletagmanager.com https://*.google-analytics.com https://*.g.doubleclick.net https://*.googlesyndication.com",
+            "frame-src 'self' https://*.googletagmanager.com https://*.google-analytics.com https://*.g.doubleclick.net https://*.googlesyndication.com https://vercel.live",
             // Disallow objects which can be security risks
             "object-src 'none'",
             // Define base URIs for relative URLs
@@ -125,7 +125,7 @@ const nextConfig: NextConfig = {
             "upgrade-insecure-requests"
           ].join('; '),
         }
-        : { key: 'Content-Security-Policy', value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://cdn.sanity.io https://cdn.jsdelivr.net https://*.googlesyndication.com; font-src 'self' data:; connect-src 'self' https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com https://*.sanity.io; media-src 'self'; frame-src 'self' https://*.googlesyndication.com;", },
+        : { key: 'Content-Security-Policy', value: "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://cdn.sanity.io https://cdn.jsdelivr.net https://*.googlesyndication.com; font-src 'self' data:; connect-src 'self' https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com https://*.sanity.io; media-src 'self'; frame-src 'self' https://*.googlesyndication.com https://vercel.live;", },
     ];
 
     return [
