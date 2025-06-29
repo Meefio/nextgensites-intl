@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { Link } from '@/i18n/routing'
-import { ComponentProps } from 'react'
+import Link from 'next/link'
 
 interface NextArticleBoxProps {
   title: string
@@ -13,11 +12,7 @@ interface NextArticleBoxProps {
   locale: 'en' | 'pl'
 }
 
-// Utility function to convert a string to a path parameter
-const asPathname = (path: string) => {
-  // This makes TypeScript treat the string as a valid pathname
-  return path as ComponentProps<typeof Link>['href']
-}
+
 
 export const NextArticleBox = ({
   title,
@@ -29,9 +24,9 @@ export const NextArticleBox = ({
   // Check if slug is valid (not undefined, null, empty or just whitespace)
   const isValidSlug = slug && slug.trim().length > 0
 
-  // Construct the href based on locale and slug, or default to homepage if no valid slug
+  // Construct the href based on locale and slug
   const hrefPath = isValidSlug
-    ? `/${locale === 'en' ? 'knowledge-base' : 'baza-wiedzy'}/${slug}`
+    ? `/${locale === 'en' ? 'en/knowledge-base' : 'baza-wiedzy'}/${slug}`
     : '/' // Default to homepage when no valid slug is available
 
   // If no valid slug is provided, render without Link
@@ -73,7 +68,7 @@ export const NextArticleBox = ({
 
       <div>
         <Link
-          href={asPathname(hrefPath)}
+          href={hrefPath}
           className="group flex items-center text-lg font-medium text-primary hover:text-primary/80 transition-colors"
         >
           <span>{title}</span>
@@ -83,7 +78,7 @@ export const NextArticleBox = ({
         {description && <p className="mt-2">{description}</p>}
 
         <Link
-          href={asPathname(hrefPath)}
+          href={hrefPath}
           className="mt-4 inline-block text-sm font-medium text-primary"
         >
           {locale === 'pl' ? 'Przejdź do artykułu' : 'Go to article'} →

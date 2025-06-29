@@ -30,6 +30,12 @@ const CustomLink = (props: any) => {
   );
 };
 
+// Create a wrapper for NextArticleBox that automatically passes locale
+const NextArticleBoxWithLocale = (props: any) => {
+  const locale = useLocale() as 'en' | 'pl';
+  return <NextArticleBox locale={locale} {...props} />;
+};
+
 export const MDXComponents = {
   // Override default elements
   h1: (props: any) => (
@@ -65,7 +71,7 @@ export const MDXComponents = {
   // Custom components
   SummaryBox,
   WorthKnowingBox,
-  NextArticleBox,
+  NextArticleBox: NextArticleBoxWithLocale,
 
   // Wrapper components
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
