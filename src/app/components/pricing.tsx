@@ -1,5 +1,5 @@
 // import { Check, Clock } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 // import { Card, CardContent } from '@/app/components/ui/card'
 import { Button } from '@/app/components/ui/button'
 import Link from 'next/link'
@@ -10,9 +10,9 @@ import Link from 'next/link'
 // import { ClientAnimatedWrapper, ClientAnimatedCard } from './pricing/client-animated-pricing'
 import { ClientAnimatedCosts } from './pricing/client-animated-pricing'
 
-export function Pricing() {
-	const t = useTranslations('Pricing')
-	const tContact = useTranslations('Contact')
+export async function Pricing() {
+	const t = await getTranslations('Pricing')
+	const tContact = await getTranslations('Contact')
 
 	// SEKCJE CENOWE ZAKOMENTOWANE - WYŁĄCZONE WYŚWIETLANIE CEN PRODUKTÓW
 	// Zachowujemy tylko sekcję "Niskie koszty utrzymania"
@@ -184,19 +184,19 @@ export function Pricing() {
 
 						<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8'>
 							<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
-								<h4 className='text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.domain.title')}</h4>
+								<p className='text-center text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.domain.title')}</p>
 								<p className='text-gray-300 text-center'>{t('maintenanceCosts.domain.description')}</p>
 							</div>
 							<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
-								<h4 className='text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.hosting.title')}</h4>
+								<p className='text-center text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.hosting.title')}</p>
 								<p className='text-gray-300 text-center'>{t('maintenanceCosts.hosting.description')}</p>
 							</div>
 							<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
-								<h4 className='text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.email.title')}</h4>
+								<p className=' text-center text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.email.title')}</p>
 								<p className='text-gray-300 text-center'>{t('maintenanceCosts.email.description')}</p>
 							</div>
 							<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
-								<h4 className='text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.form.title')}</h4>
+								<p className=' text-center text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.form.title')}</p>
 								<p className='text-gray-300 text-center'>{t('maintenanceCosts.form.description')}</p>
 							</div>
 						</div>
