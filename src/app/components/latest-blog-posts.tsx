@@ -1,4 +1,3 @@
-import { getTranslations } from "next-intl/server";
 import { getAllPosts } from "@/utils/mdx";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
@@ -11,8 +10,6 @@ interface LatestBlogPostsProps {
 }
 
 export async function LatestBlogPosts({ locale }: LatestBlogPostsProps) {
-  const t = await getTranslations({ locale, namespace: "BlogPosts" });
-
   // Get the latest 3 posts for the current locale
   const latestPosts = getAllPosts(locale).slice(0, 3);
 
@@ -20,6 +17,20 @@ export async function LatestBlogPosts({ locale }: LatestBlogPostsProps) {
   if (latestPosts.length === 0) {
     return null;
   }
+
+  const t = {
+    sectionLabel: locale === 'pl' ? 'BAZA WIEDZY' : 'BLOG',
+    title:
+      locale === 'pl'
+        ? 'Najnowsze poradniki z naszej bazy wiedzy'
+        : 'Latest from Our Knowledge Base',
+    description:
+      locale === 'pl'
+        ? 'Sprawdź, nie pożałujesz'
+        : 'Explore our latest articles with expert insights and practical tips for your online business',
+    readMore: locale === 'pl' ? 'Czytaj artykuł' : 'Read article',
+    viewAllPosts: locale === 'pl' ? 'Zobacz wszystkie artykuły' : 'View all articles'
+  };
 
   return (
     <section className="py-16 md:py-24">
@@ -30,13 +41,13 @@ export async function LatestBlogPosts({ locale }: LatestBlogPostsProps) {
           viewport={{ once: true, margin: "-15% 0px" }}
         >
           <span className="font-bold uppercase text-primary text-center">
-            {t('sectionLabel')}
+            {t.sectionLabel}
           </span>
           <h2 className="font-heading text-3xl font-semibold tracking-tight sm:text-4xl text-balance text-center">
-            {t('title')}
+            {t.title}
           </h2>
           <p className="text-lg text-muted-foreground text-balance max-w-xl text-center mx-auto">
-            {t('description')}
+            {t.description}
           </p>
         </AnimatedElement>
 
@@ -96,7 +107,7 @@ export async function LatestBlogPosts({ locale }: LatestBlogPostsProps) {
                     </p>
 
                     <div className="flex justify-end items-center text-primary font-medium mt-auto">
-                      <span>{t("readMore")}</span>
+                      <span>{t.readMore}</span>
                       <ChevronRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>
@@ -112,7 +123,7 @@ export async function LatestBlogPosts({ locale }: LatestBlogPostsProps) {
           <div className="flex justify-center mt-12">
             <Button variant="default" asChild>
               <Link href="/baza-wiedzy">
-                {t("viewAllPosts")}
+                {t.viewAllPosts}
               </Link>
             </Button>
           </div>

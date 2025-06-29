@@ -8,7 +8,6 @@ import { Button } from './ui/button'
 
 export function MobileNavbar() {
 	const t = useTranslations('Navigation')
-	const kbT = useTranslations('KnowledgeBase')
 	const locale = useLocale()
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -103,7 +102,7 @@ export function MobileNavbar() {
 								className="flex w-full cursor-pointer items-center rounded-md p-2 font-medium text-muted-foreground hover:text-foreground"
 								onClick={() => setIsOpen(false)}
 							>
-								{kbT('title')}
+								{locale === 'pl' ? 'Baza Wiedzy' : 'Knowledge Base'}
 							</NextLink>
 							<Button size="lg" asChild className="mt-2 w-full">
 								<NextLink

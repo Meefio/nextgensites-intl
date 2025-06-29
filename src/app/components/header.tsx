@@ -12,7 +12,6 @@ import { ThemeSwitcher } from "@/app/components/theme-switcher";
 
 export function Header() {
   const t = useTranslations('Navigation');
-  const kbT = useTranslations('KnowledgeBase');
   const locale = useLocale();
   const headerRef = useRef<HTMLElement>(null);
 
@@ -51,7 +50,7 @@ export function Header() {
     // { href: `${rootPath}#pricing`, label: t('pricing') },
     { href: framerTemplatesPath, label: t('framerTemplates') },
     { href: `${rootPath}#contact`, label: t('contact') },
-    { href: kbAbsolutePath, label: kbT('title') }
+    { href: kbAbsolutePath, label: locale === 'pl' ? 'Baza Wiedzy' : 'Knowledge Base' }
   ];
 
   return (

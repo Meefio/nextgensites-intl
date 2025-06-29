@@ -25,7 +25,7 @@ export const AnimatedElement = forwardRef<HTMLElement, AnimatedElementProps>(
   }, ref) => {
     const localRef = useRef(null)
     const targetRef = (ref || localRef) as React.RefObject<HTMLElement>
-    
+
     const isInView = useInView(targetRef, viewport)
 
     const MotionComponent = (motion as any)[as] || motion.div

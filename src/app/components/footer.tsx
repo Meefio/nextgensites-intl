@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Mail, Phone } from "lucide-react";
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 export function Footer() {
   const t = useTranslations('Footer');
-  const kbT = useTranslations('KnowledgeBase');
+  const locale = useLocale();
 
   return (
     <footer className="container max-w-6xl mt-10 flex flex-wrap justify-between pb-16 pt-10 ">
@@ -57,7 +57,7 @@ export function Footer() {
           Portfolio
         </Link>
         <Link href="/baza-wiedzy" className="text-sm text-muted-foreground hover:text-foreground">
-          {kbT('title')}
+          {locale === 'pl' ? 'Baza Wiedzy' : 'Knowledge Base'}
         </Link>
         <Link href="/#proces" className="text-sm text-muted-foreground hover:text-foreground">
           {t('process')}

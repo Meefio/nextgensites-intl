@@ -1,7 +1,6 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 import { Breadcrumb } from '@/app/components/breadcrumb';
 import { useEffect, useState } from 'react';
 
@@ -14,7 +13,6 @@ export function DynamicBreadcrumb({
   locale,
   articleTitle: propArticleTitle
 }: DynamicBreadcrumbProps) {
-  const t = useTranslations('KnowledgeBase');
   const pathname = usePathname();
 
   // Process pathname to handle both formats (/en/knowledge-base and /knowledge-base)
@@ -98,16 +96,20 @@ export function DynamicBreadcrumb({
 
   // Create breadcrumb items - always use paths without the /en prefix as the Breadcrumb component adds locale
   const breadcrumbItems = [
-    { label: t('breadcrumbs.home'), href: '/' },
+    { label: locale === 'pl' ? 'Strona główna' : 'Home', href: '/' },
     {
-      label: t('breadcrumbs.knowledgeBase'),
+      label: locale === 'pl' ? 'Baza Wiedzy' : 'Knowledge Base',
       href: knowledgeBasePath,
       isCurrentPage: pathname === localizedBasePath
     }
   ];
 
   // Add article title if we're on an article page
-  if (isArticlePage && (normalizedPath.startsWith('/knowledge-base/') || normalizedPath.startsWith('/baza-wiedzy/'))) {
+  if (
+    isArticlePage &&
+    (normalizedPath.startsWith('/knowledge-base/') ||
+      normalizedPath.startsWith('/baza-wiedzy/'))
+  ) {
     breadcrumbItems.push({
       label: articleTitle,
       href: pathname,

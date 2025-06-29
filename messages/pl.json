@@ -689,28 +689,6 @@
     "backToHome": "Powrót do strony głównej",
     "copyright": "© {year} NextGen Sites. Wszelkie prawa zastrzeżone."
   },
-  "BlogComponents": {
-    "summary": {
-      "title": "Z tego artykułu dowiesz się:"
-    },
-    "worthKnowing": {
-      "title": "Warto wiedzieć"
-    },
-    "tableOfContents": {
-      "title": "Spis treści"
-    },
-    "nextArticle": {
-      "title": "Przeczytaj również",
-      "cta": "Przejdź do artykułu"
-    },
-    "meta": {
-      "postedOn": "Opublikowano",
-      "readingTime": "Czas czytania",
-      "minutes": "min",
-      "category": "Kategoria",
-      "author": "Autor"
-    }
-  },
   "Portfolio-sections": {
     "UnderPressure": {
       "title": "Strona internetowa dla firmy sprzątającej",
@@ -819,7 +797,7 @@
       "url": "https://nextgensites.pl"
     },
     "generator": "Next.js",
-    "keywords": "tworzenie stron internetowych, strony internetowe next.js, nowoczesne strony www, strona internetowa dla małej firmy, tworzenie landing page, projektowanie stron www, strony internetowe warszawa, responsywne strony www, szybkie strony internetowe, profesjonalne strony www, wizytówka online, landing page",
+    "keywords": "tworzenie stron internetowych, strony internetowe next.js, nowoczesne strony www, strona internetowa dla małej firmy, tworzenie landing page, projektowanie stron www, strony internetowe warszawa, responsywne strony www, szybkie strony internetowe, profesjonalne strony www, wizytówka online, landing page, strony następnej generacji",
     "creator": "NextGen Sites - Profesjonalne Tworzenie Stron WWW",
     "publisher": "NextGen Sites",
     "openGraph": {
@@ -924,40 +902,5 @@
         "label": "Responsywne projekty"
       }
     }
-  },
-  "KnowledgeBase": {
-    "title": "Baza Wiedzy",
-    "description": "Odkryj artykuły, poradniki i eksperckie wskazówki, które pomogą Ci podejmować lepsze decyzje dotyczące Twojej strony internetowej",
-    "metadata": {
-      "title": "Baza Wiedzy - poradniki",
-      "description": "Sprawdź naszą bazę wiedzy z praktycznymi poradnikami i wskazówkami dotyczącymi tworzenia stron, SEO i marketingu cyfrowego."
-    },
-    "emptyState": "Artykuły już wkrótce! Zajrzyj do nas później, aby znaleźć wartościowe treści.",
-    "readMore": "Czytaj więcej",
-    "backToList": "Powrót do artykułów",
-    "relatedArticles": "Powiązane artykuły",
-    "publishedOn": "Opublikowano",
-    "updatedOn": "Zaktualizowano",
-    "breadcrumbs": {
-      "home": "Strona główna",
-      "knowledgeBase": "Baza Wiedzy",
-      "article": "Artykuł"
-    }
-  },
-  "BlogArticle": {
-    "howToChooseWebsite": {
-      "title": "Jak wybrać dobrą stronę internetową dla swojej firmy?",
-      "description": "Kompleksowy przewodnik, który pomoże Ci podjąć świadome decyzje przy wyborze strony internetowej dla Twojej firmy w 2025 roku.",
-      "publishDate": "21 kwietnia 2025",
-      "category": "Biznes",
-      "readingTime": "5 min czytania"
-    }
-  },
-  "BlogPosts": {
-    "sectionLabel": "BAZA WIEDZY",
-    "title": "Najnowsze poradniki z naszej bazy wiedzy",
-    "description": "Sprawdź, nie pożałujesz",
-    "readMore": "Czytaj artykuł",
-    "viewAllPosts": "Zobacz wszystkie artykuły"
   }
 }

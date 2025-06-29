@@ -692,28 +692,6 @@
     "ogDescription": "Legal documents, terms of service, privacy policy and GDPR information for NextGen Sites.",
     "ogImageAlt": "NextGen Sites - Legal Documents"
   },
-  "BlogComponents": {
-    "summary": {
-      "title": "In this article you will learn:"
-    },
-    "worthKnowing": {
-      "title": "Worth knowing"
-    },
-    "tableOfContents": {
-      "title": "Table of contents"
-    },
-    "nextArticle": {
-      "title": "Read also",
-      "cta": "Go to article"
-    },
-    "meta": {
-      "postedOn": "Posted on",
-      "readingTime": "Reading time",
-      "minutes": "min",
-      "category": "Category",
-      "author": "Author"
-    }
-  },
   "Portfolio-sections": {
     "UnderPressure": {
       "title": "Modern website for a pressure washing company",
@@ -876,7 +854,7 @@
       "url": "https://nextgensites.pl"
     },
     "generator": "Next.js",
-    "keywords": "website development, next.js websites, modern websites, small business website, landing page creation, web design, warsaw websites, responsive websites, fast websites, professional websites, online business card, landing page",
+    "keywords": "website development, next.js websites, modern websites, small business website, landing page creation, web design, warsaw websites, responsive websites, fast websites, professional websites, online business card, landing page, next generation websites",
     "creator": "NextGen Sites - Professional Website Development",
     "publisher": "NextGen Sites",
     "openGraph": {
@@ -932,40 +910,5 @@
     "whereAreYou": "Where are you? 👀",
     "comeBack": "Come back! 🔥",
     "missYou": "Get a Premium website 🚀"
-  },
-  "KnowledgeBase": {
-    "title": "Knowledge Base",
-    "description": "Discover articles, guides, and expert tips to help you make better decisions about your website",
-    "metadata": {
-      "title": "Knowledge Base - tips",
-      "description": "Check our knowledge base with practical guides and tips on website creation, SEO, and digital marketing."
-    },
-    "emptyState": "Articles coming soon! Check back later to find valuable content.",
-    "readMore": "Read more",
-    "backToList": "Back to articles",
-    "relatedArticles": "Related Articles",
-    "publishedOn": "Published on",
-    "updatedOn": "Updated on",
-    "breadcrumbs": {
-      "home": "Home",
-      "knowledgeBase": "Knowledge Base",
-      "article": "Article"
-    }
-  },
-  "BlogArticle": {
-    "howToChooseWebsite": {
-      "title": "How to Choose the Right Website for Your Business",
-      "description": "A comprehensive guide to help you make informed decisions when selecting a website solution for your business in 2025.",
-      "publishDate": "April 21, 2025",
-      "category": "Business",
-      "readingTime": "5 min read"
-    }
-  },
-  "BlogPosts": {
-    "sectionLabel": "BLOG",
-    "title": "Latest from Our Knowledge Base",
-    "description": "Explore our latest articles with expert insights and practical tips for your online business",
-    "readMore": "Read article",
-    "viewAllPosts": "View all articles"
   }
 }

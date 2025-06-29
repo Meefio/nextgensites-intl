@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { Calendar, Clock, Tag, User } from 'lucide-react'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
 
 interface ArticleMetaProps {
   title: string
@@ -14,7 +13,7 @@ interface ArticleMetaProps {
   authorPosition?: string
   coverImage: string
   coverImageAlt: string
-  locale?: string
+  locale: 'en' | 'pl'
   className?: string
 }
 
@@ -30,40 +29,64 @@ export const ArticleMeta = ({
   locale,
   className = ''
 }: ArticleMetaProps) => {
-  const t = useTranslations('BlogComponents')
-
   // Format date to be more readable - like "20 sie 2018"
   const formatDate = (dateString: string): string => {
     try {
       // Ensure we have a valid date string
-      if (!dateString) return '';
+      if (!dateString) return ''
 
-      const date = new Date(dateString);
+      const date = new Date(dateString)
 
       // Check if date is valid
-      if (isNaN(date.getTime())) return dateString;
+      if (isNaN(date.getTime())) return dateString
 
       // Format based on locale
       if (locale === 'pl') {
         // Polish format: day month year (abbreviated month)
-        const months = ['sty', 'lut', 'mar', 'kwi', 'maj', 'cze', 'lip', 'sie', 'wrz', 'paź', 'lis', 'gru'];
-        const day = date.getDate();
-        const month = months[date.getMonth()];
-        const year = date.getFullYear();
-        return `${day} ${month} ${year}`;
+        const months = [
+          'sty',
+          'lut',
+          'mar',
+          'kwi',
+          'maj',
+          'cze',
+          'lip',
+          'sie',
+          'wrz',
+          'paź',
+          'lis',
+          'gru'
+        ]
+        const day = date.getDate()
+        const month = months[date.getMonth()]
+        const year = date.getFullYear()
+        return `${day} ${month} ${year}`
       } else {
         // English format: month day, year (abbreviated month)
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        const day = date.getDate();
-        const month = months[date.getMonth()];
-        const year = date.getFullYear();
-        return `${month} ${day}, ${year}`;
+        const months = [
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec'
+        ]
+        const day = date.getDate()
+        const month = months[date.getMonth()]
+        const year = date.getFullYear()
+        return `${month} ${day}, ${year}`
       }
     } catch (error) {
-      console.error('Error formatting date:', error);
-      return dateString; // Return original string if formatting fails
+      console.error('Error formatting date:', error)
+      return dateString // Return original string if formatting fails
     }
-  };
+  }
 
   return (
     <div className={`mb-12 max-w-4xl mx-auto text-center ${className}`}>
@@ -107,28 +130,28 @@ export const ArticleMeta = ({
         <div className="flex items-center px-4 py-2 bg-card border rounded-full shadow-sm">
           <Calendar className="h-4 w-4 mr-2 text-primary" />
           <span className="text-sm font-medium">
-            <span className="sr-only">{t('meta.postedOn')}</span>
+            <span className="sr-only">{locale === 'pl' ? 'Opublikowano' : 'Posted on'}</span>
             {formatDate(date)}
           </span>
         </div>
         <div className="flex items-center px-4 py-2 bg-card border rounded-full shadow-sm">
           <Clock className="h-4 w-4 mr-2 text-primary" />
           <span className="text-sm font-medium">
-            <span className="sr-only">{t('meta.readingTime')}</span>
+            <span className="sr-only">{locale === 'pl' ? 'Czas czytania' : 'Reading time'}</span>
             {readingTime}
           </span>
         </div>
         <div className="flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full shadow-sm">
           <Tag className="h-4 w-4 mr-2" />
           <span className="text-sm font-medium">
-            <span className="sr-only">{t('meta.category')}</span>
+            <span className="sr-only">{locale === 'pl' ? 'Kategoria' : 'Category'}</span>
             {category}
           </span>
         </div>
         <div className="flex items-center px-4 py-2 bg-card border rounded-full shadow-sm">
           <User className="h-4 w-4 mr-2 text-primary" />
           <span className="text-sm font-medium">
-            <span className="sr-only">{t('meta.author')}</span>
+            <span className="sr-only">{locale === 'pl' ? 'Autor' : 'Author'}</span>
             {author}
             {authorPosition && (
               <span className="text-xs text-muted-foreground ml-1">

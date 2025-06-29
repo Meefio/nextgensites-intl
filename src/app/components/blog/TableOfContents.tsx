@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { useTranslations } from 'next-intl'
 
 interface TOCItem {
   id: string
@@ -12,11 +11,14 @@ interface TOCItem {
 interface TableOfContentsProps {
   items: TOCItem[]
   className?: string
-  locale?: string
+  locale: 'en' | 'pl'
 }
 
-export const TableOfContents = ({ items, className = '' }: TableOfContentsProps) => {
-  const t = useTranslations('BlogComponents')
+export const TableOfContents = ({
+  items,
+  className = '',
+  locale
+}: TableOfContentsProps) => {
   const [activeId, setActiveId] = useState<string>('')
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
 
@@ -88,13 +90,10 @@ export const TableOfContents = ({ items, className = '' }: TableOfContentsProps)
         return
       }
 
-      const observer = new IntersectionObserver(
-        observerCallback,
-        {
-          rootMargin: '-10% 0px -70% 0px',
-          threshold: [0, 0.2, 0.4, 0.6, 0.8, 1],
-        }
-      )
+      const observer = new IntersectionObserver(observerCallback, {
+        rootMargin: '-10% 0px -70% 0px',
+        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1]
+      })
 
       observer.observe(element)
       observers.push(observer)
@@ -178,8 +177,10 @@ export const TableOfContents = ({ items, className = '' }: TableOfContentsProps)
       // Emergency fallback - try to find by innerText match (partial)
       const allHeadings = document.querySelectorAll('h2')
       for (const heading of allHeadings) {
-        if (heading.innerText.includes(section.title) ||
-          section.title.includes(heading.innerText)) {
+        if (
+          heading.innerText.includes(section.title) ||
+          section.title.includes(heading.innerText)
+        ) {
           heading.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
@@ -200,11 +201,11 @@ export const TableOfContents = ({ items, className = '' }: TableOfContentsProps)
     >
       <h3 className="text-lg font-semibold mb-4 flex items-center">
         <span className="w-1 h-5 bg-primary rounded-full mr-2 flex-shrink-0"></span>
-        {t('tableOfContents.title')}
+        {locale === 'pl' ? 'Spis treści' : 'Table of contents'}
       </h3>
 
       <nav className="space-y-1.5">
-        {items.map((section) => {
+        {items.map(section => {
           // Get the properly slugified ID for the href
           const slugifiedId = slugifyText(section.title)
 
@@ -216,12 +217,14 @@ export const TableOfContents = ({ items, className = '' }: TableOfContentsProps)
                 ? 'bg-primary/10 text-primary font-medium'
                 : 'hover:text-primary'
                 }`}
-              onClick={(e) => handleClick(e, section)}
+              onClick={e => handleClick(e, section)}
             >
-              <div className={`w-1.5 h-1.5 rounded-full mr-2.5 transition-colors flex-shrink-0 ${activeId === section.id
-                ? 'bg-primary'
-                : 'bg-primary/40 group-hover:bg-primary/60'
-                }`}></div>
+              <div
+                className={`w-1.5 h-1.5 rounded-full mr-2.5 transition-colors flex-shrink-0 ${activeId === section.id
+                  ? 'bg-primary'
+                  : 'bg-primary/40 group-hover:bg-primary/60'
+                  }`}
+              ></div>
               <span className={activeId === section.id ? '' : 'group-hover:text-primary/90'}>
                 {section.title}
               </span>

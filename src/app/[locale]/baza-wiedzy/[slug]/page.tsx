@@ -166,15 +166,16 @@ export async function generateStaticParams() {
 
 export default async function BlogPage({ params }: PageProps) {
   const { locale, slug } = await params
+  const validatedLocale = locale as 'en' | 'pl'
 
-  unstable_setRequestLocale(locale)
+  unstable_setRequestLocale(validatedLocale)
 
   try {
     // Get post data from Sanity
-    const post = await getPostBySlug(slug, locale)
+    const post = await getPostBySlug(slug, validatedLocale)
 
     if (!post) {
-      console.log(`Post not found for slug "${slug}" and locale "${locale}"`)
+      console.log(`Post not found for slug "${slug}" and locale "${validatedLocale}"`)
 
       // Debug: Show available slugs
       const availableSlugs = await getAllSlugsDebug()
@@ -185,14 +186,14 @@ export default async function BlogPage({ params }: PageProps) {
     }
 
     // Get localized title
-    const title = getLocalizedValue(post.title, locale) || ''
+    const title = getLocalizedValue(post.title, validatedLocale) || ''
 
     // Debug: Log the post data to see what we're getting
     console.log('Post data:', {
       hasBody: !!post.body,
       hasContent: !!post.content,
-      bodyType: post.body ? typeof getLocalizedValue(post.body, locale) : 'undefined',
-      contentType: post.content ? typeof getLocalizedValue(post.content, locale) : 'undefined'
+      bodyType: post.body ? typeof getLocalizedValue(post.body, validatedLocale) : 'undefined',
+      contentType: post.content ? typeof getLocalizedValue(post.content, validatedLocale) : 'undefined'
     })
 
     // Store article data for breadcrumb component
@@ -205,7 +206,7 @@ export default async function BlogPage({ params }: PageProps) {
     params.articleData = articleData;
 
     // Check if we have MDX content
-    let mdxContent = post.content ? getLocalizedValue(post.content, locale) : null
+    let mdxContent = post.content ? getLocalizedValue(post.content, validatedLocale) : null
     let mdxSource = undefined
     let tocItems: { id: string; title: string }[] = []
 
@@ -227,7 +228,7 @@ export default async function BlogPage({ params }: PageProps) {
       })
     } else {
       // Try to extract MDX from body field if it looks like MDX
-      const bodyContent = post.body ? getLocalizedValue(post.body, locale) : null
+      const bodyContent = post.body ? getLocalizedValue(post.body, validatedLocale) : null
       if (bodyContent && Array.isArray(bodyContent)) {
         const extractedText = extractTextFromPortableText(bodyContent)
 
@@ -262,7 +263,7 @@ export default async function BlogPage({ params }: PageProps) {
       tocItems = [
         {
           id: 'introduction',
-          title: locale === 'pl' ? 'Wprowadzenie' : 'Introduction'
+          title: validatedLocale === 'pl' ? 'Wprowadzenie' : 'Introduction'
         }
       ]
     }
@@ -272,7 +273,7 @@ export default async function BlogPage({ params }: PageProps) {
       ? post.author.name as string
       : 'NextGen Sites'
 
-    const authorPosition = locale === 'pl' ? 'Redaktor' : 'Editor'
+    const authorPosition = validatedLocale === 'pl' ? 'Redaktor' : 'Editor'
 
     // Get category if available
     const category =
@@ -281,17 +282,17 @@ export default async function BlogPage({ params }: PageProps) {
         'title' in post.category
         ? getLocalizedValue(
           post.category.title as Record<string, string>,
-          locale
+          validatedLocale
         ) || ''
         : ''
 
     // Get summary points
-    const summaryPoints = getLocalizedValue(post.summaryPoints, locale) || []
+    const summaryPoints = getLocalizedValue(post.summaryPoints, validatedLocale) || []
 
     // Format reading time
     const readingTimeText = post.readingTime
-      ? (locale === 'pl' ? `Ok. ${post.readingTime} min czytania` : `Approx. ${post.readingTime} min read`)
-      : (locale === 'pl' ? 'Ok. 5 min czytania' : 'Approx. 5 min read')
+      ? (validatedLocale === 'pl' ? `Ok. ${post.readingTime} min czytania` : `Approx. ${post.readingTime} min read`)
+      : (validatedLocale === 'pl' ? 'Ok. 5 min czytania' : 'Approx. 5 min read')
 
     // Prepare JSON-LD data for article
     const jsonLd = {
@@ -313,7 +314,7 @@ export default async function BlogPage({ params }: PageProps) {
           "url": `${DOMAIN}/images/logo.png`
         }
       },
-      "description": getLocalizedValue(post.excerpt, locale) || ''
+      "description": getLocalizedValue(post.excerpt, validatedLocale) || ''
     };
 
     return (
@@ -336,20 +337,20 @@ export default async function BlogPage({ params }: PageProps) {
                 author={authorName}
                 authorPosition={authorPosition}
                 coverImage={post.coverImage ? urlFor(post.coverImage).width(800).url() : ''}
-                coverImageAlt={post.coverImage?.alt ? getLocalizedValue(post.coverImage.alt, locale) || title : title}
-                locale={locale}
+                coverImageAlt={post.coverImage?.alt ? getLocalizedValue(post.coverImage.alt, validatedLocale) || title : title}
+                locale={validatedLocale}
               />
 
               <div className="lg:hidden mb-10">
-                <TableOfContents items={tocItems} locale={locale} />
+                <TableOfContents items={tocItems} locale={validatedLocale} />
               </div>
 
               {summaryPoints.length > 0 && (
-                <SummaryBox points={summaryPoints} locale={locale} />
+                <SummaryBox points={summaryPoints} locale={validatedLocale} />
               )}
 
               {/* Render content */}
-              <ArticleContent post={post} locale={locale} mdxSource={mdxSource} />
+              <ArticleContent post={post} locale={validatedLocale} mdxSource={mdxSource} />
             </article>
           </div>
 
@@ -358,11 +359,11 @@ export default async function BlogPage({ params }: PageProps) {
             <div className="space-y-8 lg:sticky lg:top-20">
               {/* Table of Contents (desktop) */}
               <div className="hidden lg:block">
-                <TableOfContents items={tocItems} locale={locale} />
+                <TableOfContents items={tocItems} locale={validatedLocale} />
               </div>
 
               {/* Simple Contact Section */}
-              <HelpBox locale={locale} />
+              <HelpBox locale={validatedLocale} />
             </div>
           </div>
         </div>

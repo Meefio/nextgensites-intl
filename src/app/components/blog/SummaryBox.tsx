@@ -1,19 +1,21 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useTranslations } from 'next-intl'
 import React from 'react'
 
 interface SummaryBoxProps {
   points?: string[]
-  locale?: string
+  locale: 'en' | 'pl'
   className?: string
   children?: React.ReactNode
 }
 
-export const SummaryBox = ({ points, className = '', children }: SummaryBoxProps) => {
-  const t = useTranslations('BlogComponents')
-
+export const SummaryBox = ({
+  points,
+  locale,
+  className = '',
+  children
+}: SummaryBoxProps) => {
   // Simplified animation variants for the container - just fade in
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -71,7 +73,7 @@ export const SummaryBox = ({ points, className = '', children }: SummaryBoxProps
         // If it's a list element (ul/ol)
         if (node.type === 'ul' || node.type === 'ol') {
           // Type assertion to inform TypeScript that props has the children property
-          const nodeProps = node.props as { children?: React.ReactNode };
+          const nodeProps = node.props as { children?: React.ReactNode }
 
           // Now safely access the children property with proper type checking
           return React.Children.toArray(nodeProps.children)
@@ -79,35 +81,38 @@ export const SummaryBox = ({ points, className = '', children }: SummaryBoxProps
             .map(child => {
               if (React.isValidElement(child)) {
                 // Use type assertion for child.props as well
-                const childProps = child.props as { children?: React.ReactNode };
+                const childProps = child.props as { children?: React.ReactNode }
 
                 if (typeof childProps.children === 'string') {
-                  return childProps.children.trim();
+                  return childProps.children.trim()
                 }
                 // Handle nested content in li
-                if (React.isValidElement(childProps.children) || Array.isArray(childProps.children)) {
+                if (
+                  React.isValidElement(childProps.children) ||
+                  Array.isArray(childProps.children)
+                ) {
                   return React.Children.toArray(childProps.children)
-                    .map(c => typeof c === 'string' ? c.trim() : 'Item')
-                    .join(' ');
+                    .map(c => (typeof c === 'string' ? c.trim() : 'Item'))
+                    .join(' ')
                 }
               }
-              return 'Item';
+              return 'Item'
             })
-            .filter(Boolean);
+            .filter(Boolean)
         }
 
         // Handle paragraphs or other elements that might contain list items
         // Use type assertion here too
-        const nodeProps = node.props as { children?: React.ReactNode };
+        const nodeProps = node.props as { children?: React.ReactNode }
 
         if (nodeProps.children) {
           if (typeof nodeProps.children === 'string' && nodeProps.children.includes('-')) {
-            return extractPointsFromReactNode(nodeProps.children);
+            return extractPointsFromReactNode(nodeProps.children)
           }
 
           // Recursive handling for nested elements
           if (Array.isArray(nodeProps.children)) {
-            return nodeProps.children.flatMap(child => extractPointsFromReactNode(child));
+            return nodeProps.children.flatMap(child => extractPointsFromReactNode(child))
           }
         }
       }
@@ -124,24 +129,23 @@ export const SummaryBox = ({ points, className = '', children }: SummaryBoxProps
   }
 
   // Use provided points or extract from children
-  const pointsToRender = points && points.length > 0
-    ? points
-    : getPointsFromChildren()
+  const pointsToRender =
+    points && points.length > 0 ? points : getPointsFromChildren()
 
   // If we have children that might be direct JSX content, render it as is
-  const hasDirectContent = !pointsToRender || pointsToRender.length === 0;
+  const hasDirectContent = !pointsToRender || pointsToRender.length === 0
 
   return (
     <motion.div
       className={`my-8 p-6 border border-border rounded-xl bg-card shadow-sm ${className}`}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: '-50px' }}
       variants={containerVariants}
     >
       <h3 className="text-xl font-semibold mb-4 flex items-center">
         <span className="w-1 h-5 bg-primary rounded-full mr-2"></span>
-        {t('summary.title')}
+        {locale === 'pl' ? 'Z tego artykułu dowiesz się:' : 'In this article you will learn:'}
       </h3>
 
       {hasDirectContent ? (

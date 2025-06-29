@@ -1,4 +1,3 @@
-import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 import { Header } from '@/app/components/header';
 import { Footer } from '@/app/components/footer';
@@ -11,14 +10,18 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'KnowledgeBase' });
+  const title = locale === 'pl' ? 'Baza Wiedzy' : 'Knowledge Base';
+  const description =
+    locale === 'pl'
+      ? 'Odkryj artykuły, poradniki i eksperckie wskazówki, które pomogą Ci podejmować lepsze decyzje dotyczące Twojej strony internetowej'
+      : 'Discover articles, guides, and expert tips to help you make better decisions about your website';
 
   return {
-    title: t('title'),
-    description: t('description'),
+    title: title,
+    description: description,
     openGraph: {
-      title: t('title'),
-      description: t('description'),
+      title: title,
+      description: description,
       type: 'article',
     },
   };

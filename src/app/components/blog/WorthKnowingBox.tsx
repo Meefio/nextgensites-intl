@@ -1,16 +1,18 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useTranslations } from 'next-intl'
 
 interface WorthKnowingBoxProps {
   children: React.ReactNode
   className?: string
+  locale: 'en' | 'pl'
 }
 
-export const WorthKnowingBox = ({ children, className = '' }: WorthKnowingBoxProps) => {
-  const t = useTranslations('BlogComponents')
-
+export const WorthKnowingBox = ({
+  children,
+  className = '',
+  locale
+}: WorthKnowingBoxProps) => {
   return (
     <motion.div
       className={`my-10 p-6 rounded-xl shadow-sm relative 
@@ -18,19 +20,15 @@ export const WorthKnowingBox = ({ children, className = '' }: WorthKnowingBoxPro
         ${className}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: '-100px' }}
       transition={{ type: 'spring', stiffness: 100 }}
     >
       <div className="flex gap-4 relative z-10">
-
-
         <div>
           <h3 className="mt-2 text-xl font-semibold mb-2 text-accent text-center">
-            {t('worthKnowing.title')}
+            {locale === 'pl' ? 'Warto wiedzieć' : 'Worth knowing'}
           </h3>
-          <div className='text-center'>
-            {children}
-          </div>
+          <div className="text-center">{children}</div>
         </div>
       </div>
     </motion.div>

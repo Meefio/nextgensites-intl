@@ -1,4 +1,3 @@
-import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { BookOpen, Clock, ChevronRight, BookText, Sparkles } from 'lucide-react';
 import Image from 'next/image';
@@ -19,7 +18,11 @@ export async function generateMetadata({
   params
 }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'KnowledgeBase' });
+  const title = locale === 'pl' ? 'Baza Wiedzy - poradniki' : 'Knowledge Base - tips';
+  const description =
+    locale === 'pl'
+      ? 'Sprawdź naszą bazę wiedzy z praktycznymi poradnikami i wskazówkami dotyczącymi tworzenia stron, SEO i marketingu cyfrowego.'
+      : 'Check our knowledge base with practical guides and tips on website creation, SEO, and digital marketing.';
 
   // Create canonical URL for knowledge base index page
   const path = locale === 'pl' ? '/baza-wiedzy' : '/knowledge-base';
@@ -29,15 +32,15 @@ export async function generateMetadata({
   const languages = createLanguageAlternates('/baza-wiedzy', '/knowledge-base', 'pl');
 
   return {
-    title: t('metadata.title'),
-    description: t('metadata.description'),
+    title,
+    description,
     alternates: {
       canonical: canonicalUrl,
       languages,
     },
     openGraph: {
-      title: t('metadata.title'),
-      description: t('metadata.description'),
+      title,
+      description,
       url: canonicalUrl,
     },
   };
@@ -49,7 +52,18 @@ export default async function KnowledgeBasePage({
   const { locale } = await params;
   unstable_setRequestLocale(locale);
 
-  const t = await getTranslations({ locale, namespace: 'KnowledgeBase' });
+  const t = {
+    title: locale === 'pl' ? 'Baza Wiedzy' : 'Knowledge Base',
+    description:
+      locale === 'pl'
+        ? 'Odkryj artykuły, poradniki i eksperckie wskazówki, które pomogą Ci podejmować lepsze decyzje dotyczące Twojej strony internetowej'
+        : 'Discover articles, guides, and expert tips to help you make better decisions about your website',
+    readMore: locale === 'pl' ? 'Czytaj więcej' : 'Read more',
+    emptyState:
+      locale === 'pl'
+        ? 'Artykuły już wkrótce! Zajrzyj do nas później, aby znaleźć wartościowe treści.'
+        : 'Articles coming soon! Check back later to find valuable content.'
+  };
 
   // Get all posts for the current locale from Sanity
   let posts: any[] = [];
@@ -70,11 +84,11 @@ export default async function KnowledgeBasePage({
             <span>{locale === 'pl' ? 'Przydatna wiedza' : 'Useful knowledge'}</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text">
-            {t('title')}
+            {t.title}
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
-            {t('description')}
+            {t.description}
           </p>
         </div>
       </div>
@@ -162,7 +176,7 @@ export default async function KnowledgeBasePage({
                         </p>
 
                         <div className="flex items-center text-primary font-medium">
-                          <span>{t('readMore')}</span>
+                          <span>{t.readMore}</span>
                           <ChevronRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
                         </div>
                       </div>
@@ -176,7 +190,7 @@ export default async function KnowledgeBasePage({
       ) : (
         <div className="text-center py-16 border border-dashed rounded-lg">
           <BookOpen className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
-          <h3 className="text-xl font-semibold mb-2">{t('emptyState')}</h3>
+          <h3 className="text-xl font-semibold mb-2">{t.emptyState}</h3>
         </div>
       )}
     </div>
