@@ -145,7 +145,7 @@ export const SummaryBox = ({
     >
       <h3 className="text-xl font-semibold mb-4 flex items-center">
         <span className="w-1 h-5 bg-primary rounded-full mr-2"></span>
-        {locale === 'pl' ? 'Z tego artykułu dowiesz się:' : 'In this article you will learn:'}
+        {locale === 'pl' ? 'Z tego artykułu:' : 'In this article you will:'}
       </h3>
 
       {hasDirectContent ? (

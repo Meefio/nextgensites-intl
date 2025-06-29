@@ -19,7 +19,7 @@ export const blogTranslations = {
     "BlogComponents": {
       "tableOfContents": "Spis treści",
       "summaryBox": {
-        "title": "Z tego artykułu dowiesz się:"
+        "title": "Z tego artykułu:"
       },
       "worthKnowing": {
         "title": "Warto wiedzieć"
