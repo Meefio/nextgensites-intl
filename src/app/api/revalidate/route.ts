@@ -59,33 +59,36 @@ export async function POST(request: NextRequest) {
 
     // Parse the webhook payload from Sanity
     const payload = await request.json()
+    const body = payload.body || payload; // Accommodate different webhook structures
 
     // Check if it's a post document
-    if (payload?.result?._type === 'post') {
-      // Get the post's language
-      const language = payload.result.language
+    if (body?.result?._type === 'post' || body?._type === 'post') {
+      const post = body.result || body;
 
-      // Determine which path to revalidate based on language
-      const basePath = language === 'pl' ? KNOWLEDGE_BASE_PATHS.PL : `/en${KNOWLEDGE_BASE_PATHS.EN}`
+      // Always revalidate the main knowledge base pages
+      revalidatePath(KNOWLEDGE_BASE_PATHS.PL);
+      revalidatePath(KNOWLEDGE_BASE_PATHS.EN);
+      console.log('Revalidated main knowledge base pages');
 
-      // Get the slug if available
-      let slug = ''
-      if (payload.result.slug && payload.result.slug[language]?.current) {
-        slug = payload.result.slug[language].current
+      // Revalidate individual post pages if slugs are available
+      const slug_pl = post.slug?.pl?.current;
+      const slug_en = post.slug?.en?.current;
+
+      if (slug_pl) {
+        const path_pl = `${KNOWLEDGE_BASE_PATHS.PL}/${slug_pl}`;
+        revalidatePath(path_pl);
+        console.log(`Revalidated Polish post: ${path_pl}`);
       }
 
-      // Revalidate specific post if slug is available
-      if (slug) {
-        revalidatePath(`${basePath}/${slug}`)
+      if (slug_en) {
+        const path_en = `${KNOWLEDGE_BASE_PATHS.EN}/${slug_en}`;
+        revalidatePath(path_en);
+        console.log(`Revalidated English post: ${path_en}`);
       }
-
-      // Always revalidate the index pages
-      revalidatePath(KNOWLEDGE_BASE_PATHS.PL)
-      revalidatePath(`/en${KNOWLEDGE_BASE_PATHS.EN}`)
 
       return Response.json({
         revalidated: true,
-        message: `Blog content revalidated successfully`,
+        message: `Blog content revalidated successfully for post ID: ${post._id}`,
         now: Date.now(),
       })
     }

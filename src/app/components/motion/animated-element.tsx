@@ -11,6 +11,7 @@ interface AnimatedElementProps extends HTMLMotionProps<"div"> {
   delay?: number
   direction?: "up" | "down" | "left" | "right"
   viewport?: UseInViewOptions
+  className?: string
 }
 
 export const AnimatedElement = forwardRef<HTMLElement, AnimatedElementProps>(

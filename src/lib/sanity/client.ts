@@ -8,6 +8,11 @@ export const client = createClient({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: '2025-05-21', // use current date in YYYY-MM-DD format
   useCdn: process.env.NODE_ENV === 'production',
+  // New fetch options for caching
+  fetch: {
+    cache: 'force-cache',
+    next: { revalidate: 60 }, // Revalidate every hour
+  },
   // token: process.env.SANITY_API_TOKEN, // Only needed if you want to update content
 });
 
