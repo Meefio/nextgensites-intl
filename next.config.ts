@@ -100,7 +100,9 @@ const nextConfig: NextConfig = {
           value: [
             "default-src 'self'",
             // Allow scripts from Google Analytics/Tag Manager with nonces/hashes allowed inline scripts
-            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com https://*.vercel.live",
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com https://vercel.live",
+            // Explicitly define script-src-elem for modern browsers
+            "script-src-elem 'self' 'unsafe-inline' https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com https://vercel.live",
             // Allow styles from self and inline for dynamic styling
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
             // Allow images from self, data URIs, Google services, and CDNs
@@ -108,7 +110,7 @@ const nextConfig: NextConfig = {
             // Allow fonts from self, Google Fonts, and data URIs
             "font-src 'self' https://fonts.gstatic.com data:",
             // Allow connections to self and analytics endpoints
-            "connect-src 'self' https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://region1.google-analytics.com https://*.analytics.google.com https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com https://*.vercel.live wss://*.vercel.live",
+            "connect-src 'self' https://*.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://*.g.doubleclick.net https://region1.google-analytics.com https://*.analytics.google.com https://*.vercel-scripts.com https://va.vercel-scripts.com https://*.googlesyndication.com https://vercel.live wss://vercel.live",
             // Allow frames from self and Google services (critical for some GA features)
             "frame-src 'self' https://*.googletagmanager.com https://*.google-analytics.com https://*.g.doubleclick.net https://*.googlesyndication.com",
             // Disallow objects which can be security risks
