@@ -169,10 +169,15 @@ export const TableOfContents = ({
 
     if (element) {
       setActiveId(section.id)
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
+      const header = document.getElementById('main-header');
+      const headerHeight = header ? header.offsetHeight : 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerHeight - 20;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     } else {
       // Emergency fallback - try to find by innerText match (partial)
       const allHeadings = document.querySelectorAll('h2')
@@ -181,10 +186,16 @@ export const TableOfContents = ({
           heading.innerText.includes(section.title) ||
           section.title.includes(heading.innerText)
         ) {
-          heading.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          })
+          const header = document.getElementById('main-header');
+          const headerHeight = header ? header.offsetHeight : 80;
+          const elementPosition = heading.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - headerHeight - 20;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
           setActiveId(section.id)
           break
         }
