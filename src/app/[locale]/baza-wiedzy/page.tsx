@@ -128,7 +128,7 @@ export default async function KnowledgeBasePage({
                     <div className="grid grid-cols-1 md:grid-cols-5 gap-6 min-h-[250px]">
                       <div className="md:col-span-2 relative overflow-hidden bg-muted">
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                        {post.coverImage ? (
+                        {post.coverImage && post.coverImage.asset ? (
                           <Image
                             src={urlFor(post.coverImage).width(500).height(280).url()}
                             alt={title || 'Article image'}

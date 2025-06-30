@@ -104,9 +104,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const formattedDate = new Date(post.publishedAt).toISOString();
 
   // Prepare image URL for OG
-  const imageUrl = post.coverImage
-    ? urlFor(post.coverImage).width(1200).height(630).url()
-    : `${DOMAIN}/images/og-image.png`
+  const imageUrl =
+    post.coverImage && (post.coverImage as any).asset
+      ? urlFor(post.coverImage).width(1200).height(630).url()
+      : `${DOMAIN}/images/og-image.png`
 
   return {
     title,
@@ -298,8 +299,15 @@ export default async function BlogPage({ params }: PageProps) {
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": createCanonicalUrl(locale === 'pl' ? `/baza-wiedzy/${slug}` : `/knowledge-base/${slug}`, locale),
+      },
       "headline": title,
-      "image": post.coverImage ? urlFor(post.coverImage).width(1200).url() : `${DOMAIN}/images/og-image.png`,
+      "image":
+        post.coverImage && (post.coverImage as any).asset
+          ? urlFor(post.coverImage).width(1200).url()
+          : `${DOMAIN}/images/og-image.png`,
       "datePublished": post.publishedAt,
       "dateModified": post.publishedAt,
       "author": {
@@ -316,6 +324,10 @@ export default async function BlogPage({ params }: PageProps) {
       },
       "description": getLocalizedValue(post.excerpt, validatedLocale) || ''
     };
+
+    const coverImageAlt = post.coverImage?.alt
+      ? getLocalizedValue(post.coverImage.alt, validatedLocale)
+      : title
 
     return (
       <div className="py-4 container mx-auto" data-article-title={title}>
@@ -336,8 +348,12 @@ export default async function BlogPage({ params }: PageProps) {
                 category={category}
                 author={authorName}
                 authorPosition={authorPosition}
-                coverImage={post.coverImage ? urlFor(post.coverImage).width(800).url() : ''}
-                coverImageAlt={post.coverImage?.alt ? getLocalizedValue(post.coverImage.alt, validatedLocale) || title : title}
+                coverImage={
+                  post.coverImage && (post.coverImage as any).asset
+                    ? urlFor(post.coverImage).width(800).url()
+                    : ''
+                }
+                coverImageAlt={coverImageAlt || title}
                 locale={validatedLocale}
               />
 
