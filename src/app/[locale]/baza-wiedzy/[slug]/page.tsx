@@ -189,13 +189,6 @@ export default async function BlogPage({ params }: PageProps) {
     // Get localized title
     const title = getLocalizedValue(post.title, validatedLocale) || ''
 
-    // Debug: Log the post data to see what we're getting
-    console.log('Post data:', {
-      hasBody: !!post.body,
-      hasContent: !!post.content,
-      bodyType: post.body ? typeof getLocalizedValue(post.body, validatedLocale) : 'undefined',
-      contentType: post.content ? typeof getLocalizedValue(post.content, validatedLocale) : 'undefined'
-    })
 
     // Store article data for breadcrumb component
     const articleData: KnowledgeBaseArticleProps = {

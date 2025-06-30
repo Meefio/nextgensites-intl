@@ -21,10 +21,15 @@ export const getAllPostsDebugQuery = `
 `;
 
 /**
- * Get all posts for a specific locale - flexible version
+ * Get all posts for a specific locale
  */
 export const getAllPostsQuery = `
-  *[_type == "post" && defined(publishedAt) && publishedAt < now()] | order(publishedAt desc) {
+  *[_type == "post" && 
+    defined(publishedAt) && 
+    publishedAt < now() &&
+    defined(title[$locale]) &&
+    defined(slug[$locale].current)
+  ] | order(publishedAt desc) {
     _id,
     title,
     slug,
@@ -39,54 +44,10 @@ export const getAllPostsQuery = `
 `;
 
 /**
- * Original query with language filter
- */
-export const getAllPostsQueryWithLanguage = `
-  *[_type == "post" && language == $locale && defined(slug[$locale].current) && publishedAt < now()] | order(publishedAt desc) {
-    _id,
-    title,
-    slug,
-    coverImage,
-    publishedAt,
-    readingTime,
-    excerpt,
-    author->{name, image},
-    category->{_id, title}
-  }
-`;
-
-/**
- * Get a single post by slug for a specific locale - flexible version
+ * Get a single post by slug for a specific locale
  */
 export const getPostBySlugQuery = `
   *[_type == "post" && slug[$locale].current == $slug][0] {
-    _id,
-    title,
-    slug,
-    coverImage,
-    publishedAt,
-    readingTime,
-    summaryPoints,
-    keywords,
-    body,
-    content,
-    excerpt,
-    author->{name, image, bio},
-    category->{_id, title, description},
-    language,
-    'contentImages': contentImages[]{
-      "filename": asset->originalFilename,
-      "alt": alt,
-      "image": asset
-    }
-  }
-`;
-
-/**
- * Alternative query that also searches by language if the first one fails
- */
-export const getPostBySlugWithLanguageQuery = `
-  *[_type == "post" && slug[$locale].current == $slug && language == $locale][0] {
     _id,
     title,
     slug,
@@ -171,31 +132,16 @@ export const getAllPostsDebug = cache(async () => {
 });
 
 /**
- * Get all posts for a specific locale - now more flexible
+ * Get all posts for a specific locale
  */
 export const getAllPosts = cache(async (locale: string): Promise<PostPreview[]> => {
-  // First try to get all posts and filter on the frontend if needed
-  const allPosts = await client.fetch(getAllPostsQuery);
-  console.log('All posts from Sanity:', allPosts);
-
-  // If no posts with the flexible query, return empty
-  if (!allPosts || allPosts.length === 0) {
+  try {
+    const posts = await client.fetch(getAllPostsQuery, { locale });
+    return posts || [];
+  } catch (error) {
+    console.error('Error fetching all posts:', error);
     return [];
   }
-
-  // Filter posts that have content for the requested locale
-  const filteredPosts = allPosts.filter((post: any) => {
-    // Check if post has title in the requested locale
-    const hasTitle = post.title && post.title[locale];
-    // Check if post has slug in the requested locale
-    const hasSlug = post.slug && post.slug[locale] && post.slug[locale].current;
-
-    // We only require title and slug - excerpt can fallback to another language
-    return hasTitle && hasSlug;
-  });
-
-  console.log(`Filtered posts for locale ${locale}:`, filteredPosts);
-  return filteredPosts;
 });
 
 /**
@@ -206,29 +152,22 @@ export const getAllSlugsDebug = cache(async () => {
 });
 
 /**
- * Get a post by slug for a specific locale - improved with fallback
+ * Get a post by slug for a specific locale
  */
 export const getPostBySlug = cache(async (slug: string, locale: string): Promise<Post | null> => {
-  console.log(`Looking for post with slug "${slug}" and locale "${locale}"`);
+  try {
+    const post = await client.fetch(getPostBySlugQuery, { slug, locale });
 
-  // First try the flexible query (without language constraint)
-  let post = await client.fetch(getPostBySlugQuery, { slug, locale });
+    if (!post) {
+      console.warn(`No post found for slug "${slug}" and locale "${locale}"`);
+      return null;
+    }
 
-  if (post) {
-    console.log(`Found post with flexible query:`, post._id);
     return post;
+  } catch (error) {
+    console.error(`Error fetching post by slug "${slug}" for locale "${locale}":`, error);
+    return null;
   }
-
-  // If not found, try with language constraint
-  post = await client.fetch(getPostBySlugWithLanguageQuery, { slug, locale });
-
-  if (post) {
-    console.log(`Found post with language constraint:`, post._id);
-    return post;
-  }
-
-  console.log(`No post found for slug "${slug}" and locale "${locale}"`);
-  return null;
 });
 
 /**
@@ -247,30 +186,36 @@ export const getAllSlugs = cache(async () => {
  * Get all post slugs for a specific locale
  */
 export const getSlugsByLocale = cache(async (locale: string) => {
-  const slugs = await client.fetch(getSlugsByLocaleQuery, { locale });
-  return slugs.map((item: any) => item.slug);
+  try {
+    const slugs = await client.fetch(getSlugsByLocaleQuery, { locale });
+    return slugs.map((item: any) => item.slug);
+  } catch (error) {
+    console.error(`Error fetching slugs for locale "${locale}":`, error);
+    return [];
+  }
 });
 
 /**
  * Get featured posts for homepage
  */
 export const getFeaturedPosts = cache(async (locale: string): Promise<PostPreview[]> => {
-  const featuredPosts = await client.fetch(getFeaturedPostsQuery);
-  console.log('Featured posts from Sanity:', featuredPosts);
+  try {
+    const featuredPosts = await client.fetch(getFeaturedPostsQuery);
 
-  if (!featuredPosts || featuredPosts.length === 0) {
-    // Fallback: get latest 3 posts if no featured posts
-    const latestPosts = await getAllPosts(locale);
-    return latestPosts.slice(0, 3);
+    if (!featuredPosts || featuredPosts.length === 0) {
+      const latestPosts = await getAllPosts(locale);
+      return latestPosts.slice(0, 3);
+    }
+
+    const filteredPosts = featuredPosts.filter((post: any) => {
+      const hasTitle = post.title && post.title[locale];
+      const hasSlug = post.slug && post.slug[locale] && post.slug[locale].current;
+      return hasTitle && hasSlug;
+    });
+
+    return filteredPosts;
+  } catch (error) {
+    console.error(`Error fetching featured posts for locale "${locale}":`, error);
+    return [];
   }
-
-  // Filter posts that have content for the requested locale
-  const filteredPosts = featuredPosts.filter((post: any) => {
-    const hasTitle = post.title && post.title[locale];
-    const hasSlug = post.slug && post.slug[locale] && post.slug[locale].current;
-    return hasTitle && hasSlug;
-  });
-
-  console.log(`Filtered featured posts for locale ${locale}:`, filteredPosts);
-  return filteredPosts;
 }); 
