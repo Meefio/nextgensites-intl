@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Hero } from '@/app/components/hero'
 import { Header } from '@/app/components/header'
 import { SocialProof } from '@/app/components/SocialProof'
@@ -12,12 +13,16 @@ import { FramerTemplatesPromo } from '@/app/components/framer-templates-promo'
 import { createCanonicalUrl, createLanguageAlternates } from '@/app/utils/createCanonicalUrl'
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import { FaqSkeleton, ContactFormSkeleton } from '@/app/components/skeletons'
 
 // Dynamically import non-critical components
 const WhyNotWordPressSection = dynamic(() => import('@/app/components/WhyNotWordPress-section').then(mod => mod.default), { ssr: true })
 const PortfolioSection = dynamic(() => import('@/app/components/portfolio-section').then(mod => mod.default), { ssr: true })
 const FeaturesSection = dynamic(() => import('@/app/components/features-section').then(mod => mod.default), { ssr: true })
 const LatestBlogPosts = dynamic(() => import('@/app/components/latest-blog-posts').then(mod => mod.default), { ssr: true })
+
+// Włączamy Partial Prerendering dla tej strony
+export const ppr = true;
 
 // Dodajemy ISR (Incremental Static Regeneration)
 export const revalidate = 3600 // Odświeżanie co godzinę
@@ -394,11 +399,15 @@ export default async function HomePage({ params }: GenerateMetadataProps) {
 				<WhyNotWordPressSection />
 				<TimelineSection />
 				<Pricing />
+				<Suspense fallback={<FaqSkeleton />}>
+					<Faq />
+				</Suspense>
+				<CtaSection />
+				<Suspense fallback={<ContactFormSkeleton />}>
+					<ContactForm />
+				</Suspense>
 				<FramerTemplatesPromo />
 				<LatestBlogPosts locale={locale} />
-				<Faq />
-				<CtaSection />
-				<ContactForm />
 			</main>
 			<Footer />
 		</>

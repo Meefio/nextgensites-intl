@@ -3,12 +3,14 @@ import { getTranslations } from 'next-intl/server'
 // import { Card, CardContent } from '@/app/components/ui/card'
 import { Button } from '@/app/components/ui/button'
 import Link from 'next/link'
+import { Suspense } from 'react'
 // import { Switch } from '@/app/components/ui/switch'
 // import { PriceDisplay } from './price-display'
 // import { PromoHeader } from './promo-header'
 // import { CountdownTimer } from './countdown-timer'
 // import { ClientAnimatedWrapper, ClientAnimatedCard } from './pricing/client-animated-pricing'
 import { ClientAnimatedCosts } from './pricing/client-animated-pricing'
+import { MaintenanceCostsSkeleton } from './pricing/maintenance-costs-skeleton'
 
 export async function Pricing() {
 	const t = await getTranslations('Pricing')
@@ -168,49 +170,51 @@ export async function Pricing() {
 
 				{/* ZACHOWANO TYLKO SEKCJĘ "NISKIE KOSZTY UTRZYMANIA" */}
 				{/* Dodano lepsze wyśrodkowanie i stylizację dla standalone sekcji */}
-				<ClientAnimatedCosts>
-					<div className='bg-zinc-900/60 border border-zinc-800 rounded-2xl p-8 md:p-12 max-w-4xl mx-auto'>
-						<div className='text-center mb-8'>
-							<span className='inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4'>
-								{t('badgeLabel')}
-							</span>
-							<h2 className='text-2xl md:text-3xl font-semibold text-white mb-4'>
-								{t('maintenanceCosts.heading')}
-							</h2>
-							<p className='text-gray-200 text-lg md:text-xl max-w-2xl mx-auto'>
-								{t('maintenanceCosts.description')}
-							</p>
-						</div>
+				<Suspense fallback={<MaintenanceCostsSkeleton />}>
+					<ClientAnimatedCosts>
+						<div className='bg-zinc-900/60 border border-zinc-800 rounded-2xl p-8 md:p-12 max-w-4xl mx-auto'>
+							<div className='text-center mb-8'>
+								<span className='inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4'>
+									{t('badgeLabel')}
+								</span>
+								<h2 className='text-2xl md:text-3xl font-semibold text-white mb-4'>
+									{t('maintenanceCosts.heading')}
+								</h2>
+								<p className='text-gray-200 text-lg md:text-xl max-w-2xl mx-auto'>
+									{t('maintenanceCosts.description')}
+								</p>
+							</div>
 
-						<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8'>
-							<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
-								<p className='text-center text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.domain.title')}</p>
-								<p className='text-gray-300 text-center'>{t('maintenanceCosts.domain.description')}</p>
+							<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8'>
+								<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
+									<p className='text-center text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.domain.title')}</p>
+									<p className='text-gray-300 text-center'>{t('maintenanceCosts.domain.description')}</p>
+								</div>
+								<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
+									<p className='text-center text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.hosting.title')}</p>
+									<p className='text-gray-300 text-center'>{t('maintenanceCosts.hosting.description')}</p>
+								</div>
+								<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
+									<p className=' text-center text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.email.title')}</p>
+									<p className='text-gray-300 text-center'>{t('maintenanceCosts.email.description')}</p>
+								</div>
+								<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
+									<p className=' text-center text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.form.title')}</p>
+									<p className='text-gray-300 text-center'>{t('maintenanceCosts.form.description')}</p>
+								</div>
 							</div>
-							<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
-								<p className='text-center text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.hosting.title')}</p>
-								<p className='text-gray-300 text-center'>{t('maintenanceCosts.hosting.description')}</p>
-							</div>
-							<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
-								<p className=' text-center text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.email.title')}</p>
-								<p className='text-gray-300 text-center'>{t('maintenanceCosts.email.description')}</p>
-							</div>
-							<div className='flex flex-col items-center p-6 bg-zinc-800/40 rounded-xl border border-zinc-700/50 hover:border-primary/30 transition-colors'>
-								<p className=' text-center text-primary font-semibold mb-3 text-lg'>{t('maintenanceCosts.form.title')}</p>
-								<p className='text-gray-300 text-center'>{t('maintenanceCosts.form.description')}</p>
-							</div>
-						</div>
 
-						{/* Dodano CTA button dla kontaktu */}
-						<div className='text-center'>
-							<Button size='lg' asChild className='bg-primary hover:bg-primary/90 px-8'>
-								<Link href='/#contact'>
-									{tContact('title')}
-								</Link>
-							</Button>
+							{/* Dodano CTA button dla kontaktu */}
+							<div className='text-center'>
+								<Button size='lg' asChild className='bg-primary hover:bg-primary/90 px-8'>
+									<Link href='/#contact'>
+										{tContact('title')}
+									</Link>
+								</Button>
+							</div>
 						</div>
-					</div>
-				</ClientAnimatedCosts>
+					</ClientAnimatedCosts>
+				</Suspense>
 			</div>
 		</section>
 	)

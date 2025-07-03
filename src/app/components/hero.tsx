@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useTranslations, useLocale } from 'next-intl'
+import { Suspense } from 'react'
 
 import { TextShimmer } from '@/app/components/magicui/text-shimmer'
 import { Button } from '@/app/components/ui/button'
@@ -53,31 +54,23 @@ export function Hero({ locale: propLocale, priorityImage = true }: HeroProps) {
 					delay={0.2}
 					className='max-w-[38rem] text-center font-heading text-3xl font-semibold sm:text-5xl lg:text-left tracking-tight'
 				>
-					<AnimatedTextCycle
-						texts={rotatingTexts}
-						interval={4000}
-						className="font-semibold"
-						initialDelay={0}
-					/>
-					{' '}
+					<Suspense fallback={<span>{rotatingTexts[0]}</span>}>
+						<AnimatedTextCycle
+							texts={rotatingTexts}
+
+						/>
+					</Suspense>
 					{locale === 'pl' ? (
-						<>
-							strona <br />
-							internetowa{' '}
-							<span className="animate-premium font-semibold">
-								Premium
-							</span>{' '}
-							w Next.js
-						</>
+						<span className='text-black dark:text-white'>
+							{' '}strona <br /> internetowa{' '}
+							<span className="text-primary">Premium</span> w Next.js
+						</span>
 					) : (
-						<>
-							<span className="animate-premium font-semibold">
-								Premium
-							</span>{' '}<br />
-							website in Next.js
-						</>
+						<span className='text-black dark:text-white'>
+							{' '}<span className="text-primary">Premium</span><br /> website in Next.js
+						</span>
 					)}
-					<span className="inline-block animate-rocket">🚀</span>
+					<span className="ml-2 inline-block animate-rocket">🚀</span>
 				</AnimatedElement>
 
 				<AnimatedElement
