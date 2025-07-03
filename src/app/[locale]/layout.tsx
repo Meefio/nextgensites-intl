@@ -13,6 +13,9 @@ import { metadata as baseMetadata } from './metadata';
 import dynamic from 'next/dynamic';
 import { ClientWrapper } from '@/app/components/ClientWrapper';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { reportWebVitals } from '@/lib/web-vitals'
+
+export { reportWebVitals }
 
 // Dynamically import non-critical components with server-side rendering
 const CacheProvider = dynamic(() => import('@/app/components/CacheProvider').then(mod => mod.CacheProvider));
