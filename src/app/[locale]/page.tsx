@@ -399,6 +399,8 @@ export default async function HomePage({ params }: GenerateMetadataProps) {
 				<WhyNotWordPressSection />
 				<TimelineSection />
 				<Pricing />
+				<FramerTemplatesPromo />
+				<LatestBlogPosts locale={locale} />
 				<Suspense fallback={<FaqSkeleton />}>
 					<Faq />
 				</Suspense>
@@ -406,8 +408,6 @@ export default async function HomePage({ params }: GenerateMetadataProps) {
 				<Suspense fallback={<ContactFormSkeleton />}>
 					<ContactForm />
 				</Suspense>
-				<FramerTemplatesPromo />
-				<LatestBlogPosts locale={locale} />
 			</main>
 			<Footer />
 		</>
