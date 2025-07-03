@@ -113,7 +113,7 @@ export async function LatestBlogPosts({ locale }: LatestBlogPostsProps) {
                   <div className="flex flex-col h-full border border-border hover:border-primary/20 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.05)] bg-card">
                     <div className="relative overflow-hidden aspect-video">
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                      {post.coverImage?.asset ? (
+                      {post.coverImage && typeof post.coverImage === 'object' && 'asset' in post.coverImage ? (
                         <Image
                           src={urlFor(post.coverImage).width(400).height(225).url()}
                           alt={title}
