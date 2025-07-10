@@ -1,33 +1,36 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ChevronUp } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Pokaż przycisk tylko gdy scrollujemy w górę i jesteśmy poniżej 300px
-      if (currentScrollY < lastScrollY && currentScrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          // Pokaż przycisk tylko gdy scrollujemy w górę i jesteśmy poniżej 300px
+          if (currentScrollY < lastScrollY.current && currentScrollY > 300) {
+            setIsVisible((prev) => !prev ? true : prev);
+          } else {
+            setIsVisible((prev) => prev ? false : prev);
+          }
+          lastScrollY.current = currentScrollY;
+          ticking.current = false;
+        });
+        ticking.current = true;
       }
-
-      setLastScrollY(currentScrollY);
     };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [lastScrollY]);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
