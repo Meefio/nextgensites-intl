@@ -57,7 +57,7 @@ export function Hero({ locale: propLocale, priorityImage = true }: HeroProps) {
 					<Suspense fallback={<span>{rotatingTexts[0]}</span>}>
 						<AnimatedTextCycle
 							texts={rotatingTexts}
-
+							interval={3000}
 						/>
 					</Suspense>
 					{locale === 'pl' ? (
