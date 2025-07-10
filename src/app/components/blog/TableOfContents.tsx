@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 interface TOCItem {
@@ -19,8 +19,10 @@ export const TableOfContents = ({
   className = '',
   locale
 }: TableOfContentsProps) => {
-  const [activeId, setActiveId] = useState<string>('')
-  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const sectionPositions = useRef<{ id: string; top: number }[]>([]);
+  const ticking = useRef(false);
 
   // Helper function to normalize/slugify a string the same way rehype-slug does
   const slugifyText = (text: string): string => {
@@ -45,110 +47,50 @@ export const TableOfContents = ({
     return null
   }
 
+  // Oblicz pozycje sekcji tylko przy zmianie items lub resize
   useEffect(() => {
-    if (!items.length) return
-
-    // Set initial active ID to the first item if none is active
-    if (!activeId && items.length > 0) {
-      setActiveId(items[0].id)
-    }
-
-    const observers: IntersectionObserver[] = []
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach(entry => {
-        const id = entry.target.id
-
-        if (entry.isIntersecting) {
-          setVisibleSections(prev => new Set(prev).add(id))
-        } else {
-          setVisibleSections(prev => {
-            const newSet = new Set(prev)
-            newSet.delete(id)
-            return newSet
-          })
-        }
-      })
-    }
-
-    // Create an observer for each section
-    items.forEach(item => {
-      // First try to find by direct text match (most reliable)
-      let element = findHeadingByText(item.title)
-
-      // If not found by text, try by expected ID
-      if (!element) {
-        const slugifiedId = slugifyText(item.title)
-        element = document.getElementById(slugifiedId)
-      }
-
-      // Last resort - try to find by the item.id provided
-      if (!element && item.id) {
-        element = document.getElementById(item.id)
-      }
-
-      if (!element) {
-        return
-      }
-
-      const observer = new IntersectionObserver(observerCallback, {
-        rootMargin: '-10% 0px -70% 0px',
-        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1]
-      })
-
-      observer.observe(element)
-      observers.push(observer)
-    })
-
-    // Update active section based on visible sections
-    const handleScroll = () => {
-      window.requestAnimationFrame(() => {
-        if (visibleSections.size === 0) return
-
-        // Find the first visible section that matches our items
-        const visibleIds = Array.from(visibleSections)
-
-        // Try to match by text first
-        const visibleHeadings = Array.from(document.querySelectorAll('h2'))
-          .filter(h2 => visibleIds.includes(h2.id))
-          .map(h2 => h2.textContent?.trim() || '')
-
-        for (const item of items) {
-          if (visibleHeadings.includes(item.title)) {
-            setActiveId(item.id)
-            return
-          }
-
-          // If no match by text, try by slugified ID
-          const slugifiedId = slugifyText(item.title)
-          if (visibleIds.includes(slugifiedId)) {
-            setActiveId(item.id)
-            return
-          }
-        }
-
-        // If still no match, use the first visible ID
-        if (visibleIds.length > 0 && visibleHeadings.length > 0) {
-          const firstVisibleText = visibleHeadings[0]
-          const matchingItem = items.find(item => item.title === firstVisibleText)
-
-          if (matchingItem) {
-            setActiveId(matchingItem.id)
-          }
-        }
-      })
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-
-    // Call once to initialize
-    handleScroll()
-
-    // Cleanup observers on unmount
+    const calculateSectionPositions = () => {
+      sectionPositions.current = items.map(item => {
+        let element = findHeadingByText(item.title) || document.getElementById(slugifyText(item.title)) || (item.id && document.getElementById(item.id));
+        return {
+          id: item.id,
+          top: element ? element.getBoundingClientRect().top + window.scrollY : 0
+        };
+      });
+    };
+    calculateSectionPositions();
+    window.addEventListener('resize', calculateSectionPositions);
     return () => {
-      observers.forEach(observer => observer.disconnect())
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [items, activeId, visibleSections])
+      window.removeEventListener('resize', calculateSectionPositions);
+    };
+  }, [items]);
+
+  // Scroll callback korzysta tylko z sectionPositions
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const offset = 120; // header + margin
+          let currentId = null;
+          for (let i = sectionPositions.current.length - 1; i >= 0; i--) {
+            if (scrollY + offset >= sectionPositions.current[i].top) {
+              currentId = sectionPositions.current[i].id;
+              break;
+            }
+          }
+          setActiveId(prev => (prev !== currentId ? currentId : prev));
+          ticking.current = false;
+        });
+        ticking.current = true;
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // initial
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [items]);
 
   const handleClick = (e: React.MouseEvent, section: TOCItem) => {
     e.preventDefault()
