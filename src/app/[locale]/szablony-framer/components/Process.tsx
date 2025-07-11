@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatedElement } from "@/app/components/motion/animated-element";
 
 interface ProcessProps {
@@ -9,6 +9,7 @@ interface ProcessProps {
 
 export default function Process({ locale }: ProcessProps) {
   const [activeStep, setActiveStep] = useState(0);
+  const ticking = useRef(false);
 
   // Lokalne tłumaczenia nagłówków
   // const headerTranslations = {
@@ -95,25 +96,24 @@ export default function Process({ locale }: ProcessProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      const processSection = document.getElementById('process');
-      if (!processSection) return;
-
-      const rect = processSection.getBoundingClientRect();
-      const sectionHeight = rect.height;
-      const windowHeight = window.innerHeight;
-
-      // Calculate how much of the section is visible
-      const visibleTop = Math.max(0, -rect.top);
-      const visibleBottom = Math.min(sectionHeight, windowHeight - rect.top);
-      const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-
-      // Calculate progress as percentage
-      const progress = visibleHeight / windowHeight;
-      const stepIndex = Math.floor(progress * content.steps.length);
-
-      setActiveStep(Math.min(stepIndex, content.steps.length - 1));
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          const processSection = document.getElementById('process');
+          if (!processSection) return;
+          const rect = processSection.getBoundingClientRect();
+          const sectionHeight = rect.height;
+          const windowHeight = window.innerHeight;
+          const visibleTop = Math.max(0, -rect.top);
+          const visibleBottom = Math.min(sectionHeight, windowHeight - rect.top);
+          const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+          const progress = visibleHeight / windowHeight;
+          const stepIndex = Math.floor(progress * content.steps.length);
+          setActiveStep(prev => prev !== Math.min(stepIndex, content.steps.length - 1) ? Math.min(stepIndex, content.steps.length - 1) : prev);
+          ticking.current = false;
+        });
+        ticking.current = true;
+      }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [content.steps.length]);
@@ -126,7 +126,7 @@ export default function Process({ locale }: ProcessProps) {
 
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* <div className="text-center mb-20"> */}
-          {/* <AnimatedElement
+        {/* <AnimatedElement
             className="flex flex-col gap-3"
             delay={0.1}
             viewport={{ once: true, margin: "-20% 0px" }}

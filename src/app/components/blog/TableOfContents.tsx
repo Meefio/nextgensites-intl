@@ -20,7 +20,6 @@ export const TableOfContents = ({
   locale
 }: TableOfContentsProps) => {
   const [activeId, setActiveId] = useState<string | null>(null);
-  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const sectionPositions = useRef<{ id: string; top: number }[]>([]);
   const ticking = useRef(false);
 
@@ -51,7 +50,7 @@ export const TableOfContents = ({
   useEffect(() => {
     const calculateSectionPositions = () => {
       sectionPositions.current = items.map(item => {
-        let element = findHeadingByText(item.title) || document.getElementById(slugifyText(item.title)) || (item.id && document.getElementById(item.id));
+        const element = findHeadingByText(item.title) || document.getElementById(slugifyText(item.title)) || (item.id && document.getElementById(item.id));
         return {
           id: item.id,
           top: element ? element.getBoundingClientRect().top + window.scrollY : 0
