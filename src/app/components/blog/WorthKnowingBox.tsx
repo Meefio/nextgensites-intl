@@ -15,7 +15,7 @@ export const WorthKnowingBox = ({
 }: WorthKnowingBoxProps) => {
   return (
     <motion.div
-      className={`my-10 p-6 rounded-xl shadow-sm relative 
+      className={`my-10 p-6 rounded-xl shadow-xs relative 
         before:absolute before:inset-0 before:rounded-xl before:border before:border-accent/50 before:shadow-[0_0_15px_rgba(var(--accent-color)/0.15)]
         ${className}`}
       initial={{ opacity: 0, y: 20 }}

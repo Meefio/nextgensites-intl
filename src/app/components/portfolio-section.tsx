@@ -111,12 +111,12 @@ const Portfolio = () => {
                       {project.viewLiveLink && (
                         <>
                           <Link href={project.viewLiveLink} prefetch={true} target='_blank' rel='noopener noreferrer'>
-                            <Button variant="outline" className="group">
+                            <Button variant="outline" className="group cursor-pointer">
                               {t('buttons.viewLive')}
                             </Button>
                           </Link>
                           <Link href={projectLink}>
-                            <Button className="group">
+                            <Button className="group cursor-pointer">
                               {t('buttons.learnMore')}
                             </Button>
                           </Link>
@@ -124,7 +124,7 @@ const Portfolio = () => {
                       )}
                       {!project.viewLiveLink && (
                         <Link href={projectLink} prefetch={true}>
-                          <Button className="group">
+                          <Button className="group cursor-pointer">
                             {t('buttons.learnMore')}
                           </Button>
                         </Link>

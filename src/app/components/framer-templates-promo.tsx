@@ -75,7 +75,7 @@ export function FramerTemplatesPromo() {
   ];
 
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-primary/5 via-background to-primary/10">
+    <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-linear-to-br from-primary/5 via-background to-primary/10">
       {/* Background decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
@@ -95,7 +95,7 @@ export function FramerTemplatesPromo() {
 
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               {t('title')} <br />
-              <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                 {t('titleAccent')}
               </span>
             </h2>
@@ -113,7 +113,7 @@ export function FramerTemplatesPromo() {
                   transition={{ duration: 0.4, delay: 0.2 + index * 0.1, ease: "easeOut" }}
                   className="flex items-center space-x-4 group"
                 >
-                  <div className="h-10 w-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 border border-primary/20">
+                  <div className="h-10 w-10 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 border border-primary/20">
                     <feature.icon className="h-5 w-5 text-primary" />
                   </div>
                   <div>
@@ -141,7 +141,7 @@ export function FramerTemplatesPromo() {
                 variant="outline"
                 size="lg"
                 asChild
-                className="px-8 py-3 border-2 border-primary/30 bg-background/50 backdrop-blur-sm hover:bg-primary/10 transition-all duration-300 rounded-full group"
+                className="px-8 py-3 border-2 border-primary/30 bg-background/50 backdrop-blur-xs hover:bg-primary/10 transition-all duration-300 rounded-full group"
               >
                 <Link href={`${framerTemplatesPath}#portfolio`}>
                   <ExternalLink className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
@@ -169,9 +169,9 @@ export function FramerTemplatesPromo() {
                   className={index % 2 === 1 ? "mt-8" : ""}
                 >
                   <Link href={template.demoUrl} target="_blank" rel="noopener noreferrer">
-                    <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-border/30 bg-card/50 backdrop-blur-sm cursor-pointer">
+                    <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-border/30 bg-card/50 backdrop-blur-xs cursor-pointer">
                       <CardHeader className="pb-3">
-                        <div className="h-32 bg-gradient-to-br from-primary/20 to-primary/5 rounded-lg mb-3 overflow-hidden relative">
+                        <div className="h-32 bg-linear-to-br from-primary/20 to-primary/5 rounded-lg mb-3 overflow-hidden relative">
                           <Image
                             src={template.image}
                             alt={template.title}

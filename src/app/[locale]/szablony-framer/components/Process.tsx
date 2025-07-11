@@ -119,7 +119,7 @@ export default function Process({ locale }: ProcessProps) {
   }, [content.steps.length]);
 
   return (
-    <section id="process" className="relative py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/20 overflow-hidden">
+    <section id="process" className="relative py-32 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-background to-muted/20 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
@@ -150,7 +150,7 @@ export default function Process({ locale }: ProcessProps) {
               {/* Progress Line */}
               <div className="absolute left-4 top-0 w-0.5 h-full bg-muted-foreground/20"></div>
               <div
-                className="absolute left-4 top-0 w-0.5 bg-gradient-to-b from-primary to-primary/50 transition-all duration-300 ease-out"
+                className="absolute left-4 top-0 w-0.5 bg-linear-to-b from-primary to-primary/50 transition-all duration-300 ease-out"
                 style={{ height: `${((activeStep + 1) / content.steps.length) * 100}%` }}
               ></div>
 
@@ -183,7 +183,7 @@ export default function Process({ locale }: ProcessProps) {
                 className={`transition-all duration-500 ${index <= activeStep ? 'opacity-100 translate-x-0' : 'opacity-50 translate-x-4'
                   }`}
               >
-                <div className="bg-card/40 backdrop-blur-sm border border-border/30 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300">
+                <div className="bg-card/40 backdrop-blur-xs border border-border/30 rounded-3xl p-8 hover:shadow-2xl transition-all duration-300">
                   <h3 className="text-2xl font-bold mb-4 text-foreground">
                     {step.title}
                   </h3>

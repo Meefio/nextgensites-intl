@@ -54,7 +54,7 @@ export function Header() {
   ];
 
   return (
-    <header ref={headerRef} id="main-header" className="sticky top-0 z-[51] w-full backdrop-blur-sm bg-background/80 transition-all duration-200">
+    <header ref={headerRef} id="main-header" className="sticky top-0 z-51 w-full backdrop-blur-xs bg-background/80 transition-all duration-200">
       <div className="container flex items-center justify-between gap-4 py-4">
         <AnimatedElement
           initial={{ opacity: 0, x: -20 }}

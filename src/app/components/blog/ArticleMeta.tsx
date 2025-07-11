@@ -107,7 +107,7 @@ export const ArticleMeta = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <div className="relative aspect-[16/9] w-full">
+          <div className="relative aspect-video w-full">
             <Image
               src={coverImage}
               alt={coverImageAlt}
@@ -127,28 +127,28 @@ export const ArticleMeta = ({
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
       >
-        <div className="flex items-center px-4 py-2 bg-card border rounded-full shadow-sm">
+        <div className="flex items-center px-4 py-2 bg-card border rounded-full shadow-xs">
           <Calendar className="h-4 w-4 mr-2 text-primary" />
           <span className="text-sm font-medium">
             <span className="sr-only">{locale === 'pl' ? 'Opublikowano' : 'Posted on'}</span>
             {formatDate(date)}
           </span>
         </div>
-        <div className="flex items-center px-4 py-2 bg-card border rounded-full shadow-sm">
+        <div className="flex items-center px-4 py-2 bg-card border rounded-full shadow-xs">
           <Clock className="h-4 w-4 mr-2 text-primary" />
           <span className="text-sm font-medium">
             <span className="sr-only">{locale === 'pl' ? 'Czas czytania' : 'Reading time'}</span>
             {readingTime}
           </span>
         </div>
-        <div className="flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full shadow-sm">
+        <div className="flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full shadow-xs">
           <Tag className="h-4 w-4 mr-2" />
           <span className="text-sm font-medium">
             <span className="sr-only">{locale === 'pl' ? 'Kategoria' : 'Category'}</span>
             {category}
           </span>
         </div>
-        <div className="flex items-center px-4 py-2 bg-card border rounded-full shadow-sm">
+        <div className="flex items-center px-4 py-2 bg-card border rounded-full shadow-xs">
           <User className="h-4 w-4 mr-2 text-primary" />
           <span className="text-sm font-medium">
             <span className="sr-only">{locale === 'pl' ? 'Autor' : 'Author'}</span>

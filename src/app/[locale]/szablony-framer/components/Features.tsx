@@ -95,7 +95,7 @@ export function Features({ locale }: FeaturesProps) {
                   className="group flex items-start space-x-4 md:space-x-6"
                 >
                   <div className="relative">
-                    <div className="h-8 w-8 md:h-12 md:w-12 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 border border-primary/20">
+                    <div className="h-8 w-8 md:h-12 md:w-12 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 border border-primary/20">
                       <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-primary" />
                     </div>
                     <div className="absolute inset-0 h-8 w-8 md:h-12 md:w-12 bg-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -117,7 +117,7 @@ export function Features({ locale }: FeaturesProps) {
             className="relative"
           >
             <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-xl"></div>
-            <div className="relative bg-card/40 backdrop-blur-sm border border-border/30 rounded-3xl p-6 md:p-10 shadow-2xl">
+            <div className="relative bg-card/40 backdrop-blur-xs border border-border/30 rounded-3xl p-6 md:p-10 shadow-2xl">
               <h3 className="text-lg md:text-2xl font-bold mb-6 md:mb-8 text-foreground">
                 {content.whatYouGet}
               </h3>
@@ -129,7 +129,7 @@ export function Features({ locale }: FeaturesProps) {
                     delay={0.5 + index * 0.05}
                     className="flex items-start space-x-3 md:space-x-4 group"
                   >
-                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-primary flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                    <CheckCircle className="h-4 w-4 md:h-6 md:w-6 text-primary shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
                     <span className="text-muted-foreground group-hover:text-foreground transition-colors duration-300 text-sm md:text-base">
                       {benefit}
                     </span>

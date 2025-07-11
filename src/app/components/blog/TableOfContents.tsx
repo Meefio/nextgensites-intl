@@ -146,13 +146,13 @@ export const TableOfContents = ({
 
   return (
     <motion.div
-      className={`bg-card border rounded-xl p-5 shadow-sm ${className}`}
+      className={`bg-card border rounded-xl p-5 shadow-xs ${className}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3 }}
     >
       <h3 className="text-lg font-semibold mb-4 flex items-center">
-        <span className="w-1 h-5 bg-primary rounded-full mr-2 flex-shrink-0"></span>
+        <span className="w-1 h-5 bg-primary rounded-full mr-2 shrink-0"></span>
         {locale === 'pl' ? 'Spis treści' : 'Table of contents'}
       </h3>
 
@@ -172,7 +172,7 @@ export const TableOfContents = ({
               onClick={e => handleClick(e, section)}
             >
               <div
-                className={`w-1.5 h-1.5 rounded-full mr-2.5 transition-colors flex-shrink-0 ${activeId === section.id
+                className={`w-1.5 h-1.5 rounded-full mr-2.5 transition-colors shrink-0 ${activeId === section.id
                   ? 'bg-primary'
                   : 'bg-primary/40 group-hover:bg-primary/60'
                   }`}

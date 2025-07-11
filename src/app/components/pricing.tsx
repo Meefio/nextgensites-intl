@@ -119,7 +119,7 @@ export async function Pricing() {
 												key={featureIndex}
 												className='flex items-center gap-3'
 											>
-												<Check size={24} className='text-primary flex-shrink-0' />
+												<Check size={24} className='text-primary shrink-0' />
 												<span className='text-gray-300'>
 													{feature}
 												</span>

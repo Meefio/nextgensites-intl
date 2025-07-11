@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const gradientButtonVariants = cva(
-  "relative inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 overflow-hidden",
+  "relative inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-all focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 overflow-hidden",
   {
     variants: {
       variant: {
@@ -48,7 +48,7 @@ const GradientButton = React.forwardRef<HTMLButtonElement, GradientButtonProps>(
         {...props}
       >
         <span className={cn(
-          "absolute inset-0 bg-gradient-to-r animate-shimmer",
+          "absolute inset-0 bg-linear-to-r animate-shimmer",
           gradientFrom,
           gradientTo,
           variant === "outline" ? "opacity-0 hover:opacity-100 transition-opacity" : ""

@@ -98,8 +98,8 @@ export function About({ locale }: AboutProps) {
   ];
 
   return (
-    <section id="about" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-muted/30">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5"></div>
+    <section id="about" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-background to-muted/30">
+      <div className="absolute inset-0 bg-linear-to-r from-primary/5 via-transparent to-secondary/5"></div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-16">
@@ -127,8 +127,8 @@ export function About({ locale }: AboutProps) {
           {content.stats.map((stat, index) => (
             <div key={index} className="text-center group">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-secondary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative text-4xl md:text-5xl font-bold bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
                   <AnimatedCounter
                     endValue={stat.number}
                     suffix={stat.suffix}
@@ -150,10 +150,10 @@ export function About({ locale }: AboutProps) {
               delay={0.3 + index * 0.1}
               className="group text-center p-6 relative"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+              <div className={`absolute inset-0 bg-linear-to-br ${value.gradient} rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
               <div className="relative z-10">
                 <div className="relative mx-auto mb-4">
-                  <div className="h-16 w-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
+                  <div className="h-16 w-16 bg-linear-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
                     <value.icon className="h-8 w-8 text-primary" />
                   </div>
                   <div className="absolute inset-0 h-16 w-16 bg-primary/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 mx-auto"></div>

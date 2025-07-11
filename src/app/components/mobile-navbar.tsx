@@ -57,7 +57,7 @@ export function MobileNavbar() {
 					role='dialog'
 					aria-modal='true'
 					aria-label={t('navigationMenu')}
-					className='fixed left-0 right-0 top-[var(--header-height)] z-40 h-[calc(100vh-var(--header-height))] overflow-auto bg-black/40 animate-in fade-in-0 xl:hidden'
+					className='fixed left-0 right-0 top-(--header-height) z-40 h-[calc(100vh-var(--header-height))] overflow-auto bg-black/40 animate-in fade-in-0 xl:hidden'
 					onClick={(e) => e.target === e.currentTarget && setIsOpen(false)}
 				>
 					<div className="rounded-b-lg bg-background py-4 container text-foreground shadow-xl" onClick={(e) => e.stopPropagation()}>

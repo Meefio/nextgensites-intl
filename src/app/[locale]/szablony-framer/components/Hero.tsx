@@ -184,7 +184,7 @@ export function Hero({ locale }: HeroProps) {
       {/* Main Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden max-w-6xl mx-auto">
         {/* Background decorative elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-background"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-background via-background to-background"></div>
         <div className="absolute top-1/4 left-1/4 w-48 h-48 md:w-96 md:h-96 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-primary/10 rounded-full blur-3xl"></div>
 
@@ -271,7 +271,7 @@ export function Hero({ locale }: HeroProps) {
                   className="relative group"
                   delay={0.6 + index * 0.1}
                 >
-                  <div className="text-center p-6 md:p-8 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:scale-105 group-hover:bg-card/50">
+                  <div className="text-center p-6 md:p-8 rounded-2xl bg-card/30 backdrop-blur-xs border border-border/30 hover:border-primary/30 hover:shadow-xl transition-all duration-300 hover:scale-105 group-hover:bg-card/50">
                     <div className="w-12 h-12 md:w-16 md:h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:bg-primary/20 transition-colors duration-300">
                       <IconComponent className="h-6 w-6 md:h-8 md:w-8 text-primary" />
                     </div>
@@ -312,7 +312,7 @@ export function Hero({ locale }: HeroProps) {
 
           {/* Success Stories Section */}
           <AnimatedElement delay={0.6}>
-            <div className="bg-card/20 backdrop-blur-sm border border-border/30 rounded-3xl p-6 md:p-10 text-center max-w-6xl mx-auto">
+            <div className="bg-card/20 backdrop-blur-xs border border-border/30 rounded-3xl p-6 md:p-10 text-center max-w-6xl mx-auto">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
                 {content.successStats.map((stat, index) => (
                   <AnimatedElement

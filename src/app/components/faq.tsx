@@ -30,7 +30,7 @@ export function Faq() {
         <AnimatedElement
           direction="left"
           delay={0.2}
-          className="rounded-lg border bg-card px-6 shadow-sm h-fit"
+          className="rounded-lg border bg-card px-6 shadow-xs h-fit"
         >
           <Accordion type="single" collapsible>
             {firstHalf.map((key) => (
@@ -61,7 +61,7 @@ export function Faq() {
         <AnimatedElement
           direction="right"
           delay={0.3}
-          className="rounded-lg border bg-card px-6 shadow-sm h-fit hidden md:block"
+          className="rounded-lg border bg-card px-6 shadow-xs h-fit hidden md:block"
         >
           <Accordion type="single" collapsible>
             {secondHalf.map((key) => (

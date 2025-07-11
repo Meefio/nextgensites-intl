@@ -65,14 +65,14 @@ export const Breadcrumb = ({ items, className, locale }: BreadcrumbProps) => {
           {items.map((item, index) => (
             <li key={index} className="inline-flex items-center max-w-[150px] sm:max-w-fit">
               {index > 0 && (
-                <ChevronRightIcon className="h-3 w-3 sm:h-4 sm:w-4 mx-0.5 sm:mx-1 text-gray-400 flex-shrink-0" />
+                <ChevronRightIcon className="h-3 w-3 sm:h-4 sm:w-4 mx-0.5 sm:mx-1 text-gray-400 shrink-0" />
               )}
 
               {/* During SSR and initial hydration, render placeholders */}
               {!mounted ? (
                 // Simple span to ensure consistent server/client rendering
                 <span className="inline-flex items-center truncate max-w-[100px] sm:max-w-none">
-                  {index === 0 && <HomeIcon className="h-3 w-3 sm:h-4 sm:w-4 mr-0.5 sm:mr-1 flex-shrink-0" />}
+                  {index === 0 && <HomeIcon className="h-3 w-3 sm:h-4 sm:w-4 mr-0.5 sm:mr-1 shrink-0" />}
                   <span className="truncate">{item.label}</span>
                 </span>
               ) : item.isCurrentPage ? (
@@ -82,7 +82,7 @@ export const Breadcrumb = ({ items, className, locale }: BreadcrumbProps) => {
                   aria-current="page"
                 >
                   {index === 0 && (
-                    <HomeIcon className="h-3 w-3 sm:h-3 sm:w-3 mr-0.5 sm:mr-2 flex-shrink-0" />
+                    <HomeIcon className="h-3 w-3 sm:h-3 sm:w-3 mr-0.5 sm:mr-2 shrink-0" />
                   )}
                   <span className="truncate">{item.label}</span>
                 </span>
@@ -92,7 +92,7 @@ export const Breadcrumb = ({ items, className, locale }: BreadcrumbProps) => {
                   className="inline-flex items-center text-gray-500 hover:text-accent dark:text-gray-400 dark:hover:text-accent transition-colors truncate max-w-[170px] sm:max-w-none"
                 >
                   {index === 0 && (
-                    <HomeIcon className="h-3 w-3 sm:h-4 sm:w-4 mr-0.5 sm:mr-1 flex-shrink-0" />
+                    <HomeIcon className="h-3 w-3 sm:h-4 sm:w-4 mr-0.5 sm:mr-1 shrink-0" />
                   )}
                   <span className="truncate">{item.label}</span>
                 </Link>

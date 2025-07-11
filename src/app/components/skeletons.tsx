@@ -18,7 +18,7 @@ export function FaqSkeleton() {
 export function ContactFormSkeleton() {
   return (
     <div className="container max-w-4xl py-14 md:py-28" id="contact">
-      <div className="rounded-lg border bg-card text-card-foreground shadow-sm">
+      <div className="rounded-lg border bg-card text-card-foreground shadow-xs">
         <div className='flex flex-col space-y-1.5 p-6'>
           <Skeleton className="h-8 w-48 bg-zinc-200 dark:bg-zinc-800" />
           <Skeleton className="h-5 w-64 bg-zinc-200 dark:bg-zinc-800" />

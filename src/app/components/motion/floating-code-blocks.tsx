@@ -15,7 +15,7 @@ export function FloatingCodeBlocks() {
   return (
     <div className="absolute inset-0 overflow-visible pointer-events-none">
       <motion.div
-        className="absolute hidden 2xl:block top-[-5%] left-[-25%] z-10 w-52 bg-background/80 backdrop-blur-sm rounded-lg border border-border shadow-md p-3 transform -rotate-6"
+        className="absolute hidden 2xl:block top-[-5%] left-[-25%] z-10 w-52 bg-background/80 backdrop-blur-xs rounded-lg border border-border shadow-md p-3 transform -rotate-6"
         animate={{
           y: [0, -8, 0],
           rotate: [-6, -4, -6],
@@ -38,7 +38,7 @@ export function FloatingCodeBlocks() {
       </motion.div>
 
       <motion.div
-        className="absolute hidden 2xl:block bottom-[-5%] left-[-30%] z-10 w-48 bg-background/80 backdrop-blur-sm rounded-lg border border-border shadow-md p-3 transform rotate-[-8deg]"
+        className="absolute hidden 2xl:block bottom-[-5%] left-[-30%] z-10 w-48 bg-background/80 backdrop-blur-xs rounded-lg border border-border shadow-md p-3 transform rotate-[-8deg]"
         animate={{
           y: [0, -6, 0],
           rotate: [-8, -6, -8],
@@ -61,7 +61,7 @@ export function FloatingCodeBlocks() {
       </motion.div>
 
       <motion.div
-        className="absolute hidden 2xl:block top-[40%] left-[-18%] z-0 w-48 bg-background/80 backdrop-blur-sm rounded-lg border border-border shadow-md p-3 transform rotate-[3deg]"
+        className="absolute hidden 2xl:block top-[40%] left-[-18%] z-0 w-48 bg-background/80 backdrop-blur-xs rounded-lg border border-border shadow-md p-3 transform rotate-3"
         animate={{
           y: [0, -10, 0],
           rotate: [3, 5, 3],

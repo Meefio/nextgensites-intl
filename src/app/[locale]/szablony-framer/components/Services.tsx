@@ -124,7 +124,7 @@ export function Services({ locale }: ServicesProps) {
 
   return (
     <section id="services" className="relative py-12 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/10 to-background"></div>
+      <div className="absolute inset-0 bg-linear-to-b from-background via-muted/10 to-background"></div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-12 md:mb-20">
@@ -151,8 +151,8 @@ export function Services({ locale }: ServicesProps) {
               key={index}
               delay={0.2 + index * 0.1}
             >
-              <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-border/30 bg-card/30 backdrop-blur-sm overflow-hidden h-full">
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+              <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-border/30 bg-card/30 backdrop-blur-xs overflow-hidden h-full">
+                <div className={`absolute inset-0 bg-linear-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
                 <CardHeader className="relative z-10 p-4 md:p-6">
                   <div className="relative">
                     <div className="h-12 w-12 md:h-14 md:w-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 border border-primary/20">

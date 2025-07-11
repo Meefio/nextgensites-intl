@@ -131,13 +131,13 @@ const Features = () => {
               delay={calculateDelay(index, screenSize)}
               viewport={{ once: true, margin: "-20% 0px" }}
             >
-              <Card className="group relative h-full overflow-hidden bg-gradient-to-b from-background to-background/50 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[0.98] hover:border-primary/50">
+              <Card className="group relative h-full overflow-hidden bg-linear-to-b from-background to-background/50 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[0.98] hover:border-primary/50">
                 {/* Add gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-primary/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                 <CardContent className="flex flex-col items-start gap-6 relative p-6">
-                  <div className="inline-flex items-center justify-center rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 p-3 ring-1 ring-primary/10 transition-all duration-300 group-hover:from-primary/20 group-hover:to-primary/10 group-hover:ring-primary/20">
+                  <div className="inline-flex items-center justify-center rounded-xl bg-linear-to-br from-primary/10 to-primary/5 p-3 ring-1 ring-primary/10 transition-all duration-300 group-hover:from-primary/20 group-hover:to-primary/10 group-hover:ring-primary/20">
                     <Icon size={28} className="text-primary transition-transform duration-300 group-hover:scale-110" />
                   </div>
                   <div className="space-y-2">

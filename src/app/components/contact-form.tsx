@@ -156,7 +156,7 @@ export function ContactForm() {
 		>
 			<AnimatedElement
 				as="div"
-				className='rounded-lg border bg-card text-card-foreground shadow-sm max-w-full overflow-hidden'
+				className='rounded-lg border bg-card text-card-foreground shadow-xs max-w-full overflow-hidden'
 				viewport={{ once: true, amount: 0.2 }}
 			>
 				<div className='grid gap-6 p-3 md:gap-16 md:p-8 lg:grid-cols-2' role='presentation'>

@@ -202,7 +202,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
       {open && (
         <div
           ref={dropdownRef}
-          className="absolute right-0 mt-2 z-[100] min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95 slide-in-from-top-2"
+          className="absolute right-0 mt-2 z-100 min-w-32 overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95 slide-in-from-top-2"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="language-menu-button"
@@ -218,7 +218,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                 key={lang.code}
                 onClick={() => handleLanguageSwitch(lang)}
                 aria-label={`Zmień język na ${lang.label}`}
-                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground w-full"
+                className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-hidden transition-colors hover:bg-accent hover:text-accent-foreground w-full"
                 role="menuitem"
                 disabled={isNavigating}
               >

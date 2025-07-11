@@ -39,7 +39,7 @@ export function Hero({ locale: propLocale, priorityImage = true }: HeroProps) {
 						<Link
 							href='/#pricing'
 							scroll={true}
-							className='inline-flex items-center justify-between rounded-full border bg-secondary text-secondary-foreground px-3 text-xs transition-all ease-in hover:cursor-pointer hover:bg-white/20 group gap-1 translate-y-[-1rem]'
+							className='inline-flex items-center justify-between rounded-full border bg-secondary text-secondary-foreground px-3 text-xs transition-all ease-in hover:cursor-pointer hover:bg-white/20 group gap-1 -translate-y-4'
 						>
 							<TextShimmer className='inline-flex items-center justify-center' />
 							<ArrowRight
@@ -52,7 +52,7 @@ export function Hero({ locale: propLocale, priorityImage = true }: HeroProps) {
 				<AnimatedElement
 					as='h1'
 					delay={0.2}
-					className='max-w-[38rem] text-center font-heading text-3xl font-semibold sm:text-5xl lg:text-left tracking-tight'
+					className='max-w-152 text-center font-heading text-3xl font-semibold sm:text-5xl lg:text-left tracking-tight'
 				>
 					<Suspense fallback={<span>{rotatingTexts[0]}</span>}>
 						<AnimatedTextCycle
@@ -114,7 +114,7 @@ export function Hero({ locale: propLocale, priorityImage = true }: HeroProps) {
 						priority={priorityImage}
 						sizes='(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 608px'
 					/>
-					<div className='hidden md:block absolute inset-0 -z-10 bg-primary/20 [filter:blur(180px)]' />
+					<div className='hidden md:block absolute inset-0 -z-10 bg-primary/20 filter-[blur(180px)]' />
 
 					{/* Floating code blocks */}
 					<FloatingCodeBlocks />

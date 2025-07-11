@@ -137,7 +137,7 @@ export const SummaryBox = ({
 
   return (
     <motion.div
-      className={`my-8 p-6 border border-border rounded-xl bg-card shadow-sm ${className}`}
+      className={`my-8 p-6 border border-border rounded-xl bg-card shadow-xs ${className}`}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-50px' }}
@@ -160,7 +160,7 @@ export const SummaryBox = ({
               className="flex items-center gap-3"
               variants={itemVariants}
             >
-              <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></div>
+              <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></div>
               <span>{point}</span>
             </motion.li>
           ))}

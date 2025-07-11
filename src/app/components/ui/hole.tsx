@@ -326,7 +326,7 @@ function HoleBackground({
       className={cn(
         'relative size-full overflow-hidden',
         'before:content-[""] before:absolute before:top-1/2 before:left-1/2 before:block before:size-[140%] dark:before:[background:radial-gradient(ellipse_at_50%_45%,transparent_10%,black_50%)] before:[background:radial-gradient(ellipse_at_50%_45%,transparent_10%,white_50%)] before:[transform:translate3d(-50%,-50%,0)]',
-        'after:content-[""] after:absolute after:z-[5] after:top-1/2 after:left-1/2 after:block after:size-full after:[background:radial-gradient(ellipse_at_50%_65%,#ff8a00_10%,transparent_75%)] after:[transform:translate3d(-50%,-50%,0)] after:mix-blend-overlay',
+        'after:content-[""] after:absolute after:z-5 after:top-1/2 after:left-1/2 after:block after:size-full after:[background:radial-gradient(ellipse_at_50%_65%,#ff8a00_10%,transparent_75%)] after:[transform:translate3d(-50%,-50%,0)] after:mix-blend-overlay',
         className,
       )}
       {...props}
@@ -338,13 +338,13 @@ function HoleBackground({
       />
       <motion.div
         className={cn(
-          'absolute top-[-71.5%] left-1/2 z-[3] w-[30%] h-[140%] rounded-b-full blur-3xl opacity-60 dark:mix-blend-plus-lighter mix-blend-plus-darker [transform:translate3d(-50%,0,0)] [background-position:0%_100%] [background-size:100%_200%]',
-          'dark:[background:linear-gradient(20deg,hsl(var(--accent)),hsl(var(--accent)/0.1)_16.5%,hsl(32,100%,50%)_33%,hsl(32,100%,50%/0.2)_49.5%,hsl(var(--accent))_66%,hsl(var(--accent)/0.4)_85.5%,hsl(32,100%,50%)_100%)_0_100%_/_100%_200%] [background:linear-gradient(20deg,hsl(var(--accent)),hsl(var(--accent)/0.2)_16.5%,hsl(32,100%,50%)_33%,hsl(32,100%,50%/0.2)_49.5%,hsl(var(--accent))_66%,hsl(var(--accent)/0.4)_85.5%,hsl(32,100%,50%)_100%)_0_100%_/_100%_200%]',
+          'absolute top-[-71.5%] left-1/2 z-3 w-[30%] h-[140%] rounded-b-full blur-3xl opacity-60 dark:mix-blend-plus-lighter mix-blend-plus-darker [transform:translate3d(-50%,0,0)] bg-position-[0%_100%] bg-size-[100%_200%]',
+          'dark:[background:linear-gradient(20deg,hsl(var(--accent)),hsl(var(--accent)/0.1)_16.5%,hsl(32,100%,50%)_33%,hsl(32,100%,50%/0.2)_49.5%,hsl(var(--accent))_66%,hsl(var(--accent)/0.4)_85.5%,hsl(32,100%,50%)_100%)_0_100%/100%_200%] [background:linear-gradient(20deg,hsl(var(--accent)),hsl(var(--accent)/0.2)_16.5%,hsl(32,100%,50%)_33%,hsl(32,100%,50%/0.2)_49.5%,hsl(var(--accent))_66%,hsl(var(--accent)/0.4)_85.5%,hsl(32,100%,50%)_100%)_0_100%/100%_200%]',
         )}
         animate={{ backgroundPosition: '0% 300%' }}
         transition={{ duration: 5, ease: 'linear', repeat: Infinity }}
       />
-      <div className="absolute top-0 left-0 z-[7] size-full dark:[background:repeating-linear-gradient(transparent,transparent_1px,white_1px,white_2px)] mix-blend-overlay opacity-50" />
+      <div className="absolute top-0 left-0 z-7 size-full dark:[background:repeating-linear-gradient(transparent,transparent_1px,white_1px,white_2px)] mix-blend-overlay opacity-50" />
     </div>
   );
 }

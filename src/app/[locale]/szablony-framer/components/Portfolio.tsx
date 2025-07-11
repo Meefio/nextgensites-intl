@@ -270,7 +270,7 @@ export function Portfolio({ locale }: PortfolioProps) {
               key={index}
               delay={0.2 + index * 0.1}
             >
-              <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-border/30 bg-card/30 backdrop-blur-sm overflow-hidden h-full flex flex-col">
+              <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-border/30 bg-card/30 backdrop-blur-xs overflow-hidden h-full flex flex-col">
                 <div className="relative overflow-hidden">
                   <Image
                     src={project.image}
@@ -279,7 +279,7 @@ export function Portfolio({ locale }: PortfolioProps) {
                     height={400}
                     className="w-full h-48 md:h-60 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute top-3 right-3 md:top-4 md:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="bg-primary/90 text-primary-foreground px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-medium">
                       {project.category}

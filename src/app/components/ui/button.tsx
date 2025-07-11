@@ -5,18 +5,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-300 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 relative overflow-hidden",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-300 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 relative overflow-hidden",
   {
     variants: {
       variant: {
         default: [
-          "bg-gradient-to-r from-primary to-orange-500 text-white shadow-md hover:shadow-lg transition-all duration-300",
-          "before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/90 before:to-orange-600 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300 before:rounded-md before:-z-10",
+          "bg-linear-to-r from-primary to-orange-500 text-white shadow-md hover:shadow-lg transition-all duration-300",
+          "before:absolute before:inset-0 before:bg-linear-to-r before:from-primary/90 before:to-orange-600 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300 before:rounded-md before:-z-10",
           "z-0" // Ensures content stays above the pseudo-element
         ].join(" "),
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: [
-          "border-2 border-foreground/20 bg-transparent text-foreground shadow-sm",
+          "border-2 border-foreground/20 bg-transparent text-foreground shadow-xs",
           "hover:border-primary/70 hover:text-primary hover:shadow-md",
           "before:absolute before:inset-0 before:bg-primary/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300 before:rounded-md before:-z-10",
           "transition-all duration-300 z-0"

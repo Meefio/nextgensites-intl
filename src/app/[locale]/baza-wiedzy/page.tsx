@@ -127,7 +127,7 @@ export default async function KnowledgeBasePage({
                   <div className="border border-border hover:border-primary/20 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]">
                     <div className="grid grid-cols-1 md:grid-cols-5 gap-6 min-h-[250px]">
                       <div className="md:col-span-2 relative overflow-hidden bg-muted">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/30 to-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                         {post.coverImage && post.coverImage.asset ? (
                           <Image
                             src={urlFor(post.coverImage).width(500).height(280).url()}
